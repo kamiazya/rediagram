@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Diagram, Group } from '@diagrams-prototype/common';
-import { EC2, Lambda } from '@diagrams-prototype/aws';
+import { EC2, Lambda } from '../../../component-libraries/aws/lib';
 
 export const MyInfra: FC = () => {
   return (
