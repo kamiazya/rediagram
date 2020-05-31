@@ -36,6 +36,7 @@
     "import/prefer-default-export": "off",
     "import/no-extraneous-dependencies": "off",
     "react/forbid-prop-types": "off",
+    "react/style-prop-object": "off",
     "react/jsx-wrap-multilines": "off",
     "react/prop-types": [
       2,

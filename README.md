@@ -1,3 +1,3 @@
 # @kamiazya/diagrams-prototype
 
-![result](./result.png)
+![result](./examples/aws/result.png)

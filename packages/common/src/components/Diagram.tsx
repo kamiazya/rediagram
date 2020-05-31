@@ -5,12 +5,14 @@ import t from 'prop-types';
 
 type Props = {
   dpi?: number;
+  rankdir?: 'TB' | 'BT' | 'RL' | 'LR';
 };
 
-export const Diagram: FC<Props> = ({ children, dpi }) => {
+export const Diagram: FC<Props> = ({ children, dpi, rankdir }) => {
   return (
     <Digraph
       dpi={dpi}
+      rankdir={rankdir}
       pad={1.0}
       splines="ortho"
       nodesep={0.6}
@@ -44,8 +46,10 @@ export const Diagram: FC<Props> = ({ children, dpi }) => {
 
 Diagram.propTypes = {
   dpi: t.number,
+  rankdir: t.oneOf(['TB', 'BT', 'RL', 'LR']),
 };
 
 Diagram.defaultProps = {
   dpi: 150,
+  rankdir: undefined,
 };
