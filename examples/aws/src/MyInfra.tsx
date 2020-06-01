@@ -9,13 +9,13 @@ export const MyInfra: FC = () => {
         <Region name="Asia Pacific (Tokyo)">
           <AutoScalingGroup>
             <AvailabilityZone>
-              <EC2 name="worker1" upstream={['worker4', 'worker5', 'worker6']} />
-              <EC2 name="worker2" upstream={['worker4', 'worker5']} />
+              <EC2 name="worker1" type="Instance" upstream={['worker4']} />
+              <EC2 name="worker2" type="Instance" upstream={['worker4', 'worker5']} />
             </AvailabilityZone>
             <SecurityGroup>
-              <Lambda name="worker4" />
-              <Lambda name="worker5" />
-              <Lambda name="worker6" />
+              <Lambda name="worker4" type="Lambda Function" />
+              <Lambda name="worker5" type="Lambda Function" upstream={['worker6']} />
+              <Lambda name="worker6" type="Lambda Function" />
             </SecurityGroup>
           </AutoScalingGroup>
         </Region>

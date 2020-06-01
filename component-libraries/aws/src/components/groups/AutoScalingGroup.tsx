@@ -23,7 +23,7 @@ export const AutoScalingGroup: FC = ({ children }) => {
       fontcolor="#D86613"
       style="dashed"
       label={
-        <DOT.TABLE BORDER="0" CELLBORDER="0">
+        <DOT.TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
           <DOT.TR>
             <DOT.TD WIDTH="25" HEIGHT="25" FIXEDSIZE>
               <DOT.IMG SRC={icon} />

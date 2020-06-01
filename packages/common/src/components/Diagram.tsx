@@ -21,13 +21,6 @@ export const Diagram: FC<Props> = ({ children, dpi, rankdir }) => {
       fontsize={15}
       fontcolor="#2D3436"
       node={{
-        [attribute.shape]: 'box',
-        [attribute.style]: 'rounded',
-        [attribute.fixedsize]: true,
-        [attribute.width]: 1.4,
-        [attribute.height]: 1.4,
-        [attribute.labelloc]: 'b',
-        [attribute.imagescale]: true,
         [attribute.fontname]: 'Sans-Serif',
         [attribute.fontsize]: 13,
         [attribute.fontcolor]: '#2D3436',

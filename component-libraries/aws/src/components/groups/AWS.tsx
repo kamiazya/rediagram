@@ -3,7 +3,7 @@ import { Provider } from '@diagrams-prototype/common';
 import { Subgraph, DOT } from '@ts-graphviz/react';
 import { resolve } from 'path';
 
-const icon = resolve(__dirname, '../../../assets/logo.png');
+const icon = resolve(__dirname, '../../../assets/groups/aws.png');
 
 export const AWS: FC = ({ children }) => {
   return (
@@ -14,8 +14,9 @@ export const AWS: FC = ({ children }) => {
         labelloc="t"
         labeljust="l"
         color="#232F3D"
+        margin="15"
         label={
-          <DOT.TABLE BORDER="0" CELLBORDER="0">
+          <DOT.TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
             <DOT.TR>
               <DOT.TD WIDTH="25" HEIGHT="25" FIXEDSIZE>
                 <DOT.IMG SRC={icon} />
