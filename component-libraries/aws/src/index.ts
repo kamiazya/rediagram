@@ -5,3 +5,4 @@ export * from './components/groups/Region';
 export * from './components/groups/AvailabilityZone';
 export * from './components/groups/SecurityGroup';
 export * from './components/groups/AutoScalingGroup';
+export * from './components/general/GeneralIcon';

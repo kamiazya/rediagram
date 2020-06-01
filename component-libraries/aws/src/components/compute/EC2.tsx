@@ -164,7 +164,7 @@ EC2.defaultProps = {
 };
 
 EC2.propTypes = {
-  type: t.oneOf([
+  type: t.oneOf<Type>([
     'AMI',
     'Auto Scaling',
     'Elastic IP address',

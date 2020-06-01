@@ -44,5 +44,5 @@ Diagram.propTypes = {
 
 Diagram.defaultProps = {
   dpi: 150,
-  rankdir: undefined,
+  rankdir: 'LR',
 };

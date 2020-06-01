@@ -63,14 +63,14 @@ export const Lambda: FC<Props> = ({ type, name, upstream }) => {
   );
 };
 
-Lambda.displayName = 'EC2';
+Lambda.displayName = 'Lambda';
 Lambda.defaultProps = {
   type: undefined,
   upstream: [],
 };
 
 Lambda.propTypes = {
-  type: t.oneOf(['Lambda Function']),
+  type: t.oneOf<Type>(['Lambda Function']),
   name: t.string.isRequired,
   upstream: t.arrayOf(t.string.isRequired),
 };
