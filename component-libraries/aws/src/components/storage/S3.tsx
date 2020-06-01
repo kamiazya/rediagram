@@ -8,17 +8,20 @@ type Props = {
   type?: Type;
   name: string;
   upstream?: string[];
-  downstream?: string[];
 };
 
-type Type = 'Lambda Function';
+type Type = 'Bucket with Objects' | 'Bucket' | 'Object';
 
 function resolveImage(type?: Type): string {
   switch (type) {
-    case 'Lambda Function':
-      return resolve(__dirname, '../../../assets/compute/Lambda/Lambda-Function.png');
+    case 'Bucket with Objects':
+      return resolve(__dirname, '../../../assets/storage/S3/Bucket-with-Objects.png');
+    case 'Bucket':
+      return resolve(__dirname, '../../../assets/storage/S3/Bucket.png');
+    case 'Object':
+      return resolve(__dirname, '../../../assets/storage/S3/Object.png');
     default:
-      return resolve(__dirname, '../../../assets/compute/Lambda.png');
+      return resolve(__dirname, '../../../assets/storage/S3.png');
   }
 }
 
@@ -31,7 +34,7 @@ function useIcon(type?: Type): { path: string; size: number } {
   }, [type]);
 }
 
-export const Lambda: FC<Props> = ({ type, name, children, upstream, downstream }) => {
+export const S3: FC<Props> = ({ type, name, upstream, children }) => {
   useAssertProvider();
   const icon = useIcon(type);
   return (
@@ -59,23 +62,19 @@ export const Lambda: FC<Props> = ({ type, name, children, upstream, downstream }
       />
       <ClusterPortal>
         {upstream && upstream.map((destination) => <Edge targets={[name, destination]} key={destination} />)}
-        {downstream &&
-          downstream.map((destination) => <Edge targets={[name, destination]} constraint={false} key={destination} />)}
       </ClusterPortal>
     </>
   );
 };
 
-Lambda.displayName = 'Lambda';
-Lambda.defaultProps = {
+S3.displayName = 'S3';
+S3.defaultProps = {
   type: undefined,
   upstream: [],
-  downstream: [],
 };
 
-Lambda.propTypes = {
-  type: t.oneOf<Type>(['Lambda Function']),
+S3.propTypes = {
+  type: t.oneOf<Type>(['Bucket with Objects', 'Bucket', 'Object']),
   name: t.string.isRequired,
   upstream: t.arrayOf(t.string.isRequired),
-  downstream: t.arrayOf(t.string.isRequired),
 };

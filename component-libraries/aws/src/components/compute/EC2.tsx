@@ -1,5 +1,5 @@
 import { resolve } from 'path';
-import React, { FC, useMemo } from 'react';
+import React, { FC, useMemo, isValidElement } from 'react';
 import { Node, Edge, ClusterPortal, DOT } from '@ts-graphviz/react';
 import t from 'prop-types';
 import { useAssertProvider } from '../../hooks/assert-provider';
@@ -124,7 +124,7 @@ type Props = {
   upstream?: string[];
 };
 
-export const EC2: FC<Props> = ({ type, name, upstream }) => {
+export const EC2: FC<Props> = ({ type, name, upstream, children }) => {
   useAssertProvider();
   const icon = useIcon(type);
   return (
@@ -145,7 +145,7 @@ export const EC2: FC<Props> = ({ type, name, upstream }) => {
               </DOT.TD>
             </DOT.TR>
             <DOT.TR>
-              <DOT.TD>{name}</DOT.TD>
+              <DOT.TD>{isValidElement(children) || typeof children === 'string' ? children : name}</DOT.TD>
             </DOT.TR>
           </DOT.TABLE>
         }
