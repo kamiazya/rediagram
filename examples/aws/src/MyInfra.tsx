@@ -13,7 +13,7 @@ import {
 
 export const MyInfra: FC = () => {
   return (
-    <Diagram>
+    <Diagram title="My Infra">
       <AWS>
         <Region name="Asia Pacific (Tokyo)">
           <AutoScalingGroup>

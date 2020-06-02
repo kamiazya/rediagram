@@ -7,5 +7,6 @@ export * from './components/groups/Region';
 export * from './components/groups/AvailabilityZone';
 export * from './components/groups/SecurityGroup';
 export * from './components/groups/AutoScalingGroup';
+export * from './components/groups/VPC';
 export * from './components/general/GeneralIcon';
 export * from './components/general/Text';
