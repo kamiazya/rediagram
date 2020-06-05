@@ -1,6 +1,6 @@
 import { ReactElement } from 'react';
 import { renderToDot } from '@ts-graphviz/react';
-import { renderDot } from './utils/dot-adapter';
+import { renderDot } from '@ts-graphviz/node';
 
 export function renderToFile(element: ReactElement, output: string): void {
   const dot = renderToDot(element);

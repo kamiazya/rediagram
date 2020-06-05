@@ -921,6 +921,11 @@
     estree-walker "^1.0.1"
     picomatch "^2.2.2"
 
+"@ts-graphviz/node@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@ts-graphviz/node/-/node-0.0.1.tgz#d7e1a0d5515de50c452c5999fb21badf26dab86d"
+  integrity sha512-55pYMGHOyX7xVt49tVCA0wO6BgQOgDgU1uesbYbfum1NNn70ST2KWXzYrUdIg/Rnbf0buCGWYn0fvcF8U4OdKQ==
+
 "@ts-graphviz/react@^0.5.0":
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/@ts-graphviz/react/-/react-0.5.0.tgz#808963890b839f5553ad641935a5fabcc264e323"
