@@ -1,10 +1,10 @@
 import { ReactElement } from 'react';
 import { renderToDot } from '@ts-graphviz/react';
-import { renderDot } from '@ts-graphviz/node';
+import { renderDot, RenderDotOption } from '@ts-graphviz/node';
 
-export function renderToFile(element: ReactElement, output: string): void {
+export function renderToFile(element: ReactElement, option?: RenderDotOption): void {
   const dot = renderToDot(element);
-  renderDot(dot, output);
+  renderDot(dot, option);
 }
 
 export function renderStdout(element: ReactElement, cb?: (err?: Error) => void): void {

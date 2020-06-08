@@ -7,8 +7,10 @@ type Props = {
   name: string;
 };
 
+const ProviderContextProvider = ProviderContext.Provider;
+
 export const Provider: FC<Props> = ({ name, children }) => {
-  return <ProviderContext.Provider value={name}>{children}</ProviderContext.Provider>;
+  return <ProviderContextProvider value={name}>{children}</ProviderContextProvider>;
 };
 
 Provider.displayName = 'Provider';

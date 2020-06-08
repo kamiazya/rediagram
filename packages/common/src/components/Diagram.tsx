@@ -3,13 +3,13 @@ import { Digraph } from '@ts-graphviz/react';
 import { attribute } from 'ts-graphviz';
 import t from 'prop-types';
 
-type Props = {
+export type DiagramProps = {
   title?: ReactElement | string;
   dpi?: number;
   rankdir?: 'TB' | 'BT' | 'RL' | 'LR';
 };
 
-export const Diagram: FC<Props> = ({ title, children, dpi, rankdir }) => {
+export const Diagram: FC<DiagramProps> = ({ title, children, dpi, rankdir }) => {
   return (
     <Digraph
       dpi={dpi}

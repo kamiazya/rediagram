@@ -1,5 +1,5 @@
 {
-  "name": "@diagrams-prototype/common",
+  "name": "@diagrams-prototype/mdx",
   "version": "0.0.0",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -12,9 +12,11 @@
     "watch": "tsc --watch"
   },
   "dependencies": {
+    "@mdx-js/runtime": "^1.6.5",
+    "@ts-graphviz/mdx": "^0.0.3",
     "@ts-graphviz/node": "^0.0.2",
     "@ts-graphviz/react": "^0.5.0",
-    "@ts-graphviz/mdx": "^0.0.3",
+    "image-data-uri": "^2.0.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

@@ -2,11 +2,10 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "lib",
-    "rootDir": "src",
-    "skipDefaultLibCheck": false
+    "rootDir": "src"
   },
   "include": [
-    "**/src/**/*.ts",
-    "**/src/**/*.tsx"
+    "src/**/*.ts",
+    "src/**/*.tsx"
   ]
 }

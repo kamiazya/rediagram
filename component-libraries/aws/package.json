@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@diagrams-prototype/common": "*",
+    "@ts-graphviz/mdx": "^0.0.3",
     "@ts-graphviz/react": "^0.5.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
@@ -20,6 +21,7 @@
     "ts-graphviz": "^0.13.1"
   },
   "devDependencies": {
+    "@types/mdx-js__react": "^1.5.2",
     "@types/node": "^14.0.4",
     "@types/prop-types": "^15.7.3",
     "@types/react": "^16.9.35",
