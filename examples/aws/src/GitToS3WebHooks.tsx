@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { DOT } from '@ts-graphviz/react';
-import { Diagram } from '@diagrams-prototype/common';
-import { AWS, Lambda, GeneralIcon, Text, S3, IAM } from '@diagrams-prototype/aws';
+import { Diagram, Text } from '@diagrams-prototype/common';
+import { AWS, Lambda, AWSGeneralIcon, S3, IAM } from '@diagrams-prototype/aws';
 
 export const GitToS3WebHooks: FC = () => {
   return (
@@ -27,7 +27,7 @@ export const GitToS3WebHooks: FC = () => {
           AWS KMS key
         </IAM>
       </AWS>
-      <GeneralIcon name="Git Users" type="Users" upstream={['Repository']} />
+      <AWSGeneralIcon name="Git Users" type="Users" upstream={['Repository']} />
       <Text name="Repository" upstream={['Lambda 1']}>
         <>
           Third-party

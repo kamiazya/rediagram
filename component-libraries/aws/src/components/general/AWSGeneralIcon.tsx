@@ -1,10 +1,10 @@
 import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
-import { Node, Edge, ClusterPortal, DOT } from '@ts-graphviz/react';
-import t from 'prop-types';
+import { Node, ClusterPortal, DOT } from '@ts-graphviz/react';
+import { HasDependences, Dependences } from '@diagrams-prototype/common';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
-type Type =
+export type AWSGeneralIconType =
   | 'Client'
   | 'Database'
   | 'Disk'
@@ -26,7 +26,7 @@ type Type =
   | 'User'
   | 'Users';
 
-function resolveImage(type: Type): string {
+function resolveImage(type: AWSGeneralIconType): string {
   switch (type) {
     case 'Client':
       return resolve(__dirname, '../../../assets/general/Client.png');
@@ -72,7 +72,7 @@ function resolveImage(type: Type): string {
   }
 }
 
-function useIcon(type: Type): { path: string; size: number } {
+function useIcon(type: AWSGeneralIconType): { path: string; size: number } {
   return useMemo(() => {
     return {
       path: resolveImage(type),
@@ -81,13 +81,12 @@ function useIcon(type: Type): { path: string; size: number } {
   }, [type]);
 }
 
-type Props = {
-  type: Type;
+export type AWSGeneralIconProps = {
+  type: AWSGeneralIconType;
   name: string;
-  upstream?: string[];
-};
+} & HasDependences;
 
-export const GeneralIcon: FC<Props> = ({ type, name, upstream }) => {
+export const AWSGeneralIcon: FC<AWSGeneralIconProps> = ({ type, name, upstream, downstream }) => {
   useAssertProvider();
   const icon = useIcon(type);
   return (
@@ -114,40 +113,10 @@ export const GeneralIcon: FC<Props> = ({ type, name, upstream }) => {
         }
       />
       <ClusterPortal>
-        {upstream && upstream.map((destination) => <Edge targets={[name, destination]} key={destination} />)}
+        <Dependences origin={name} upstream={upstream} downstream={downstream} />
       </ClusterPortal>
     </>
   );
 };
 
-GeneralIcon.displayName = 'GeneralIcon';
-GeneralIcon.defaultProps = {
-  upstream: [],
-};
-
-GeneralIcon.propTypes = {
-  type: t.oneOf<Type>([
-    'Client',
-    'Database',
-    'Disk',
-    'Firewall',
-    'Forums',
-    'General',
-    'Internet alt1',
-    'Internet alt2',
-    'Internet gateway',
-    'Mobile client',
-    'Multimedia',
-    'Office building',
-    'SAML token',
-    'SDK',
-    'SSL padlock',
-    'Tape storage',
-    'Toolkit',
-    'Traditional server',
-    'User',
-    'Users',
-  ]).isRequired,
-  name: t.string.isRequired,
-  upstream: t.arrayOf(t.string.isRequired),
-};
+AWSGeneralIcon.displayName = 'GeneralIcon';

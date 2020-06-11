@@ -1,19 +1,17 @@
 import { resolve } from 'path';
 import React, { FC, useMemo, isValidElement } from 'react';
-import { Node, Edge, ClusterPortal, DOT } from '@ts-graphviz/react';
-import t from 'prop-types';
+import { Node, ClusterPortal, DOT } from '@ts-graphviz/react';
+import { HasDependences, Dependences } from '@diagrams-prototype/common';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
-type Props = {
-  type?: Type;
+export type LambdaProps = {
+  type?: LambdaType;
   name: string;
-  upstream?: string[];
-  downstream?: string[];
-};
+} & HasDependences;
 
-type Type = 'Lambda Function';
+export type LambdaType = 'Lambda Function';
 
-function resolveImage(type?: Type): string {
+function resolveImage(type?: LambdaType): string {
   switch (type) {
     case 'Lambda Function':
       return resolve(__dirname, '../../../assets/compute/Lambda/Lambda-Function.png');
@@ -22,7 +20,7 @@ function resolveImage(type?: Type): string {
   }
 }
 
-function useIcon(type?: Type): { path: string; size: number } {
+function useIcon(type?: LambdaType): { path: string; size: number } {
   return useMemo(() => {
     return {
       path: resolveImage(type),
@@ -31,7 +29,7 @@ function useIcon(type?: Type): { path: string; size: number } {
   }, [type]);
 }
 
-export const Lambda: FC<Props> = ({ type, name, children, upstream, downstream }) => {
+export const Lambda: FC<LambdaProps> = ({ type, name, children, upstream, downstream }) => {
   useAssertProvider();
   const icon = useIcon(type);
   return (
@@ -58,24 +56,10 @@ export const Lambda: FC<Props> = ({ type, name, children, upstream, downstream }
         }
       />
       <ClusterPortal>
-        {upstream && upstream.map((destination) => <Edge targets={[name, destination]} key={destination} />)}
-        {downstream &&
-          downstream.map((destination) => <Edge targets={[name, destination]} constraint={false} key={destination} />)}
+        <Dependences origin={name} upstream={upstream} downstream={downstream} />
       </ClusterPortal>
     </>
   );
 };
 
 Lambda.displayName = 'Lambda';
-Lambda.defaultProps = {
-  type: undefined,
-  upstream: [],
-  downstream: [],
-};
-
-Lambda.propTypes = {
-  type: t.oneOf<Type>(['Lambda Function']),
-  name: t.string.isRequired,
-  upstream: t.arrayOf(t.string.isRequired),
-  downstream: t.arrayOf(t.string.isRequired),
-};

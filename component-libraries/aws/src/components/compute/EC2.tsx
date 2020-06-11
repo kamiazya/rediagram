@@ -1,10 +1,10 @@
 import { resolve } from 'path';
 import React, { FC, useMemo, isValidElement } from 'react';
-import { Node, Edge, ClusterPortal, DOT } from '@ts-graphviz/react';
-import t from 'prop-types';
+import { Node, ClusterPortal, DOT } from '@ts-graphviz/react';
+import { HasDependences, Dependences } from '@diagrams-prototype/common';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
-type Type =
+export type EC2Type =
   | 'AMI'
   | 'Auto Scaling'
   | 'Elastic IP address'
@@ -38,7 +38,7 @@ type Type =
   | 'High memory instance'
   | 'F1 instance';
 
-function resolveImage(type?: Type): string {
+function resolveImage(type?: EC2Type): string {
   switch (type) {
     case 'AMI':
       return resolve(__dirname, '../../../assets/compute/EC2/AMI.png');
@@ -109,7 +109,7 @@ function resolveImage(type?: Type): string {
   }
 }
 
-function useIcon(type?: Type): { path: string; size: number } {
+function useIcon(type?: EC2Type): { path: string; size: number } {
   return useMemo(() => {
     return {
       path: resolveImage(type),
@@ -118,13 +118,12 @@ function useIcon(type?: Type): { path: string; size: number } {
   }, [type]);
 }
 
-type Props = {
-  type?: Type;
+export type EC2Props = {
+  type?: EC2Type;
   name: string;
-  upstream?: string[];
-};
+} & HasDependences;
 
-export const EC2: FC<Props> = ({ type, name, upstream, children }) => {
+export const EC2: FC<EC2Props> = ({ type, name, upstream, downstream, children }) => {
   useAssertProvider();
   const icon = useIcon(type);
   return (
@@ -151,53 +150,10 @@ export const EC2: FC<Props> = ({ type, name, upstream, children }) => {
         }
       />
       <ClusterPortal>
-        {upstream && upstream.map((destination) => <Edge targets={[name, destination]} key={destination} />)}
+        <Dependences origin={name} upstream={upstream} downstream={downstream} />
       </ClusterPortal>
     </>
   );
 };
 
 EC2.displayName = 'EC2';
-EC2.defaultProps = {
-  type: undefined,
-  upstream: [],
-};
-
-EC2.propTypes = {
-  type: t.oneOf<Type>([
-    'AMI',
-    'Auto Scaling',
-    'Elastic IP address',
-    'Rescue',
-    'Instance',
-    'A1 instance',
-    'M4 instance',
-    'R5a instance',
-    'z1d instance',
-    'H1 instance',
-    'Instances',
-    'T3 instance',
-    'C5 instance',
-    'R4 instance',
-    'P3 instance',
-    'I3 instance',
-    'Spot Instance',
-    'T2 instance',
-    'C5n instance',
-    'X1e instance',
-    'P2 instance',
-    'D2 instance',
-    'Instance with CloudWatch',
-    'M5 instance',
-    'C4 instance',
-    'X1 instance',
-    'G3 instance',
-    'DB instance',
-    'M5a instance',
-    'R5 instance',
-    'High memory instance',
-    'F1 instance',
-  ]),
-  name: t.string.isRequired,
-  upstream: t.arrayOf(t.string.isRequired),
-};

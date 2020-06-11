@@ -32,7 +32,7 @@ This is My awesome infra.
       </SecurityGroup>
     </Region>
   </AWS>
-  <GeneralIcon name="Browser" type="Client" upstream={['REST API']} />
+  <AWSGeneralIcon name="Browser" type="Client" upstream={['REST API']} />
 </Diagram>
 ```
 

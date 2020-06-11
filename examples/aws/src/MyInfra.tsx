@@ -8,7 +8,7 @@ import {
   // AvailabilityZone,
   SecurityGroup,
   AutoScalingGroup,
-  GeneralIcon,
+  AWSGeneralIcon,
 } from '@diagrams-prototype/aws';
 
 export const MyInfra: FC = () => {
@@ -26,7 +26,7 @@ export const MyInfra: FC = () => {
           </SecurityGroup>
         </Region>
       </AWS>
-      <GeneralIcon name="Browser" type="Client" upstream={['REST API']} />
+      <AWSGeneralIcon name="Browser" type="Client" upstream={['REST API']} />
     </Diagram>
   );
 };

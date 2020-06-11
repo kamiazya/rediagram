@@ -1,17 +1,15 @@
 import { resolve } from 'path';
 import React, { FC, useMemo, isValidElement } from 'react';
-import { Node, Edge, ClusterPortal, DOT } from '@ts-graphviz/react';
-import t from 'prop-types';
+import { Node, ClusterPortal, DOT } from '@ts-graphviz/react';
+import { HasDependences, Dependences } from '@diagrams-prototype/common';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
-type Props = {
-  type?: Type;
+export type IAMProps = {
+  type?: IAMType;
   name: string;
-  upstream?: string[];
-  downstream?: string[];
-};
+} & HasDependences;
 
-type Type =
+export type IAMType =
   | 'Add-on'
   | 'AWS STS Alternate'
   | 'AWS STS'
@@ -23,7 +21,7 @@ type Type =
   | 'Role'
   | 'Temporary Security Credential';
 
-function resolveImage(type?: Type): string {
+function resolveImage(type?: IAMType): string {
   switch (type) {
     case 'Add-on':
       return resolve(__dirname, '../../../assets/security/IAM/Add-on.png');
@@ -50,7 +48,7 @@ function resolveImage(type?: Type): string {
   }
 }
 
-function useIcon(type?: Type): { path: string; size: number } {
+function useIcon(type?: IAMType): { path: string; size: number } {
   return useMemo(() => {
     return {
       path: resolveImage(type),
@@ -59,7 +57,7 @@ function useIcon(type?: Type): { path: string; size: number } {
   }, [type]);
 }
 
-export const IAM: FC<Props> = ({ type, name, children, upstream, downstream }) => {
+export const IAM: FC<IAMProps> = ({ type, name, children, upstream, downstream }) => {
   useAssertProvider();
   const icon = useIcon(type);
   return (
@@ -86,35 +84,10 @@ export const IAM: FC<Props> = ({ type, name, children, upstream, downstream }) =
         }
       />
       <ClusterPortal>
-        {upstream && upstream.map((destination) => <Edge targets={[name, destination]} key={destination} />)}
-        {downstream &&
-          downstream.map((destination) => <Edge targets={[name, destination]} constraint={false} key={destination} />)}
+        <Dependences origin={name} upstream={upstream} downstream={downstream} />
       </ClusterPortal>
     </>
   );
 };
 
 IAM.displayName = 'IAM';
-IAM.defaultProps = {
-  type: undefined,
-  upstream: [],
-  downstream: [],
-};
-
-IAM.propTypes = {
-  type: t.oneOf<Type>([
-    'Add-on',
-    'AWS STS Alternate',
-    'AWS STS',
-    'Data Encryption Key',
-    'Encrypted Data',
-    'Long term Security Credential',
-    'MFA Token',
-    'Permissions',
-    'Role',
-    'Temporary Security Credential',
-  ]),
-  name: t.string.isRequired,
-  upstream: t.arrayOf(t.string.isRequired),
-  downstream: t.arrayOf(t.string.isRequired),
-};

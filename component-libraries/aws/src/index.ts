@@ -1,32 +1,13 @@
-import GraphvizMDX from '@ts-graphviz/mdx';
-import { EC2 } from './components/compute/EC2';
-import { Lambda } from './components/compute/Lambda';
-import { S3 } from './components/storage/S3';
-import { IAM } from './components/security/IAM';
-import { AWS } from './components/groups/AWS';
-import { Region } from './components/groups/Region';
-import { AvailabilityZone } from './components/groups/AvailabilityZone';
-import { SecurityGroup } from './components/groups/SecurityGroup';
-import { AutoScalingGroup } from './components/groups/AutoScalingGroup';
-import { VPC } from './components/groups/VPC';
-import { GeneralIcon } from './components/general/GeneralIcon';
-import { Text } from './components/general/Text';
+import './mdx';
 
-GraphvizMDX.use({
-  graphviz: {
-    EC2,
-    Lambda,
-    S3,
-    IAM,
-    AWS,
-    Region,
-    AvailabilityZone,
-    SecurityGroup,
-    AutoScalingGroup,
-    VPC,
-    GeneralIcon,
-    Text,
-  },
-});
-
-export { EC2, Lambda, S3, IAM, AWS, Region, AvailabilityZone, SecurityGroup, AutoScalingGroup, VPC, GeneralIcon, Text };
+export * from './components/compute/EC2';
+export * from './components/compute/Lambda';
+export * from './components/storage/S3';
+export * from './components/security/IAM';
+export * from './components/groups/AWS';
+export * from './components/groups/Region';
+export * from './components/groups/AvailabilityZone';
+export * from './components/groups/SecurityGroup';
+export * from './components/groups/AutoScalingGroup';
+export * from './components/groups/VPC';
+export * from './components/general/AWSGeneralIcon';
