@@ -1,4 +1,4 @@
-import { register } from '@ts-graphviz/mdx';
+import GraphvizMDX from '@ts-graphviz/mdx';
 import { EC2 } from './components/compute/EC2';
 import { Lambda } from './components/compute/Lambda';
 import { S3 } from './components/storage/S3';
@@ -12,19 +12,21 @@ import { VPC } from './components/groups/VPC';
 import { GeneralIcon } from './components/general/GeneralIcon';
 import { Text } from './components/general/Text';
 
-register({
-  EC2,
-  Lambda,
-  S3,
-  IAM,
-  AWS,
-  Region,
-  AvailabilityZone,
-  SecurityGroup,
-  AutoScalingGroup,
-  VPC,
-  GeneralIcon,
-  Text,
+GraphvizMDX.use({
+  graphviz: {
+    EC2,
+    Lambda,
+    S3,
+    IAM,
+    AWS,
+    Region,
+    AvailabilityZone,
+    SecurityGroup,
+    AutoScalingGroup,
+    VPC,
+    GeneralIcon,
+    Text,
+  },
 });
 
 export { EC2, Lambda, S3, IAM, AWS, Region, AvailabilityZone, SecurityGroup, AutoScalingGroup, VPC, GeneralIcon, Text };

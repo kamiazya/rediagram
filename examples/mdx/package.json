@@ -9,7 +9,7 @@
   "dependencies": {
     "@diagrams-prototype/aws": "*",
     "@diagrams-prototype/common": "*",
-    "@ts-graphviz/mdx": "^0.0.3"
+    "@ts-graphviz/mdx": "^0.0.6"
   },
   "devDependencies": {
     "ts-node": "^8.10.2",

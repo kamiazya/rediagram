@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@diagrams-prototype/common": "*",
-    "@ts-graphviz/mdx": "^0.0.3",
+    "@ts-graphviz/mdx": "^0.0.6",
     "@ts-graphviz/react": "^0.5.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",

@@ -1,24 +1,25 @@
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
-/* eslint-disable react/jsx-props-no-spreading */
-// import React, { FC } from 'react';
+import '@diagrams-prototype/aws';
+import '@diagrams-prototype/common';
+
 import fs from 'fs';
 import path from 'path';
 import { StringDecoder } from 'string_decoder';
-import { renderToHTML } from '@ts-graphviz/mdx';
-import { Diagram } from '@diagrams-prototype/mdx';
+import GraphvizMDX from '@ts-graphviz/mdx';
+import { Page } from './components/Page';
 
 function main(): void {
   const decoder = new StringDecoder();
   const buf = fs.readFileSync(path.resolve(__dirname, '../MyInfra.mdx'));
   const mdx = decoder.write(buf);
-  const html = renderToHTML(mdx, {
-    components: {
-      Diagram,
+  GraphvizMDX.use({
+    mdx: {
+      wrapper: Page,
     },
   });
+  const html = GraphvizMDX.renderToHTML(mdx);
   const output = path.resolve(__dirname, '../dist/MyInfra.html');
   fs.mkdirSync(path.dirname(output), { recursive: true });
-  fs.writeFileSync(output, html);
+  fs.writeFileSync(output, `<!DOCTYPE html>${html}`);
 }
 
 main();
