@@ -1,22 +1,18 @@
-import React, { FC, isValidElement } from 'react';
-import { Node, ClusterPortal } from '@ts-graphviz/react';
+import React, { FC } from 'react';
+import { Node } from '@ts-graphviz/react';
 import { Dependences, HasDependences } from './Dependence';
+import { useLabelText } from '../hooks/label';
 
 type Props = {
   name: string;
 } & HasDependences;
 
 export const Text: FC<Props> = ({ name, upstream, downstream, children }) => {
+  const label = useLabelText(children, { defaultValue: name });
   return (
     <>
-      <Node
-        id={name}
-        shape="plaintext"
-        label={isValidElement(children) || typeof children === 'string' ? children : name}
-      />
-      <ClusterPortal>
-        <Dependences origin={name} upstream={upstream} downstream={downstream} />
-      </ClusterPortal>
+      <Node id={name} shape="plaintext" label={label} />
+      <Dependences origin={name} upstream={upstream} downstream={downstream} />
     </>
   );
 };

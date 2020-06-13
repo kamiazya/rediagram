@@ -1,6 +1,26 @@
-# My Infra
+# インフラ構成図いい感じに出力できるツール
+
+## My Infra
 
 This is My awesome infra.
+
+```javascript
+<Diagram title="My Infra">
+  <AWS>
+    <Region name="Asia Pacific (Tokyo)">
+      <AutoScalingGroup>
+        <EC2 name="REST API" type="Instance" upstream={['worker4']} />
+      </AutoScalingGroup>
+      <SecurityGroup>
+        <Lambda name="worker4" type="Lambda Function" upstream={['worker5', 'worker6']} />
+        <Lambda name="worker5" type="Lambda Function" />
+        <Lambda name="worker6" type="Lambda Function" />
+      </SecurityGroup>
+    </Region>
+  </AWS>
+  <AWSGeneralIcon name="Browser" type="Client" upstream={['REST API']} />
+</Diagram>
+```
 
 <Diagram title="My Infra">
   <AWS>
@@ -16,4 +36,63 @@ This is My awesome infra.
     </Region>
   </AWS>
   <AWSGeneralIcon name="Browser" type="Client" upstream={['REST API']} />
+</Diagram>
+
+## Git to S3 Webhooks
+
+
+```javascript
+<Diagram title="Git to S3 Webhooks">
+  <AWS>
+    <Lambda name="Lambda 1" upstream={['Lambda 2']}>AWS Lambda</Lambda>
+    <Lambda name="Lambda 2" upstream={['SSH key', 'keys', 'output']} downstream={['Repository']}>AWS Lambda</Lambda>
+    <S3 name="SSH key" type="Bucket with Objects">Amazon S3\nSSH key bucket</S3>
+    <S3 name="output" type="Bucket with Objects">Amazon S3\noutput bucket</S3>
+    <IAM name="keys" type="Add-on">AWS KMS key</IAM>
+  </AWS>
+  <AWSGeneralIcon name="Git Users" type="Users" upstream={[{ destination: 'Repository', description: 'Git Push' }]} />
+  <Text name="Repository" upstream={[{ destination: 'Lambda 1', description: 'Git webhook' }]}>Third-party\n Git repository</Text>
+</Diagram>
+```
+
+<Diagram title="Git to S3 Webhooks">
+  <AWS>
+    <Lambda name="Lambda 1" upstream={['Lambda 2']}>AWS Lambda</Lambda>
+    <Lambda name="Lambda 2" upstream={['SSH key', 'keys', 'output']} downstream={['Repository']}>AWS Lambda</Lambda>
+    <S3 name="SSH key" type="Bucket with Objects">Amazon S3\nSSH key bucket</S3>
+    <S3 name="output" type="Bucket with Objects">Amazon S3\noutput bucket</S3>
+    <IAM name="keys" type="Add-on">AWS KMS key</IAM>
+  </AWS>
+  <AWSGeneralIcon name="Git Users" type="Users" upstream={[{ destination: 'Repository', description: 'Git Push' }]} />
+  <Text name="Repository" upstream={[{ destination: 'Lambda 1', description: 'Git webhook' }]}>Third-party\n Git repository</Text>
+</Diagram>
+
+
+## Chef Automate Architecture on AWS
+
+
+```javascript
+<Diagram title="Chef Automate Architecture on AWS">
+  <AWS>
+    <VPC>
+      <VPC type="Public subnet">
+        <EC2 type="Instance" name="instance1" upstream={['instance2']}>Chef workstation \n (local Chef repo)</EC2>
+        <EC2 type="Instance" name="instance2" upstream={['instance3']}>Chef node</EC2>
+        <EC2 type="Instance" name="instance3" upstream={['instance1']}>Chef Automate</EC2>
+      </VPC>
+    </VPC>
+  </AWS>
+</Diagram>
+```
+
+<Diagram title="Chef Automate Architecture on AWS">
+  <AWS>
+    <VPC>
+      <VPC type="Public subnet">
+        <EC2 type="Instance" name="instance1" upstream={['instance2']}>Chef workstation \n (local Chef repo)</EC2>
+        <EC2 type="Instance" name="instance2" upstream={['instance3']}>Chef node</EC2>
+        <EC2 type="Instance" name="instance3" upstream={['instance1']}>Chef Automate</EC2>
+      </VPC>
+    </VPC>
+  </AWS>
 </Diagram>

@@ -1,7 +1,7 @@
 import { resolve } from 'path';
-import React, { FC, useMemo, isValidElement } from 'react';
-import { Node, ClusterPortal, DOT } from '@ts-graphviz/react';
-import { HasDependences, Dependences } from '@diagrams-prototype/common';
+import React, { FC, useMemo } from 'react';
+import { Node, DOT } from '@ts-graphviz/react';
+import { HasDependences, Dependences, useLabelText } from '@diagrams-prototype/common';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type LambdaProps = {
@@ -32,6 +32,7 @@ function useIcon(type?: LambdaType): { path: string; size: number } {
 export const Lambda: FC<LambdaProps> = ({ type, name, children, upstream, downstream }) => {
   useAssertProvider();
   const icon = useIcon(type);
+  const label = useLabelText(children, { defaultValue: name, htmlLike: true });
   return (
     <>
       <Node
@@ -50,14 +51,12 @@ export const Lambda: FC<LambdaProps> = ({ type, name, children, upstream, downst
               </DOT.TD>
             </DOT.TR>
             <DOT.TR>
-              <DOT.TD>{isValidElement(children) || typeof children === 'string' ? children : name}</DOT.TD>
+              <DOT.TD>{label}</DOT.TD>
             </DOT.TR>
           </DOT.TABLE>
         }
       />
-      <ClusterPortal>
-        <Dependences origin={name} upstream={upstream} downstream={downstream} />
-      </ClusterPortal>
+      <Dependences origin={name} upstream={upstream} downstream={downstream} />
     </>
   );
 };

@@ -30,9 +30,8 @@ export const Diagram: FC<DiagramProps> = ({ title, children, dpi, rankdir }) => 
         [attribute.fontcolor]: '#2D3436',
       }}
       edge={{
-        [attribute.color]: '#7B8894',
         [attribute.fontname]: 'Sans-Serif',
-        [attribute.fontsize]: 13,
+        [attribute.fontsize]: 12,
         [attribute.fontcolor]: '#2D3436',
       }}
     >

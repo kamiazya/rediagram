@@ -1,7 +1,7 @@
 import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
-import { Node, ClusterPortal, DOT } from '@ts-graphviz/react';
-import { HasDependences, Dependences } from '@diagrams-prototype/common';
+import { Node, DOT } from '@ts-graphviz/react';
+import { HasDependences, Dependences, useLabelText } from '@diagrams-prototype/common';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type AWSGeneralIconType =
@@ -86,9 +86,10 @@ export type AWSGeneralIconProps = {
   name: string;
 } & HasDependences;
 
-export const AWSGeneralIcon: FC<AWSGeneralIconProps> = ({ type, name, upstream, downstream }) => {
+export const AWSGeneralIcon: FC<AWSGeneralIconProps> = ({ type, name, children, upstream, downstream }) => {
   useAssertProvider();
   const icon = useIcon(type);
+  const label = useLabelText(children, { defaultValue: name, htmlLike: true });
   return (
     <>
       <Node
@@ -107,14 +108,12 @@ export const AWSGeneralIcon: FC<AWSGeneralIconProps> = ({ type, name, upstream, 
               </DOT.TD>
             </DOT.TR>
             <DOT.TR>
-              <DOT.TD>{name}</DOT.TD>
+              <DOT.TD>{label}</DOT.TD>
             </DOT.TR>
           </DOT.TABLE>
         }
       />
-      <ClusterPortal>
-        <Dependences origin={name} upstream={upstream} downstream={downstream} />
-      </ClusterPortal>
+      <Dependences origin={name} upstream={upstream} downstream={downstream} />
     </>
   );
 };
