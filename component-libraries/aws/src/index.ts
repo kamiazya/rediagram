@@ -1,5 +1,3 @@
-import './mdx';
-
 export * from './components/compute/EC2';
 export * from './components/compute/Lambda';
 export * from './components/storage/S3';
@@ -11,3 +9,4 @@ export * from './components/groups/SecurityGroup';
 export * from './components/groups/AutoScalingGroup';
 export * from './components/groups/VPC';
 export * from './components/general/AWSGeneralIcon';
+export * from './mdx';

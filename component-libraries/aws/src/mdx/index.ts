@@ -1,4 +1,4 @@
-import GraphvizMDX from '@ts-graphviz/mdx';
+import { Plugin } from '@ts-graphviz/mdx';
 import { EC2 } from '../components/compute/EC2';
 import { Lambda } from '../components/compute/Lambda';
 import { S3 } from '../components/storage/S3';
@@ -11,7 +11,7 @@ import { AutoScalingGroup } from '../components/groups/AutoScalingGroup';
 import { VPC } from '../components/groups/VPC';
 import { AWSGeneralIcon } from '../components/general/AWSGeneralIcon';
 
-GraphvizMDX.use({
+export const AWSPlugin: Plugin = {
   graphviz: {
     EC2,
     Lambda,
@@ -25,4 +25,4 @@ GraphvizMDX.use({
     VPC,
     AWSGeneralIcon,
   },
-});
+};
