@@ -1,5 +1,5 @@
 {
-  "name": "@diagrams-prototype/mdx-example",
+  "name": "@rediagram/mdx-example",
   "version": "0.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -7,8 +7,8 @@
     "start": "ts-node src/main"
   },
   "dependencies": {
-    "@diagrams-prototype/aws": "*",
-    "@diagrams-prototype/common": "*",
+    "@rediagram/aws": "*",
+    "rediagram": "*",
     "@ts-graphviz/mdx": "^0.0.6"
   },
   "devDependencies": {

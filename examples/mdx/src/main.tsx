@@ -1,8 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 import { Renderer } from '@ts-graphviz/mdx';
-import { CommonPlugin } from '@diagrams-prototype/common';
-import { AWSPlugin } from '@diagrams-prototype/aws';
+import { CommonPlugin } from 'rediagram';
+import { AWSPlugin } from '@rediagram/aws';
 import { StringDecoder } from 'string_decoder';
 import { Page } from './components/Page';
 

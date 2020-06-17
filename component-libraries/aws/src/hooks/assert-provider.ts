@@ -1,4 +1,4 @@
-import { useProvider } from '@diagrams-prototype/common';
+import { useProvider } from 'rediagram';
 
 export function useAssertProvider(): void {
   const provider = useProvider();

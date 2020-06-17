@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
-import { Diagram } from '@diagrams-prototype/common';
-import { AWS, EC2, VPC } from '@diagrams-prototype/aws';
+import { Diagram } from 'rediagram';
+import { AWS, EC2, VPC } from '@rediagram/aws';
 
 export const ChefAutomateArchitectureOnAWS: FC = () => {
   return (

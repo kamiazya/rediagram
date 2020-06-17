@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
-import { Diagram, Text } from '@diagrams-prototype/common';
-import { AWS, Lambda, AWSGeneralIcon, S3, IAM } from '@diagrams-prototype/aws';
+import { Diagram, Text } from 'rediagram';
+import { AWS, Lambda, AWSGeneralIcon, S3, IAM } from '@rediagram/aws';
 
 export const GitToS3WebHooks: FC = () => {
   return (

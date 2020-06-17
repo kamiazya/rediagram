@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Diagram } from '@diagrams-prototype/common';
+import { Diagram } from 'rediagram';
 import {
   AWS,
   EC2,
@@ -9,7 +9,7 @@ import {
   SecurityGroup,
   AutoScalingGroup,
   AWSGeneralIcon,
-} from '@diagrams-prototype/aws';
+} from '@rediagram/aws';
 
 export const MyInfra: FC = () => {
   return (

@@ -1,5 +1,5 @@
 {
-  "name": "@kamiazya/diagrams-prototype",
+  "name": "rediagram",
   "version": "0.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -13,8 +13,8 @@
     "lerna": "lerna",
     "watch": "lerna run --parallel watch",
     "lint": "eslint -c .eslintrc.json --ext ts,tsx packages examples",
-    "example:aws": "yarn workspace @diagrams-prototype/aws-example start",
-    "example:mdx": "yarn workspace @diagrams-prototype/mdx-example start"
+    "example:gallery": "yarn workspace @rediagram/gallery start",
+    "example:mdx": "yarn workspace @rediagram/mdx-example start"
   },
   "devDependencies": {
     "@types/fs-extra": "^9.0.1",

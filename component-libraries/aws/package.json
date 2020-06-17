@@ -1,5 +1,5 @@
 {
-  "name": "@diagrams-prototype/aws",
+  "name": "@rediagram/aws",
   "version": "0.0.0",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -12,7 +12,7 @@
     "watch": "tsc --watch"
   },
   "dependencies": {
-    "@diagrams-prototype/common": "*",
+    "rediagram": "*",
     "@ts-graphviz/mdx": "^0.0.6",
     "@ts-graphviz/react": "^0.5.0",
     "prop-types": "^15.7.2",

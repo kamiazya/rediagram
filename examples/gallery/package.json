@@ -1,5 +1,5 @@
 {
-  "name": "@diagrams-prototype/aws-example",
+  "name": "@rediagram/gallery",
   "version": "0.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -8,8 +8,8 @@
     "start": "ts-node src/main"
   },
   "dependencies": {
-    "@diagrams-prototype/aws": "*",
-    "@diagrams-prototype/common": "*",
+    "@rediagram/aws": "*",
+    "rediagram": "*",
     "@ts-graphviz/react": "^0.5.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",

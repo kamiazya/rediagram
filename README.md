@@ -1,16 +1,16 @@
-# @kamiazya/diagrams-prototype
+# rediagram
 
-## [My Infra](./examples/aws/src/MyInfra.tsx)
+## [My Infra](./examples/gallery/src/MyInfra.tsx)
 
-![MyInfra](./examples/aws/MyInfra.png)
+![MyInfra](./examples/gallery/MyInfra.png)
 
-## [Git to S3 WebHooks](./examples/aws/src/GitToS3WebHooks.tsx)
+## [Git to S3 WebHooks](./examples/gallery/src/GitToS3WebHooks.tsx)
 
-![GitToS3WebHooks](./examples/aws/GitToS3WebHooks.png)
+![GitToS3WebHooks](./examples/gallery/GitToS3WebHooks.png)
 
-## [Chef Automate Architecture on AWS](./examples/aws/src/ChefAutomateArchitectureOnAWS.tsx)
+## [Chef Automate Architecture on AWS](./examples/gallery/src/ChefAutomateArchitectureOnAWS.tsx)
 
-![ChefAutomateArchitectureOnAWS](./examples/aws/ChefAutomateArchitectureOnAWS.png)
+![ChefAutomateArchitectureOnAWS](./examples/gallery/ChefAutomateArchitectureOnAWS.png)
 
 ## [MDX](./examples/mdx/MyInfra.mdx)
 
