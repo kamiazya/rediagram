@@ -1,9 +1,9 @@
 import React from 'react';
 import path from 'path';
-import { renderToFile } from '@diagrams-prototype/common';
 import { MyInfra } from './MyInfra';
 import { GitToS3WebHooks } from './GitToS3WebHooks';
 import { ChefAutomateArchitectureOnAWS } from './ChefAutomateArchitectureOnAWS';
+import { renderToFile } from './render';
 
 renderToFile(<MyInfra />, {
   output: path.resolve(__dirname, '../MyInfra.png'),
