@@ -1,14 +1,14 @@
 import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { Subgraph, DOT } from '@ts-graphviz/react';
-import t from 'prop-types';
 import { useAssertProvider } from '../../hooks/assert-provider';
+import { IP, HasIP } from './internal/IP';
 
 let securityGroupID = 0;
 
 type Props = {
   type?: Type;
-};
+} & HasIP;
 
 type Type = 'VPC' | 'Private subnet' | 'Public subnet';
 
@@ -68,7 +68,7 @@ function useStyle(
   }, [type]);
 }
 
-export const VPC: FC<Props> = ({ type, children }) => {
+export const VPC: FC<Props> = ({ type, ip, children }) => {
   useAssertProvider();
   const id = useMemo(() => {
     securityGroupID += 1;
@@ -95,7 +95,9 @@ export const VPC: FC<Props> = ({ type, children }) => {
         </DOT.TABLE>
       }
     >
-      {children}
+      <IP id={id} ip={ip}>
+        {children}
+      </IP>
     </Subgraph>
   );
 };
@@ -104,8 +106,4 @@ VPC.displayName = 'VPC';
 
 VPC.defaultProps = {
   type: 'VPC',
-};
-
-VPC.propTypes = {
-  type: t.oneOf<Type>(['VPC', 'Private subnet', 'Public subnet']),
 };

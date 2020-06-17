@@ -14,6 +14,7 @@ export const Diagram: FC<DiagramProps> = ({ title, children, dpi, rankdir }) => 
     <Digraph
       dpi={dpi}
       rankdir={rankdir}
+      compound
       pad={1.0}
       splines="ortho"
       nodesep={0.6}
