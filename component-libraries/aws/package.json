@@ -11,8 +11,10 @@
     "build": "tsc",
     "watch": "tsc --watch"
   },
+  "peerDependencies": {
+    "rediagram": "0.0.0"
+  },
   "dependencies": {
-    "rediagram": "*",
     "@ts-graphviz/mdx": "^0.0.6",
     "@ts-graphviz/react": "^0.5.0",
     "prop-types": "^15.7.2",
@@ -21,6 +23,7 @@
     "ts-graphviz": "^0.13.1"
   },
   "devDependencies": {
+    "rediagram": "0.0.0",
     "@types/mdx-js__react": "^1.5.2",
     "@types/node": "^14.0.4",
     "@types/prop-types": "^15.7.3",

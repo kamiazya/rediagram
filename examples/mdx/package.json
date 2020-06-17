@@ -7,8 +7,8 @@
     "start": "ts-node src/main"
   },
   "dependencies": {
-    "@rediagram/aws": "*",
-    "rediagram": "*",
+    "@rediagram/aws": "0.0.0",
+    "rediagram": "0.0.0",
     "@ts-graphviz/mdx": "^0.0.6"
   },
   "devDependencies": {
