@@ -15,7 +15,8 @@
     "rediagram": "yarn workspace @rediagram/cli start",
     "lint": "eslint -c .eslintrc.json --ext ts,tsx component-libraries packages examples",
     "example:gallery": "yarn workspace @rediagram/gallery start",
-    "example:mdx": "yarn workspace @rediagram/mdx-example start"
+    "example:mdx": "yarn workspace @rediagram/mdx-example start",
+    "postinstall": "lerna link"
   },
   "devDependencies": {
     "@types/fs-extra": "^9.0.1",

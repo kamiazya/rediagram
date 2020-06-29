@@ -1,15 +1,20 @@
 {
   "name": "@rediagram/cli",
   "version": "0.0.0",
-  "main": "index.js",
   "license": "MIT",
+  "bin": {
+    "rediagram": "bin/rediagram.js"
+  },
   "scripts": {
-    "start": "ts-node src/main"
+    "start": "ts-node src/main",
+    "build": "tsc",
+    "watch": "tsc --watch"
   },
   "dependencies": {
     "@rediagram/aws": "0.0.0",
     "@ts-graphviz/react": "^0.5.0",
     "commander": "^5.1.0",
+    "fast-glob": "^3.2.4",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
