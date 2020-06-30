@@ -24,7 +24,7 @@ npm install --save-dev @rediagram/cli
 ## Requirement
 
 This project requires Graphviz.
-If you don't have it installed, install it here[here](https://graphviz.gitlab.io/download/).
+If you don't have it installed, install it [here](https://graphviz.gitlab.io/download/).
 
 ## License
 
