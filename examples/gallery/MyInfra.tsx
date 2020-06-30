@@ -1,15 +1,6 @@
 import React from 'react';
 import { PNG, Diagram } from 'rediagram';
-import {
-  AWS,
-  EC2,
-  Lambda,
-  Region,
-  // AvailabilityZone,
-  SecurityGroup,
-  AutoScalingGroup,
-  AWSGeneralIcon,
-} from '@rediagram/aws';
+import { AWS, EC2, Lambda, Region, SecurityGroup, AutoScalingGroup, AWSGeneralIcon } from '@rediagram/aws';
 
 PNG(
   <Diagram title="My Infra">
