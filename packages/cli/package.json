@@ -1,6 +1,6 @@
 {
   "name": "@rediagram/cli",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "license": "MIT",
   "description": "CLI for rediagram.",
   "author": "kamiazya <yuki@kamiazya.tech>",
@@ -29,14 +29,14 @@
     "watch": "tsc --watch"
   },
   "dependencies": {
-    "@rediagram/aws": "0.0.0",
+    "@rediagram/aws": "^0.0.1",
     "@ts-graphviz/react": "^0.5.0",
     "commander": "^5.1.0",
     "fast-glob": "^3.2.4",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "rediagram": "0.0.0",
+    "rediagram": "^0.0.1",
     "ts-graphviz": "^0.13.1"
   },
   "devDependencies": {
