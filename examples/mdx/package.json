@@ -2,6 +2,7 @@
   "name": "@rediagram/mdx-example",
   "version": "0.0.0",
   "main": "index.js",
+  "private": true,
   "license": "MIT",
   "scripts": {
     "start": "ts-node src/main"

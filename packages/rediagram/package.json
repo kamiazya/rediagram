@@ -3,10 +3,22 @@
   "version": "0.0.0",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
-  "license": "MIT",
-  "publishConfig": {
-    "access": "public"
+  "author": "kamiazya <yuki@kamiazya.tech>",
+  "description": "Prototyping system architectures by using React.",
+  "homepage": "https://github.com/kamiazya/rediagram",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kamiazya/rediagram.git",
+    "directory": "packages/rediagram"
   },
+  "bugs": {
+    "url": "https://github.com/kamiazya/rediagram/issues"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/kamiazya"
+  },
+  "license": "MIT",
   "scripts": {
     "build": "tsc",
     "watch": "tsc --watch"

@@ -2,6 +2,24 @@
   "name": "@rediagram/cli",
   "version": "0.0.0",
   "license": "MIT",
+  "description": "CLI for rediagram.",
+  "author": "kamiazya <yuki@kamiazya.tech>",
+  "homepage": "https://github.com/kamiazya/rediagram",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kamiazya/rediagram.git",
+    "directory": "packages/cli"
+  },
+  "bugs": {
+    "url": "https://github.com/kamiazya/rediagram/issues"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/kamiazya"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "bin": {
     "rediagramc": "bin/rediagramc.js"
   },

@@ -4,6 +4,8 @@
 
 # rediagram
 
+Prototyping system architectures by using React.
+
 Common components for drawing diagrams and functions for image output.
 
 ## Installation
