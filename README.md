@@ -4,7 +4,7 @@
 
 # rediagram
 
-Prototyping system architectures by using React/MDX.
+Prototyping system architectures by using React.
 
 ## Key Feature
 
@@ -12,7 +12,7 @@ Prototyping system architectures by using React/MDX.
 
 Code your system architecture in the style of React, JSX/TSX.
 
-[source](./examples/gallery/MyInfra.tsx)
+[MyInfra.rediagram.tsx](./examples/gallery/MyInfra.rediagram.tsx)
 
 ```tsx
 import React from 'react';
@@ -38,11 +38,24 @@ PNG(
 );
 ```
 
-![MyInfra](./examples/gallery/MyInfra.png)
+Running this file will generate a diagram of `MyInfra.rediagram.png`.
+
+```bash
+$ ts-node MyInfra.rediagram.tsx
+```
+
+![MyInfra](./examples/gallery/MyInfra.rediagram.png)
 
 You can choose PNG, SVG, or PDF as the output format.
 
-See [more](./examples/gallery/README.md).
+See [more examples](./examples/gallery/README.md).
+
+> Note:
+> Do you want to execute them all at once?
+>
+> We provide the rediagramc command that generates images at once by matching the patterns of `**/*.rediagram.tsx`.
+>
+> See [@rediagram/cli](./packages/cli/README.md) for more details.
 
 ### Embed your diagram in MDX ![WIP](https://img.shields.io/badge/-WIP-yellow)
 

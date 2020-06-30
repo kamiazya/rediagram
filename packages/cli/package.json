@@ -3,10 +3,10 @@
   "version": "0.0.0",
   "license": "MIT",
   "bin": {
-    "rediagram": "bin/rediagram.js"
+    "rediagramc": "bin/rediagramc.js"
   },
   "scripts": {
-    "start": "ts-node src/main",
+    "start": "ts-node src/rediagramc",
     "build": "tsc",
     "watch": "tsc --watch"
   },

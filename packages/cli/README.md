@@ -8,7 +8,19 @@ CLI for rediagram.
 
 ## Usage
 
-TODO
+### `rediagramc`
+
+This command will generate images at once by pattern matching `**/*.rediagram.tsx`.
+
+```bash
+$ rediagramc
+```
+
+You can also specify the pattern yourself.
+
+```bash
+$ rediagramc "**/*.graph.tsx"
+```
 
 ## Installation
 

@@ -1,13 +1,13 @@
 # @rediagram/gallery
 
-## [My Infra](./MyInfra.tsx)
+## [My Infra](./MyInfra.rediagram.tsx)
 
-![MyInfra](./MyInfra.png)
+![MyInfra](./MyInfra.rediagram.png)
 
-## [Git to S3 WebHooks](./GitToS3WebHooks.tsx)
+## [Git to S3 WebHooks](./GitToS3WebHooks.rediagram.tsx)
 
-![GitToS3WebHooks](./GitToS3WebHooks.png)
+![GitToS3WebHooks](./GitToS3WebHooks.rediagram.png)
 
-## [Chef Automate Architecture on AWS](./ChefAutomateArchitectureOnAWS.tsx)
+## [Chef Automate Architecture on AWS](./ChefAutomateArchitectureOnAWS.rediagram.tsx)
 
-![ChefAutomateArchitectureOnAWS](./ChefAutomateArchitectureOnAWS.png)
+![ChefAutomateArchitectureOnAWS](./ChefAutomateArchitectureOnAWS.rediagram.png)

@@ -5,7 +5,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "rediagram \"*.tsx\""
+    "start": "rediagramc"
   },
   "dependencies": {
     "@rediagram/cli": "0.0.0",
