@@ -1,5 +1,5 @@
 import React from 'react';
-import { PNG, Diagram, Text } from 'rediagram';
+import { PNG, Diagram, TextBox } from 'rediagram';
 import { AWS, Lambda, AWSGeneralIcon, S3, IAM } from '@rediagram/aws';
 
 PNG(
@@ -22,8 +22,8 @@ PNG(
       </IAM>
     </AWS>
     <AWSGeneralIcon name="Git Users" type="Users" upstream={[{ destination: 'Repository', description: 'Git Push' }]} />
-    <Text name="Repository" upstream={[{ destination: 'Lambda 1', description: 'Git webhook' }]}>
+    <TextBox name="Repository" upstream={[{ destination: 'Lambda 1', description: 'Git webhook' }]}>
       Third-party\n Git repository
-    </Text>
+    </TextBox>
   </Diagram>,
 );

@@ -40,4 +40,4 @@ If you don't have it installed, install it [here](https://graphviz.gitlab.io/dow
 
 ## License
 
-This software is released under the MIT License, see [LICENSE](./LICENSE).
+This software is released under the MIT License, see LICENSE.

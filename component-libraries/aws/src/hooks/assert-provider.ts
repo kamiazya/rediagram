@@ -1,4 +1,4 @@
-import { useProvider } from 'rediagram';
+import { useProvider } from '@rediagram/cdk';
 
 export function useAssertProvider(): void {
   const provider = useProvider();

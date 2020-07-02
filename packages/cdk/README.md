@@ -4,23 +4,7 @@
 
 # @rediagram/aws
 
-Components for drawing AWS diagrams.
-
-## Installation
-
-The plugin can then be installed using [npm](https://www.npmjs.com/):
-
-```bash
-# yarn
-yarn add @rediagram/aws
-# or npm
-npm install @rediagram/aws
-```
-
-## Requirement
-
-This project requires Graphviz.
-If you don't have it installed, install it [here](https://graphviz.gitlab.io/download/).
+Component Development Kit for rediagram library.
 
 ## License
 
