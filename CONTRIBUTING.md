@@ -69,7 +69,7 @@ rediagram has adopted [Conventional Commits](https://conventionalcommits.org/ "C
   - `docs`: update documents(patch update)
   - `chore`: the other(patch update)
 - `component`: package name or file name
-  - e.g.) `rediagram`, `aws`, `cli`
+  - e.g.) `rediagram`, `@rediagram/aws`, `@rediagram/cli`, `@rediagram/cdk`
 
 If you commit cross `component` changes in a pull request, separate commits by `component`.
 

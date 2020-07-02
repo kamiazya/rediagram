@@ -26,6 +26,9 @@
     "build": "tsc",
     "watch": "tsc --watch"
   },
+  "dependencies": {
+    "@rediagram/cdk": "0.0.0"
+  },
   "peerDependencies": {
     "@ts-graphviz/mdx": "^0.0.6",
     "@ts-graphviz/react": "^0.5.0",

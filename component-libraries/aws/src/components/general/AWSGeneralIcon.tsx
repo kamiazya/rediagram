@@ -1,7 +1,7 @@
 import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { Node, DOT } from '@ts-graphviz/react';
-import { HasDependences, Dependences, useLabelText } from 'rediagram';
+import { HasDependences, Dependences, useLabelText } from '@rediagram/cdk';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type AWSGeneralIconType =

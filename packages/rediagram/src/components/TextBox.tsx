@@ -1,13 +1,12 @@
 import React, { FC } from 'react';
 import { Node } from '@ts-graphviz/react';
-import { Dependences, HasDependences } from './Dependence';
-import { useLabelText } from '../hooks/label';
+import { Dependences, HasDependences, useLabelText } from '@rediagram/cdk';
 
 type Props = {
   name: string;
 } & HasDependences;
 
-export const Text: FC<Props> = ({ name, upstream, downstream, children }) => {
+export const TextBox: FC<Props> = ({ name, upstream, downstream, children }) => {
   const label = useLabelText(children, { defaultValue: name });
   return (
     <>
@@ -17,4 +16,4 @@ export const Text: FC<Props> = ({ name, upstream, downstream, children }) => {
   );
 };
 
-Text.displayName = 'Text';
+TextBox.displayName = 'TextBox';

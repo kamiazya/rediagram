@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Provider } from 'rediagram';
+import { Provider } from '@rediagram/cdk';
 import { Subgraph, DOT } from '@ts-graphviz/react';
 import { resolve } from 'path';
 
