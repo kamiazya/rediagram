@@ -24,7 +24,11 @@ jobs:
       env:
         CI: 'true'
     - name: Build
-      run: yarn build
+      run: |
+        yarn workspace @rediagram/cdk build
+        yarn workspace rediagram build
+        yarn workspace @rediagram/aws build
+        yarn workspace @rediagram/cli build
       env:
         CI: 'true'
     - name: Lint
