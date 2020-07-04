@@ -5,6 +5,7 @@
   "license": "MIT",
   "private": true,
   "workspaces": [
+    "docker",
     "packages/*",
     "component-libraries/*",
     "examples/*"
