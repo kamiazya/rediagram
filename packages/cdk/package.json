@@ -11,6 +11,9 @@
     "url": "https://github.com/kamiazya/rediagram.git",
     "directory": "packages/cdk"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "bugs": {
     "url": "https://github.com/kamiazya/rediagram/issues"
   },
