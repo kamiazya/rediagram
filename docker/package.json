@@ -2,7 +2,7 @@
   "name": "@rediagram/docker-runtime",
   "version": "0.0.0",
   "license": "MIT",
-  "description": "rediagram runtime for docker.",
+  "description": "rediagram runtime for Docker.",
   "author": "kamiazya <yuki@kamiazya.tech>",
   "homepage": "https://github.com/kamiazya/rediagram",
   "repository": {
