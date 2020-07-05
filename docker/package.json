@@ -1,0 +1,37 @@
+{
+  "name": "@rediagram/docker-runtime",
+  "version": "0.0.0",
+  "license": "MIT",
+  "description": "rediagram runtime for Docker.",
+  "author": "kamiazya <yuki@kamiazya.tech>",
+  "homepage": "https://github.com/kamiazya/rediagram",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kamiazya/rediagram.git",
+    "directory": "packages/cli"
+  },
+  "bugs": {
+    "url": "https://github.com/kamiazya/rediagram/issues"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/kamiazya"
+  },
+  "private": true,
+  "dependencies": {
+    "@rediagram/aws": "^0.0.2",
+    "@rediagram/cli": "^0.0.2",
+    "@ts-graphviz/mdx": "^0.0.6",
+    "@ts-graphviz/react": "^0.5.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "rediagram": "^0.0.2",
+    "ts-graphviz": "^0.13.1"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.41",
+    "@types/react-dom": "^16.9.8",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.6"
+  }
+}
