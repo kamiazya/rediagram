@@ -2,7 +2,7 @@ import { Plugin } from '@ts-graphviz/mdx';
 import { EC2 } from '../components/compute/EC2';
 import { Lambda } from '../components/compute/Lambda';
 import { S3 } from '../components/storage/S3';
-import { IAM } from '../components/security/IAM';
+import { IAM } from '../components/security-identity-compliance/IAM';
 import { AWS } from '../components/groups/AWS';
 import { Region } from '../components/groups/Region';
 import { AvailabilityZone } from '../components/groups/AvailabilityZone';

@@ -1,0 +1,45 @@
+import { resolve } from 'path';
+import React, { FC, useMemo } from 'react';
+import { HasDependences, useLabelText } from '@rediagram/cdk';
+import { useAssertProvider } from '../../hooks/assert-provider';
+import { AWSNode } from '../internal/AWSNode';
+
+export type SageMakerType = 'Ground Truth' | 'Notebook' | 'Model' | 'Train';
+
+function resolveImage(type?: SageMakerType): string {
+  switch (type) {
+    case 'Ground Truth':
+      return resolve(__dirname, '../../../assets/internet-of-things/SageMaker/Ground-Truth.png');
+    case 'Notebook':
+      return resolve(__dirname, '../../../assets/internet-of-things/SageMaker/Notebook.png');
+    case 'Model':
+      return resolve(__dirname, '../../../assets/internet-of-things/SageMaker/Model.png');
+    case 'Train':
+      return resolve(__dirname, '../../../assets/internet-of-things/SageMaker/Train.png');
+    default:
+      return resolve(__dirname, '../../../assets/internet-of-things/SageMaker.png');
+  }
+}
+
+function useIcon(type?: SageMakerType): { path: string; size: number } {
+  return useMemo(() => {
+    return {
+      path: resolveImage(type),
+      size: type === undefined || type === 'Ground Truth' ? 56 : 37,
+    };
+  }, [type]);
+}
+
+export type SageMakerProps = {
+  type?: SageMakerType;
+  name: string;
+} & HasDependences;
+
+export const SageMaker: FC<SageMakerProps> = ({ type, name, upstream, downstream, children }) => {
+  useAssertProvider();
+  const icon = useIcon(type);
+  const label = useLabelText(children, { defaultValue: name, htmlLike: true });
+  return <AWSNode name={name} icon={icon} label={label} upstream={upstream} downstream={downstream} />;
+};
+
+SageMaker.displayName = 'SageMaker';

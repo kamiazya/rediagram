@@ -1,8 +1,8 @@
 import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
-import { Node, DOT } from '@ts-graphviz/react';
-import { HasDependences, Dependences, useLabelText } from '@rediagram/cdk';
+import { HasDependences, useLabelText } from '@rediagram/cdk';
 import { useAssertProvider } from '../../hooks/assert-provider';
+import { AWSNode } from '../internal/AWSNode';
 
 export type S3Props = {
   type?: S3Type;
@@ -37,32 +37,7 @@ export const S3: FC<S3Props> = ({ type, name, upstream, downstream, children }) 
   useAssertProvider();
   const icon = useIcon(type);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return (
-    <>
-      <Node
-        id={name}
-        shape="box"
-        fixedsize
-        width={1}
-        height={1}
-        penwidth={0} // disable border
-        margin={0}
-        label={
-          <DOT.TABLE BORDER={0} CELLBORDER={0}>
-            <DOT.TR>
-              <DOT.TD WIDTH={icon.size} HEIGHT={icon.size} FIXEDSIZE>
-                <DOT.IMG SRC={icon.path} />
-              </DOT.TD>
-            </DOT.TR>
-            <DOT.TR>
-              <DOT.TD>{label}</DOT.TD>
-            </DOT.TR>
-          </DOT.TABLE>
-        }
-      />
-      <Dependences origin={name} upstream={upstream} downstream={downstream} />
-    </>
-  );
+  return <AWSNode name={name} icon={icon} label={label} upstream={upstream} downstream={downstream} />;
 };
 
 S3.displayName = 'S3';
