@@ -1,0 +1,37 @@
+name: NodeCI
+
+on: [push]
+
+jobs:
+  test:
+    name: Test on node ${{ matrix.node-version }} and ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        node-version: [10.x, 12.x]
+        os: [ubuntu-latest, windows-latest, macos-latest]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }} on ubuntu-latest
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: setup grapgviz
+      uses: ts-graphviz/setup-graphviz@v1
+    - name: Install dependencies
+      run: yarn --frozen-lockfile --ignore-optional
+      env:
+        CI: 'true'
+    - name: Build
+      run: |
+        yarn workspace @rediagram/cdk build
+        yarn workspace rediagram build
+        yarn workspace @rediagram/aws build
+        yarn workspace @rediagram/cli build
+      env:
+        CI: 'true'
+    - name: Lint
+      run: yarn lint
+      env:
+        CI: 'true'

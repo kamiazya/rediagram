@@ -33,6 +33,7 @@
     "@typescript-eslint/no-explicit-any": "off",
     "prettier/prettier": "error",
     "import/extensions": "off",
+    "import/no-unresolved": "off",
     "import/prefer-default-export": "off",
     "import/no-extraneous-dependencies": "off",
     "react/forbid-prop-types": "off",
