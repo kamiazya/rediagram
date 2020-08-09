@@ -1,6 +1,6 @@
 import { ReactElement } from 'react';
 import { renderToDot } from '@ts-graphviz/react';
-import { renderDot, RenderDotOption, Fromat as Format } from '@ts-graphviz/node';
+import { renderDot, RenderDotOption, Format } from '@ts-graphviz/node';
 import path from 'path';
 import caller from 'caller';
 

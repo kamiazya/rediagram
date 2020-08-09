@@ -4,7 +4,7 @@
 
 # rediagram
 
-Prototyping system architectures by using React.
+Markup and draw your system diagrams with React.
 
 ## Key Feature
 
@@ -57,36 +57,6 @@ See [more examples](./examples/gallery/README.md).
 >
 > See [@rediagram/cli](./packages/cli/README.md) for more details.
 
-### Embed your diagram in MDX ![WIP](https://img.shields.io/badge/-WIP-yellow)
-
-```md
-# My Infra
-
-This is My awesome infra.
-
-<Diagram title="My Infra">
-  <AWS>
-    <Region name="Asia Pacific (Tokyo)">
-      <AutoScalingGroup>
-        <EC2 name="REST API" type="Instance" upstream={['worker4']} />
-      </AutoScalingGroup>
-      <SecurityGroup>
-        <Lambda name="worker4" type="Lambda Function" upstream={['worker5', 'worker6']} />
-        <Lambda name="worker5" type="Lambda Function" />
-        <Lambda name="worker6" type="Lambda Function" />
-      </SecurityGroup>
-    </Region>
-  </AWS>
-  <AWSGeneralIcon name="Browser" type="Client" upstream={['REST API']} />
-</Diagram>
-```
-
-```html
-<h1>My Infra</h1>
-<p>This is My awesome infra.</p>
-<img src="data:image/svg+xml;base64,..." />
-```
-
 ## Packages
 
 - Core
@@ -102,7 +72,6 @@ This is My awesome infra.
   - [@rediagram/docker-runtime](./docker/README.md) - rediagram runtime for Docker. ![WIP](https://img.shields.io/badge/-WIP-yellow)
 - Examples
   - [Gallery](./examples/gallery/README.md)
-  - [MDX](./examples/mdx/README.md) ![WIP](https://img.shields.io/badge/-WIP-yellow)
 
 ## Requirement
 

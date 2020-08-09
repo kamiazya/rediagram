@@ -17,7 +17,6 @@
     "rediagram": "yarn workspace @rediagram/cli start",
     "lint": "eslint -c .eslintrc.json --ext ts,tsx component-libraries packages examples",
     "example:gallery": "yarn workspace @rediagram/gallery start",
-    "example:mdx": "yarn workspace @rediagram/mdx-example start",
     "versionup": "lerna version --conventional-commits",
     "versionup:patch": "lerna version patch --conventional-commits",
     "versionup:minor": "lerna version minor --conventional-commits",
@@ -42,8 +41,6 @@
     "fs-extra": "^9.0.0",
     "lerna": "^3.21.0",
     "prettier": "^2.0.5",
-    "rollup": "^2.10.5",
-    "rollup-plugin-typescript2": "^0.27.1",
     "ts-node": "^8.10.1",
     "typescript": "^3.9.2"
   }
