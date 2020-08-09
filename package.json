@@ -12,6 +12,7 @@
   ],
   "scripts": {
     "lerna": "lerna",
+    "build": "lerna run --parallel build",
     "watch": "lerna run --parallel watch",
     "rediagram": "yarn workspace @rediagram/cli start",
     "lint": "eslint -c .eslintrc.json --ext ts,tsx component-libraries packages examples",
@@ -21,6 +22,7 @@
     "versionup:patch": "lerna version patch --conventional-commits",
     "versionup:minor": "lerna version minor --conventional-commits",
     "versionup:major": "lerna version major --conventional-commits",
+    "prerelease": "yarn build",
     "release": "lerna publish from-package",
     "release:canary": "lerna publish --canary",
     "postinstall": "lerna link"
