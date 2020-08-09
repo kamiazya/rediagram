@@ -1,6 +1,6 @@
 {
   "name": "@rediagram/mdx-example",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "index.js",
   "private": true,
   "license": "MIT",
@@ -8,9 +8,9 @@
     "start": "ts-node src/main"
   },
   "dependencies": {
-    "@rediagram/aws": "^0.0.2",
+    "@rediagram/aws": "^0.1.0",
     "@ts-graphviz/mdx": "^0.0.6",
-    "rediagram": "^0.0.2"
+    "rediagram": "^0.0.3"
   },
   "devDependencies": {
     "ts-node": "^8.10.2",
