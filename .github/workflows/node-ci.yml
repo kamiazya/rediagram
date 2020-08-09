@@ -35,7 +35,3 @@ jobs:
       run: yarn lint
       env:
         CI: 'true'
-    - name: Examples
-      run: |
-        yarn example:gallery
-        yarn example:mdx
