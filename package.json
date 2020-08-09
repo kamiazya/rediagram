@@ -17,7 +17,6 @@
     "rediagram": "yarn workspace @rediagram/cli start",
     "lint": "eslint -c .eslintrc.json --ext ts,tsx component-libraries packages examples",
     "example:gallery": "yarn workspace @rediagram/gallery start",
-    "example:mdx": "yarn workspace @rediagram/mdx-example start",
     "versionup": "lerna version --conventional-commits",
     "versionup:patch": "lerna version patch --conventional-commits",
     "versionup:minor": "lerna version minor --conventional-commits",

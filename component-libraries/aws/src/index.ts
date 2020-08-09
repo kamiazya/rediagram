@@ -234,5 +234,3 @@ export * from './components/storage/Snowmobile';
 export * from './components/storage/StandardStorageClass';
 export * from './components/storage/Storage';
 export * from './components/storage/StorageGateway';
-
-export * from './mdx';

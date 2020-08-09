@@ -24,7 +24,6 @@
     "watch": "tsc --watch"
   },
   "peerDependencies": {
-    "@ts-graphviz/mdx": "^0.0.6",
     "@ts-graphviz/node": "^0.0.2",
     "@ts-graphviz/react": "^0.5.0",
     "prop-types": "^15.7.2",
