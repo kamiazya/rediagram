@@ -1,0 +1,22 @@
+{
+  "preset": "ts-jest",
+  "testEnvironment": "node",
+  "verbose": true,
+  "collectCoverage": true,
+  "collectCoverageFrom": [
+    "**/src/**"
+  ],
+  "transform": {
+    "^.+\\.tsx?$": "ts-jest"
+  },
+  "moduleFileExtensions": [
+    "ts",
+    "tsx",
+    "js",
+    "jsx",
+    "json"
+  ],
+  "setupFilesAfterEnv": [
+    "<rootDir>/config/jest/setup-jest.ts"
+  ]
+}

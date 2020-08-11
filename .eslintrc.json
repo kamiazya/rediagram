@@ -1,5 +1,8 @@
 {
   "parser": "@typescript-eslint/parser",
+  "env": {
+    "jest/globals": true
+  },
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -20,14 +23,16 @@
   },
   "plugins": [
     "@typescript-eslint",
-    "prettier"
+    "prettier",
+    "jest"
   ],
   "extends": [
     "airbnb",
     "plugin:prettier/recommended",
     "plugin:@typescript-eslint/recommended",
     "prettier/@typescript-eslint",
-    "plugin:react-hooks/recommended"
+    "plugin:react-hooks/recommended",
+    "plugin:jest/recommended"
   ],
   "rules": {
     "@typescript-eslint/no-explicit-any": "off",
