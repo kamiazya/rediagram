@@ -3,7 +3,6 @@ import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
-
 export type CustomerEngagementProps = {
   name: string;
 } & HasDependences;
