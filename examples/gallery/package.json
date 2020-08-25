@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@rediagram/aws": "^0.1.0",
+    "@rediagram/gcp": "^0.0.0",
     "@rediagram/cli": "^0.0.3",
     "@ts-graphviz/react": "^0.5.0",
     "prop-types": "^15.7.2",

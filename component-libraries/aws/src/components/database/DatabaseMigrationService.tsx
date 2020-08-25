@@ -1,8 +1,7 @@
 import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
-import { HasDependences, useLabelText } from '@rediagram/cdk';
+import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
 import { useAssertProvider } from '../../hooks/assert-provider';
-import { AWSNode } from '../internal/AWSNode';
 
 type DatabaseMigrationServiceCategory = 'database' | 'migration-transfer';
 
@@ -46,7 +45,7 @@ export const DatabaseMigrationService: FC<DatabaseMigrationServiceProps> = ({
   useAssertProvider();
   const icon = useIcon(category, type);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return <AWSNode name={name} icon={icon} label={label} upstream={upstream} downstream={downstream} />;
+  return <IconNode name={name} icon={icon} label={label} upstream={upstream} downstream={downstream} />;
 };
 
 DatabaseMigrationService.displayName = 'DatabaseMigrationService';

@@ -1,8 +1,7 @@
 import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
-import { HasDependences, useLabelText } from '@rediagram/cdk';
+import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
 import { useAssertProvider } from '../../hooks/assert-provider';
-import { AWSNode } from '../internal/AWSNode';
 
 export type QuantumLedgerDatabaseCategory = 'blockchain' | 'database';
 
@@ -34,7 +33,7 @@ export const QuantumLedgerDatabase: FC<QuantumLedgerDatabaseProps> = ({
   useAssertProvider();
   const icon = useIcon(category);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return <AWSNode name={name} icon={icon} label={label} upstream={upstream} downstream={downstream} />;
+  return <IconNode name={name} icon={icon} label={label} upstream={upstream} downstream={downstream} />;
 };
 
 QuantumLedgerDatabase.displayName = 'QuantumLedgerDatabase';

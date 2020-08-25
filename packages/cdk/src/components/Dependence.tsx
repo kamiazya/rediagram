@@ -1,5 +1,7 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React, { FC, ReactElement, useMemo } from 'react';
 import { Edge, Node, ClusterPortal } from '@ts-graphviz/react';
+import { useDependenciesEdgeAttributes } from '../hooks/edgeAttributes';
 
 export type Destination = string | { destination: string; description?: string | ReactElement };
 
@@ -31,24 +33,24 @@ function useID(): [string, string] {
 
 export const Dependences: FC<DependencesProps> = ({ origin, upstream, downstream }) => {
   const [upstreamID, downstreamID] = useID();
+  const edgeAttributes = useDependenciesEdgeAttributes();
   return (
     <>
       {upstream && upstream.length > 1 ? (
         <>
           <Node id={upstreamID} shape="point" label="" fixedsize width={0} height={0} />
-          <Edge targets={[origin, upstreamID]} arrowhead="point" arrowtail="none" color="#535B63" fontcolor="#232F3D" />
+          <Edge {...edgeAttributes} targets={[origin, upstreamID]} arrowhead="point" arrowtail="none" />
         </>
       ) : null}
       {downstream ? (
         <>
           <Node id={downstreamID} shape="point" label="" fixedsize width={0} height={0} />
           <Edge
+            {...edgeAttributes}
             targets={[origin, downstreamID]}
             constraint={false}
             arrowhead="none"
             arrowtail="none"
-            color="#535B63"
-            fontcolor="#232F3D"
           />
         </>
       ) : null}
@@ -57,9 +59,8 @@ export const Dependences: FC<DependencesProps> = ({ origin, upstream, downstream
           ? upstream.map((d) => (
               // eslint-disable-next-line react/jsx-indent
               <Edge
+                {...edgeAttributes}
                 fontsize={12}
-                color="#535B63"
-                fontcolor="#232F3D"
                 targets={[upstream.length === 1 ? origin : upstreamID, getDestinationName(d)]}
                 label={getDestinationDescription(d)}
                 key={`${upstream.length === 1 ? origin : upstreamID}-${getDestinationName(d)}`}
@@ -70,9 +71,8 @@ export const Dependences: FC<DependencesProps> = ({ origin, upstream, downstream
           ? downstream.map((d) => (
               // eslint-disable-next-line react/jsx-indent
               <Edge
+                {...edgeAttributes}
                 fontsize={12}
-                color="#535B63"
-                fontcolor="#232F3D"
                 targets={[downstreamID, getDestinationName(d)]}
                 label={getDestinationDescription(d)}
                 key={`${downstreamID}-${getDestinationName(d)}`}

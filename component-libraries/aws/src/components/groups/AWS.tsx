@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Provider } from '@rediagram/cdk';
+import { Provider, DependenciesEdgeAttributes } from '@rediagram/cdk';
 import { Subgraph, DOT } from '@ts-graphviz/react';
 import { resolve } from 'path';
 
@@ -26,7 +26,21 @@ export const AWS: FC = ({ children }) => {
           </DOT.TABLE>
         }
       >
-        {children}
+        <DependenciesEdgeAttributes fontsize={12} color="#535B63" fontcolor="#232F3D">
+          {children}
+        </DependenciesEdgeAttributes>
+      </Subgraph>
+    </Provider>
+  );
+};
+
+export const InvizAWS: FC = ({ children }) => {
+  return (
+    <Provider name="aws">
+      <Subgraph id="aws" fontsize="12" color="#232F3D">
+        <DependenciesEdgeAttributes fontsize={12} color="#535B63" fontcolor="#232F3D">
+          {children}
+        </DependenciesEdgeAttributes>
       </Subgraph>
     </Provider>
   );
