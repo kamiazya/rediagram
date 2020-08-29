@@ -2,17 +2,17 @@ import React, { FC } from 'react';
 import { useAssertProvider } from '../../hooks/assert-provider';
 import { GCPGroup } from '../internal/GCPGroup';
 
-export type ZoneProps = {
+export type OnPremisesProps = {
   title: string;
 };
 
-export const Zone: FC<ZoneProps> = ({ title, children }) => {
+export const OnPremises: FC<OnPremisesProps> = ({ title, children }) => {
   useAssertProvider();
   return (
-    <GCPGroup title={title} fillcolor="#FFF3E0">
+    <GCPGroup title={title} fillcolor="#EFEBE9">
       {children}
     </GCPGroup>
   );
 };
 
-Zone.displayName = 'Zone';
+OnPremises.displayName = 'OnPremises';

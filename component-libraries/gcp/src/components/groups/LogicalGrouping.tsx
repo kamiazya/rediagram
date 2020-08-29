@@ -2,17 +2,17 @@ import React, { FC } from 'react';
 import { useAssertProvider } from '../../hooks/assert-provider';
 import { GCPGroup } from '../internal/GCPGroup';
 
-export type ZoneProps = {
+export type LogicalGroupingProps = {
   title: string;
 };
 
-export const Zone: FC<ZoneProps> = ({ title, children }) => {
+export const LogicalGrouping: FC<LogicalGroupingProps> = ({ title, children }) => {
   useAssertProvider();
   return (
-    <GCPGroup title={title} fillcolor="#FFF3E0">
+    <GCPGroup title={title} fillcolor="#E3F2FD">
       {children}
     </GCPGroup>
   );
 };
 
-Zone.displayName = 'Zone';
+LogicalGrouping.displayName = 'LogicalGrouping';

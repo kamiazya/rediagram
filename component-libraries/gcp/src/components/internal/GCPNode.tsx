@@ -5,7 +5,7 @@ import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type GCPNodeProps = {
   icon: { size: number; path: string };
-  label?: string | ReactElement | undefined;
+  label?: string | ReactElement;
   name: string;
   service: string;
   description?: string;
