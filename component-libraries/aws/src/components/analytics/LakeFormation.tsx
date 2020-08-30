@@ -1,8 +1,7 @@
 import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
-import { HasDependences, useLabelText } from '@rediagram/cdk';
+import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
 import { useAssertProvider } from '../../hooks/assert-provider';
-import { AWSNode } from '../internal/AWSNode';
 
 export type LakeFormationProps = {
   type?: LakeFormationType;
@@ -33,7 +32,7 @@ export const LakeFormation: FC<LakeFormationProps> = ({ type, name, children, up
   useAssertProvider();
   const icon = useIcon(type);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return <AWSNode name={name} icon={icon} label={label} upstream={upstream} downstream={downstream} />;
+  return <IconNode name={name} icon={icon} label={label} upstream={upstream} downstream={downstream} />;
 };
 
 LakeFormation.displayName = 'LakeFormation';

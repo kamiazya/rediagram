@@ -65,7 +65,7 @@ See [more examples](./examples/gallery/README.md).
   - [@rediagram/cdk](./packages/cdk/README.md) - Component Development Kit for rediagram library.
 - Component Libraries
   - [@rediagram/aws](./component-libraries/aws/README.md) - Components for drawing AWS diagrams.
-  - @rediagram/gcp ![TODO](https://img.shields.io/badge/-TODO-blue)
+  - [@rediagram/gcp](./component-libraries/gcp/README.md) - Components for drawing GCP diagrams.
   - etc,
     - We have no plans yet, but welcome contributions.
 - Miscellaneous

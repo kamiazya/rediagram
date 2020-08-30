@@ -1,8 +1,7 @@
 import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
-import { HasDependences, useLabelText } from '@rediagram/cdk';
+import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
 import { useAssertProvider } from '../../hooks/assert-provider';
-import { AWSNode } from '../internal/AWSNode';
 
 export type ElementalLiveProps = {
   name: string;
@@ -25,7 +24,7 @@ export const ElementalLive: FC<ElementalLiveProps> = ({ name, children, upstream
   useAssertProvider();
   const icon = useIcon();
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return <AWSNode name={name} icon={icon} label={label} upstream={upstream} downstream={downstream} />;
+  return <IconNode name={name} icon={icon} label={label} upstream={upstream} downstream={downstream} />;
 };
 
 ElementalLive.displayName = 'ElementalLive';

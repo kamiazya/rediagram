@@ -1,16 +1,14 @@
 import React, { FC, ReactElement } from 'react';
 import { Node, DOT } from '@ts-graphviz/react';
-import { HasDependences, Dependences } from '@rediagram/cdk';
-import { useAssertProvider } from '../../hooks/assert-provider';
+import { HasDependences, Dependences } from './Dependence';
 
-export type AWSNodeProps = {
+export type IconNodeProps = {
   icon: { size: number; path: string };
   label?: string | ReactElement | undefined;
   name: string;
 } & HasDependences;
 
-export const AWSNode: FC<AWSNodeProps> = ({ name, icon, label, upstream, downstream }) => {
-  useAssertProvider();
+export const IconNode: FC<IconNodeProps> = ({ name, icon, label, upstream, downstream }) => {
   return (
     <>
       <Node
@@ -39,4 +37,4 @@ export const AWSNode: FC<AWSNodeProps> = ({ name, icon, label, upstream, downstr
   );
 };
 
-AWSNode.displayName = 'AWSNode';
+IconNode.displayName = 'IconNode';

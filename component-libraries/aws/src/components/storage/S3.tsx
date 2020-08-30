@@ -1,8 +1,7 @@
 import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
-import { HasDependences, useLabelText } from '@rediagram/cdk';
+import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
 import { useAssertProvider } from '../../hooks/assert-provider';
-import { AWSNode } from '../internal/AWSNode';
 
 export type S3Props = {
   type?: S3Type;
@@ -37,7 +36,7 @@ export const S3: FC<S3Props> = ({ type, name, upstream, downstream, children }) 
   useAssertProvider();
   const icon = useIcon(type);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return <AWSNode name={name} icon={icon} label={label} upstream={upstream} downstream={downstream} />;
+  return <IconNode name={name} icon={icon} label={label} upstream={upstream} downstream={downstream} />;
 };
 
 S3.displayName = 'S3';

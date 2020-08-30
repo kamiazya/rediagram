@@ -1,8 +1,7 @@
 import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
-import { HasDependences, useLabelText } from '@rediagram/cdk';
+import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
 import { useAssertProvider } from '../../hooks/assert-provider';
-import { AWSNode } from '../internal/AWSNode';
 
 export type IoTAnalyticsType = 'Channel' | 'Data set' | 'Pipeline' | 'Notebook' | 'Data store';
 
@@ -41,7 +40,7 @@ export const IoTAnalytics: FC<IoTAnalyticsProps> = ({ type, name, upstream, down
   useAssertProvider();
   const icon = useIcon(type);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return <AWSNode name={name} icon={icon} label={label} upstream={upstream} downstream={downstream} />;
+  return <IconNode name={name} icon={icon} label={label} upstream={upstream} downstream={downstream} />;
 };
 
 IoTAnalytics.displayName = 'IoTAnalytics';
