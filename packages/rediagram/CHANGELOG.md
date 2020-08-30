@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0](https://github.com/kamiazya/rediagram/compare/rediagram@0.0.3...rediagram@0.1.0) (2020-08-30)
+
+
+### Bug Fixes
+
+* **redigram:** fix dependencies ([8b735b2](https://github.com/kamiazya/rediagram/commit/8b735b2bfa993133dc00351a652c4276967757a2))
+
+
+### Features
+
+* **@rediagram/gcp:** add @rediagram/gcp and refactor ([3baf651](https://github.com/kamiazya/rediagram/commit/3baf6514b6b1fb7156fb44236ed316113e6ea049))
+
+
+
+
+
 ## [0.0.3](https://github.com/kamiazya/rediagram/compare/rediagram@0.0.2...rediagram@0.0.3) (2020-08-09)
 
 **Note:** Version bump only for package rediagram

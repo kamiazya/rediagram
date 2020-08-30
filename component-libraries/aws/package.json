@@ -1,6 +1,6 @@
 {
   "name": "@rediagram/aws",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "license": "MIT",
@@ -27,7 +27,7 @@
     "watch": "tsc --watch"
   },
   "dependencies": {
-    "@rediagram/cdk": "^0.0.2"
+    "@rediagram/cdk": "^0.1.0"
   },
   "peerDependencies": {
     "@ts-graphviz/react": "^0.5.0",
@@ -42,7 +42,7 @@
     "@types/prop-types": "^15.7.3",
     "@types/react": "^16.9.35",
     "@types/react-dom": "^16.9.8",
-    "rediagram": "^0.0.3",
+    "rediagram": "^0.1.0",
     "typescript": "^3.9.3"
   }
 }
