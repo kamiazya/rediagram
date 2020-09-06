@@ -18,6 +18,16 @@
     "react": "^16.8.4",
     "react-dom": "^16.8.4"
   },
+  "devDependencies": {
+    "@docusaurus/module-type-aliases": "^2.0.0-alpha.51",
+    "@docusaurus/types": "^2.0.0-alpha.37",
+    "@tsconfig/docusaurus": "^1.0.2",
+    "@rediagram/docusaurus-plugin": "*",
+    "@types/react": "^16.9.49",
+    "@types/react-helmet": "^6.1.0",
+    "@types/react-router-dom": "^5.1.5",
+    "typescript": "^4.0.2"
+  },
   "browserslist": {
     "production": [
       ">0.2%",

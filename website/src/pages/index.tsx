@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable prettier/prettier */
 /* eslint-disable react/jsx-filename-extension */
-import React from 'react';
+import React, { FC } from 'react';
 import clsx from 'clsx';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
@@ -9,43 +9,43 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
 
-const features = [
+type FeatureProps = {
+  imageUrl: string;
+  title: string;
+  description: JSX.Element;
+}
+
+const features: FeatureProps[] = [
   {
-    title: 'Easy to Use',
-    imageUrl: 'img/undraw_docusaurus_mountain.svg',
+    title: 'Visualize your Infrastructure',
+    imageUrl: 'img/undraw_mind_map.svg',
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and used to get your website up and running
-        quickly.
-      </>
-    ),
-  },
-  {
-    title: 'Focus on What Matters',
-    imageUrl: 'img/undraw_docusaurus_tree.svg',
-    description: (
-      <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go ahead and move your docs into the
-        {' '}
-        <code>docs</code>
-        {' '}
-        directory.
+        rediagram is a platform for visualizing cloud infrastructure such as AWS and GCP.
       </>
     ),
   },
   {
     title: 'Powered by React',
-    imageUrl: 'img/undraw_docusaurus_react.svg',
+    imageUrl: 'img/undraw_react.svg',
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can be extended while reusing the same
-        header and footer.
+        Extend or customize your diagram layout by reusing React.
+      </>
+    ),
+  },
+  {
+    title: 'Battery includes',
+    imageUrl: 'img/undraw_abstract.svg',
+    description: (
+      <>
+        rediagram already provides AWS and GCP services as components and provides a library, it is not necessary to make the components that are often needed.
       </>
     ),
   },
 ];
 
-function Feature({ imageUrl, title, description }) {
+const Feature: FC<FeatureProps> = ({ imageUrl, title, description }) => {
   const imgUrl = useBaseUrl(imageUrl);
   return (
     <div className={clsx('col col--4', styles.feature)}>
@@ -60,11 +60,11 @@ function Feature({ imageUrl, title, description }) {
   );
 }
 
-function Home() {
+const Home: FC = () => {
   const context = useDocusaurusContext();
   const { siteConfig = {} } = context;
   return (
-    <Layout title={`Hello from ${siteConfig.title}`} description="Description will go into a meta tag in <head />">
+    <Layout title="Top" description="Markup and draw your system diagrams with React.">
       <header className={clsx('hero hero--primary', styles.heroBanner)}>
         <div className="container">
           <h1 className="hero__title">{siteConfig.title}</h1>
