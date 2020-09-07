@@ -3,12 +3,12 @@ import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
+export type LambdaType = 'Lambda Function';
+
 export type LambdaProps = {
   type?: LambdaType;
   name: string;
 } & HasDependences;
-
-export type LambdaType = 'Lambda Function';
 
 function resolveImage(type?: LambdaType): string {
   switch (type) {

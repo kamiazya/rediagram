@@ -3,11 +3,6 @@ import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
-export type IAMProps = {
-  type?: IAMType;
-  name: string;
-} & HasDependences;
-
 export type IAMType =
   | 'Add-on'
   | 'AWS STS Alternate'
@@ -19,6 +14,11 @@ export type IAMType =
   | 'Permissions'
   | 'Role'
   | 'Temporary Security Credential';
+
+export type IAMProps = {
+  type?: IAMType;
+  name: string;
+} & HasDependences;
 
 function resolveImage(type?: IAMType): string {
   switch (type) {

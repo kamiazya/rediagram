@@ -3,12 +3,12 @@ import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
+export type SimpleEmailServiceType = 'Email';
+
 export type SimpleEmailServiceProps = {
   type?: SimpleEmailServiceType;
   name: string;
 } & HasDependences;
-
-export type SimpleEmailServiceType = 'Email';
 
 function resolveImage(type?: SimpleEmailServiceType): string {
   switch (type) {

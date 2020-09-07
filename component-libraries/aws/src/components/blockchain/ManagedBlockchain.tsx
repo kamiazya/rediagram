@@ -3,12 +3,12 @@ import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
+export type ManagedBlockchainType = 'Blockchain';
+
 export type ManagedBlockchainProps = {
   type?: ManagedBlockchainType;
   name: string;
 } & HasDependences;
-
-export type ManagedBlockchainType = 'Blockchain';
 
 function resolveImage(type?: ManagedBlockchainType): string {
   switch (type) {

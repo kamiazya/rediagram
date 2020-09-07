@@ -3,12 +3,12 @@ import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
+export type CloudSearchType = 'Search documents';
+
 export type CloudSearchProps = {
   type?: CloudSearchType;
   name: string;
 } & HasDependences;
-
-export type CloudSearchType = 'Search documents';
 
 function resolveImage(type?: CloudSearchType): string {
   switch (type) {

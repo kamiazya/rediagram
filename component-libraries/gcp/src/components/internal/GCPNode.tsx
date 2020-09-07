@@ -35,12 +35,12 @@ export const GCPNode: FC<GCPNodeProps> = ({ name, service, description, icon, la
                 <DOT.TABLE BORDER={0} CELLBORDER={0}>
                   <DOT.TR>
                     <DOT.TD ALIGN="LEFT">
-                      <DOT.FONT color="#212121">{label}</DOT.FONT>
+                      <DOT.FONT COLOR="#212121">{label}</DOT.FONT>
                     </DOT.TD>
                   </DOT.TR>
                   <DOT.TR>
                     <DOT.TD ALIGN="LEFT">
-                      <DOT.FONT color="#757575">{service}</DOT.FONT>
+                      <DOT.FONT COLOR="#757575">{service}</DOT.FONT>
                     </DOT.TD>
                   </DOT.TR>
                   {description ? (
@@ -48,7 +48,7 @@ export const GCPNode: FC<GCPNodeProps> = ({ name, service, description, icon, la
                       <DOT.HR />
                       <DOT.TR>
                         <DOT.TD ALIGN="LEFT">
-                          <DOT.FONT color="#757575">{description}</DOT.FONT>
+                          <DOT.FONT COLOR="#757575">{description}</DOT.FONT>
                         </DOT.TD>
                       </DOT.TR>
                     </>

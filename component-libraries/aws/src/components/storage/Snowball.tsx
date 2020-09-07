@@ -3,12 +3,12 @@ import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
+export type SnowballType = 'Snowball import-export';
+
 export type SnowballProps = {
   type?: SnowballType;
   name: string;
 } & HasDependences;
-
-export type SnowballType = 'Snowball import-export';
 
 function resolveImage(type?: SnowballType): string {
   switch (type) {

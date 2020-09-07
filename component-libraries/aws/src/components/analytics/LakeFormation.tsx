@@ -3,12 +3,12 @@ import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
+export type LakeFormationType = 'Data lake';
+
 export type LakeFormationProps = {
   type?: LakeFormationType;
   name: string;
 } & HasDependences;
-
-export type LakeFormationType = 'Data lake';
 
 function resolveImage(type?: LakeFormationType): string {
   switch (type) {

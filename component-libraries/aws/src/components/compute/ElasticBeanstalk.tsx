@@ -3,12 +3,12 @@ import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
+export type ElasticBeanstalkType = 'Deployment' | 'Application';
+
 export type ElasticBeanstalkProps = {
   type?: ElasticBeanstalkType;
   name: string;
 } & HasDependences;
-
-export type ElasticBeanstalkType = 'Deployment' | 'Application';
 
 function resolveImage(type?: ElasticBeanstalkType): string {
   switch (type) {
