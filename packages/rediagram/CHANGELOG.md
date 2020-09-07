@@ -8,7 +8,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **redigram:** fix dependencies ([8b735b2](https://github.com/kamiazya/rediagram/commit/8b735b2bfa993133dc00351a652c4276967757a2))
+* **rediagram:** fix dependencies ([8b735b2](https://github.com/kamiazya/rediagram/commit/8b735b2bfa993133dc00351a652c4276967757a2))
 
 
 ### Features
