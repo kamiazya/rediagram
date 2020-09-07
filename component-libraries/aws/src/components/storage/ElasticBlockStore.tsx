@@ -3,12 +3,12 @@ import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
+export type ElasticBlockStoreType = 'Snapshot' | 'Volume' | 'Multiple volumes';
+
 export type ElasticBlockStoreProps = {
   type?: ElasticBlockStoreType;
   name: string;
 } & HasDependences;
-
-export type ElasticBlockStoreType = 'Snapshot' | 'Volume' | 'Multiple volumes';
 
 function resolveImage(type?: ElasticBlockStoreType): string {
   switch (type) {

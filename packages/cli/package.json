@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@rediagram/aws": "^0.2.0",
-    "@ts-graphviz/react": "^0.5.0",
+    "@ts-graphviz/react": "^0.7.0",
     "@types/node": "^14.0.4",
     "@types/prop-types": "^15.7.3",
     "@types/react": "^16.9.35",
@@ -43,6 +43,6 @@
     "rediagram": "^0.1.0",
     "ts-graphviz": "^0.13.1",
     "ts-node": "^9.0.0",
-    "typescript": "^3.9.3"
+    "typescript": "^4.0.2"
   }
 }

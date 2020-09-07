@@ -3,12 +3,12 @@ import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
+export type S3Type = 'Bucket with Objects' | 'Bucket' | 'Object';
+
 export type S3Props = {
   type?: S3Type;
   name: string;
 } & HasDependences;
-
-export type S3Type = 'Bucket with Objects' | 'Bucket' | 'Object';
 
 function resolveImage(type?: S3Type): string {
   switch (type) {

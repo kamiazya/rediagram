@@ -3,12 +3,12 @@ import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
+export type DirectoryServiceType = 'Simple AD' | 'AD Connector' | 'AWS Managed Microsoft AD';
+
 export type DirectoryServiceProps = {
   type?: DirectoryServiceType;
   name: string;
 } & HasDependences;
-
-export type DirectoryServiceType = 'Simple AD' | 'AD Connector' | 'AWS Managed Microsoft AD';
 
 function resolveImage(type?: DirectoryServiceType): string {
   switch (type) {

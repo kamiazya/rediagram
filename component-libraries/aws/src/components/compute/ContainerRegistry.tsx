@@ -3,12 +3,12 @@ import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
+export type ContainerRegistryType = 'Registry' | 'Image';
+
 export type ContainerRegistryProps = {
   type?: ContainerRegistryType;
   name: string;
 } & HasDependences;
-
-export type ContainerRegistryType = 'Registry' | 'Image';
 
 function resolveImage(type?: ContainerRegistryType): string {
   switch (type) {

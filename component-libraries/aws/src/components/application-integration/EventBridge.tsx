@@ -3,12 +3,12 @@ import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
+export type EventBridgeType = 'Event' | 'Default' | 'Custom' | 'SaaS';
+
 export type EventBridgeProps = {
   type?: EventBridgeType;
   name: string;
 } & HasDependences;
-
-export type EventBridgeType = 'Event' | 'Default' | 'Custom' | 'SaaS';
 
 function resolveImage(type?: EventBridgeType): string {
   switch (type) {

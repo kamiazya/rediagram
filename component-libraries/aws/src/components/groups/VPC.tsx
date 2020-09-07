@@ -6,11 +6,11 @@ import { IP, HasIP } from './internal/IP';
 
 let securityGroupID = 0;
 
+type Type = 'VPC' | 'Private subnet' | 'Public subnet';
+
 type Props = {
   type?: Type;
 } & HasIP;
-
-type Type = 'VPC' | 'Private subnet' | 'Public subnet';
 
 function resolveImage(type?: Type): string {
   switch (type) {

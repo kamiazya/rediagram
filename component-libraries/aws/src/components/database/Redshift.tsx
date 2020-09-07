@@ -3,14 +3,13 @@ import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
+export type RedshiftCategory = 'analytics' | 'database';
+export type RedshiftType = 'Dense compute node' | 'Dense storage node';
 export type RedshiftProps = {
   category?: RedshiftCategory;
   type?: RedshiftType;
   name: string;
 } & HasDependences;
-
-export type RedshiftCategory = 'analytics' | 'database';
-export type RedshiftType = 'Dense compute node' | 'Dense storage node';
 
 function resolveImage(category: RedshiftCategory, type?: RedshiftType): string {
   switch (type) {

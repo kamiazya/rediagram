@@ -3,12 +3,12 @@ import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
+export type S3GlacierType = 'Vault' | 'Archive';
+
 export type S3GlacierProps = {
   type?: S3GlacierType;
   name: string;
 } & HasDependences;
-
-export type S3GlacierType = 'Vault' | 'Archive';
 
 function resolveImage(type?: S3GlacierType): string {
   switch (type) {
