@@ -4024,7 +4024,7 @@ fs-extra@^8.1.0:
     jsonfile "^4.0.0"
     universalify "^0.1.0"
 
-fs-extra@^9.0.0:
+fs-extra@^9.0.0, fs-extra@^9.0.1:
   version "9.0.1"
   resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-9.0.1.tgz#910da0062437ba4c39fedd863f1675ccfefcb9fc"
   integrity sha512-h2iAoN838FqAFJY2/qVpzFXy+EBxfVE220PalAqQLDVsFOHLJrZvut5puAbCdNv6WJk+B8ihI+k0c7JK5erwqQ==
@@ -8618,9 +8618,9 @@ trim-off-newlines@^1.0.0:
   integrity sha1-n5up2e+odkw4dpi8v+sshI8RrbM=
 
 ts-graphviz@^0.13.1:
-  version "0.13.1"
-  resolved "https://registry.yarnpkg.com/ts-graphviz/-/ts-graphviz-0.13.1.tgz#88970efb5faaf934eb7931431caa0d53ec816a88"
-  integrity sha512-9pRbqmQAG6c3kSu6yCaWSGx1aVrFOZPABxf+WQ5poutx82cXF25KD+B6C+CoMZmjTMpwhLq2euhUpDua1Q6C6A==
+  version "0.13.2"
+  resolved "https://registry.yarnpkg.com/ts-graphviz/-/ts-graphviz-0.13.2.tgz#b96c680466b427ae8e0d42a45cbf476ce6fc4e27"
+  integrity sha512-ykQpHPT1RVNzv/ZN/zwawDIFHi8eiEl+H3x3B+ZOQ9eMUaosVMd1ePaf/CA9b15iix48cTa7RcXcWvI/ZgoNKw==
   dependencies:
     tslib "^2.0.0"
 
