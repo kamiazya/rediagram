@@ -22,7 +22,6 @@
     "@docusaurus/module-type-aliases": "^2.0.0-alpha.51",
     "@docusaurus/types": "^2.0.0-alpha.37",
     "@tsconfig/docusaurus": "^1.0.2",
-    "@rediagram/docusaurus-plugin": "*",
     "@types/react": "^16.9.49",
     "@types/react-helmet": "^6.1.0",
     "@types/react-router-dom": "^5.1.5",

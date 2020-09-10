@@ -4,16 +4,12 @@ module.exports = {
   url: 'https://kamiazya.github.io/rediagram/',
   baseUrl: '/',
   onBrokenLinks: 'throw',
-  favicon: 'img/favicon.ico',
+  favicon: '/',
   organizationName: 'kamiazya', // Usually your GitHub org/user name.
   projectName: 'rediagram', // Usually your repo name.
   themeConfig: {
     navbar: {
       title: 'rediagram',
-      logo: {
-        alt: 'My Site Logo',
-        src: 'img/logo.svg',
-      },
       items: [
         {
           to: 'docs/',
@@ -38,10 +34,6 @@ module.exports = {
             {
               label: 'Style Guide',
               to: 'docs/',
-            },
-            {
-              label: 'Second Doc',
-              to: 'docs/doc2/',
             },
           ],
         },
