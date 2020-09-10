@@ -3,11 +3,6 @@ import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
-export type StorageGatewayProps = {
-  type?: StorageGatewayType;
-  name: string;
-} & HasDependences;
-
 export type StorageGatewayType =
   | 'Non-cached volume'
   | 'Cached volume'
@@ -15,6 +10,11 @@ export type StorageGatewayType =
   | 'Virtual tape library'
   | 'Tape gateway'
   | 'File gateway';
+
+export type StorageGatewayProps = {
+  type?: StorageGatewayType;
+  name: string;
+} & HasDependences;
 
 function resolveImage(type?: StorageGatewayType): string {
   switch (type) {

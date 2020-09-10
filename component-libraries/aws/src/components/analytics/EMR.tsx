@@ -3,11 +3,6 @@ import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
-export type EMRProps = {
-  type?: EMRType;
-  name: string;
-} & HasDependences;
-
 export type EMRType =
   | 'HDFS cluster'
   | 'Cluster'
@@ -15,6 +10,11 @@ export type EMRType =
   | 'EMR engine mapR M3'
   | 'EMR engine mapR M5'
   | 'EMR engine mapR M7';
+
+export type EMRProps = {
+  type?: EMRType;
+  name: string;
+} & HasDependences;
 
 function resolveImage(type?: EMRType): string {
   switch (type) {

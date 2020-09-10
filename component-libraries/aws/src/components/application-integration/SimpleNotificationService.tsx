@@ -3,12 +3,12 @@ import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
+export type SimpleNotificationServiceType = 'Email notification' | 'HTTP notification' | 'Topic';
+
 export type SimpleNotificationServiceProps = {
   type?: SimpleNotificationServiceType;
   name: string;
 } & HasDependences;
-
-export type SimpleNotificationServiceType = 'Email notification' | 'HTTP notification' | 'Topic';
 
 function resolveImage(type?: SimpleNotificationServiceType): string {
   switch (type) {

@@ -3,12 +3,12 @@ import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
+type ThinkboxType = 'Deadline' | 'Frost' | 'Krakatoa' | 'Sequoia' | 'Stoke' | 'Mesh';
+
 export type ThinkboxProps = {
   name: string;
   type: ThinkboxType;
 } & HasDependences;
-
-type ThinkboxType = 'Deadline' | 'Frost' | 'Krakatoa' | 'Sequoia' | 'Stoke' | 'Mesh';
 
 function resolveImage(type: ThinkboxType): string {
   switch (type) {

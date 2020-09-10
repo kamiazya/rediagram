@@ -3,12 +3,12 @@ import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
+export type ElasticFileSystemType = 'File system';
+
 export type ElasticFileSystemProps = {
   type?: ElasticFileSystemType;
   name: string;
 } & HasDependences;
-
-export type ElasticFileSystemType = 'File system';
 
 function resolveImage(type?: ElasticFileSystemType): string {
   switch (type) {

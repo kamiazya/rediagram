@@ -3,12 +3,12 @@ import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
+export type GlueType = 'Crawler' | 'Data catalog';
+
 export type GlueProps = {
   type?: GlueType;
   name: string;
 } & HasDependences;
-
-export type GlueType = 'Crawler' | 'Data catalog';
 
 function resolveImage(type?: GlueType): string {
   switch (type) {

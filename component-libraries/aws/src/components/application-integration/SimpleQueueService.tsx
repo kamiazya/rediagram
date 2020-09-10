@@ -3,12 +3,12 @@ import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
+export type SimpleQueueServiceType = 'Message' | 'Queue';
+
 export type SimpleQueueServiceProps = {
   type?: SimpleQueueServiceType;
   name: string;
 } & HasDependences;
-
-export type SimpleQueueServiceType = 'Message' | 'Queue';
 
 function resolveImage(type?: SimpleQueueServiceType): string {
   switch (type) {
