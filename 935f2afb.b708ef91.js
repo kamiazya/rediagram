@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[12],{70:function(e){e.exports=JSON.parse('{"version":"current","label":"Next","isLast":true,"docsSidebars":{"someSidebar":[{"collapsed":true,"type":"category","label":"rediagram","items":[{"type":"link","label":"Style Guide","href":"/rediagram/docs/"}]}]},"permalinkToSidebar":{"/rediagram/docs/":"someSidebar"}}')}}]);
