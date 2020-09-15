@@ -1,0 +1,32 @@
+name: Generate Doc and Deploy
+
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  deploy:
+    name: Deploy to gh-pages
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12.x
+    - name: Install dependencies
+      run: yarn --frozen-lockfile --ignore-optional
+      env:
+        CI: true
+    - name: Generate doc
+      working-directory: website
+      run: |
+        yarn build
+      env:
+        CI: true
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      env:
+        github_token: ${{ secrets.PERSONAL_TOKEN }}
+        publish_dir: ./website/build
