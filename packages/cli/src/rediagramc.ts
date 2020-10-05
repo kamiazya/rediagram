@@ -4,13 +4,14 @@ import { register } from 'ts-node';
 import path from 'path';
 import { version } from './pkg';
 
-register();
-
 cmd
   .name('rediagramc')
   .version(version)
   .arguments('[pattarns...]')
   .action(async function rediagram(pattarns: string[]): Promise<void> {
+    register({
+      project: require.resolve('@rediagram/tsconfig/tsconfig.json'),
+    });
     const sources = glob.sync([...pattarns, '**/*.rediagram.{jsx,tsx}', '!**/node_modules/**/*'], {
       dot: true,
       extglob: true,
