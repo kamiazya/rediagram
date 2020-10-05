@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "rediagram",
+  "compilerOptions": {
+    "jsx": "react",
+    "strict": true,
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
+    "lib": [
+      "esnext"
+    ],
+    "allowJs": true,
+    "esModuleInterop": true
+  }
+}

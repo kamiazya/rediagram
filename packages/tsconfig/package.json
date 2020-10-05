@@ -1,0 +1,23 @@
+{
+  "version": "0.0.0",
+  "license": "MIT",
+  "name": "@rediagram/tsconfig",
+  "author": "kamiazya <yuki@kamiazya.tech>",
+  "description": "A base TSConfig for working with rediagram.",
+  "homepage": "https://github.com/kamiazya/rediagram",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kamiazya/rediagram.git",
+    "directory": "packages/tsconfig"
+  },
+  "bugs": {
+    "url": "https://github.com/kamiazya/rediagram/issues"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/kamiazya"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
