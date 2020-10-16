@@ -15,23 +15,8 @@ $ yarn add --dev @rediagram/tsconfig
 Add to your `tsconfig.json`:
 
 ```json
-"extends": "@rediagram/tsconfig/tsconfig.json"
-```
-
----
-
-The `tsconfig.json`:
-
-```jsonc
 {
-  "$schema": "https://json.schemastore.org/tsconfig",
-  "display": "rediagram",
-  "compilerOptions": {
-    "jsx": "react",
-    "lib": [],
-    "resolveJsonModule": true,
-    "strict": true
-  }
+  "extends": "@rediagram/tsconfig/tsconfig.json"
 }
 ```
 
