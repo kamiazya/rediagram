@@ -92,7 +92,6 @@ export * from './components/end-user-computing/WorkLink';
 export * from './components/end-user-computing/WorkSpaces';
 export * from './components/game-tech/GameLift';
 export * from './components/game-tech/GameTech';
-export * from './components/general/AWSGeneralIcon';
 export * from './components/groups/AutoScalingGroup';
 export * from './components/groups/AvailabilityZone';
 export * from './components/groups/AWS';
