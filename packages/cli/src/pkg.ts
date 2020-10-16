@@ -5,6 +5,6 @@ type PKG = {
   version: string;
 };
 
-const pkg: PKG = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../package.json')).toString());
+const pkg: PKG = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../package.json'), 'utf-8'));
 
 export = pkg;
