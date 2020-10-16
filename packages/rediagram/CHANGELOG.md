@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/kamiazya/rediagram/compare/rediagram@0.1.0...rediagram@0.2.0) (2020-10-16)
+
+
+### Bug Fixes
+
+* **rediagram:** fix bug ([bbf8091](https://github.com/kamiazya/rediagram/commit/bbf80917dea527a30211713fa03138e1649d2b42))
+
+
+### Features
+
+* **rediagram:** add output options ([d01c218](https://github.com/kamiazya/rediagram/commit/d01c218e1745fbc440e297b9e6653ed5bc870811))
+
+
+
+
+
 # [0.1.0](https://github.com/kamiazya/rediagram/compare/rediagram@0.0.3...rediagram@0.1.0) (2020-08-30)
 
 
