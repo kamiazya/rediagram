@@ -8,15 +8,20 @@ cmd
   .name('rediagramc')
   .version(version)
   .arguments('[pattarns...]')
-  .action(async function rediagram(pattarns: string[]): Promise<void> {
+  .action(async function rediagramc(pattarns: string[]): Promise<void> {
     register({
+      transpileOnly: true,
       project: require.resolve('@rediagram/tsconfig/tsconfig.json'),
     });
-    const sources = glob.sync([...pattarns, '**/*.rediagram.{jsx,tsx}', '!**/node_modules/**/*'], {
+    const sources = await glob([...pattarns, '**/*.rediagram.{jsx,tsx}', '!**/node_modules/**/*'], {
       dot: true,
       extglob: true,
       onlyFiles: true,
     });
-    await Promise.all(sources.map((src) => import(path.resolve(src))));
+    sources.forEach((src) => {
+      const resolved = path.resolve(src);
+      // eslint-disable-next-line global-require, import/no-dynamic-require
+      require(resolved);
+    });
   })
   .parse(process.argv);
