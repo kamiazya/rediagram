@@ -17,6 +17,15 @@
         "design",
         "example"
       ]
+    },
+    {
+      "login": "odd12258053",
+      "name": "odd",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/70652613?v=4",
+      "profile": "https://github.com/odd12258053",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
