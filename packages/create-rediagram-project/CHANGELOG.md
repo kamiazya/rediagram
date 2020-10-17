@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.1](https://github.com/kamiazya/rediagram/compare/create-rediagram-project@0.1.0...create-rediagram-project@0.1.1) (2020-10-17)
+
+
+### Bug Fixes
+
+* **create-rediagram-project:** remove .npmignore ([de343ad](https://github.com/kamiazya/rediagram/commit/de343ad1dd46f61f2ceba43d7ea794f8682a2ae5))
+
+
+
+
+
 # 0.1.0 (2020-10-17)
 
 
