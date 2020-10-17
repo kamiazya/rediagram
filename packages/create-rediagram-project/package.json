@@ -1,0 +1,50 @@
+{
+  "name": "create-rediagram-project",
+  "license": "MIT",
+  "version": "0.0.0",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "author": "kamiazya <yuki@kamiazya.tech>",
+  "description": "Starter kit for rediagram.",
+  "bin": {
+    "create-rediagram-project": "bin/create-rediagram-project.js"
+  },
+  "homepage": "https://github.com/kamiazya/rediagram",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kamiazya/rediagram.git",
+    "directory": "packages/create-rediagram-project"
+  },
+  "bugs": {
+    "url": "https://github.com/kamiazya/rediagram/issues"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/kamiazya"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch"
+  },
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "commander": "^6.1.0",
+    "cross-spawn": "^7.0.3",
+    "dedent": "^0.7.0",
+    "fs-extra": "^9.0.1",
+    "ncp": "^2.0.0",
+    "replacestream": "^4.0.3",
+    "validate-npm-package-name": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/commander": "^2.12.2",
+    "@types/cross-spawn": "^6.0.2",
+    "@types/dedent": "^0.7.0",
+    "@types/fs-extra": "^9.0.2",
+    "@types/ncp": "^2.0.4",
+    "@types/node": "^14.11.8",
+    "@types/replacestream": "^4.0.0",
+    "@types/validate-npm-package-name": "^3.0.0",
+    "typescript": "^4.0.2"
+  }
+}
