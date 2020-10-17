@@ -22,7 +22,7 @@ jobs:
     - name: Generate doc
       working-directory: website
       run: |
-        yarn build
+        yarn build:doc
       env:
         CI: true
     - name: Deploy
