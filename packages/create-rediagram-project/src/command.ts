@@ -30,7 +30,7 @@ export const command = createCommand(pkg.name)
         },
       },
       () => {
-        console.log(chalk`🌈 Createing new rediagram project in {bold ${name}}.`);
+        console.log(chalk`🌈 Creating new rediagram project in {bold ${name}}.`);
         console.log();
         console.log(chalk`⭐️ Installing packages. This take a couple of minutes.`);
         spawn.sync('npm', ['install'], {

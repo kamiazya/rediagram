@@ -13,7 +13,7 @@ Execute the following command to initialize the rediagram project in the specifi
 ```bash
 # yarn create rediagram-project <your-project-name>
 $ yarn create rediagram-project my-rediagram
-🌈 Createing new rediagram project in my-rediagram.
+🌈 Creating new rediagram project in my-rediagram.
 
 ⭐️ Installing packages. This take a couple of minutes.
 npm notice created a lockfile as package-lock.json. You should commit this file.
