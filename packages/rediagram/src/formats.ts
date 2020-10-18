@@ -1,6 +1,7 @@
 import { ReactElement } from 'react';
 import { renderToDot } from '@ts-graphviz/react';
 import { exportToFile } from '@ts-graphviz/node';
+import { ensureDir } from 'fs-extra';
 import path from 'path';
 import caller from 'caller';
 
@@ -40,6 +41,9 @@ export async function PNG(
     ext: `.${format}`,
   });
   const dot = renderToDot(element);
+  if (dir !== undefined) {
+    await ensureDir(dir);
+  }
   await exportToFile(dot, { format, output });
 }
 
@@ -59,6 +63,9 @@ export async function SVG(
     ext: `.${format}`,
   });
   const dot = renderToDot(element);
+  if (dir !== undefined) {
+    await ensureDir(dir);
+  }
   await exportToFile(dot, { format, output });
 }
 
@@ -78,5 +85,8 @@ export async function PDF(
     ext: `.${format}`,
   });
   const dot = renderToDot(element);
+  if (dir !== undefined) {
+    await ensureDir(dir);
+  }
   await exportToFile(dot, { format, output });
 }
