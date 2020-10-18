@@ -74,6 +74,7 @@ See [more examples](./examples/gallery/README.md).
   - etc,
     - We have no plans yet, but welcome contributions.
 - Miscellaneous
+  - [create-rediagram-project](./packages/create-rediagram-project/README.md) - Starter kit for rediagram.
   - [@rediagram/docker-runtime](./docker/README.md) - rediagram runtime for Docker. ![WIP](https://img.shields.io/badge/-WIP-yellow)
 - Examples
   - [Gallery](./examples/gallery/README.md)
@@ -83,7 +84,7 @@ See [more examples](./examples/gallery/README.md).
 This project requires Graphviz.
 If you don't have it installed, install it [here](https://graphviz.gitlab.io/download/).
 
-## Contributors ✨
+## Contributors
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
@@ -101,7 +102,8 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- prettier-ignore-end -->
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors)
+specification. Contributions of any kind welcome!
 
 ## License
 
