@@ -1,6 +1,6 @@
 import cmd from 'commander';
 import glob from 'fast-glob';
-import { register } from 'ts-node';
+import { registerAll } from 'sucrase/dist/register';
 import path from 'path';
 import { version } from './pkg';
 
@@ -9,10 +9,7 @@ cmd
   .version(version)
   .arguments('[pattarns...]')
   .action(async function rediagramc(pattarns: string[]): Promise<void> {
-    register({
-      transpileOnly: true,
-      project: require.resolve('@rediagram/tsconfig/tsconfig.json'),
-    });
+    registerAll();
     const sources = await glob([...pattarns, '**/*.rediagram.{jsx,tsx}', '!**/node_modules/**/*'], {
       dot: true,
       extglob: true,
