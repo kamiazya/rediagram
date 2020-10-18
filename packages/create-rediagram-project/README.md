@@ -16,9 +16,15 @@ $ yarn create rediagram-project my-rediagram
 🌈 Creating new rediagram project in my-rediagram.
 
 ⭐️ Installing packages. This take a couple of minutes.
-npm notice created a lockfile as package-lock.json. You should commit this file.
-added 70 packages from 150 contributors and audited 76 packages in 4.51s
-found 0 vulnerabilities
+
+yarn install v1.22.4
+info No lockfile found.
+[1/4] 🔍  Resolving packages...
+[2/4] 🚚  Fetching packages...
+[3/4] 🔗  Linking dependencies...
+[4/4] 🔨  Building fresh packages...
+success Saved lockfile.
+✨  Done in 9.38s.
 
 ✨ The installation is complete.
 
@@ -30,7 +36,7 @@ found 0 vulnerabilities
 🚀 In the project directory, you can run:
 
     # Runs src/*.rediagram.tsx scripts and output the image with rediagram.
-    $ npm start
+    $ yarn start
 
 ```
 
@@ -41,8 +47,9 @@ $ create-rediagram-project -h
 Usage: create-rediagram-project [options] <name>
 
 Options:
-  -V, --version  output the version number
-  -h, --help     display help for command
+  -V, --version               output the version number
+  -p, --package-manager <pm>  select a package manager, yarn or npm. (default: "yarn")
+  -h, --help                  display help for command
 ```
 
 ## License

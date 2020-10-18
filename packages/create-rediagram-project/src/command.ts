@@ -10,11 +10,16 @@ import dedent from 'dedent';
 import pkg from './pkg';
 import { assertArgs } from './assert-args';
 
+type Options = {
+  packageManager: string;
+};
+
 export const command = createCommand(pkg.name)
   .version(pkg.version)
   .arguments('<name>')
-  .action(function (name: string) {
-    assertArgs(name);
+  .option('-p, --package-manager <pm>', 'select a package manager, yarn or npm.', 'yarn')
+  .action(function (name: string, { packageManager }: Options) {
+    assertArgs(name, packageManager);
     const cwd = process.cwd();
     const src = path.resolve(__dirname, '../templates/typescript');
     const dist = path.resolve(cwd, name);
@@ -26,17 +31,22 @@ export const command = createCommand(pkg.name)
         clobber: true,
         dereference: true,
         transform(read, write) {
-          read.pipe(replacestream('{{name}}', name)).pipe(write);
+          read
+            .pipe(replacestream('{{name}}', name))
+            .pipe(replacestream('{{packageManager}}', packageManager))
+            .pipe(write);
         },
       },
       () => {
         console.log(chalk`🌈 Creating new rediagram project in {bold ${name}}.`);
         console.log();
         console.log(chalk`⭐️ Installing packages. This take a couple of minutes.`);
-        spawn.sync('npm', ['install'], {
+        console.log();
+        spawn.sync(packageManager, ['install'], {
           cwd: dist,
           stdio: 'inherit',
         });
+        console.log();
         console.log(
           dedent(chalk`
           ✨ The installation is complete.
@@ -49,7 +59,7 @@ export const command = createCommand(pkg.name)
           🚀 {bold In the project directory, you can run:}
 
               {gray # Runs {bold src/*.rediagram.tsx} scripts and output the image with rediagram.}
-              {bold $} {cyan npm} start
+              {bold $} {cyan ${packageManager}} start
 
 
 

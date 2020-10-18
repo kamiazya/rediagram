@@ -6,7 +6,7 @@ This project was bootstrapped with [Create Rediagram Project](https://github.com
 
 In the project directory, you can run:
 
-### `npm start`
+### `{{packageManager}} start`
 
 Runs `src/*.rediagram.tsx` scripts and output the image with rediagram.
 
