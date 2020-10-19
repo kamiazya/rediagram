@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type OpsWorksType =
@@ -16,23 +16,23 @@ export type OpsWorksType =
 function resolveImage(type?: OpsWorksType): string {
   switch (type) {
     case 'Apps':
-      return resolve(__dirname, '../../../assets/management-governance/OpsWorks/Ground-Truth.png');
+      return resolveAsset('management-governance/OpsWorks/Ground-Truth.png');
     case 'Instances':
-      return resolve(__dirname, '../../../assets/management-governance/OpsWorks/Notebook.png');
+      return resolveAsset('management-governance/OpsWorks/Notebook.png');
     case 'Monitoring':
-      return resolve(__dirname, '../../../assets/management-governance/OpsWorks/Monitoring.png');
+      return resolveAsset('management-governance/OpsWorks/Monitoring.png');
     case 'Permissions':
-      return resolve(__dirname, '../../../assets/management-governance/OpsWorks/Permissions.png');
+      return resolveAsset('management-governance/OpsWorks/Permissions.png');
     case 'Deployments':
-      return resolve(__dirname, '../../../assets/management-governance/OpsWorks/Deployments.png');
+      return resolveAsset('management-governance/OpsWorks/Deployments.png');
     case 'Layers':
-      return resolve(__dirname, '../../../assets/management-governance/OpsWorks/Layers.png');
+      return resolveAsset('management-governance/OpsWorks/Layers.png');
     case 'Resources':
-      return resolve(__dirname, '../../../assets/management-governance/OpsWorks/Resources.png');
+      return resolveAsset('management-governance/OpsWorks/Resources.png');
     case 'Stack2':
-      return resolve(__dirname, '../../../assets/management-governance/OpsWorks/Stack2.png');
+      return resolveAsset('management-governance/OpsWorks/Stack2.png');
     default:
-      return resolve(__dirname, '../../../assets/management-governance/OpsWorks.png');
+      return resolveAsset('management-governance/OpsWorks.png');
   }
 }
 

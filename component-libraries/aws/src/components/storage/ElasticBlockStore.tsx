@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type ElasticBlockStoreType = 'Snapshot' | 'Volume' | 'Multiple volumes';
@@ -13,13 +13,13 @@ export type ElasticBlockStoreProps = {
 function resolveImage(type?: ElasticBlockStoreType): string {
   switch (type) {
     case 'Snapshot':
-      return resolve(__dirname, '../../../assets/storage/ElasticBlockStore/Snapshot.png');
+      return resolveAsset('storage/ElasticBlockStore/Snapshot.png');
     case 'Volume':
-      return resolve(__dirname, '../../../assets/storage/ElasticBlockStore/Volume.png');
+      return resolveAsset('storage/ElasticBlockStore/Volume.png');
     case 'Multiple volumes':
-      return resolve(__dirname, '../../../assets/storage/ElasticBlockStore/Multiple-volumes.png');
+      return resolveAsset('storage/ElasticBlockStore/Multiple-volumes.png');
     default:
-      return resolve(__dirname, '../../../assets/storage/ElasticBlockStore.png');
+      return resolveAsset('storage/ElasticBlockStore.png');
   }
 }
 

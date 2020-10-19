@@ -1,7 +1,7 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
 import { useAssertProvider } from '../../hooks/assert-provider';
+import { resolveAsset } from '../../assets';
 
 export type EMRType =
   | 'HDFS cluster'
@@ -19,19 +19,19 @@ export type EMRProps = {
 function resolveImage(type?: EMRType): string {
   switch (type) {
     case 'HDFS cluster':
-      return resolve(__dirname, '../../../assets/analytics/EMR/HDFS-cluster.png');
+      return resolveAsset('analytics/EMR/HDFS-cluster.png');
     case 'Cluster':
-      return resolve(__dirname, '../../../assets/analytics/EMR/Cluster.png');
+      return resolveAsset('analytics/EMR/Cluster.png');
     case 'EMR engine':
-      return resolve(__dirname, '../../../assets/analytics/EMR/EMR-engine.png');
+      return resolveAsset('analytics/EMR/EMR-engine.png');
     case 'EMR engine mapR M3':
-      return resolve(__dirname, '../../../assets/analytics/EMR/EMR-engine-mapR-M3.png');
+      return resolveAsset('analytics/EMR/EMR-engine-mapR-M3.png');
     case 'EMR engine mapR M5':
-      return resolve(__dirname, '../../../assets/analytics/EMR/EMR-engine-mapR-M5.png');
+      return resolveAsset('analytics/EMR/EMR-engine-mapR-M5.png');
     case 'EMR engine mapR M7':
-      return resolve(__dirname, '../../../assets/analytics/EMR/EMR-engine-mapR-M7.png');
+      return resolveAsset('analytics/EMR/EMR-engine-mapR-M7.png');
     default:
-      return resolve(__dirname, '../../../assets/analytics/EMR.png');
+      return resolveAsset('analytics/EMR.png');
   }
 }
 

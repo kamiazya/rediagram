@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type CertificateManagerType = 'Certificate authority';
@@ -8,12 +8,9 @@ export type CertificateManagerType = 'Certificate authority';
 function resolveImage(type?: CertificateManagerType): string {
   switch (type) {
     case 'Certificate authority':
-      return resolve(
-        __dirname,
-        '../../../assets/security-identity-compliance/CertificateManager/Certificate-authority.png',
-      );
+      return resolveAsset('security-identity-compliance/CertificateManager/Certificate-authority.png');
     default:
-      return resolve(__dirname, '../../../assets/security-identity-compliance/CertificateManager.png');
+      return resolveAsset('security-identity-compliance/CertificateManager.png');
   }
 }
 

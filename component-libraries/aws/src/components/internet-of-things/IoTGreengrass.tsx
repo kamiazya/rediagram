@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type IoTGreengrassType = 'Connector';
@@ -8,9 +8,9 @@ export type IoTGreengrassType = 'Connector';
 function resolveImage(type?: IoTGreengrassType): string {
   switch (type) {
     case 'Connector':
-      return resolve(__dirname, '../../../assets/internet-of-things/IoTGreengrass/Connector.png');
+      return resolveAsset('internet-of-things/IoTGreengrass/Connector.png');
     default:
-      return resolve(__dirname, '../../../assets/internet-of-things/IoTGreengrass.png');
+      return resolveAsset('internet-of-things/IoTGreengrass.png');
   }
 }
 

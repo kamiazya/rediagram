@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type AmazonVPCType =
@@ -21,33 +21,33 @@ export type AmazonVPCType =
 function resolveImage(type?: AmazonVPCType): string {
   switch (type) {
     case 'Customer gateway':
-      return resolve(__dirname, '../../../assets/networking-content-delivery/Customer-gateway.png');
+      return resolveAsset('networking-content-delivery/Customer-gateway.png');
     case 'Internet gateway':
-      return resolve(__dirname, '../../../assets/networking-content-delivery/Internet-gateway.png');
+      return resolveAsset('networking-content-delivery/Internet-gateway.png');
     case 'Elastic network interface':
-      return resolve(__dirname, '../../../assets/networking-content-delivery/Elastic-network-interface.png');
+      return resolveAsset('networking-content-delivery/Elastic-network-interface.png');
     case 'Elastic network adapter':
-      return resolve(__dirname, '../../../assets/networking-content-delivery/Elastic-network-adapter.png');
+      return resolveAsset('networking-content-delivery/Elastic-network-adapter.png');
     case 'Endpoints':
-      return resolve(__dirname, '../../../assets/networking-content-delivery/Endpoints.png');
+      return resolveAsset('networking-content-delivery/Endpoints.png');
     case 'Router':
-      return resolve(__dirname, '../../../assets/networking-content-delivery/Router.png');
+      return resolveAsset('networking-content-delivery/Router.png');
     case 'Traffic mirroring':
-      return resolve(__dirname, '../../../assets/networking-content-delivery/Traffic-mirroring.png');
+      return resolveAsset('networking-content-delivery/Traffic-mirroring.png');
     case 'NAT gateway':
-      return resolve(__dirname, '../../../assets/networking-content-delivery/NAT-gateway.png');
+      return resolveAsset('networking-content-delivery/NAT-gateway.png');
     case 'VPN gateway':
-      return resolve(__dirname, '../../../assets/networking-content-delivery/VPN-gateway.png');
+      return resolveAsset('networking-content-delivery/VPN-gateway.png');
     case 'Flow logs':
-      return resolve(__dirname, '../../../assets/networking-content-delivery/Flow-logs.png');
+      return resolveAsset('networking-content-delivery/Flow-logs.png');
     case 'Network access control list':
-      return resolve(__dirname, '../../../assets/networking-content-delivery/Network-access-control-list.png');
+      return resolveAsset('networking-content-delivery/Network-access-control-list.png');
     case 'VPN connection':
-      return resolve(__dirname, '../../../assets/networking-content-delivery/VPN-connection.png');
+      return resolveAsset('networking-content-delivery/VPN-connection.png');
     case 'Peering connection':
-      return resolve(__dirname, '../../../assets/networking-content-delivery/Peering-connection.png');
+      return resolveAsset('networking-content-delivery/Peering-connection.png');
     default:
-      return resolve(__dirname, '../../../assets/networking-content-delivery/AmazonVPC.png');
+      return resolveAsset('networking-content-delivery/AmazonVPC.png');
   }
 }
 

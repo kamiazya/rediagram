@@ -1,7 +1,7 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
 import { useAssertProvider } from '../../hooks/assert-provider';
+import { resolveAsset } from '../../assets';
 
 export type LakeFormationType = 'Data lake';
 
@@ -13,9 +13,9 @@ export type LakeFormationProps = {
 function resolveImage(type?: LakeFormationType): string {
   switch (type) {
     case 'Data lake':
-      return resolve(__dirname, '../../../assets/analytics/LakeFormation/Data-lake.png');
+      return resolveAsset('analytics/LakeFormation/Data-lake.png');
     default:
-      return resolve(__dirname, '../../../assets/analytics/LakeFormation.png');
+      return resolveAsset('analytics/LakeFormation.png');
   }
 }
 

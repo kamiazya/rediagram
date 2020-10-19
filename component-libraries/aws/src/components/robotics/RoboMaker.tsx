@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type RoboMakerType = 'Cloud extensions ROS' | 'Development environment' | 'Fleet management' | 'Simulation';
@@ -8,15 +8,15 @@ export type RoboMakerType = 'Cloud extensions ROS' | 'Development environment' |
 function resolveImage(type?: RoboMakerType): string {
   switch (type) {
     case 'Cloud extensions ROS':
-      return resolve(__dirname, '../../../assets/robotics/RoboMaker/Cloud-extensions-ROS.png');
+      return resolveAsset('robotics/RoboMaker/Cloud-extensions-ROS.png');
     case 'Development environment':
-      return resolve(__dirname, '../../../assets/robotics/RoboMaker/Development-environment.png');
+      return resolveAsset('robotics/RoboMaker/Development-environment.png');
     case 'Fleet management':
-      return resolve(__dirname, '../../../assets/robotics/RoboMaker/Fleet-management.png');
+      return resolveAsset('robotics/RoboMaker/Fleet-management.png');
     case 'Simulation':
-      return resolve(__dirname, '../../../assets/robotics/RoboMaker/Simulation.png');
+      return resolveAsset('robotics/RoboMaker/Simulation.png');
     default:
-      return resolve(__dirname, '../../../assets/robotics/RoboMaker.png');
+      return resolveAsset('robotics/RoboMaker.png');
   }
 }
 

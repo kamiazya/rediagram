@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type OrganizationsType = 'Account' | 'Organizational unit';
@@ -8,11 +8,11 @@ export type OrganizationsType = 'Account' | 'Organizational unit';
 function resolveImage(type?: OrganizationsType): string {
   switch (type) {
     case 'Account':
-      return resolve(__dirname, '../../../assets/management-governance/Organizations/Account.png');
+      return resolveAsset('management-governance/Organizations/Account.png');
     case 'Organizational unit':
-      return resolve(__dirname, '../../../assets/management-governance/Organizations/Organizational-unit.png');
+      return resolveAsset('management-governance/Organizations/Organizational-unit.png');
     default:
-      return resolve(__dirname, '../../../assets/management-governance/Organizations.png');
+      return resolveAsset('management-governance/Organizations.png');
   }
 }
 

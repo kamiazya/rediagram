@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type DataSyncType = 'Agent';
@@ -8,9 +8,9 @@ export type DataSyncType = 'Agent';
 function resolveImage(type?: DataSyncType): string {
   switch (type) {
     case 'Agent':
-      return resolve(__dirname, '../../../assets/management-governance/DataSync/Agent.png');
+      return resolveAsset('management-governance/DataSync/Agent.png');
     default:
-      return resolve(__dirname, '../../../assets/management-governance/DataSync.png');
+      return resolveAsset('management-governance/DataSync.png');
   }
 }
 

@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type ShieldType = 'Shield Advanced';
@@ -8,9 +8,9 @@ export type ShieldType = 'Shield Advanced';
 function resolveImage(type?: ShieldType): string {
   switch (type) {
     case 'Shield Advanced':
-      return resolve(__dirname, '../../../assets/security-identity-compliance/Shield/Shield-Advanced.png');
+      return resolveAsset('security-identity-compliance/Shield/Shield-Advanced.png');
     default:
-      return resolve(__dirname, '../../../assets/security-identity-compliance/Shield.png');
+      return resolveAsset('security-identity-compliance/Shield.png');
   }
 }
 

@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type DirectConnectProps = {
@@ -8,7 +8,7 @@ export type DirectConnectProps = {
 } & HasDependences;
 
 function resolveImage(): string {
-  return resolve(__dirname, '../../../assets/networking-content-delivery/DirectConnect.png');
+  return resolveAsset('networking-content-delivery/DirectConnect.png');
 }
 
 function useIcon(): { path: string; size: number } {

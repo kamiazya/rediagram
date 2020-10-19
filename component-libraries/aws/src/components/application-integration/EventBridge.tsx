@@ -1,7 +1,7 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
 import { useAssertProvider } from '../../hooks/assert-provider';
+import { resolveAsset } from '../../assets';
 
 export type EventBridgeType = 'Event' | 'Default' | 'Custom' | 'SaaS';
 
@@ -13,15 +13,15 @@ export type EventBridgeProps = {
 function resolveImage(type?: EventBridgeType): string {
   switch (type) {
     case 'Event':
-      return resolve(__dirname, '../../../assets/compute/EventBridge/Event.png');
+      return resolveAsset('compute/EventBridge/Event.png');
     case 'Default':
-      return resolve(__dirname, '../../../assets/compute/EventBridge/Default.png');
+      return resolveAsset('compute/EventBridge/Default.png');
     case 'Custom':
-      return resolve(__dirname, '../../../assets/compute/EventBridge/Custom.png');
+      return resolveAsset('compute/EventBridge/Custom.png');
     case 'SaaS':
-      return resolve(__dirname, '../../../assets/compute/EventBridge/SaaS.png');
+      return resolveAsset('compute/EventBridge/SaaS.png');
     default:
-      return resolve(__dirname, '../../../assets/compute/EventBridge.png');
+      return resolveAsset('compute/EventBridge.png');
   }
 }
 

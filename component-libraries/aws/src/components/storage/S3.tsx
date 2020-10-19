@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type S3Type = 'Bucket with Objects' | 'Bucket' | 'Object';
@@ -13,13 +13,13 @@ export type S3Props = {
 function resolveImage(type?: S3Type): string {
   switch (type) {
     case 'Bucket with Objects':
-      return resolve(__dirname, '../../../assets/storage/S3/Bucket-with-Objects.png');
+      return resolveAsset('storage/S3/Bucket-with-Objects.png');
     case 'Bucket':
-      return resolve(__dirname, '../../../assets/storage/S3/Bucket.png');
+      return resolveAsset('storage/S3/Bucket.png');
     case 'Object':
-      return resolve(__dirname, '../../../assets/storage/S3/Object.png');
+      return resolveAsset('storage/S3/Object.png');
     default:
-      return resolve(__dirname, '../../../assets/storage/S3.png');
+      return resolveAsset('storage/S3.png');
   }
 }
 

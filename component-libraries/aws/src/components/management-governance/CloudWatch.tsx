@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type CloudWatchType = 'Alarm' | 'Rule' | 'Event' | 'Time based event';
@@ -8,15 +8,15 @@ export type CloudWatchType = 'Alarm' | 'Rule' | 'Event' | 'Time based event';
 function resolveImage(type?: CloudWatchType): string {
   switch (type) {
     case 'Alarm':
-      return resolve(__dirname, '../../../assets/management-governance/CloudWatch/Alarm.png');
+      return resolveAsset('management-governance/CloudWatch/Alarm.png');
     case 'Rule':
-      return resolve(__dirname, '../../../assets/management-governance/CloudWatch/Rule.png');
+      return resolveAsset('management-governance/CloudWatch/Rule.png');
     case 'Event':
-      return resolve(__dirname, '../../../assets/management-governance/CloudWatch/Event.png');
+      return resolveAsset('management-governance/CloudWatch/Event.png');
     case 'Time based event':
-      return resolve(__dirname, '../../../assets/management-governance/CloudWatch/Time-based-event.png');
+      return resolveAsset('management-governance/CloudWatch/Time-based-event.png');
     default:
-      return resolve(__dirname, '../../../assets/management-governance/CloudWatch.png');
+      return resolveAsset('management-governance/CloudWatch.png');
   }
 }
 

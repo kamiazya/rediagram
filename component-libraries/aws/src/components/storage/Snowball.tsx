@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type SnowballType = 'Snowball import-export';
@@ -13,9 +13,9 @@ export type SnowballProps = {
 function resolveImage(type?: SnowballType): string {
   switch (type) {
     case 'Snowball import-export':
-      return resolve(__dirname, '../../../assets/storage/Snowball/Snowball-import-export.png');
+      return resolveAsset('storage/Snowball/Snowball-import-export.png');
     default:
-      return resolve(__dirname, '../../../assets/storage/Snowball.png');
+      return resolveAsset('storage/Snowball.png');
   }
 }
 

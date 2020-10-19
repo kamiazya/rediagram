@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type PollyProps = {
@@ -8,7 +8,7 @@ export type PollyProps = {
 } & HasDependences;
 
 function resolveImage(): string {
-  return resolve(__dirname, '../../../assets/machine-learning/Polly.png');
+  return resolveAsset('machine-learning/Polly.png');
 }
 
 function useIcon(): { path: string; size: number } {

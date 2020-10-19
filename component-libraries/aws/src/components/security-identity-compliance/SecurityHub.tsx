@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type SecurityHubType = 'Finding';
@@ -8,9 +8,9 @@ export type SecurityHubType = 'Finding';
 function resolveImage(type?: SecurityHubType): string {
   switch (type) {
     case 'Finding':
-      return resolve(__dirname, '../../../assets/security-identity-compliance/SecurityHub/Finding.png');
+      return resolveAsset('security-identity-compliance/SecurityHub/Finding.png');
     default:
-      return resolve(__dirname, '../../../assets/security-identity-compliance/SecurityHub.png');
+      return resolveAsset('security-identity-compliance/SecurityHub.png');
   }
 }
 

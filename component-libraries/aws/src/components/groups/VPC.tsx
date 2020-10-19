@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { Subgraph, DOT } from '@ts-graphviz/react';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 import { IP, HasIP } from './internal/IP';
 
@@ -15,11 +15,11 @@ type Props = {
 function resolveImage(type?: Type): string {
   switch (type) {
     case 'Private subnet':
-      return resolve(__dirname, '../../../assets/groups/VPC/subnet-private.png');
+      return resolveAsset('groups/VPC/subnet-private.png');
     case 'Public subnet':
-      return resolve(__dirname, '../../../assets/groups/VPC/subnet-public.png');
+      return resolveAsset('groups/VPC/subnet-public.png');
     default:
-      return resolve(__dirname, '../../../assets/groups/VPC.png');
+      return resolveAsset('groups/VPC.png');
   }
 }
 

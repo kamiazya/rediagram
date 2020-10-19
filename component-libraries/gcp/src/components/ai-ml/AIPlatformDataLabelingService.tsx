@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 import { GCPNode } from '../internal/GCPNode';
 
@@ -9,7 +9,7 @@ export type AIPlatformDataLabelingServiceProps = {
 } & HasDependences;
 
 function resolveImage(): string {
-  return resolve(__dirname, '../../../assets/ai-ml/AIPlatformDataLabelingService.png');
+  return resolveAsset('ai-ml/AIPlatformDataLabelingService.png');
 }
 
 function useIcon(): { path: string; size: number } {

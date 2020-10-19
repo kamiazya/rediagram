@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type WAFType = 'Filtering rule';
@@ -8,9 +8,9 @@ export type WAFType = 'Filtering rule';
 function resolveImage(type?: WAFType): string {
   switch (type) {
     case 'Filtering rule':
-      return resolve(__dirname, '../../../assets/security-identity-compliance/WAF/Filtering-rule.png');
+      return resolveAsset('security-identity-compliance/WAF/Filtering-rule.png');
     default:
-      return resolve(__dirname, '../../../assets/security-identity-compliance/WAF.png');
+      return resolveAsset('security-identity-compliance/WAF.png');
   }
 }
 

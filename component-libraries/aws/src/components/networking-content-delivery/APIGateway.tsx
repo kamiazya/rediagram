@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type APIGatewayCategory = 'networking-content-delivery' | 'mobile';
@@ -10,9 +10,9 @@ export type APIGatewayType = 'Endpoint';
 function resolveImage(category: APIGatewayCategory, type?: APIGatewayType): string {
   switch (type) {
     case 'Endpoint':
-      return resolve(__dirname, '../../../assets/', category, 'APIGateway/Endpoint.png');
+      return resolveAsset('', category, 'APIGateway/Endpoint.png');
     default:
-      return resolve(__dirname, '../../../assets/', category, 'APIGateway.png');
+      return resolveAsset('', category, 'APIGateway.png');
   }
 }
 

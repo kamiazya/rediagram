@@ -1,14 +1,14 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { Subgraph, DOT } from '@ts-graphviz/react';
 import t from 'prop-types';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 type Props = {
   name: string;
 };
 
-const icon = resolve(__dirname, '../../../assets/groups/region.png');
+const icon = resolveAsset('groups/region.png');
 
 let regionID = 0;
 

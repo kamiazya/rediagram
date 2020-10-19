@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type Cloud9Type = 'Instance';
@@ -8,9 +8,9 @@ export type Cloud9Type = 'Instance';
 function resolveImage(type?: Cloud9Type): string {
   switch (type) {
     case 'Instance':
-      return resolve(__dirname, '../../../assets/developer-tools/Cloud9/Instance.png');
+      return resolveAsset('developer-tools/Cloud9/Instance.png');
     default:
-      return resolve(__dirname, '../../../assets/developer-tools/Cloud9.png');
+      return resolveAsset('developer-tools/Cloud9.png');
   }
 }
 

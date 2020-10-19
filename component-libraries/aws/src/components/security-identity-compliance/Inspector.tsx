@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type InspectorType = 'Agent';
@@ -8,9 +8,9 @@ export type InspectorType = 'Agent';
 function resolveImage(type?: InspectorType): string {
   switch (type) {
     case 'Agent':
-      return resolve(__dirname, '../../../assets/security-identity-compliance/Inspector/Agent.png');
+      return resolveAsset('security-identity-compliance/Inspector/Agent.png');
     default:
-      return resolve(__dirname, '../../../assets/security-identity-compliance/Inspector.png');
+      return resolveAsset('security-identity-compliance/Inspector.png');
   }
 }
 

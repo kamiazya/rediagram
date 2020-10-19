@@ -1,7 +1,7 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
 import { useAssertProvider } from '../../hooks/assert-provider';
+import { resolveAsset } from '../../assets';
 
 export type ManagedBlockchainType = 'Blockchain';
 
@@ -13,9 +13,9 @@ export type ManagedBlockchainProps = {
 function resolveImage(type?: ManagedBlockchainType): string {
   switch (type) {
     case 'Blockchain':
-      return resolve(__dirname, '../../../assets/blockchain/ManagedBlockchain/Blockchain.png');
+      return resolveAsset('blockchain/ManagedBlockchain/Blockchain.png');
     default:
-      return resolve(__dirname, '../../../assets/blockchain/ManagedBlockchain.png');
+      return resolveAsset('blockchain/ManagedBlockchain.png');
   }
 }
 

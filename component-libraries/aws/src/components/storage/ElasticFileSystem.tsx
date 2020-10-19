@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type ElasticFileSystemType = 'File system';
@@ -13,9 +13,9 @@ export type ElasticFileSystemProps = {
 function resolveImage(type?: ElasticFileSystemType): string {
   switch (type) {
     case 'File system':
-      return resolve(__dirname, '../../../assets/storage/ElasticFileSystem/File-system.png');
+      return resolveAsset('storage/ElasticFileSystem/File-system.png');
     default:
-      return resolve(__dirname, '../../../assets/storage/ElasticFileSystem.png');
+      return resolveAsset('storage/ElasticFileSystem.png');
   }
 }
 

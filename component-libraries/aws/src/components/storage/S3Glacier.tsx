@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type S3GlacierType = 'Vault' | 'Archive';
@@ -13,11 +13,11 @@ export type S3GlacierProps = {
 function resolveImage(type?: S3GlacierType): string {
   switch (type) {
     case 'Vault':
-      return resolve(__dirname, '../../../assets/storage/S3Glacier/Vault.png');
+      return resolveAsset('storage/S3Glacier/Vault.png');
     case 'Archive':
-      return resolve(__dirname, '../../../assets/storage/S3Glacier/Archive.png');
+      return resolveAsset('storage/S3Glacier/Archive.png');
     default:
-      return resolve(__dirname, '../../../assets/storage/S3Glacier.png');
+      return resolveAsset('storage/S3Glacier.png');
   }
 }
 

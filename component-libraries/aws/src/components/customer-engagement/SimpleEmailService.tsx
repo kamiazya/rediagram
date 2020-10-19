@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type SimpleEmailServiceType = 'Email';
@@ -13,9 +13,9 @@ export type SimpleEmailServiceProps = {
 function resolveImage(type?: SimpleEmailServiceType): string {
   switch (type) {
     case 'Email':
-      return resolve(__dirname, '../../../assets/customer-engagement/SimpleEmailService/Email.png');
+      return resolveAsset('customer-engagement/SimpleEmailService/Email.png');
     default:
-      return resolve(__dirname, '../../../assets/customer-engagement/SimpleEmailService.png');
+      return resolveAsset('customer-engagement/SimpleEmailService.png');
   }
 }
 

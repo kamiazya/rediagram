@@ -1,9 +1,9 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { Subgraph, DOT } from '@ts-graphviz/react';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
-const icon = resolve(__dirname, '../../../assets/groups/auto_scaling_group.png');
+const icon = resolveAsset('groups/auto_scaling_group.png');
 
 let autoScalingGroupID = 0;
 

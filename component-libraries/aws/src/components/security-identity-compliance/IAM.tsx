@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type IAMType =
@@ -23,27 +23,27 @@ export type IAMProps = {
 function resolveImage(type?: IAMType): string {
   switch (type) {
     case 'Add-on':
-      return resolve(__dirname, '../../../assets/security-identity-compliance/IAM/Add-on.png');
+      return resolveAsset('security-identity-compliance/IAM/Add-on.png');
     case 'AWS STS Alternate':
-      return resolve(__dirname, '../../../assets/security-identity-compliance/IAM/AWS-STS-Alternate.png');
+      return resolveAsset('security-identity-compliance/IAM/AWS-STS-Alternate.png');
     case 'AWS STS':
-      return resolve(__dirname, '../../../assets/security-identity-compliance/IAM/AWS-STS.png');
+      return resolveAsset('security-identity-compliance/IAM/AWS-STS.png');
     case 'Data Encryption Key':
-      return resolve(__dirname, '../../../assets/security-identity-compliance/IAM/Data-Encryption-Key.png');
+      return resolveAsset('security-identity-compliance/IAM/Data-Encryption-Key.png');
     case 'Encrypted Data':
-      return resolve(__dirname, '../../../assets/security-identity-compliance/IAM/Encrypted-Data.png');
+      return resolveAsset('security-identity-compliance/IAM/Encrypted-Data.png');
     case 'Long term Security Credential':
-      return resolve(__dirname, '../../../assets/security-identity-compliance/IAM/Long-term-Security-Credential.png');
+      return resolveAsset('security-identity-compliance/IAM/Long-term-Security-Credential.png');
     case 'MFA Token':
-      return resolve(__dirname, '../../../assets/security-identity-compliance/IAM/MFA-Token.png');
+      return resolveAsset('security-identity-compliance/IAM/MFA-Token.png');
     case 'Permissions':
-      return resolve(__dirname, '../../../assets/security-identity-compliance/IAM/Permissions.png');
+      return resolveAsset('security-identity-compliance/IAM/Permissions.png');
     case 'Role':
-      return resolve(__dirname, '../../../assets/security-identity-compliance/IAM/Role.png');
+      return resolveAsset('security-identity-compliance/IAM/Role.png');
     case 'Temporary Security Credential':
-      return resolve(__dirname, '../../../assets/security-identity-compliance/IAM/Temporary-Security-Credential.png');
+      return resolveAsset('security-identity-compliance/IAM/Temporary-Security-Credential.png');
     default:
-      return resolve(__dirname, '../../../assets/security-identity-compliance/IAM.png');
+      return resolveAsset('security-identity-compliance/IAM.png');
   }
 }
 

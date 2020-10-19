@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type CommandLineInterfaceCategory = 'developer-tools' | 'management-governance';
@@ -11,7 +11,7 @@ export type CommandLineInterfaceProps = {
 } & HasDependences;
 
 function resolveImage(category: CommandLineInterfaceCategory): string {
-  return resolve(__dirname, '../../../assets/', category, 'CommandLineInterface.png');
+  return resolveAsset('', category, 'CommandLineInterface.png');
 }
 
 function useIcon(category: CommandLineInterfaceCategory): { path: string; size: number } {

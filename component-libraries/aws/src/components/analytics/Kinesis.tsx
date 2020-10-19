@@ -1,7 +1,7 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
 import { useAssertProvider } from '../../hooks/assert-provider';
+import { resolveAsset } from '../../assets';
 
 export type KinesisType = 'Video Streams' | 'Data Streams' | 'Data Firehose' | 'Data Analytics';
 
@@ -13,15 +13,15 @@ export type KinesisProps = {
 function resolveImage(type?: KinesisType): string {
   switch (type) {
     case 'Video Streams':
-      return resolve(__dirname, '../../../assets/analytics/Kinesis/Video-Streams.png');
+      return resolveAsset('analytics/Kinesis/Video-Streams.png');
     case 'Data Streams':
-      return resolve(__dirname, '../../../assets/analytics/Kinesis/Data-Streams.png');
+      return resolveAsset('analytics/Kinesis/Data-Streams.png');
     case 'Data Firehose':
-      return resolve(__dirname, '../../../assets/analytics/Kinesis/Data-Firehose.png');
+      return resolveAsset('analytics/Kinesis/Data-Firehose.png');
     case 'Data Analytics':
-      return resolve(__dirname, '../../../assets/analytics/Kinesis/Data-Analytics.png');
+      return resolveAsset('analytics/Kinesis/Data-Analytics.png');
     default:
-      return resolve(__dirname, '../../../assets/analytics/Kinesis.png');
+      return resolveAsset('analytics/Kinesis.png');
   }
 }
 

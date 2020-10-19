@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import { Provider, DependenciesEdgeAttributes } from '@rediagram/cdk';
 import { Subgraph, DOT } from '@ts-graphviz/react';
-import { resolve } from 'path';
+import { resolveAsset } from '../../assets';
 
-const icon = resolve(__dirname, '../../../assets/groups/logo.png');
+const icon = resolveAsset('groups/logo.png');
 
 export const GCP: FC = ({ children }) => {
   return (

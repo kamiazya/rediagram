@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type PinpointCategory = 'customer-engagement' | 'mobile';
@@ -11,7 +11,7 @@ export type PinpointProps = {
 } & HasDependences;
 
 function resolveImage(category: PinpointCategory): string {
-  return resolve(__dirname, '../../../assets/', category, 'Pinpoint.png');
+  return resolveAsset('', category, 'Pinpoint.png');
 }
 
 function useIcon(category: PinpointCategory): { path: string; size: number } {

@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type ElasticBeanstalkType = 'Deployment' | 'Application';
@@ -13,11 +13,11 @@ export type ElasticBeanstalkProps = {
 function resolveImage(type?: ElasticBeanstalkType): string {
   switch (type) {
     case 'Deployment':
-      return resolve(__dirname, '../../../assets/compute/ElasticBeanstalk/Deployment.png');
+      return resolveAsset('compute/ElasticBeanstalk/Deployment.png');
     case 'Application':
-      return resolve(__dirname, '../../../assets/compute/ElasticBeanstalk/Application.png');
+      return resolveAsset('compute/ElasticBeanstalk/Application.png');
     default:
-      return resolve(__dirname, '../../../assets/compute/ElasticBeanstalk.png');
+      return resolveAsset('compute/ElasticBeanstalk.png');
   }
 }
 

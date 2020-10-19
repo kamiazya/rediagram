@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type SnowmobileProps = {
@@ -8,7 +8,7 @@ export type SnowmobileProps = {
 } & HasDependences;
 
 function resolveImage(): string {
-  return resolve(__dirname, '../../../assets/storage/Snowmobile.png');
+  return resolveAsset('storage/Snowmobile.png');
 }
 
 function useIcon(): { path: string; size: number } {

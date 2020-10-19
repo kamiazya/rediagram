@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 type ThinkboxType = 'Deadline' | 'Frost' | 'Krakatoa' | 'Sequoia' | 'Stoke' | 'Mesh';
@@ -13,18 +13,18 @@ export type ThinkboxProps = {
 function resolveImage(type: ThinkboxType): string {
   switch (type) {
     case 'Mesh':
-      return resolve(__dirname, '../../../assets/compute/Thinkbox/Mesh.png');
+      return resolveAsset('compute/Thinkbox/Mesh.png');
     case 'Stoke':
-      return resolve(__dirname, '../../../assets/compute/Thinkbox/Stoke.png');
+      return resolveAsset('compute/Thinkbox/Stoke.png');
     case 'Sequoia':
-      return resolve(__dirname, '../../../assets/compute/Thinkbox/Sequoia.png');
+      return resolveAsset('compute/Thinkbox/Sequoia.png');
     case 'Krakatoa':
-      return resolve(__dirname, '../../../assets/compute/Thinkbox/Krakatoa.png');
+      return resolveAsset('compute/Thinkbox/Krakatoa.png');
     case 'Frost':
-      return resolve(__dirname, '../../../assets/compute/Thinkbox/Frost.png');
+      return resolveAsset('compute/Thinkbox/Frost.png');
     case 'Deadline':
     default:
-      return resolve(__dirname, '../../../assets/compute/Thinkbox/Deadline.png');
+      return resolveAsset('compute/Thinkbox/Deadline.png');
   }
 }
 

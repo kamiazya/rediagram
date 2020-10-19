@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import { Provider, DependenciesEdgeAttributes } from '@rediagram/cdk';
 import { Subgraph, DOT } from '@ts-graphviz/react';
-import { resolve } from 'path';
+import { resolveAsset } from '../../assets';
 
-const icon = resolve(__dirname, '../../../assets/groups/aws.png');
+const icon = resolveAsset('groups/aws.png');
 
 export const AWS: FC = ({ children }) => {
   return (

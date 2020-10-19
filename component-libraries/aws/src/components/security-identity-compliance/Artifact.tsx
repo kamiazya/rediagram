@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type ArtifactProps = {
@@ -8,7 +8,7 @@ export type ArtifactProps = {
 } & HasDependences;
 
 function resolveImage(): string {
-  return resolve(__dirname, '../../../assets/security-identity-compliance/Artifact.png');
+  return resolveAsset('security-identity-compliance/Artifact.png');
 }
 
 function useIcon(): { path: string; size: number } {

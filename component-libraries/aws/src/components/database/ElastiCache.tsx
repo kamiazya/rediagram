@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type ElastiCacheType = 'Cache node' | 'Redis' | 'Memcached';
@@ -8,13 +8,13 @@ export type ElastiCacheType = 'Cache node' | 'Redis' | 'Memcached';
 function resolveImage(type?: ElastiCacheType): string {
   switch (type) {
     case 'Cache node':
-      return resolve(__dirname, '../../../assets/database/ElastiCache/Cache-node.png');
+      return resolveAsset('database/ElastiCache/Cache-node.png');
     case 'Redis':
-      return resolve(__dirname, '../../../assets/database/ElastiCache/Redis.png');
+      return resolveAsset('database/ElastiCache/Redis.png');
     case 'Memcached':
-      return resolve(__dirname, '../../../assets/database/ElastiCache/Memcached.png');
+      return resolveAsset('database/ElastiCache/Memcached.png');
     default:
-      return resolve(__dirname, '../../../assets/database/ElastiCache.png');
+      return resolveAsset('database/ElastiCache.png');
   }
 }
 

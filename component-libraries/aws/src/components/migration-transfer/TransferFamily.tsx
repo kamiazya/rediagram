@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type TransferFamilyType = 'FTPS' | 'SFTP' | 'FTP';
@@ -8,13 +8,13 @@ export type TransferFamilyType = 'FTPS' | 'SFTP' | 'FTP';
 function resolveImage(type?: TransferFamilyType): string {
   switch (type) {
     case 'FTPS':
-      return resolve(__dirname, '../../../assets/management-governance/TransferFamily/FTPS.png');
+      return resolveAsset('management-governance/TransferFamily/FTPS.png');
     case 'SFTP':
-      return resolve(__dirname, '../../../assets/management-governance/TransferFamily/SFTP.png');
+      return resolveAsset('management-governance/TransferFamily/SFTP.png');
     case 'FTP':
-      return resolve(__dirname, '../../../assets/management-governance/TransferFamily/FTP.png');
+      return resolveAsset('management-governance/TransferFamily/FTP.png');
     default:
-      return resolve(__dirname, '../../../assets/management-governance/TransferFamily.png');
+      return resolveAsset('management-governance/TransferFamily.png');
   }
 }
 

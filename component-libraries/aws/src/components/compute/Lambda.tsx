@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type LambdaType = 'Lambda Function';
@@ -13,9 +13,9 @@ export type LambdaProps = {
 function resolveImage(type?: LambdaType): string {
   switch (type) {
     case 'Lambda Function':
-      return resolve(__dirname, '../../../assets/compute/Lambda/Lambda-Function.png');
+      return resolveAsset('compute/Lambda/Lambda-Function.png');
     default:
-      return resolve(__dirname, '../../../assets/compute/Lambda.png');
+      return resolveAsset('compute/Lambda.png');
   }
 }
 

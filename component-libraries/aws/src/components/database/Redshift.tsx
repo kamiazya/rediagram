@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type RedshiftCategory = 'analytics' | 'database';
@@ -14,11 +14,11 @@ export type RedshiftProps = {
 function resolveImage(category: RedshiftCategory, type?: RedshiftType): string {
   switch (type) {
     case 'Dense compute node':
-      return resolve(__dirname, '../../../assets/', category, '/Redshift/Dense-compute-node.png');
+      return resolveAsset('', category, '/Redshift/Dense-compute-node.png');
     case 'Dense storage node':
-      return resolve(__dirname, '../../../assets/', category, '/Redshift/Dense-storage-node.png');
+      return resolveAsset('', category, '/Redshift/Dense-storage-node.png');
     default:
-      return resolve(__dirname, '../../../assets/', category, '/Redshift.png');
+      return resolveAsset('', category, '/Redshift.png');
   }
 }
 

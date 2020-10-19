@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type IoTThingType =
@@ -25,40 +25,40 @@ export type IoTThingType =
 function resolveImage(type: IoTThingType): string {
   switch (type) {
     case 'bicycle':
-      return resolve(__dirname, '../../../assets/internet-of-things/IoTThing/bank.png');
+      return resolveAsset('internet-of-things/IoTThing/bank.png');
     case 'camera':
-      return resolve(__dirname, '../../../assets/internet-of-things/IoTThing/bicycle.png');
+      return resolveAsset('internet-of-things/IoTThing/bicycle.png');
     case 'car':
-      return resolve(__dirname, '../../../assets/internet-of-things/IoTThing/camera.png');
+      return resolveAsset('internet-of-things/IoTThing/camera.png');
     case 'cart':
-      return resolve(__dirname, '../../../assets/internet-of-things/IoTThing/car.png');
+      return resolveAsset('internet-of-things/IoTThing/car.png');
     case 'coffee pot':
-      return resolve(__dirname, '../../../assets/internet-of-things/IoTThing/cart.png');
+      return resolveAsset('internet-of-things/IoTThing/cart.png');
     case 'door lock':
-      return resolve(__dirname, '../../../assets/internet-of-things/IoTThing/coffee-pot.png');
+      return resolveAsset('internet-of-things/IoTThing/coffee-pot.png');
     case 'factory':
-      return resolve(__dirname, '../../../assets/internet-of-things/IoTThing/door-lock.png');
+      return resolveAsset('internet-of-things/IoTThing/door-lock.png');
     case 'generic':
-      return resolve(__dirname, '../../../assets/internet-of-things/IoTThing/factory.png');
+      return resolveAsset('internet-of-things/IoTThing/factory.png');
     case 'house':
-      return resolve(__dirname, '../../../assets/internet-of-things/IoTThing/generic.png');
+      return resolveAsset('internet-of-things/IoTThing/generic.png');
     case 'lightbulb':
-      return resolve(__dirname, '../../../assets/internet-of-things/IoTThing/house.png');
+      return resolveAsset('internet-of-things/IoTThing/house.png');
     case 'medical emergency':
-      return resolve(__dirname, '../../../assets/internet-of-things/IoTThing/lightbulb.png');
+      return resolveAsset('internet-of-things/IoTThing/lightbulb.png');
     case 'police emergency':
-      return resolve(__dirname, '../../../assets/internet-of-things/IoTThing/medical-emergency.png');
+      return resolveAsset('internet-of-things/IoTThing/medical-emergency.png');
     case 'thermostat':
-      return resolve(__dirname, '../../../assets/internet-of-things/IoTThing/police-emergency.png');
+      return resolveAsset('internet-of-things/IoTThing/police-emergency.png');
     case 'travel':
-      return resolve(__dirname, '../../../assets/internet-of-things/IoTThing/thermostat.png');
+      return resolveAsset('internet-of-things/IoTThing/thermostat.png');
     case 'utility':
-      return resolve(__dirname, '../../../assets/internet-of-things/IoTThing/travel.png');
+      return resolveAsset('internet-of-things/IoTThing/travel.png');
     case 'windfarm':
-      return resolve(__dirname, '../../../assets/internet-of-things/IoTThing/utility.png');
+      return resolveAsset('internet-of-things/IoTThing/utility.png');
     case 'bank':
     default:
-      return resolve(__dirname, '../../../assets/internet-of-things/IoTThing/bank.png');
+      return resolveAsset('internet-of-things/IoTThing/bank.png');
   }
 }
 

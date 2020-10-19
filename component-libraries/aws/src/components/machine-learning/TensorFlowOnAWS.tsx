@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type TensorFlowOnAWSProps = {
@@ -8,7 +8,7 @@ export type TensorFlowOnAWSProps = {
 } & HasDependences;
 
 function resolveImage(): string {
-  return resolve(__dirname, '../../../assets/machine-learning/TensorFlowOnAWS.png');
+  return resolveAsset('machine-learning/TensorFlowOnAWS.png');
 }
 
 function useIcon(): { path: string; size: number } {

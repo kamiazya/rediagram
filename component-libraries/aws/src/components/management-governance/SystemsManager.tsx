@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type SystemsManagerType =
@@ -17,25 +17,25 @@ export type SystemsManagerType =
 function resolveImage(type?: SystemsManagerType): string {
   switch (type) {
     case 'Automation':
-      return resolve(__dirname, '../../../assets/management-governance/SystemsManager/Automation.png');
+      return resolveAsset('management-governance/SystemsManager/Automation.png');
     case 'Documents':
-      return resolve(__dirname, '../../../assets/management-governance/SystemsManager/Documents.png');
+      return resolveAsset('management-governance/SystemsManager/Documents.png');
     case 'Patch manager':
-      return resolve(__dirname, '../../../assets/management-governance/SystemsManager/Patch-manager.png');
+      return resolveAsset('management-governance/SystemsManager/Patch-manager.png');
     case 'Parameter store':
-      return resolve(__dirname, '../../../assets/management-governance/SystemsManager/Parameter-store.png');
+      return resolveAsset('management-governance/SystemsManager/Parameter-store.png');
     case 'OpsCenter':
-      return resolve(__dirname, '../../../assets/management-governance/SystemsManager/OpsCenter.png');
+      return resolveAsset('management-governance/SystemsManager/OpsCenter.png');
     case 'Inventory':
-      return resolve(__dirname, '../../../assets/management-governance/SystemsManager/Inventory.png');
+      return resolveAsset('management-governance/SystemsManager/Inventory.png');
     case 'Maintenance windows':
-      return resolve(__dirname, '../../../assets/management-governance/SystemsManager/Maintenance-windows.png');
+      return resolveAsset('management-governance/SystemsManager/Maintenance-windows.png');
     case 'State manager':
-      return resolve(__dirname, '../../../assets/management-governance/SystemsManager/State-manager.png');
+      return resolveAsset('management-governance/SystemsManager/State-manager.png');
     case 'Run command':
-      return resolve(__dirname, '../../../assets/management-governance/SystemsManager/Run-command.png');
+      return resolveAsset('management-governance/SystemsManager/Run-command.png');
     default:
-      return resolve(__dirname, '../../../assets/management-governance/SystemsManager.png');
+      return resolveAsset('management-governance/SystemsManager.png');
   }
 }
 

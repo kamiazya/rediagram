@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type LicenseManagerProps = {
@@ -8,7 +8,7 @@ export type LicenseManagerProps = {
 } & HasDependences;
 
 function resolveImage(): string {
-  return resolve(__dirname, '../../../assets/management-governance/LicenseManager.png');
+  return resolveAsset('management-governance/LicenseManager.png');
 }
 
 function useIcon(): { path: string; size: number } {

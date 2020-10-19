@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type EC2Type =
@@ -40,71 +40,71 @@ export type EC2Type =
 function resolveImage(type?: EC2Type): string {
   switch (type) {
     case 'AMI':
-      return resolve(__dirname, '../../../assets/compute/EC2/AMI.png');
+      return resolveAsset('compute/EC2/AMI.png');
     case 'Auto Scaling':
-      return resolve(__dirname, '../../../assets/compute/EC2/Auto-Scaling.png');
+      return resolveAsset('compute/EC2/Auto-Scaling.png');
     case 'Elastic IP address':
-      return resolve(__dirname, '../../../assets/compute/EC2/Elastic-IP-address.png');
+      return resolveAsset('compute/EC2/Elastic-IP-address.png');
     case 'Rescue':
-      return resolve(__dirname, '../../../assets/compute/EC2/Rescue.png');
+      return resolveAsset('compute/EC2/Rescue.png');
     case 'Instance':
-      return resolve(__dirname, '../../../assets/compute/EC2/Instance.png');
+      return resolveAsset('compute/EC2/Instance.png');
     case 'A1 instance':
-      return resolve(__dirname, '../../../assets/compute/EC2/A1-Instance.png');
+      return resolveAsset('compute/EC2/A1-Instance.png');
     case 'M4 instance':
-      return resolve(__dirname, '../../../assets/compute/EC2/M4-Instance.png');
+      return resolveAsset('compute/EC2/M4-Instance.png');
     case 'R5a instance':
-      return resolve(__dirname, '../../../assets/compute/EC2/R5a-Instance.png');
+      return resolveAsset('compute/EC2/R5a-Instance.png');
     case 'z1d instance':
-      return resolve(__dirname, '../../../assets/compute/EC2/z1d-Instance.png');
+      return resolveAsset('compute/EC2/z1d-Instance.png');
     case 'H1 instance':
-      return resolve(__dirname, '../../../assets/compute/EC2/H1-Instance.png');
+      return resolveAsset('compute/EC2/H1-Instance.png');
     case 'Instances':
-      return resolve(__dirname, '../../../assets/compute/EC2/Instances.png');
+      return resolveAsset('compute/EC2/Instances.png');
     case 'T3 instance':
-      return resolve(__dirname, '../../../assets/compute/EC2/T3-Instance.png');
+      return resolveAsset('compute/EC2/T3-Instance.png');
     case 'C5 instance':
-      return resolve(__dirname, '../../../assets/compute/EC2/C5-Instance.png');
+      return resolveAsset('compute/EC2/C5-Instance.png');
     case 'R4 instance':
-      return resolve(__dirname, '../../../assets/compute/EC2/R4-Instance.png');
+      return resolveAsset('compute/EC2/R4-Instance.png');
     case 'P3 instance':
-      return resolve(__dirname, '../../../assets/compute/EC2/P3-Instance.png');
+      return resolveAsset('compute/EC2/P3-Instance.png');
     case 'I3 instance':
-      return resolve(__dirname, '../../../assets/compute/EC2/I3-Instance.png');
+      return resolveAsset('compute/EC2/I3-Instance.png');
     case 'Spot Instance':
-      return resolve(__dirname, '../../../assets/compute/EC2/Spot-Instance.png');
+      return resolveAsset('compute/EC2/Spot-Instance.png');
     case 'T2 instance':
-      return resolve(__dirname, '../../../assets/compute/EC2/T2-Instance.png');
+      return resolveAsset('compute/EC2/T2-Instance.png');
     case 'C5n instance':
-      return resolve(__dirname, '../../../assets/compute/EC2/C5n-Instance.png');
+      return resolveAsset('compute/EC2/C5n-Instance.png');
     case 'X1e instance':
-      return resolve(__dirname, '../../../assets/compute/EC2/X1e-Instance.png');
+      return resolveAsset('compute/EC2/X1e-Instance.png');
     case 'P2 instance':
-      return resolve(__dirname, '../../../assets/compute/EC2/P2-Instance.png');
+      return resolveAsset('compute/EC2/P2-Instance.png');
     case 'D2 instance':
-      return resolve(__dirname, '../../../assets/compute/EC2/D2-Instance.png');
+      return resolveAsset('compute/EC2/D2-Instance.png');
     case 'Instance with CloudWatch':
-      return resolve(__dirname, '../../../assets/compute/EC2/Instance-with-CloudWatch.png');
+      return resolveAsset('compute/EC2/Instance-with-CloudWatch.png');
     case 'M5 instance':
-      return resolve(__dirname, '../../../assets/compute/EC2/M5-Instance.png');
+      return resolveAsset('compute/EC2/M5-Instance.png');
     case 'C4 instance':
-      return resolve(__dirname, '../../../assets/compute/EC2/C4-Instance.png');
+      return resolveAsset('compute/EC2/C4-Instance.png');
     case 'X1 instance':
-      return resolve(__dirname, '../../../assets/compute/EC2/X1-Instance.png');
+      return resolveAsset('compute/EC2/X1-Instance.png');
     case 'G3 instance':
-      return resolve(__dirname, '../../../assets/compute/EC2/G3-Instance.png');
+      return resolveAsset('compute/EC2/G3-Instance.png');
     case 'DB instance':
-      return resolve(__dirname, '../../../assets/compute/EC2/DB-Instance.png');
+      return resolveAsset('compute/EC2/DB-Instance.png');
     case 'M5a instance':
-      return resolve(__dirname, '../../../assets/compute/EC2/M5a-Instance.png');
+      return resolveAsset('compute/EC2/M5a-Instance.png');
     case 'R5 instance':
-      return resolve(__dirname, '../../../assets/compute/EC2/R5-Instance.png');
+      return resolveAsset('compute/EC2/R5-Instance.png');
     case 'High memory instance':
-      return resolve(__dirname, '../../../assets/compute/EC2/High-Memory-Instance.png');
+      return resolveAsset('compute/EC2/High-Memory-Instance.png');
     case 'F1 instance':
-      return resolve(__dirname, '../../../assets/compute/EC2/F1-Instance.png');
+      return resolveAsset('compute/EC2/F1-Instance.png');
     default:
-      return resolve(__dirname, '../../../assets/compute/EC2.png');
+      return resolveAsset('compute/EC2.png');
   }
 }
 

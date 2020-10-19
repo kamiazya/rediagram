@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type QuantumLedgerDatabaseCategory = 'blockchain' | 'database';
@@ -11,7 +11,7 @@ export type QuantumLedgerDatabaseProps = {
 } & HasDependences;
 
 function resolveImage(category: QuantumLedgerDatabaseCategory): string {
-  return resolve(__dirname, '../../../assets/', category, '/QuantumLedgerDatabase.png');
+  return resolveAsset('', category, '/QuantumLedgerDatabase.png');
 }
 
 function useIcon(category: QuantumLedgerDatabaseCategory): { path: string; size: number } {

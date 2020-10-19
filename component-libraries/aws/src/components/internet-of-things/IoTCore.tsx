@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type IoTCoreProps = {
@@ -8,7 +8,7 @@ export type IoTCoreProps = {
 } & HasDependences;
 
 function resolveImage(): string {
-  return resolve(__dirname, '../../../assets/internet-of-things/IoTCore.png');
+  return resolveAsset('internet-of-things/IoTCore.png');
 }
 
 function useIcon(): { path: string; size: number } {

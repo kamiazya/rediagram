@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type CostAndUsageReportProps = {
@@ -8,7 +8,7 @@ export type CostAndUsageReportProps = {
 } & HasDependences;
 
 function resolveImage(): string {
-  return resolve(__dirname, '../../../assets/cost-management/CostAndUsageReport.png');
+  return resolveAsset('cost-management/CostAndUsageReport.png');
 }
 
 function useIcon(): { path: string; size: number } {

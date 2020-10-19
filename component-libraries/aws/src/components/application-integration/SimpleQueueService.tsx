@@ -1,7 +1,7 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
 import { useAssertProvider } from '../../hooks/assert-provider';
+import { resolveAsset } from '../../assets';
 
 export type SimpleQueueServiceType = 'Message' | 'Queue';
 
@@ -13,11 +13,11 @@ export type SimpleQueueServiceProps = {
 function resolveImage(type?: SimpleQueueServiceType): string {
   switch (type) {
     case 'Message':
-      return resolve(__dirname, '../../../assets/compute/SimpleQueueService/Message.png');
+      return resolveAsset('compute/SimpleQueueService/Message.png');
     case 'Queue':
-      return resolve(__dirname, '../../../assets/compute/SimpleQueueService/Queue.png');
+      return resolveAsset('compute/SimpleQueueService/Queue.png');
     default:
-      return resolve(__dirname, '../../../assets/compute/SimpleQueueService.png');
+      return resolveAsset('compute/SimpleQueueService.png');
   }
 }
 

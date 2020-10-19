@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type MachineLearningProps = {
@@ -8,7 +8,7 @@ export type MachineLearningProps = {
 } & HasDependences;
 
 function resolveImage(): string {
-  return resolve(__dirname, '../../../assets/machine-learning/MachineLearning.png');
+  return resolveAsset('machine-learning/MachineLearning.png');
 }
 
 function useIcon(): { path: string; size: number } {

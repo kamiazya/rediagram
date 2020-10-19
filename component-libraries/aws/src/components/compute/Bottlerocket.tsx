@@ -1,14 +1,14 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
 import { useAssertProvider } from '../../hooks/assert-provider';
+import { resolveAsset } from '../../assets';
 
 export type BottlerocketProps = {
   name: string;
 } & HasDependences;
 
 function resolveImage(): string {
-  return resolve(__dirname, '../../../assets/compute/Bottlerocket.png');
+  return resolveAsset('compute/Bottlerocket.png');
 }
 
 function useIcon(): { path: string; size: number } {

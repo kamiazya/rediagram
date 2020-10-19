@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type DynamoDBType = 'Attribute' | 'Items' | 'Item' | 'Table' | 'Attributes' | 'Global secondary index' | 'DAX';
@@ -8,21 +8,21 @@ export type DynamoDBType = 'Attribute' | 'Items' | 'Item' | 'Table' | 'Attribute
 function resolveImage(type?: DynamoDBType): string {
   switch (type) {
     case 'Attribute':
-      return resolve(__dirname, '../../../assets/database/DynamoDB/Attribute.png');
+      return resolveAsset('database/DynamoDB/Attribute.png');
     case 'Items':
-      return resolve(__dirname, '../../../assets/database/DynamoDB/Items.png');
+      return resolveAsset('database/DynamoDB/Items.png');
     case 'Item':
-      return resolve(__dirname, '../../../assets/database/DynamoDB/Item.png');
+      return resolveAsset('database/DynamoDB/Item.png');
     case 'Table':
-      return resolve(__dirname, '../../../assets/database/DynamoDB/Table.png');
+      return resolveAsset('database/DynamoDB/Table.png');
     case 'Attributes':
-      return resolve(__dirname, '../../../assets/database/DynamoDB/Attributes.png');
+      return resolveAsset('database/DynamoDB/Attributes.png');
     case 'Global secondary index':
-      return resolve(__dirname, '../../../assets/database/DynamoDB/Global-Secondary-Index.png');
+      return resolveAsset('database/DynamoDB/Global-Secondary-Index.png');
     case 'DAX':
-      return resolve(__dirname, '../../../assets/database/DynamoDB/DynamoDB-Accelerator.png');
+      return resolveAsset('database/DynamoDB/DynamoDB-Accelerator.png');
     default:
-      return resolve(__dirname, '../../../assets/database/DynamoDB.png');
+      return resolveAsset('database/DynamoDB.png');
   }
 }
 

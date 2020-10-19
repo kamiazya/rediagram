@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type ElementalMediaPackageProps = {
@@ -8,7 +8,7 @@ export type ElementalMediaPackageProps = {
 } & HasDependences;
 
 function resolveImage(): string {
-  return resolve(__dirname, '../../../assets/media-services/ElementalMediaPackage.png');
+  return resolveAsset('media-services/ElementalMediaPackage.png');
 }
 
 function useIcon(): { path: string; size: number } {

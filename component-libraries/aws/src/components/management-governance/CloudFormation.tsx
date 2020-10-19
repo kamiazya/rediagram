@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type CloudFormationType = 'Change set' | 'Stack' | 'Template';
@@ -8,13 +8,13 @@ export type CloudFormationType = 'Change set' | 'Stack' | 'Template';
 function resolveImage(type?: CloudFormationType): string {
   switch (type) {
     case 'Change set':
-      return resolve(__dirname, '../../../assets/management-governance/CloudFormation/Change-set.png');
+      return resolveAsset('management-governance/CloudFormation/Change-set.png');
     case 'Stack':
-      return resolve(__dirname, '../../../assets/management-governance/CloudFormation/Stack.png');
+      return resolveAsset('management-governance/CloudFormation/Stack.png');
     case 'Template':
-      return resolve(__dirname, '../../../assets/management-governance/CloudFormation/Template.png');
+      return resolveAsset('management-governance/CloudFormation/Template.png');
     default:
-      return resolve(__dirname, '../../../assets/management-governance/CloudFormation.png');
+      return resolveAsset('management-governance/CloudFormation.png');
   }
 }
 

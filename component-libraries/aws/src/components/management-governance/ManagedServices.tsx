@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 type ManagedServicesCategory = 'customer-enablement' | 'management-governance';
@@ -10,7 +10,7 @@ export type ManagedServicesProps = {
 } & HasDependences;
 
 function resolveImage(category: ManagedServicesCategory): string {
-  return resolve(__dirname, '../../../assets', category, 'ManagedServices.png');
+  return resolveAsset(category, 'ManagedServices.png');
 }
 
 function useIcon(category: ManagedServicesCategory): { path: string; size: number } {

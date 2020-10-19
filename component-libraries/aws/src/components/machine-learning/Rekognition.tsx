@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type RekognitionType = 'Image' | 'Video';
@@ -8,11 +8,11 @@ export type RekognitionType = 'Image' | 'Video';
 function resolveImage(type?: RekognitionType): string {
   switch (type) {
     case 'Image':
-      return resolve(__dirname, '../../../assets/internet-of-things/Rekognition/Image.png');
+      return resolveAsset('internet-of-things/Rekognition/Image.png');
     case 'Video':
-      return resolve(__dirname, '../../../assets/internet-of-things/Rekognition/Video.png');
+      return resolveAsset('internet-of-things/Rekognition/Video.png');
     default:
-      return resolve(__dirname, '../../../assets/internet-of-things/Rekognition.png');
+      return resolveAsset('internet-of-things/Rekognition.png');
   }
 }
 

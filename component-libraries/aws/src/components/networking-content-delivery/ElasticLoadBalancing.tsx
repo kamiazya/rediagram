@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type ElasticLoadBalancingType = 'Application load balancer' | 'Classic load balancer' | 'Network load balancer';
@@ -8,22 +8,13 @@ export type ElasticLoadBalancingType = 'Application load balancer' | 'Classic lo
 function resolveImage(type?: ElasticLoadBalancingType): string {
   switch (type) {
     case 'Application load balancer':
-      return resolve(
-        __dirname,
-        '../../../assets/networking-content-delivery/ElasticLoadBalancing/Application-load-balancer.png',
-      );
+      return resolveAsset('networking-content-delivery/ElasticLoadBalancing/Application-load-balancer.png');
     case 'Classic load balancer':
-      return resolve(
-        __dirname,
-        '../../../assets/networking-content-delivery/ElasticLoadBalancing/Classic-load-balancer.png',
-      );
+      return resolveAsset('networking-content-delivery/ElasticLoadBalancing/Classic-load-balancer.png');
     case 'Network load balancer':
-      return resolve(
-        __dirname,
-        '../../../assets/networking-content-delivery/ElasticLoadBalancing/Network-load-balancer.png',
-      );
+      return resolveAsset('networking-content-delivery/ElasticLoadBalancing/Network-load-balancer.png');
     default:
-      return resolve(__dirname, '../../../assets/networking-content-delivery/ElasticLoadBalancing.png');
+      return resolveAsset('networking-content-delivery/ElasticLoadBalancing.png');
   }
 }
 

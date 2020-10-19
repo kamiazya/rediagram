@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type ContainerRegistryType = 'Registry' | 'Image';
@@ -13,11 +13,11 @@ export type ContainerRegistryProps = {
 function resolveImage(type?: ContainerRegistryType): string {
   switch (type) {
     case 'Image':
-      return resolve(__dirname, '../../../assets/compute/ContainerRegistry/Image.png');
+      return resolveAsset('compute/ContainerRegistry/Image.png');
     case 'Registry':
-      return resolve(__dirname, '../../../assets/compute/ContainerRegistry/Registry.png');
+      return resolveAsset('compute/ContainerRegistry/Registry.png');
     default:
-      return resolve(__dirname, '../../../assets/compute/ContainerRegistry.png');
+      return resolveAsset('compute/ContainerRegistry.png');
   }
 }
 

@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type FirewallManagerProps = {
@@ -8,7 +8,7 @@ export type FirewallManagerProps = {
 } & HasDependences;
 
 function resolveImage(): string {
-  return resolve(__dirname, '../../../assets/security-identity-compliance/FirewallManager.png');
+  return resolveAsset('security-identity-compliance/FirewallManager.png');
 }
 
 function useIcon(): { path: string; size: number } {

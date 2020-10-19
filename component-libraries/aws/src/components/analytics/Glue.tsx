@@ -1,7 +1,7 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
 import { useAssertProvider } from '../../hooks/assert-provider';
+import { resolveAsset } from '../../assets';
 
 export type GlueType = 'Crawler' | 'Data catalog';
 
@@ -13,11 +13,11 @@ export type GlueProps = {
 function resolveImage(type?: GlueType): string {
   switch (type) {
     case 'Crawler':
-      return resolve(__dirname, '../../../assets/analytics/Glue/Crawler.png');
+      return resolveAsset('analytics/Glue/Crawler.png');
     case 'Data catalog':
-      return resolve(__dirname, '../../../assets/analytics/Glue/Data-catalog.png');
+      return resolveAsset('analytics/Glue/Data-catalog.png');
     default:
-      return resolve(__dirname, '../../../assets/analytics/Glue.png');
+      return resolveAsset('analytics/Glue.png');
   }
 }
 

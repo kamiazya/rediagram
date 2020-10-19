@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../assets';
 
 export type GeneralIconType =
   | 'Client'
@@ -27,46 +27,46 @@ export type GeneralIconType =
 function resolveImage(type: GeneralIconType): string {
   switch (type) {
     case 'Client':
-      return resolve(__dirname, '../../assets/general/Client.png');
+      return resolveAsset('general/Client.png');
     case 'Database':
-      return resolve(__dirname, '../../assets/general/Database.png');
+      return resolveAsset('general/Database.png');
     case 'Disk':
-      return resolve(__dirname, '../../assets/general/Disk.png');
+      return resolveAsset('general/Disk.png');
     case 'Firewall':
-      return resolve(__dirname, '../../assets/general/Firewall.png');
+      return resolveAsset('general/Firewall.png');
     case 'Forums':
-      return resolve(__dirname, '../../assets/general/Forums.png');
+      return resolveAsset('general/Forums.png');
     case 'Internet alt1':
-      return resolve(__dirname, '../../assets/general/Internet-alt1.png');
+      return resolveAsset('general/Internet-alt1.png');
     case 'Internet alt2':
-      return resolve(__dirname, '../../assets/general/Internet-alt2.png');
+      return resolveAsset('general/Internet-alt2.png');
     case 'Internet gateway':
-      return resolve(__dirname, '../../assets/general/Internet-gateway.png');
+      return resolveAsset('general/Internet-gateway.png');
     case 'Mobile client':
-      return resolve(__dirname, '../../assets/general/Mobile-client.png');
+      return resolveAsset('general/Mobile-client.png');
     case 'Multimedia':
-      return resolve(__dirname, '../../assets/general/Multimedia.png');
+      return resolveAsset('general/Multimedia.png');
     case 'Office building':
-      return resolve(__dirname, '../../assets/general/Office-building.png');
+      return resolveAsset('general/Office-building.png');
     case 'SAML token':
-      return resolve(__dirname, '../../assets/general/SAML-token.png');
+      return resolveAsset('general/SAML-token.png');
     case 'SDK':
-      return resolve(__dirname, '../../assets/general/SDK.png');
+      return resolveAsset('general/SDK.png');
     case 'SSL padlock':
-      return resolve(__dirname, '../../assets/general/SSL-padlock.png');
+      return resolveAsset('general/SSL-padlock.png');
     case 'Tape storage':
-      return resolve(__dirname, '../../assets/general/Tape-storage.png');
+      return resolveAsset('general/Tape-storage.png');
     case 'Toolkit':
-      return resolve(__dirname, '../../assets/general/Toolkit.png');
+      return resolveAsset('general/Toolkit.png');
     case 'Traditional server':
-      return resolve(__dirname, '../../assets/general/Traditional-server.png');
+      return resolveAsset('general/Traditional-server.png');
     case 'User':
-      return resolve(__dirname, '../../assets/general/User.png');
+      return resolveAsset('general/User.png');
     case 'Users':
-      return resolve(__dirname, '../../assets/general/Users.png');
+      return resolveAsset('general/Users.png');
     case 'General':
     default:
-      return resolve(__dirname, '../../assets/general/General.png');
+      return resolveAsset('general/General.png');
   }
 }
 

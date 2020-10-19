@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 import { GCPNode } from '../internal/GCPNode';
 
@@ -10,7 +10,7 @@ export type CloudCodeForIntelliJProps = {
 } & HasDependences;
 
 function resolveImage(): string {
-  return resolve(__dirname, '../../../assets/developer-tools/CloudCodeForIntelliJ.png');
+  return resolveAsset('developer-tools/CloudCodeForIntelliJ.png');
 }
 
 function useIcon(): { path: string; size: number } {

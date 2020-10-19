@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type DeviceDefenderType = 'device jobs';
@@ -8,9 +8,9 @@ export type DeviceDefenderType = 'device jobs';
 function resolveImage(type?: DeviceDefenderType): string {
   switch (type) {
     case 'device jobs':
-      return resolve(__dirname, '../../../assets/internet-of-things/DeviceDefender/device-jobs.png');
+      return resolveAsset('internet-of-things/DeviceDefender/device-jobs.png');
     default:
-      return resolve(__dirname, '../../../assets/internet-of-things/DeviceDefender.png');
+      return resolveAsset('internet-of-things/DeviceDefender.png');
   }
 }
 

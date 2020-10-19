@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type CloudFrontType = 'Download distribution' | 'Edge location' | 'Streaming distribution';
@@ -8,13 +8,13 @@ export type CloudFrontType = 'Download distribution' | 'Edge location' | 'Stream
 function resolveImage(type?: CloudFrontType): string {
   switch (type) {
     case 'Download distribution':
-      return resolve(__dirname, '../../../assets/networking-content-delivery/CloudFront/Download-distribution.png');
+      return resolveAsset('networking-content-delivery/CloudFront/Download-distribution.png');
     case 'Edge location':
-      return resolve(__dirname, '../../../assets/networking-content-delivery/CloudFront/Edge-location.png');
+      return resolveAsset('networking-content-delivery/CloudFront/Edge-location.png');
     case 'Streaming distribution':
-      return resolve(__dirname, '../../../assets/networking-content-delivery/CloudFront/Streaming-distribution.png');
+      return resolveAsset('networking-content-delivery/CloudFront/Streaming-distribution.png');
     default:
-      return resolve(__dirname, '../../../assets/networking-content-delivery/CloudFront.png');
+      return resolveAsset('networking-content-delivery/CloudFront.png');
   }
 }
 

@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type StorageGatewayType =
@@ -19,19 +19,19 @@ export type StorageGatewayProps = {
 function resolveImage(type?: StorageGatewayType): string {
   switch (type) {
     case 'Non-cached volume':
-      return resolve(__dirname, '../../../assets/storage/StorageGateway/Non-cached-volume.png');
+      return resolveAsset('storage/StorageGateway/Non-cached-volume.png');
     case 'Cached volume':
-      return resolve(__dirname, '../../../assets/storage/StorageGateway/Cached-volume.png');
+      return resolveAsset('storage/StorageGateway/Cached-volume.png');
     case 'Volume gateway':
-      return resolve(__dirname, '../../../assets/storage/StorageGateway/Volume-gateway.png');
+      return resolveAsset('storage/StorageGateway/Volume-gateway.png');
     case 'Virtual tape library':
-      return resolve(__dirname, '../../../assets/storage/StorageGateway/Virtual-tape-library.png');
+      return resolveAsset('storage/StorageGateway/Virtual-tape-library.png');
     case 'Tape gateway':
-      return resolve(__dirname, '../../../assets/storage/StorageGateway/Tape-gateway.png');
+      return resolveAsset('storage/StorageGateway/Tape-gateway.png');
     case 'File gateway':
-      return resolve(__dirname, '../../../assets/storage/StorageGateway/File-gateway.png');
+      return resolveAsset('storage/StorageGateway/File-gateway.png');
     default:
-      return resolve(__dirname, '../../../assets/storage/StorageGateway.png');
+      return resolveAsset('storage/StorageGateway.png');
   }
 }
 

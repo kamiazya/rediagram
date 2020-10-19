@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 import { GCPNode } from '../internal/GCPNode';
 
@@ -10,7 +10,7 @@ export type GradleAppEnginePluginProps = {
 } & HasDependences;
 
 function resolveImage(): string {
-  return resolve(__dirname, '../../../assets/developer-tools/GradleAppEnginePlugin.png');
+  return resolveAsset('developer-tools/GradleAppEnginePlugin.png');
 }
 
 function useIcon(): { path: string; size: number } {

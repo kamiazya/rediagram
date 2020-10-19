@@ -1,7 +1,7 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
 import { useAssertProvider } from '../../hooks/assert-provider';
+import { resolveAsset } from '../../assets';
 
 export type CloudSearchType = 'Search documents';
 
@@ -13,9 +13,9 @@ export type CloudSearchProps = {
 function resolveImage(type?: CloudSearchType): string {
   switch (type) {
     case 'Search documents':
-      return resolve(__dirname, '../../../assets/analytics/CloudSearch/Search-documents.png');
+      return resolveAsset('analytics/CloudSearch/Search-documents.png');
     default:
-      return resolve(__dirname, '../../../assets/analytics/CloudSearch.png');
+      return resolveAsset('analytics/CloudSearch.png');
   }
 }
 

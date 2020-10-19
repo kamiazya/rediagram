@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type DirectoryServiceType = 'Simple AD' | 'AD Connector' | 'AWS Managed Microsoft AD';
@@ -13,16 +13,13 @@ export type DirectoryServiceProps = {
 function resolveImage(type?: DirectoryServiceType): string {
   switch (type) {
     case 'Simple AD':
-      return resolve(__dirname, '../../../assets/security-identity-compliance/DirectoryService/Simple-AD.png');
+      return resolveAsset('security-identity-compliance/DirectoryService/Simple-AD.png');
     case 'AD Connector':
-      return resolve(__dirname, '../../../assets/security-identity-compliance/DirectoryService/AD-Connector.png');
+      return resolveAsset('security-identity-compliance/DirectoryService/AD-Connector.png');
     case 'AWS Managed Microsoft AD':
-      return resolve(
-        __dirname,
-        '../../../assets/security-identity-compliance/DirectoryService/AWS-Managed-Microsoft-AD.png',
-      );
+      return resolveAsset('security-identity-compliance/DirectoryService/AWS-Managed-Microsoft-AD.png');
     default:
-      return resolve(__dirname, '../../../assets/security-identity-compliance/DirectoryService.png');
+      return resolveAsset('security-identity-compliance/DirectoryService.png');
   }
 }
 

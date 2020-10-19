@@ -1,7 +1,7 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
 import { useAssertProvider } from '../../hooks/assert-provider';
+import { resolveAsset } from '../../assets';
 
 export type SimpleNotificationServiceType = 'Email notification' | 'HTTP notification' | 'Topic';
 
@@ -13,13 +13,13 @@ export type SimpleNotificationServiceProps = {
 function resolveImage(type?: SimpleNotificationServiceType): string {
   switch (type) {
     case 'Email notification':
-      return resolve(__dirname, '../../../assets/compute/SimpleNotificationService/Email-notification.png');
+      return resolveAsset('compute/SimpleNotificationService/Email-notification.png');
     case 'HTTP notification':
-      return resolve(__dirname, '../../../assets/compute/SimpleNotificationService/HTTP-notification.png');
+      return resolveAsset('compute/SimpleNotificationService/HTTP-notification.png');
     case 'Topic':
-      return resolve(__dirname, '../../../assets/compute/SimpleNotificationService/Topic.png');
+      return resolveAsset('compute/SimpleNotificationService/Topic.png');
     default:
-      return resolve(__dirname, '../../../assets/compute/SimpleNotificationService.png');
+      return resolveAsset('compute/SimpleNotificationService.png');
   }
 }
 

@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type Route53Type = 'Hosted zone' | 'Route table';
@@ -8,11 +8,11 @@ export type Route53Type = 'Hosted zone' | 'Route table';
 function resolveImage(type?: Route53Type): string {
   switch (type) {
     case 'Hosted zone':
-      return resolve(__dirname, '../../../assets/networking-content-delivery/Route53/Hosted-zone.png');
+      return resolveAsset('networking-content-delivery/Route53/Hosted-zone.png');
     case 'Route table':
-      return resolve(__dirname, '../../../assets/networking-content-delivery/Route53/Route-table.png');
+      return resolveAsset('networking-content-delivery/Route53/Route-table.png');
     default:
-      return resolve(__dirname, '../../../assets/networking-content-delivery/Route53.png');
+      return resolveAsset('networking-content-delivery/Route53.png');
   }
 }
 

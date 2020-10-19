@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type ManagementConsoleProps = {
@@ -8,7 +8,7 @@ export type ManagementConsoleProps = {
 } & HasDependences;
 
 function resolveImage(): string {
-  return resolve(__dirname, '../../../assets/management-governance/ManagementConsole.png');
+  return resolveAsset('management-governance/ManagementConsole.png');
 }
 
 function useIcon(): { path: string; size: number } {

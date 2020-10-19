@@ -1,6 +1,6 @@
-import { resolve } from 'path';
 import React, { FC, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 type AppSyncCategory = 'mobile' | 'application-integration';
@@ -10,7 +10,7 @@ export type AppSyncProps = {
 } & HasDependences;
 
 function resolveImage(category: AppSyncCategory): string {
-  return resolve(__dirname, '../../../assets', category, 'AppSync.png');
+  return resolveAsset(category, 'AppSync.png');
 }
 
 function useIcon(category: AppSyncCategory): { path: string; size: number } {
