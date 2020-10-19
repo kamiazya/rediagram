@@ -13,11 +13,11 @@ export type SimpleQueueServiceProps = {
 function resolveImage(type?: SimpleQueueServiceType): string {
   switch (type) {
     case 'Message':
-      return resolveAsset('compute/SimpleQueueService/Message.png');
+      return resolveAsset('application-integration/SimpleQueueService/Message.png');
     case 'Queue':
-      return resolveAsset('compute/SimpleQueueService/Queue.png');
+      return resolveAsset('application-integration/SimpleQueueService/Queue.png');
     default:
-      return resolveAsset('compute/SimpleQueueService.png');
+      return resolveAsset('application-integration/SimpleQueueService.png');
   }
 }
 

@@ -13,13 +13,13 @@ export type SimpleNotificationServiceProps = {
 function resolveImage(type?: SimpleNotificationServiceType): string {
   switch (type) {
     case 'Email notification':
-      return resolveAsset('compute/SimpleNotificationService/Email-notification.png');
+      return resolveAsset('application-integration/SimpleNotificationService/Email-notification.png');
     case 'HTTP notification':
-      return resolveAsset('compute/SimpleNotificationService/HTTP-notification.png');
+      return resolveAsset('application-integration/SimpleNotificationService/HTTP-notification.png');
     case 'Topic':
-      return resolveAsset('compute/SimpleNotificationService/Topic.png');
+      return resolveAsset('application-integration/SimpleNotificationService/Topic.png');
     default:
-      return resolveAsset('compute/SimpleNotificationService.png');
+      return resolveAsset('application-integration/SimpleNotificationService.png');
   }
 }
 

@@ -13,15 +13,15 @@ export type EventBridgeProps = {
 function resolveImage(type?: EventBridgeType): string {
   switch (type) {
     case 'Event':
-      return resolveAsset('compute/EventBridge/Event.png');
+      return resolveAsset('application-integration/EventBridge/Event.png');
     case 'Default':
-      return resolveAsset('compute/EventBridge/Default.png');
+      return resolveAsset('application-integration/EventBridge/Default.png');
     case 'Custom':
-      return resolveAsset('compute/EventBridge/Custom.png');
+      return resolveAsset('application-integration/EventBridge/Custom.png');
     case 'SaaS':
-      return resolveAsset('compute/EventBridge/SaaS.png');
+      return resolveAsset('application-integration/EventBridge/SaaS.png');
     default:
-      return resolveAsset('compute/EventBridge.png');
+      return resolveAsset('application-integration/EventBridge.png');
   }
 }
 
