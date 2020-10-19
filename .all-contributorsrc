@@ -26,6 +26,16 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "fealone",
+      "name": "fealone",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/57695598?v=4",
+      "profile": "http://lonesec.com",
+      "contributions": [
+        "ideas",
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7,
