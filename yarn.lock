@@ -3036,10 +3036,10 @@
     "@babel/runtime" "^7.11.2"
     "@testing-library/dom" "^7.24.2"
 
-"@ts-graphviz/node@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@ts-graphviz/node/-/node-0.2.0.tgz#335750a26d606f54120e9b7a8ac45723b88756b1"
-  integrity sha512-ebe8JJSNvdSu9S9ZQOI+wYML6i67aRNuLf+53bYSKR/QohOa7q7wOplGlBtxWeITAZ8povjDpjYHvnLzbjD3Rg==
+"@ts-graphviz/node@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@ts-graphviz/node/-/node-0.3.0.tgz#89e77d5331a0438fceeb47b1d8f9ff3199735a04"
+  integrity sha512-Gsk9FHYTAs4aKzIR5tGOL3FI8WQUlJ3pNEgCSLvEWIEy0jSgllnl4hpFsODy84CIovUWIHPXkCYliCfo1YtePg==
   dependencies:
     tmp-promise "^3.0.2"
 
