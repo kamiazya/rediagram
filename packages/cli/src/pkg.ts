@@ -7,4 +7,4 @@ type PKG = {
 
 const pkg: PKG = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../package.json'), 'utf-8'));
 
-export = pkg;
+export default pkg;

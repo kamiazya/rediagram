@@ -2,11 +2,11 @@ import cmd from 'commander';
 import glob from 'fast-glob';
 import { registerAll } from 'sucrase/dist/register';
 import path from 'path';
-import { version } from './pkg';
+import pkg from './pkg';
 
 cmd
   .name('rediagramc')
-  .version(version)
+  .version(pkg.version)
   .arguments('[pattarns...]')
   .action(async function rediagramc(pattarns: string[]): Promise<void> {
     registerAll();

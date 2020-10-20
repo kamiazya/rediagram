@@ -24,8 +24,9 @@
     "rediagramc": "bin/rediagramc.js"
   },
   "scripts": {
+    "clean": "rimraf lib",
     "start": "ts-node src/rediagramc",
-    "build": "tsc",
+    "build": "rollup -c",
     "watch": "tsc --watch"
   },
   "dependencies": {
@@ -44,5 +45,11 @@
     "sucrase": "^3.16.0",
     "ts-graphviz": "^0.13.1",
     "typescript": "^4.0.2"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.2",
+    "rollup": "^2.32.0",
+    "rollup-plugin-typescript2": "^0.28.0",
+    "ts-node": "^9.0.0"
   }
 }

@@ -14,7 +14,9 @@
   "scripts": {
     "lerna": "lerna",
     "test": "jest",
+    "prebuild": "lerna run --parallel clean",
     "build": "lerna run --parallel build",
+    "prewatch": "yarn build",
     "watch": "lerna run --parallel watch",
     "rediagram": "yarn workspace @rediagram/cli start",
     "lint": "eslint -c .eslintrc.json --ext ts,tsx component-libraries packages examples",
