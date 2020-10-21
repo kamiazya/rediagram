@@ -68,6 +68,7 @@ See [more examples](./examples/gallery/README.md).
   - [@rediagram/cli](./packages/cli/README.md) - CLI for rediagram.
   - [@rediagram/cdk](./packages/cdk/README.md) - Component Development Kit for rediagram library.
   - [@rediagram/tsconfig](./packages/tsconfig/README.md) - A base TSConfig for working with rediagram.
+  - [@rediagram/common](./packages/common/README.md)  - Common config and utility for rediagram.
 - Component Libraries
   - [@rediagram/aws](./component-libraries/aws/README.md) - Components for drawing AWS diagrams.
   - [@rediagram/gcp](./component-libraries/gcp/README.md) - Components for drawing GCP diagrams.
