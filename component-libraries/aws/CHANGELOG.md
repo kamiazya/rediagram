@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.3](https://github.com/kamiazya/rediagram/compare/@rediagram/aws@0.2.2...@rediagram/aws@0.2.3) (2020-10-21)
+
+
+### Bug Fixes
+
+* **@rediagram/aws:** fix broken assets path ([e191f99](https://github.com/kamiazya/rediagram/commit/e191f99b2305504b832bcec9a6aacbc0645218e3))
+
+
+
+
+
 ## [0.2.2](https://github.com/kamiazya/rediagram/compare/@rediagram/aws@0.2.1...@rediagram/aws@0.2.2) (2020-10-16)
 
 

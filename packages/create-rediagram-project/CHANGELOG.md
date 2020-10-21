@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.2](https://github.com/kamiazya/rediagram/compare/create-rediagram-project@0.1.1...create-rediagram-project@0.1.2) (2020-10-21)
+
+
+### Bug Fixes
+
+* **create-rediagram-project:** fix version, and help option bihabior ([969aada](https://github.com/kamiazya/rediagram/commit/969aada225e5ae629394d4ca34b77380b13bc491))
+
+
+### Features
+
+* **create-rediagram-project:** support yarn package manager ([560dc0a](https://github.com/kamiazya/rediagram/commit/560dc0aa51fcfee6b8db539e4d0f467e76866e66)), closes [#105](https://github.com/kamiazya/rediagram/issues/105)
+
+
+
+
+
 ## [0.1.1](https://github.com/kamiazya/rediagram/compare/create-rediagram-project@0.1.0...create-rediagram-project@0.1.1) (2020-10-17)
 
 

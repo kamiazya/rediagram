@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.7](https://github.com/kamiazya/rediagram/compare/@rediagram/cli@0.0.6...@rediagram/cli@0.0.7) (2020-10-21)
+
+
+### Bug Fixes
+
+* **@rediagram/cli:** fix dead code ([47e286d](https://github.com/kamiazya/rediagram/commit/47e286d1a96bbd1fdf0a81a2b9f164ab57aa5d8f))
+* **@rediagram/cli:** use @rediagram/common package ([886ab5f](https://github.com/kamiazya/rediagram/commit/886ab5f5c8b90d297722aed650513cf171eb3df2))
+
+
+### Performance Improvements
+
+* **@rediagram/cli:** improve cli execution time ([3c8a73b](https://github.com/kamiazya/rediagram/commit/3c8a73b8ea513ad2dfbb85355d6478bf8e3f6b18))
+
+
+
+
+
 ## [0.0.6](https://github.com/kamiazya/rediagram/compare/@rediagram/cli@0.0.5...@rediagram/cli@0.0.6) (2020-10-16)
 
 **Note:** Version bump only for package @rediagram/cli

@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.1](https://github.com/kamiazya/rediagram/compare/rediagram@0.2.0...rediagram@0.2.1) (2020-10-21)
+
+
+### Bug Fixes
+
+* **rediagram:** add command excution timeout ([4b9f483](https://github.com/kamiazya/rediagram/commit/4b9f48318dda3b4fd570578bf41c666558e56f67))
+* **rediagram:** fix build script ([3c256f9](https://github.com/kamiazya/rediagram/commit/3c256f9000727d5b3ceb924710287c946bf9e8ec))
+* **rediagram:** fix to ensure dir ([5fc76db](https://github.com/kamiazya/rediagram/commit/5fc76db7258be49d38fbe3b42c21b7ba1c513055)), closes [#102](https://github.com/kamiazya/rediagram/issues/102)
+* **rediagram:** use @rediagram/common package ([dceef9a](https://github.com/kamiazya/rediagram/commit/dceef9a669071ab86bbf7000b4076d2e86444068))
+
+
+
+
+
 # [0.2.0](https://github.com/kamiazya/rediagram/compare/rediagram@0.1.0...rediagram@0.2.0) (2020-10-16)
 
 
