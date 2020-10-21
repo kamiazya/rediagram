@@ -14,10 +14,7 @@ cmd
     const sources = await glob(
       pattarns.length >= 1
         ? pattarns
-        : [
-            ...(CONFIG.scope.getIncludesPattarns() ?? []),
-            ...(CONFIG.scope.getExcludesPattarns() ?? []).map((p) => `!${p}`),
-          ],
+        : [...CONFIG.scope.getIncludesPattarns(), ...CONFIG.scope.getExcludesPattarns().map((p) => `!${p}`)],
       {
         dot: true,
         extglob: true,
