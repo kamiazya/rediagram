@@ -2,24 +2,24 @@
 
 ## AWS
 
-### [My Infra](./MyInfra.rediagram.tsx)
+### [My Infra](./src/MyInfra.rediagram.tsx)
 
-![MyInfra](./MyInfra.rediagram.png)
+![MyInfra](./img/MyInfra.rediagram.png)
 
-### [Git to S3 WebHooks](./GitToS3WebHooks.rediagram.tsx)
+### [Git to S3 WebHooks](./src/GitToS3WebHooks.rediagram.tsx)
 
-![GitToS3WebHooks](./GitToS3WebHooks.rediagram.png)
+![GitToS3WebHooks](./img/GitToS3WebHooks.rediagram.png)
 
-### [Chef Automate Architecture on AWS](./ChefAutomateArchitectureOnAWS.rediagram.tsx)
+### [Chef Automate Architecture on AWS](./src/ChefAutomateArchitectureOnAWS.rediagram.tsx)
 
-![ChefAutomateArchitectureOnAWS](./ChefAutomateArchitectureOnAWS.rediagram.png)
+![ChefAutomateArchitectureOnAWS](./img/ChefAutomateArchitectureOnAWS.rediagram.png)
 
 ## GCP
 
-### [App Engine and Cloud Endpoints](./AppEngineAndCloudEndpoints.rediagram.tsx)
+### [App Engine and Cloud Endpoints](./src/AppEngineAndCloudEndpoints.rediagram.tsx)
 
-![App Engine and Cloud Endpoints](AppEngineAndCloudEndpoints.rediagram.png)
+![App Engine and Cloud Endpoints](img/AppEngineAndCloudEndpoints.rediagram.png)
 
-### [Content Management](./ContentManagement.rediagram.tsx)
+### [Content Management](./src/ContentManagement.rediagram.tsx)
 
-![Content Management](ContentManagement.rediagram.png)
+![Content Management](img/ContentManagement.rediagram.png)
