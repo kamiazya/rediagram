@@ -1,6 +1,7 @@
 import { ReactElement } from 'react';
 import { renderToDot } from '@ts-graphviz/react';
-import { exportToFile, Format } from '@ts-graphviz/node';
+import { ChildProcessOptions, exportToFile, Format } from '@ts-graphviz/node';
+import { CONFIG } from '@rediagram/common';
 import { ensureDir } from 'fs-extra';
 import path from 'path';
 import caller from 'caller';
@@ -25,13 +26,28 @@ type InternalRenderOption = RenderOption & {
   _caller?: string;
 };
 
-async function render(element: ReactElement, format: Format, { name, dir }: Required<RenderOption>): Promise<void> {
+async function render(
+  element: ReactElement,
+  {
+    name,
+    dir,
+    format,
+    dotOptions,
+  }: Required<RenderOption> & {
+    format: Format;
+    dotOptions: ChildProcessOptions;
+  },
+): Promise<void> {
   const dot = renderToDot(element);
   const output = path.format({ dir, name, ext: `.${format}` });
   if (dir !== undefined) {
     await ensureDir(dir);
   }
-  await exportToFile(dot, { format, output, childProcessOptions: { timeout: 10_000 } });
+  await exportToFile(dot, {
+    format,
+    output,
+    childProcessOptions: dotOptions,
+  });
 }
 
 /**
@@ -43,7 +59,14 @@ export async function PNG(
   { name, dir, _caller = caller() }: InternalRenderOption = {},
 ): Promise<void> {
   const p = path.parse(_caller);
-  await render(element, 'png', { dir: dir ?? p.dir, name: name ?? p.name });
+  await render(element, {
+    format: 'png',
+    name: name ?? p.name,
+    dir: dir ?? CONFIG.output.getDir() ?? p.dir,
+    dotOptions: {
+      timeout: CONFIG.dot?.getTimeout(),
+    },
+  });
 }
 
 /**
@@ -55,7 +78,14 @@ export async function SVG(
   { name, dir, _caller = caller() }: InternalRenderOption = {},
 ): Promise<void> {
   const p = path.parse(_caller);
-  await render(element, 'svg', { dir: dir ?? p.dir, name: name ?? p.name });
+  await render(element, {
+    format: 'svg',
+    name: name ?? p.name,
+    dir: dir ?? CONFIG.output.getDir() ?? p.dir,
+    dotOptions: {
+      timeout: CONFIG.dot?.getTimeout(),
+    },
+  });
 }
 
 /**
@@ -67,5 +97,12 @@ export async function PDF(
   { name, dir, _caller = caller() }: InternalRenderOption = {},
 ): Promise<void> {
   const p = path.parse(_caller);
-  await render(element, 'pdf', { dir: dir ?? p.dir, name: name ?? p.name });
+  await render(element, {
+    format: 'pdf',
+    name: name ?? p.name,
+    dir: dir ?? CONFIG.output.getDir() ?? p.dir,
+    dotOptions: {
+      timeout: CONFIG.dot?.getTimeout(),
+    },
+  });
 }
