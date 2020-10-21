@@ -14,7 +14,7 @@ Markup and draw your system diagrams with React.
 
 Code your system architecture in the style of React, JSX/TSX.
 
-[MyInfra.rediagram.tsx](./examples/gallery/MyInfra.rediagram.tsx)
+[MyInfra.rediagram.tsx](./examples/gallery/src/MyInfra.rediagram.tsx)
 
 ```tsx
 import React from 'react';
@@ -48,7 +48,7 @@ Running this file will generate a diagram of `MyInfra.rediagram.png`.
 $ ts-node MyInfra.rediagram.tsx
 ```
 
-![MyInfra](./examples/gallery/MyInfra.rediagram.png)
+![MyInfra](./examples/gallery/img/MyInfra.rediagram.png)
 
 You can choose PNG, SVG, or PDF as the output format.
 
