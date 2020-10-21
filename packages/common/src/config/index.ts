@@ -56,13 +56,8 @@ function createDefaultConfig(): RediagramGlobalConfig {
 }
 
 namespace beta1 {
-  type Plugin = {
-    name: string;
-    [key: string]: any;
-  };
   type Config = {
     version: Beta1;
-    plugins?: (Plugin | string)[];
     includes?: string[];
     excludes?: string[];
     output?: {

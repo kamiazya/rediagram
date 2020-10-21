@@ -4,7 +4,7 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "author": "kamiazya <yuki@kamiazya.tech>",
-  "description": "",
+  "description": "Common config and utility for rediagram.",
   "homepage": "https://github.com/kamiazya/rediagram",
   "repository": {
     "type": "git",

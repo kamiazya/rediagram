@@ -2,9 +2,9 @@
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
-# @rediagram/aws
+# @rediagram/common
 
-Component Development Kit for rediagram library.
+Common config and utility for rediagram.
 
 ## License
 
