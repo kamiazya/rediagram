@@ -1,5 +1,4 @@
 import React from 'react';
-import path from 'path';
 import { PNG, Diagram, GeneralIcon } from 'rediagram';
 import { AWS, InvizAWS, EC2, Lambda, Region, SecurityGroup, AutoScalingGroup } from '@rediagram/aws';
 
@@ -21,7 +20,4 @@ PNG(
       <GeneralIcon name="Browser" type="Client" upstream={['REST API']} />
     </InvizAWS>
   </Diagram>,
-  {
-    dir: path.resolve(__dirname, '../img'),
-  },
 );

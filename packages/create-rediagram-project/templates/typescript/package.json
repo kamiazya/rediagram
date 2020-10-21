@@ -4,7 +4,7 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "start": "rediagramc src/*.rediagram.tsx"
+    "start": "rediagramc"
   },
   "dependencies": {
     "@rediagram/aws": "^0.2.0",

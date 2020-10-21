@@ -1,0 +1,5 @@
+version: beta1
+output:
+  dir: img
+includes:
+  - 'src/**/*.rediagram.tsx'
