@@ -14,7 +14,7 @@ async function build() {
       'fs-extra',
       'path',
       'caller',
-      '@rediagram/cdk',
+      '@rediagram/common',
       '@ts-graphviz/react',
       'react',
       'prop-types',
