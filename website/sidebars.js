@@ -1,10 +1,9 @@
 module.exports = {
   someSidebar: {
     'Getting Started': [
-      'getting-started/getting-started-introduction',
-      'getting-started/getting-started-requirements',
-      'getting-started/getting-started-environment-setup',
+      'getting-started/introduction',
+      'getting-started/architecture',
+      'getting-started/setup-project',
     ],
-    rediagram: ['doc1'],
   },
 };
