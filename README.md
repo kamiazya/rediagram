@@ -61,6 +61,19 @@ See [more examples](./examples/gallery/README.md).
 >
 > See [@rediagram/cli](./packages/cli/README.md) for more details.
 
+### Easy to setup
+
+You can set up a project with one command by using [create-rediagram-project](./packages/create-rediagram-project/README.md).
+
+```bash
+# yarn create rediagram-project <project-name>
+$ yarn create rediagram-project my-rediagram
+  🌈 Creating new rediagram project in my-rediagram.
+  ...
+```
+
+See this document for [more information](https://kamiazya.github.io/rediagram/docs/getting-started/setup-project).
+
 ## Packages
 
 - Core
