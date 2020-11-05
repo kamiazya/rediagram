@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.5](https://github.com/kamiazya/rediagram/compare/create-rediagram-project@0.1.4...create-rediagram-project@0.1.5) (2020-11-05)
+
+
+### Bug Fixes
+
+* **create-rediagram-project:** update template dependencies ([ed2758e](https://github.com/kamiazya/rediagram/commit/ed2758e24578f971b442b270533700f7197dcf02))
+
+
+
+
+
 ## [0.1.4](https://github.com/kamiazya/rediagram/compare/create-rediagram-project@0.1.3...create-rediagram-project@0.1.4) (2020-11-05)
 
 **Note:** Version bump only for package create-rediagram-project
