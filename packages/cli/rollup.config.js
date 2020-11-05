@@ -8,6 +8,6 @@ export default {
       file: './lib/rediagramc.js',
     },
   ],
-  external: ['commander', 'fast-glob', 'path', 'fs', 'sucrase/dist/register', '@rediagram/common'],
+  external: ['commander', 'fast-glob', 'path', 'fs', 'sucrase/dist/register', '@rediagram/common', 'chokidar'],
   plugins: [typescript()],
 };
