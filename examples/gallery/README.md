@@ -18,8 +18,8 @@
 
 ### [App Engine and Cloud Endpoints](./src/AppEngineAndCloudEndpoints.rediagram.tsx)
 
-![App Engine and Cloud Endpoints](img/AppEngineAndCloudEndpoints.rediagram.png)
+![App Engine and Cloud Endpoints](./img/AppEngineAndCloudEndpoints.rediagram.png)
 
 ### [Content Management](./src/ContentManagement.rediagram.tsx)
 
-![Content Management](img/ContentManagement.rediagram.png)
+![Content Management](./img/ContentManagement.rediagram.png)

@@ -13,7 +13,7 @@ PNG(
           <EC2 type="Instance" name="instance2" downstream={['instance3']}>
             Chef node
           </EC2>
-          <EC2 type="Instance" name="instance3" upstream={['instance1']}>
+          <EC2 type="Instance" name="instance3" downstream={['instance1']}>
             Chef Automate
           </EC2>
         </VPC>
