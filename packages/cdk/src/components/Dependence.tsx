@@ -42,16 +42,10 @@ export const Dependences: FC<DependencesProps> = ({ origin, upstream, downstream
           <Edge {...edgeAttributes} targets={[origin, upstreamID]} arrowhead="point" arrowtail="none" />
         </>
       ) : null}
-      {downstream ? (
+      {downstream && downstream.length > 1 ? (
         <>
           <Node id={downstreamID} shape="point" label="" fixedsize width={0} height={0} />
-          <Edge
-            {...edgeAttributes}
-            targets={[origin, downstreamID]}
-            constraint={false}
-            arrowhead="none"
-            arrowtail="none"
-          />
+          <Edge {...edgeAttributes} targets={[downstreamID, origin]} dir="none" />
         </>
       ) : null}
       <ClusterPortal>
@@ -73,10 +67,10 @@ export const Dependences: FC<DependencesProps> = ({ origin, upstream, downstream
               <Edge
                 {...edgeAttributes}
                 fontsize={12}
-                targets={[downstreamID, getDestinationName(d)]}
+                targets={[getDestinationName(d), downstream.length === 1 ? origin : downstreamID]}
                 label={getDestinationDescription(d)}
                 key={`${downstreamID}-${getDestinationName(d)}`}
-                constraint={false}
+                dir="back"
               />
             ))
           : null}
