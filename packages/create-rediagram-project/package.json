@@ -1,7 +1,7 @@
 {
   "name": "create-rediagram-project",
   "license": "MIT",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "author": "kamiazya <yuki@kamiazya.tech>",
   "description": "Starter kit for rediagram.",
   "bin": {

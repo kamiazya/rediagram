@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.4](https://github.com/kamiazya/rediagram/compare/@rediagram/gallery@0.1.3...@rediagram/gallery@0.1.4) (2020-11-05)
+
+
+### Bug Fixes
+
+* **@rediagram/gallery:** update diagram ([2d1624d](https://github.com/kamiazya/rediagram/commit/2d1624d4b3a684e85a7e5d59059886c76c24bff0))
+
+
+
+
+
 ## [0.1.3](https://github.com/kamiazya/rediagram/compare/@rediagram/gallery@0.1.2...@rediagram/gallery@0.1.3) (2020-10-21)
 
 **Note:** Version bump only for package @rediagram/gallery

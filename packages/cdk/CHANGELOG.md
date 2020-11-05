@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.3](https://github.com/kamiazya/rediagram/compare/@rediagram/cdk@0.1.2...@rediagram/cdk@0.1.3) (2020-11-05)
+
+
+### Bug Fixes
+
+* **@rediagram/cdk:** fix downstream rendering ([f1737a2](https://github.com/kamiazya/rediagram/commit/f1737a21421c69e791717e108ef1c02b98185875))
+
+
+
+
+
 ## [0.1.2](https://github.com/kamiazya/rediagram/compare/@rediagram/cdk@0.1.1...@rediagram/cdk@0.1.2) (2020-10-21)
 
 **Note:** Version bump only for package @rediagram/cdk

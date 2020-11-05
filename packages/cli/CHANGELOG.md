@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.8](https://github.com/kamiazya/rediagram/compare/@rediagram/cli@0.0.7...@rediagram/cli@0.0.8) (2020-11-05)
+
+**Note:** Version bump only for package @rediagram/cli
+
+
+
+
+
 ## [0.0.7](https://github.com/kamiazya/rediagram/compare/@rediagram/cli@0.0.6...@rediagram/cli@0.0.7) (2020-10-21)
 
 
