@@ -1,6 +1,6 @@
 {
   "name": "@rediagram/cli",
-  "version": "0.0.8",
+  "version": "0.1.0",
   "license": "MIT",
   "description": "CLI for rediagram.",
   "author": "kamiazya <yuki@kamiazya.tech>",

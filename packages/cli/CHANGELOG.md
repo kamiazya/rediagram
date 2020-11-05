@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0](https://github.com/kamiazya/rediagram/compare/@rediagram/cli@0.0.8...@rediagram/cli@0.1.0) (2020-11-05)
+
+
+### Features
+
+* **@rediagram/cli:** watch targets files and rerun related to changed files ([e12b93a](https://github.com/kamiazya/rediagram/commit/e12b93a5e358f5db8b007b21468e7e050b75bb96)), closes [#64](https://github.com/kamiazya/rediagram/issues/64)
+
+
+
+
+
 ## [0.0.8](https://github.com/kamiazya/rediagram/compare/@rediagram/cli@0.0.7...@rediagram/cli@0.0.8) (2020-11-05)
 
 **Note:** Version bump only for package @rediagram/cli
