@@ -4,7 +4,8 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "start": "rediagramc"
+    "start": "rediagramc",
+    "watch": "rediagramc --watch"
   },
   "dependencies": {
     "@rediagram/aws": "^0.2.4",
