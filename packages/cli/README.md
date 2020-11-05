@@ -23,6 +23,19 @@ You can also specify the pattern yourself.
 $ rediagramc "**/*.graph.tsx"
 ```
 
+### Help
+
+```bash
+$ rediagramc -h
+Usage: rediagramc [options] [pattarns...]
+
+Options:
+  -V, --version  output the version number
+  -w, --watch    Watch files for changes and rerun rediagram related to
+                 changed files. (default: false)
+  -h, --help     display help for command
+```
+
 ## Installation
 
 The plugin can then be installed using [npm](https://www.npmjs.com/):
