@@ -21,31 +21,31 @@ export type AmazonVPCType =
 function resolveImage(type?: AmazonVPCType): string {
   switch (type) {
     case 'Customer gateway':
-      return resolveAsset('networking-content-delivery/Customer-gateway.png');
+      return resolveAsset('networking-content-delivery/AmazonVPC/Customer-gateway.png');
     case 'Internet gateway':
-      return resolveAsset('networking-content-delivery/Internet-gateway.png');
+      return resolveAsset('networking-content-delivery/AmazonVPC/Internet-gateway.png');
     case 'Elastic network interface':
-      return resolveAsset('networking-content-delivery/Elastic-network-interface.png');
+      return resolveAsset('networking-content-delivery/AmazonVPC/Elastic-network-interface.png');
     case 'Elastic network adapter':
-      return resolveAsset('networking-content-delivery/Elastic-network-adapter.png');
+      return resolveAsset('networking-content-delivery/AmazonVPC/Elastic-network-adapter.png');
     case 'Endpoints':
-      return resolveAsset('networking-content-delivery/Endpoints.png');
+      return resolveAsset('networking-content-delivery/AmazonVPC/Endpoints.png');
     case 'Router':
-      return resolveAsset('networking-content-delivery/Router.png');
+      return resolveAsset('networking-content-delivery/AmazonVPC/Router.png');
     case 'Traffic mirroring':
-      return resolveAsset('networking-content-delivery/Traffic-mirroring.png');
+      return resolveAsset('networking-content-delivery/AmazonVPC/Traffic-mirroring.png');
     case 'NAT gateway':
-      return resolveAsset('networking-content-delivery/NAT-gateway.png');
+      return resolveAsset('networking-content-delivery/AmazonVPC/NAT-gateway.png');
     case 'VPN gateway':
-      return resolveAsset('networking-content-delivery/VPN-gateway.png');
+      return resolveAsset('networking-content-delivery/AmazonVPC/VPN-gateway.png');
     case 'Flow logs':
-      return resolveAsset('networking-content-delivery/Flow-logs.png');
+      return resolveAsset('networking-content-delivery/AmazonVPC/Flow-logs.png');
     case 'Network access control list':
-      return resolveAsset('networking-content-delivery/Network-access-control-list.png');
+      return resolveAsset('networking-content-delivery/AmazonVPC/Network-access-control-list.png');
     case 'VPN connection':
-      return resolveAsset('networking-content-delivery/VPN-connection.png');
+      return resolveAsset('networking-content-delivery/AmazonVPC/VPN-connection.png');
     case 'Peering connection':
-      return resolveAsset('networking-content-delivery/Peering-connection.png');
+      return resolveAsset('networking-content-delivery/AmazonVPC/Peering-connection.png');
     default:
       return resolveAsset('networking-content-delivery/AmazonVPC.png');
   }
