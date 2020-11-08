@@ -1,26 +1,18 @@
-/* eslint-disable react/jsx-props-no-spreading */
-import React, { FC, ReactElement, useMemo } from 'react';
+/* eslint-disable @typescript-eslint/ban-types, react/jsx-props-no-spreading */
+import React, { FC, useMemo } from 'react';
 import { Edge, Node, ClusterPortal } from '@ts-graphviz/react';
-import { useDependenciesEdgeAttributes } from '../hooks/edgeAttributes';
+import { useDependences } from '../hooks/dependences';
+import { Destination } from '../types';
 
-export type Destination = string | { destination: string; description?: string | ReactElement };
-
-export function getDestinationName(destination: Destination): string {
-  return typeof destination === 'string' ? destination : destination.destination;
-}
-
-export function getDestinationDescription(destination: Destination): string | ReactElement | undefined {
-  return typeof destination === 'string' ? undefined : destination.description;
-}
-
-export type HasDependences = {
-  upstream?: Destination[];
-  downstream?: Destination[];
+export type HasDependences<T extends Record<string, unknown> = {}> = {
+  upstream?: Destination<T>[];
+  downstream?: Destination<T>[];
+  dependencesOption?: T;
 };
 
-export type DependencesProps = {
+export type DependencesProps<T extends Record<string, unknown> = {}> = {
   origin: string;
-} & HasDependences;
+} & HasDependences<T>;
 
 let id = 0;
 
@@ -31,9 +23,9 @@ function useID(): [string, string] {
   }, []);
 }
 
-export const Dependences: FC<DependencesProps> = ({ origin, upstream, downstream }) => {
+export const Dependences: FC<DependencesProps> = ({ origin, ...dependences }) => {
   const [upstreamID, downstreamID] = useID();
-  const edgeAttributes = useDependenciesEdgeAttributes();
+  const { upstream, downstream, edgeAttributes } = useDependences(dependences);
   return (
     <>
       {upstream && upstream.length > 1 ? (
@@ -53,11 +45,11 @@ export const Dependences: FC<DependencesProps> = ({ origin, upstream, downstream
           ? upstream.map((d) => (
               // eslint-disable-next-line react/jsx-indent
               <Edge
-                {...edgeAttributes}
+                {...{ ...edgeAttributes, ...d.edgeAttributes }}
                 fontsize={12}
-                targets={[upstream.length === 1 ? origin : upstreamID, getDestinationName(d)]}
-                label={getDestinationDescription(d)}
-                key={`${upstream.length === 1 ? origin : upstreamID}-${getDestinationName(d)}`}
+                targets={[upstream.length === 1 ? origin : upstreamID, d.destination]}
+                label={d.description}
+                key={`${upstream.length === 1 ? origin : upstreamID}-${d.destination}`}
               />
             ))
           : null}
@@ -65,11 +57,11 @@ export const Dependences: FC<DependencesProps> = ({ origin, upstream, downstream
           ? downstream.map((d) => (
               // eslint-disable-next-line react/jsx-indent
               <Edge
-                {...edgeAttributes}
+                {...{ ...edgeAttributes, ...d.edgeAttributes }}
                 fontsize={12}
-                targets={[getDestinationName(d), downstream.length === 1 ? origin : downstreamID]}
-                label={getDestinationDescription(d)}
-                key={`${downstreamID}-${getDestinationName(d)}`}
+                targets={[d.destination, downstream.length === 1 ? origin : downstreamID]}
+                label={d.description}
+                key={`${downstreamID}-${d.destination}`}
                 dir="back"
               />
             ))
