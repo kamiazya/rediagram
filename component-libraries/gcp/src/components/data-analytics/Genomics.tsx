@@ -1,13 +1,14 @@
 import React, { FC, useMemo } from 'react';
-import { HasDependences, useLabelText } from '@rediagram/cdk';
+import { useLabelText } from '@rediagram/cdk';
 import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 import { GCPNode } from '../internal/GCPNode';
+import { GCPDependences } from '../../types';
 
 export type GenomicsProps = {
   name: string;
   description?: string;
-} & HasDependences;
+} & GCPDependences;
 
 function resolveImage(): string {
   return resolveAsset('data-analytics/Genomics.png');
@@ -22,7 +23,14 @@ function useIcon(): { path: string; size: number } {
   }, []);
 }
 
-export const Genomics: FC<GenomicsProps> = ({ name, description, children, upstream, downstream }) => {
+export const Genomics: FC<GenomicsProps> = ({
+  name,
+  description,
+  children,
+  upstream,
+  downstream,
+  dependencesOption,
+}) => {
   useAssertProvider();
   const icon = useIcon();
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
@@ -35,6 +43,7 @@ export const Genomics: FC<GenomicsProps> = ({ name, description, children, upstr
       label={label}
       upstream={upstream}
       downstream={downstream}
+      dependencesOption={dependencesOption}
     />
   );
 };

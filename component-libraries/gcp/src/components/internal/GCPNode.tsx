@@ -1,7 +1,8 @@
 import React, { FC, ReactElement } from 'react';
 import { Node, DOT } from '@ts-graphviz/react';
-import { HasDependences, Dependences } from '@rediagram/cdk';
+import { Dependences } from '@rediagram/cdk';
 import { useAssertProvider } from '../../hooks/assert-provider';
+import { GCPDependences } from '../../types';
 
 export type GCPNodeProps = {
   icon: { size: number; path: string };
@@ -9,9 +10,18 @@ export type GCPNodeProps = {
   name: string;
   service: string;
   description?: string;
-} & HasDependences;
+} & GCPDependences;
 
-export const GCPNode: FC<GCPNodeProps> = ({ name, service, description, icon, label, upstream, downstream }) => {
+export const GCPNode: FC<GCPNodeProps> = ({
+  name,
+  service,
+  description,
+  icon,
+  label,
+  upstream,
+  downstream,
+  dependencesOption,
+}) => {
   useAssertProvider();
   return (
     <>
@@ -59,7 +69,7 @@ export const GCPNode: FC<GCPNodeProps> = ({ name, service, description, icon, la
           </DOT.TABLE>
         }
       />
-      <Dependences origin={name} upstream={upstream} downstream={downstream} />
+      <Dependences origin={name} upstream={upstream} downstream={downstream} dependencesOption={dependencesOption} />
     </>
   );
 };
