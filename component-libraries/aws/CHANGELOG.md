@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.5](https://github.com/kamiazya/rediagram/compare/@rediagram/aws@0.2.4...@rediagram/aws@0.2.5) (2020-11-09)
+
+
+### Bug Fixes
+
+* 🐛 paths pointing to AmazonVPC icons ([f03e75c](https://github.com/kamiazya/rediagram/commit/f03e75c2de0740e774d63a4fd4911b157a91e771)), closes [#149](https://github.com/kamiazya/rediagram/issues/149)
+
+
+
+
+
 ## [0.2.4](https://github.com/kamiazya/rediagram/compare/@rediagram/aws@0.2.3...@rediagram/aws@0.2.4) (2020-11-05)
 
 **Note:** Version bump only for package @rediagram/aws

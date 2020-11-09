@@ -1,6 +1,6 @@
 {
   "name": "@rediagram/docker-runtime",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "license": "MIT",
   "description": "rediagram runtime for Docker.",
   "author": "kamiazya <yuki@kamiazya.tech>",
@@ -19,8 +19,8 @@
   },
   "private": true,
   "dependencies": {
-    "@rediagram/aws": "^0.2.4",
-    "@rediagram/cli": "^0.1.0",
+    "@rediagram/aws": "^0.2.5",
+    "@rediagram/cli": "^0.1.1",
     "@ts-graphviz/react": "^0.7.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
