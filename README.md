@@ -1,7 +1,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com) <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 # rediagram
@@ -110,6 +110,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="http://blog.kamiazya.tech/"><img src="https://avatars0.githubusercontent.com/u/35218186?v=4" width="100px;" alt=""/><br /><sub><b>Yuki Yamazaki</b></sub></a><br /><a href="https://github.com/kamiazya/rediagram/commits?author=kamiazya" title="Code">💻</a> <a href="#content-kamiazya" title="Content">🖋</a> <a href="#design-kamiazya" title="Design">🎨</a> <a href="#example-kamiazya" title="Examples">💡</a></td>
     <td align="center"><a href="https://github.com/odd12258053"><img src="https://avatars1.githubusercontent.com/u/70652613?v=4" width="100px;" alt=""/><br /><sub><b>odd</b></sub></a><br /><a href="https://github.com/kamiazya/rediagram/issues?q=author%3Aodd12258053" title="Bug reports">🐛</a></td>
     <td align="center"><a href="http://lonesec.com"><img src="https://avatars1.githubusercontent.com/u/57695598?v=4" width="100px;" alt=""/><br /><sub><b>fealone</b></sub></a><br /><a href="#ideas-fealone" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/kamiazya/rediagram/commits?author=fealone" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://github.com/78hack"><img src="https://avatars0.githubusercontent.com/u/59414867?v=4" width="100px;" alt=""/><br /><sub><b>78hack</b></sub></a><br /><a href="https://github.com/kamiazya/rediagram/commits?author=78hack" title="Code">💻</a> <a href="https://github.com/kamiazya/rediagram/issues?q=author%3A78hack" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 
