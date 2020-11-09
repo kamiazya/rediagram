@@ -1,11 +1,12 @@
 import React, { FC, useMemo } from 'react';
-import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { IconNode, useLabelText } from '@rediagram/cdk';
 import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
+import { AWSDependences } from '../../types';
 
 export type ElasticKubernetesServiceProps = {
   name: string;
-} & HasDependences;
+} & AWSDependences;
 
 function resolveImage(): string {
   return resolveAsset('compute/ElasticKubernetesService.png');
@@ -25,11 +26,21 @@ export const ElasticKubernetesService: FC<ElasticKubernetesServiceProps> = ({
   children,
   upstream,
   downstream,
+  dependencesOption,
 }) => {
   useAssertProvider();
   const icon = useIcon();
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return <IconNode name={name} icon={icon} label={label} upstream={upstream} downstream={downstream} />;
+  return (
+    <IconNode
+      name={name}
+      icon={icon}
+      label={label}
+      upstream={upstream}
+      downstream={downstream}
+      dependencesOption={dependencesOption}
+    />
+  );
 };
 
 ElasticKubernetesService.displayName = 'ElasticKubernetesService';

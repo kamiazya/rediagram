@@ -1,7 +1,8 @@
 import React, { FC, useMemo } from 'react';
-import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { IconNode, useLabelText } from '@rediagram/cdk';
 import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
+import { AWSDependences } from '../../types';
 
 export type RDSType =
   | 'Aurora'
@@ -72,13 +73,22 @@ function useIcon(type?: RDSType): { path: string; size: number } {
 export type RDSProps = {
   type?: RDSType;
   name: string;
-} & HasDependences;
+} & AWSDependences;
 
-export const RDS: FC<RDSProps> = ({ type, name, upstream, downstream, children }) => {
+export const RDS: FC<RDSProps> = ({ type, name, upstream, downstream, children, dependencesOption }) => {
   useAssertProvider();
   const icon = useIcon(type);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return <IconNode name={name} icon={icon} label={label} upstream={upstream} downstream={downstream} />;
+  return (
+    <IconNode
+      name={name}
+      icon={icon}
+      label={label}
+      upstream={upstream}
+      downstream={downstream}
+      dependencesOption={dependencesOption}
+    />
+  );
 };
 
 RDS.displayName = 'RDS';

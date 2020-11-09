@@ -1,7 +1,8 @@
 import React, { FC, useMemo } from 'react';
-import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { IconNode, useLabelText } from '@rediagram/cdk';
 import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
+import { AWSDependences } from '../../types';
 
 export type Route53Type = 'Hosted zone' | 'Route table';
 
@@ -28,11 +29,20 @@ function useIcon(type?: Route53Type): { path: string; size: number } {
 export type Route53Props = {
   type?: Route53Type;
   name: string;
-} & HasDependences;
+} & AWSDependences;
 
-export const Route53: FC<Route53Props> = ({ type, name, upstream, downstream, children }) => {
+export const Route53: FC<Route53Props> = ({ type, name, upstream, downstream, children, dependencesOption }) => {
   useAssertProvider();
   const icon = useIcon(type);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return <IconNode name={name} icon={icon} label={label} upstream={upstream} downstream={downstream} />;
+  return (
+    <IconNode
+      name={name}
+      icon={icon}
+      label={label}
+      upstream={upstream}
+      downstream={downstream}
+      dependencesOption={dependencesOption}
+    />
+  );
 };

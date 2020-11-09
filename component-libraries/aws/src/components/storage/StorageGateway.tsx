@@ -1,7 +1,8 @@
 import React, { FC, useMemo } from 'react';
-import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { IconNode, useLabelText } from '@rediagram/cdk';
 import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
+import { AWSDependences } from '../../types';
 
 export type StorageGatewayType =
   | 'Non-cached volume'
@@ -14,7 +15,7 @@ export type StorageGatewayType =
 export type StorageGatewayProps = {
   type?: StorageGatewayType;
   name: string;
-} & HasDependences;
+} & AWSDependences;
 
 function resolveImage(type?: StorageGatewayType): string {
   switch (type) {
@@ -44,11 +45,27 @@ function useIcon(type?: StorageGatewayType): { path: string; size: number } {
   }, [type]);
 }
 
-export const StorageGateway: FC<StorageGatewayProps> = ({ type, name, upstream, downstream, children }) => {
+export const StorageGateway: FC<StorageGatewayProps> = ({
+  type,
+  name,
+  upstream,
+  downstream,
+  children,
+  dependencesOption,
+}) => {
   useAssertProvider();
   const icon = useIcon(type);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return <IconNode name={name} icon={icon} label={label} upstream={upstream} downstream={downstream} />;
+  return (
+    <IconNode
+      name={name}
+      icon={icon}
+      label={label}
+      upstream={upstream}
+      downstream={downstream}
+      dependencesOption={dependencesOption}
+    />
+  );
 };
 
 StorageGateway.displayName = 'StorageGateway';

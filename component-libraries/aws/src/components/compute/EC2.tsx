@@ -1,7 +1,8 @@
 import React, { FC, useMemo } from 'react';
-import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { IconNode, useLabelText } from '@rediagram/cdk';
 import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
+import { AWSDependences } from '../../types';
 
 export type EC2Type =
   | 'AMI'
@@ -120,13 +121,22 @@ function useIcon(type?: EC2Type): { path: string; size: number } {
 export type EC2Props = {
   type?: EC2Type;
   name: string;
-} & HasDependences;
+} & AWSDependences;
 
-export const EC2: FC<EC2Props> = ({ type, name, upstream, downstream, children }) => {
+export const EC2: FC<EC2Props> = ({ type, name, children, upstream, downstream, dependencesOption }) => {
   useAssertProvider();
   const icon = useIcon(type);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return <IconNode name={name} icon={icon} label={label} upstream={upstream} downstream={downstream} />;
+  return (
+    <IconNode
+      name={name}
+      icon={icon}
+      label={label}
+      upstream={upstream}
+      downstream={downstream}
+      dependencesOption={dependencesOption}
+    />
+  );
 };
 
 EC2.displayName = 'EC2';

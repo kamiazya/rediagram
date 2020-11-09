@@ -1,11 +1,12 @@
 import React, { FC, useMemo } from 'react';
-import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { IconNode, useLabelText } from '@rediagram/cdk';
 import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
+import { AWSDependences } from '../../types';
 
 export type CodeGuruProps = {
   name: string;
-} & HasDependences;
+} & AWSDependences;
 
 function resolveImage(): string {
   return resolveAsset('machine-learning/CodeGuru.png');
@@ -20,11 +21,20 @@ function useIcon(): { path: string; size: number } {
   }, []);
 }
 
-export const CodeGuru: FC<CodeGuruProps> = ({ name, children, upstream, downstream }) => {
+export const CodeGuru: FC<CodeGuruProps> = ({ name, children, upstream, downstream, dependencesOption }) => {
   useAssertProvider();
   const icon = useIcon();
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return <IconNode name={name} icon={icon} label={label} upstream={upstream} downstream={downstream} />;
+  return (
+    <IconNode
+      name={name}
+      icon={icon}
+      label={label}
+      upstream={upstream}
+      downstream={downstream}
+      dependencesOption={dependencesOption}
+    />
+  );
 };
 
 CodeGuru.displayName = 'CodeGuru';

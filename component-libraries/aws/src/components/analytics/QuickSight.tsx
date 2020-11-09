@@ -20,11 +20,20 @@ function useIcon(): { path: string; size: number } {
   }, []);
 }
 
-export const QuickSight: FC<QuickSightProps> = ({ name, children, upstream, downstream }) => {
+export const QuickSight: FC<QuickSightProps> = ({ name, children, upstream, downstream, dependencesOption }) => {
   useAssertProvider();
   const icon = useIcon();
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return <IconNode name={name} icon={icon} label={label} upstream={upstream} downstream={downstream} />;
+  return (
+    <IconNode
+      name={name}
+      icon={icon}
+      label={label}
+      upstream={upstream}
+      downstream={downstream}
+      dependencesOption={dependencesOption}
+    />
+  );
 };
 
 QuickSight.displayName = 'QuickSight';

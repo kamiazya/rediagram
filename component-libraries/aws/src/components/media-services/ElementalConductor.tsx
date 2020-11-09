@@ -1,11 +1,12 @@
 import React, { FC, useMemo } from 'react';
-import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { IconNode, useLabelText } from '@rediagram/cdk';
 import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
+import { AWSDependences } from '../../types';
 
 export type ElementalConductorProps = {
   name: string;
-} & HasDependences;
+} & AWSDependences;
 
 function resolveImage(): string {
   return resolveAsset('media-services/ElementalConductor.png');
@@ -20,11 +21,26 @@ function useIcon(): { path: string; size: number } {
   }, []);
 }
 
-export const ElementalConductor: FC<ElementalConductorProps> = ({ name, children, upstream, downstream }) => {
+export const ElementalConductor: FC<ElementalConductorProps> = ({
+  name,
+  children,
+  upstream,
+  downstream,
+  dependencesOption,
+}) => {
   useAssertProvider();
   const icon = useIcon();
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return <IconNode name={name} icon={icon} label={label} upstream={upstream} downstream={downstream} />;
+  return (
+    <IconNode
+      name={name}
+      icon={icon}
+      label={label}
+      upstream={upstream}
+      downstream={downstream}
+      dependencesOption={dependencesOption}
+    />
+  );
 };
 
 ElementalConductor.displayName = 'ElementalConductor';

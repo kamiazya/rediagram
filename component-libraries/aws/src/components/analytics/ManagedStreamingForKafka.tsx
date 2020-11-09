@@ -25,11 +25,21 @@ export const ManagedStreamingForKafka: FC<ManagedStreamingForKafkaProps> = ({
   children,
   upstream,
   downstream,
+  dependencesOption,
 }) => {
   useAssertProvider();
   const icon = useIcon();
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return <IconNode name={name} icon={icon} label={label} upstream={upstream} downstream={downstream} />;
+  return (
+    <IconNode
+      name={name}
+      icon={icon}
+      label={label}
+      upstream={upstream}
+      downstream={downstream}
+      dependencesOption={dependencesOption}
+    />
+  );
 };
 
 ManagedStreamingForKafka.displayName = 'ManagedStreamingForKafka';

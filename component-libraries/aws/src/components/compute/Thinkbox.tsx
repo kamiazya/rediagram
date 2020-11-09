@@ -1,14 +1,15 @@
 import React, { FC, useMemo } from 'react';
-import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { IconNode, useLabelText } from '@rediagram/cdk';
 import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
+import { AWSDependences } from '../../types';
 
 type ThinkboxType = 'Deadline' | 'Frost' | 'Krakatoa' | 'Sequoia' | 'Stoke' | 'Mesh';
 
 export type ThinkboxProps = {
   name: string;
   type: ThinkboxType;
-} & HasDependences;
+} & AWSDependences;
 
 function resolveImage(type: ThinkboxType): string {
   switch (type) {
@@ -37,11 +38,20 @@ function useIcon(type: ThinkboxType): { path: string; size: number } {
   }, [type]);
 }
 
-export const Thinkbox: FC<ThinkboxProps> = ({ name, type, children, upstream, downstream }) => {
+export const Thinkbox: FC<ThinkboxProps> = ({ name, type, children, upstream, downstream, dependencesOption }) => {
   useAssertProvider();
   const icon = useIcon(type);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return <IconNode name={name} icon={icon} label={label} upstream={upstream} downstream={downstream} />;
+  return (
+    <IconNode
+      name={name}
+      icon={icon}
+      label={label}
+      upstream={upstream}
+      downstream={downstream}
+      dependencesOption={dependencesOption}
+    />
+  );
 };
 
 Thinkbox.displayName = 'Thinkbox';

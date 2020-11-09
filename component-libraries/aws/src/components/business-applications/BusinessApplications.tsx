@@ -1,11 +1,12 @@
 import React, { FC, useMemo } from 'react';
-import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { IconNode, useLabelText } from '@rediagram/cdk';
 import { useAssertProvider } from '../../hooks/assert-provider';
 import { resolveAsset } from '../../assets';
+import { AWSDependences } from '../../types';
 
 export type BusinessApplicationsProps = {
   name: string;
-} & HasDependences;
+} & AWSDependences;
 
 function resolveImage(): string {
   return resolveAsset('business-applications/BusinessApplications.png');
@@ -20,11 +21,26 @@ function useIcon(): { path: string; size: number } {
   }, []);
 }
 
-export const BusinessApplications: FC<BusinessApplicationsProps> = ({ name, children, upstream, downstream }) => {
+export const BusinessApplications: FC<BusinessApplicationsProps> = ({
+  name,
+  children,
+  upstream,
+  downstream,
+  dependencesOption,
+}) => {
   useAssertProvider();
   const icon = useIcon();
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return <IconNode name={name} icon={icon} label={label} upstream={upstream} downstream={downstream} />;
+  return (
+    <IconNode
+      name={name}
+      icon={icon}
+      label={label}
+      upstream={upstream}
+      downstream={downstream}
+      dependencesOption={dependencesOption}
+    />
+  );
 };
 
 BusinessApplications.displayName = 'BusinessApplications';

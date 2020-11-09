@@ -1,14 +1,15 @@
 import React, { FC, useMemo } from 'react';
-import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { IconNode, useLabelText } from '@rediagram/cdk';
 import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
+import { AWSDependences } from '../../types';
 
 export type S3GlacierType = 'Vault' | 'Archive';
 
 export type S3GlacierProps = {
   type?: S3GlacierType;
   name: string;
-} & HasDependences;
+} & AWSDependences;
 
 function resolveImage(type?: S3GlacierType): string {
   switch (type) {
@@ -30,11 +31,20 @@ function useIcon(type?: S3GlacierType): { path: string; size: number } {
   }, [type]);
 }
 
-export const S3Glacier: FC<S3GlacierProps> = ({ type, name, upstream, downstream, children }) => {
+export const S3Glacier: FC<S3GlacierProps> = ({ type, name, upstream, downstream, children, dependencesOption }) => {
   useAssertProvider();
   const icon = useIcon(type);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return <IconNode name={name} icon={icon} label={label} upstream={upstream} downstream={downstream} />;
+  return (
+    <IconNode
+      name={name}
+      icon={icon}
+      label={label}
+      upstream={upstream}
+      downstream={downstream}
+      dependencesOption={dependencesOption}
+    />
+  );
 };
 
 S3Glacier.displayName = 'S3Glacier';

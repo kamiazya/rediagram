@@ -1,7 +1,8 @@
 import React, { FC, useMemo } from 'react';
-import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { IconNode, useLabelText } from '@rediagram/cdk';
 import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
+import { AWSDependences } from '../../types';
 
 export type IAMType =
   | 'Add-on'
@@ -18,7 +19,7 @@ export type IAMType =
 export type IAMProps = {
   type?: IAMType;
   name: string;
-} & HasDependences;
+} & AWSDependences;
 
 function resolveImage(type?: IAMType): string {
   switch (type) {
@@ -56,11 +57,20 @@ function useIcon(type?: IAMType): { path: string; size: number } {
   }, [type]);
 }
 
-export const IAM: FC<IAMProps> = ({ type, name, children, upstream, downstream }) => {
+export const IAM: FC<IAMProps> = ({ type, name, children, upstream, downstream, dependencesOption }) => {
   useAssertProvider();
   const icon = useIcon(type);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return <IconNode name={name} icon={icon} label={label} upstream={upstream} downstream={downstream} />;
+  return (
+    <IconNode
+      name={name}
+      icon={icon}
+      label={label}
+      upstream={upstream}
+      downstream={downstream}
+      dependencesOption={dependencesOption}
+    />
+  );
 };
 
 IAM.displayName = 'IAM';

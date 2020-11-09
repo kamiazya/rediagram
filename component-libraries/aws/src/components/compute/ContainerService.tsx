@@ -1,14 +1,15 @@
 import React, { FC, useMemo } from 'react';
-import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { IconNode, useLabelText } from '@rediagram/cdk';
 import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
+import { AWSDependences } from '../../types';
 
 export type ContainerServiceType = 'Container1' | 'Container2' | 'Container3' | 'Service' | 'Task';
 
 export type ContainerServiceProps = {
   type?: ContainerServiceType;
   name: string;
-} & HasDependences;
+} & AWSDependences;
 
 function resolveImage(type?: ContainerServiceType): string {
   switch (type) {
@@ -36,11 +37,27 @@ function useIcon(type?: ContainerServiceType): { path: string; size: number } {
   }, [type]);
 }
 
-export const ContainerService: FC<ContainerServiceProps> = ({ type, name, children, upstream, downstream }) => {
+export const ContainerService: FC<ContainerServiceProps> = ({
+  type,
+  name,
+  children,
+  upstream,
+  downstream,
+  dependencesOption,
+}) => {
   useAssertProvider();
   const icon = useIcon(type);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return <IconNode name={name} icon={icon} label={label} upstream={upstream} downstream={downstream} />;
+  return (
+    <IconNode
+      name={name}
+      icon={icon}
+      label={label}
+      upstream={upstream}
+      downstream={downstream}
+      dependencesOption={dependencesOption}
+    />
+  );
 };
 
 ContainerService.displayName = 'ContainerService';
