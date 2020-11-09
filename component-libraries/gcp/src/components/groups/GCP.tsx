@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useMemo } from 'react';
 import { Provider, EdgeStyleBuilder, BuildEdgeStyle } from '@rediagram/cdk';
 import { Subgraph, DOT } from '@ts-graphviz/react';
 import { EdgeAttributes } from 'ts-graphviz';
@@ -103,11 +103,22 @@ const buildStyle: BuildEdgeStyle<StyleOption> = (option) => {
   return { ...defaultStyle, ...style };
 };
 
-export const GCP: FC = ({ children }) => {
+let id = 0;
+
+function useID(name: string): string {
+  return useMemo(() => {
+    id += 1;
+    return `${name}_${id}`;
+  }, [name]);
+}
+export type GCPProps = {
+  title?: string;
+};
+export const GCP: FC<GCPProps> = ({ title, children }) => {
   return (
     <Provider name="gcp">
       <Subgraph
-        id="cluster_gcp"
+        id={useID('cluster_gcp')}
         fontsize="12"
         labelloc="t"
         labeljust="l"
@@ -120,6 +131,7 @@ export const GCP: FC = ({ children }) => {
               <DOT.TD WIDTH="182" HEIGHT="50" FIXEDSIZE>
                 <DOT.IMG SRC={icon} />
               </DOT.TD>
+              {title ? <DOT.TD>{title}</DOT.TD> : null}
             </DOT.TR>
           </DOT.TABLE>
         }
@@ -133,7 +145,7 @@ export const GCP: FC = ({ children }) => {
 export const InvizGCP: FC = ({ children }) => {
   return (
     <Provider name="gcp">
-      <Subgraph id="gcp" fontsize="12">
+      <Subgraph id={useID('gcp')} fontsize="12">
         <EdgeStyleBuilder build={buildStyle}>{children}</EdgeStyleBuilder>
       </Subgraph>
     </Provider>
