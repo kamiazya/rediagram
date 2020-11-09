@@ -1,7 +1,8 @@
 import React, { FC, useMemo } from 'react';
-import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { IconNode, useLabelText } from '@rediagram/cdk';
 import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
+import { AWSDependences } from '../../types';
 
 export type Cloud9Type = 'Instance';
 
@@ -26,13 +27,22 @@ function useIcon(type?: Cloud9Type): { path: string; size: number } {
 export type Cloud9Props = {
   type?: Cloud9Type;
   name: string;
-} & HasDependences;
+} & AWSDependences;
 
-export const Cloud9: FC<Cloud9Props> = ({ type, name, upstream, downstream, children }) => {
+export const Cloud9: FC<Cloud9Props> = ({ type, name, upstream, downstream, children, dependencesOption }) => {
   useAssertProvider();
   const icon = useIcon(type);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return <IconNode name={name} icon={icon} label={label} upstream={upstream} downstream={downstream} />;
+  return (
+    <IconNode
+      name={name}
+      icon={icon}
+      label={label}
+      upstream={upstream}
+      downstream={downstream}
+      dependencesOption={dependencesOption}
+    />
+  );
 };
 
 Cloud9.displayName = 'Cloud9';

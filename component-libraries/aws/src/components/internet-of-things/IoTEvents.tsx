@@ -1,11 +1,12 @@
 import React, { FC, useMemo } from 'react';
-import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { IconNode, useLabelText } from '@rediagram/cdk';
 import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
+import { AWSDependences } from '../../types';
 
 export type IoTEventsProps = {
   name: string;
-} & HasDependences;
+} & AWSDependences;
 
 function resolveImage(): string {
   return resolveAsset('internet-of-things/IoTEvents.png');
@@ -20,11 +21,20 @@ function useIcon(): { path: string; size: number } {
   }, []);
 }
 
-export const IoTEvents: FC<IoTEventsProps> = ({ name, children, upstream, downstream }) => {
+export const IoTEvents: FC<IoTEventsProps> = ({ name, children, upstream, downstream, dependencesOption }) => {
   useAssertProvider();
   const icon = useIcon();
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return <IconNode name={name} icon={icon} label={label} upstream={upstream} downstream={downstream} />;
+  return (
+    <IconNode
+      name={name}
+      icon={icon}
+      label={label}
+      upstream={upstream}
+      downstream={downstream}
+      dependencesOption={dependencesOption}
+    />
+  );
 };
 
 IoTEvents.displayName = 'IoTEvents';

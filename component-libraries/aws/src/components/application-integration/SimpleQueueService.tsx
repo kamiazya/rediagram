@@ -1,14 +1,15 @@
 import React, { FC, useMemo } from 'react';
-import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { IconNode, useLabelText } from '@rediagram/cdk';
 import { useAssertProvider } from '../../hooks/assert-provider';
 import { resolveAsset } from '../../assets';
+import { AWSDependences } from '../../types';
 
 export type SimpleQueueServiceType = 'Message' | 'Queue';
 
 export type SimpleQueueServiceProps = {
   type?: SimpleQueueServiceType;
   name: string;
-} & HasDependences;
+} & AWSDependences;
 
 function resolveImage(type?: SimpleQueueServiceType): string {
   switch (type) {
@@ -30,11 +31,27 @@ function useIcon(type?: SimpleQueueServiceType): { path: string; size: number } 
   }, [type]);
 }
 
-export const SimpleQueueService: FC<SimpleQueueServiceProps> = ({ type, name, children, upstream, downstream }) => {
+export const SimpleQueueService: FC<SimpleQueueServiceProps> = ({
+  type,
+  name,
+  children,
+  upstream,
+  downstream,
+  dependencesOption,
+}) => {
   useAssertProvider();
   const icon = useIcon(type);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return <IconNode name={name} icon={icon} label={label} upstream={upstream} downstream={downstream} />;
+  return (
+    <IconNode
+      name={name}
+      icon={icon}
+      label={label}
+      upstream={upstream}
+      downstream={downstream}
+      dependencesOption={dependencesOption}
+    />
+  );
 };
 
 SimpleQueueService.displayName = 'SimpleQueueService';

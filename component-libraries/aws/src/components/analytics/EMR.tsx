@@ -1,7 +1,8 @@
 import React, { FC, useMemo } from 'react';
-import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { IconNode, useLabelText } from '@rediagram/cdk';
 import { useAssertProvider } from '../../hooks/assert-provider';
 import { resolveAsset } from '../../assets';
+import { AWSDependences } from '../../types';
 
 export type EMRType =
   | 'HDFS cluster'
@@ -14,7 +15,7 @@ export type EMRType =
 export type EMRProps = {
   type?: EMRType;
   name: string;
-} & HasDependences;
+} & AWSDependences;
 
 function resolveImage(type?: EMRType): string {
   switch (type) {
@@ -44,11 +45,20 @@ function useIcon(type?: EMRType): { path: string; size: number } {
   }, [type]);
 }
 
-export const EMR: FC<EMRProps> = ({ type, name, children, upstream, downstream }) => {
+export const EMR: FC<EMRProps> = ({ type, name, children, upstream, downstream, dependencesOption }) => {
   useAssertProvider();
   const icon = useIcon(type);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return <IconNode name={name} icon={icon} label={label} upstream={upstream} downstream={downstream} />;
+  return (
+    <IconNode
+      name={name}
+      icon={icon}
+      label={label}
+      upstream={upstream}
+      downstream={downstream}
+      dependencesOption={dependencesOption}
+    />
+  );
 };
 
 EMR.displayName = 'EMR';

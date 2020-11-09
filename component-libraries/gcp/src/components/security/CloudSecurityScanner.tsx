@@ -1,13 +1,14 @@
 import React, { FC, useMemo } from 'react';
-import { HasDependences, useLabelText } from '@rediagram/cdk';
+import { useLabelText } from '@rediagram/cdk';
 import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 import { GCPNode } from '../internal/GCPNode';
+import { GCPDependences } from '../../types';
 
 export type CloudSecurityScannerProps = {
   name: string;
   description?: string;
-} & HasDependences;
+} & GCPDependences;
 
 function resolveImage(): string {
   return resolveAsset('security/CloudSecurityScanner.png');
@@ -28,6 +29,7 @@ export const CloudSecurityScanner: FC<CloudSecurityScannerProps> = ({
   children,
   upstream,
   downstream,
+  dependencesOption,
 }) => {
   useAssertProvider();
   const icon = useIcon();
@@ -41,6 +43,7 @@ export const CloudSecurityScanner: FC<CloudSecurityScannerProps> = ({
       label={label}
       upstream={upstream}
       downstream={downstream}
+      dependencesOption={dependencesOption}
     />
   );
 };

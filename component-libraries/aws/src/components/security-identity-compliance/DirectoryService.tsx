@@ -1,14 +1,15 @@
 import React, { FC, useMemo } from 'react';
-import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { IconNode, useLabelText } from '@rediagram/cdk';
 import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
+import { AWSDependences } from '../../types';
 
 export type DirectoryServiceType = 'Simple AD' | 'AD Connector' | 'AWS Managed Microsoft AD';
 
 export type DirectoryServiceProps = {
   type?: DirectoryServiceType;
   name: string;
-} & HasDependences;
+} & AWSDependences;
 
 function resolveImage(type?: DirectoryServiceType): string {
   switch (type) {
@@ -32,11 +33,27 @@ function useIcon(type?: DirectoryServiceType): { path: string; size: number } {
   }, [type]);
 }
 
-export const DirectoryService: FC<DirectoryServiceProps> = ({ type, name, children, upstream, downstream }) => {
+export const DirectoryService: FC<DirectoryServiceProps> = ({
+  type,
+  name,
+  children,
+  upstream,
+  downstream,
+  dependencesOption,
+}) => {
   useAssertProvider();
   const icon = useIcon(type);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return <IconNode name={name} icon={icon} label={label} upstream={upstream} downstream={downstream} />;
+  return (
+    <IconNode
+      name={name}
+      icon={icon}
+      label={label}
+      upstream={upstream}
+      downstream={downstream}
+      dependencesOption={dependencesOption}
+    />
+  );
 };
 
 DirectoryService.displayName = 'DirectoryService';

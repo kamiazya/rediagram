@@ -1,14 +1,15 @@
 import React, { FC, useMemo } from 'react';
-import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { IconNode, useLabelText } from '@rediagram/cdk';
 import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
+import { AWSDependences } from '../../types';
 
 export type QuantumLedgerDatabaseCategory = 'blockchain' | 'database';
 
 export type QuantumLedgerDatabaseProps = {
   category?: QuantumLedgerDatabaseCategory;
   name: string;
-} & HasDependences;
+} & AWSDependences;
 
 function resolveImage(category: QuantumLedgerDatabaseCategory): string {
   return resolveAsset('', category, '/QuantumLedgerDatabase.png');
@@ -29,11 +30,21 @@ export const QuantumLedgerDatabase: FC<QuantumLedgerDatabaseProps> = ({
   children,
   upstream,
   downstream,
+  dependencesOption,
 }) => {
   useAssertProvider();
   const icon = useIcon(category);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return <IconNode name={name} icon={icon} label={label} upstream={upstream} downstream={downstream} />;
+  return (
+    <IconNode
+      name={name}
+      icon={icon}
+      label={label}
+      upstream={upstream}
+      downstream={downstream}
+      dependencesOption={dependencesOption}
+    />
+  );
 };
 
 QuantumLedgerDatabase.displayName = 'QuantumLedgerDatabase';

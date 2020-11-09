@@ -1,7 +1,8 @@
 import React, { FC, useMemo } from 'react';
-import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { IconNode, useLabelText } from '@rediagram/cdk';
 import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
+import { AWSDependences } from '../../types';
 
 export type RedshiftCategory = 'analytics' | 'database';
 export type RedshiftType = 'Dense compute node' | 'Dense storage node';
@@ -9,7 +10,7 @@ export type RedshiftProps = {
   category?: RedshiftCategory;
   type?: RedshiftType;
   name: string;
-} & HasDependences;
+} & AWSDependences;
 
 function resolveImage(category: RedshiftCategory, type?: RedshiftType): string {
   switch (type) {
@@ -31,11 +32,28 @@ function useIcon(category: RedshiftCategory, type?: RedshiftType): { path: strin
   }, [category, type]);
 }
 
-export const Redshift: FC<RedshiftProps> = ({ category = 'database', type, name, children, upstream, downstream }) => {
+export const Redshift: FC<RedshiftProps> = ({
+  category = 'database',
+  type,
+  name,
+  children,
+  upstream,
+  downstream,
+  dependencesOption,
+}) => {
   useAssertProvider();
   const icon = useIcon(category, type);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return <IconNode name={name} icon={icon} label={label} upstream={upstream} downstream={downstream} />;
+  return (
+    <IconNode
+      name={name}
+      icon={icon}
+      label={label}
+      upstream={upstream}
+      downstream={downstream}
+      dependencesOption={dependencesOption}
+    />
+  );
 };
 
 Redshift.displayName = 'Redshift';

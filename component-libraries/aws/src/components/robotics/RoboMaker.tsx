@@ -1,7 +1,8 @@
 import React, { FC, useMemo } from 'react';
-import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { IconNode, useLabelText } from '@rediagram/cdk';
 import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
+import { AWSDependences } from '../../types';
 
 export type RoboMakerType = 'Cloud extensions ROS' | 'Development environment' | 'Fleet management' | 'Simulation';
 
@@ -32,11 +33,20 @@ function useIcon(type?: RoboMakerType): { path: string; size: number } {
 export type RoboMakerProps = {
   type?: RoboMakerType;
   name: string;
-} & HasDependences;
+} & AWSDependences;
 
-export const RoboMaker: FC<RoboMakerProps> = ({ type, name, upstream, downstream, children }) => {
+export const RoboMaker: FC<RoboMakerProps> = ({ type, name, upstream, downstream, children, dependencesOption }) => {
   useAssertProvider();
   const icon = useIcon(type);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return <IconNode name={name} icon={icon} label={label} upstream={upstream} downstream={downstream} />;
+  return (
+    <IconNode
+      name={name}
+      icon={icon}
+      label={label}
+      upstream={upstream}
+      downstream={downstream}
+      dependencesOption={dependencesOption}
+    />
+  );
 };

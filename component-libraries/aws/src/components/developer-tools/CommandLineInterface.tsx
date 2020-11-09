@@ -1,14 +1,15 @@
 import React, { FC, useMemo } from 'react';
-import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { IconNode, useLabelText } from '@rediagram/cdk';
 import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
+import { AWSDependences } from '../../types';
 
 export type CommandLineInterfaceCategory = 'developer-tools' | 'management-governance';
 
 export type CommandLineInterfaceProps = {
   category?: CommandLineInterfaceCategory;
   name: string;
-} & HasDependences;
+} & AWSDependences;
 
 function resolveImage(category: CommandLineInterfaceCategory): string {
   return resolveAsset('', category, 'CommandLineInterface.png');
@@ -29,11 +30,21 @@ export const CommandLineInterface: FC<CommandLineInterfaceProps> = ({
   children,
   upstream,
   downstream,
+  dependencesOption,
 }) => {
   useAssertProvider();
   const icon = useIcon(category);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return <IconNode name={name} icon={icon} label={label} upstream={upstream} downstream={downstream} />;
+  return (
+    <IconNode
+      name={name}
+      icon={icon}
+      label={label}
+      upstream={upstream}
+      downstream={downstream}
+      dependencesOption={dependencesOption}
+    />
+  );
 };
 
 CommandLineInterface.displayName = 'CommandLineInterface';

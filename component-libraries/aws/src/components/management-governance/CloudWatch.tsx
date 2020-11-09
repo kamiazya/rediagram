@@ -1,7 +1,8 @@
 import React, { FC, useMemo } from 'react';
-import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { IconNode, useLabelText } from '@rediagram/cdk';
 import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
+import { AWSDependences } from '../../types';
 
 export type CloudWatchType = 'Alarm' | 'Rule' | 'Event' | 'Time based event';
 
@@ -32,11 +33,20 @@ function useIcon(type?: CloudWatchType): { path: string; size: number } {
 export type CloudWatchProps = {
   type?: CloudWatchType;
   name: string;
-} & HasDependences;
+} & AWSDependences;
 
-export const CloudWatch: FC<CloudWatchProps> = ({ type, name, upstream, downstream, children }) => {
+export const CloudWatch: FC<CloudWatchProps> = ({ type, name, upstream, downstream, children, dependencesOption }) => {
   useAssertProvider();
   const icon = useIcon(type);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return <IconNode name={name} icon={icon} label={label} upstream={upstream} downstream={downstream} />;
+  return (
+    <IconNode
+      name={name}
+      icon={icon}
+      label={label}
+      upstream={upstream}
+      downstream={downstream}
+      dependencesOption={dependencesOption}
+    />
+  );
 };

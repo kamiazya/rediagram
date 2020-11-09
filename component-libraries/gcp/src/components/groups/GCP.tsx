@@ -1,9 +1,107 @@
 import React, { FC } from 'react';
-import { Provider, DependenciesEdgeAttributes } from '@rediagram/cdk';
+import { Provider, EdgeStyleBuilder, BuildEdgeStyle } from '@rediagram/cdk';
 import { Subgraph, DOT } from '@ts-graphviz/react';
+import { EdgeAttributes } from 'ts-graphviz';
 import { resolveAsset } from '../../assets';
+import { StyleOption } from '../../types';
 
 const icon = resolveAsset('groups/logo.png');
+
+const colorMap = Object.freeze({
+  blue: '#4284F3',
+  gray: '#9E9E9E',
+  green: '#34A853',
+  red: '#EA4335',
+  yellow: '#F4B400',
+  pink: '#FF69B4',
+});
+
+// eslint-disable-next-line func-names
+const randomColor = (function* (): Generator<string, void, unknown> {
+  function shuffle([...arr]: string[]): string[] {
+    let m = arr.length;
+    while (m) {
+      // eslint-disable-next-line no-plusplus
+      const i = Math.floor(Math.random() * m--);
+      // eslint-disable-next-line no-param-reassign
+      [arr[m], arr[i]] = [arr[i], arr[m]];
+    }
+    return arr;
+  }
+  while (true) {
+    // eslint-disable-next-line no-restricted-syntax
+    for (const color of shuffle(Object.values(colorMap))) {
+      yield color;
+    }
+  }
+})();
+
+const defaultStyle: EdgeAttributes = { fontsize: 12, color: '#3A7DF0' };
+
+const buildStyle: BuildEdgeStyle<StyleOption> = (option) => {
+  let style: EdgeAttributes = {};
+  if (option !== undefined) {
+    switch (option.theme) {
+      case 'Primary':
+        style = { color: colorMap.blue, ...style };
+        break;
+      case 'Optional Primary':
+        style = { color: colorMap.blue, style: 'dashed', ...style };
+        break;
+      case 'Secondary':
+        style = { color: colorMap.gray, ...style };
+        break;
+      case 'Optional Secondary':
+        style = { color: colorMap.gray, style: 'dashed', ...style };
+        break;
+      case 'Success':
+        style = { color: colorMap.green, ...style };
+        break;
+      case 'Failure':
+        style = { color: colorMap.red, ...style };
+        break;
+      default:
+        switch (option.color) {
+          case 'blue':
+            style = { color: colorMap.blue, ...style };
+            break;
+          case 'gray':
+            style = { color: colorMap.gray, ...style };
+            break;
+          case 'green':
+            style = { color: colorMap.green, ...style };
+            break;
+          case 'red':
+            style = { color: colorMap.red, ...style };
+            break;
+          case 'yellow':
+            style = { color: colorMap.yellow, ...style };
+            break;
+          case 'pink':
+            style = { color: colorMap.pink, ...style };
+            break;
+          case 'auto':
+            // eslint-disable-next-line no-case-declarations
+            const { value: color } = randomColor.next();
+            if (color) {
+              style = { color, ...style };
+            }
+            break;
+          default:
+            break;
+        }
+        switch (option.style) {
+          case 'dashed':
+            style = { style: 'dashed', ...style };
+            break;
+          default:
+            break;
+        }
+        break;
+    }
+  }
+  return { ...defaultStyle, ...style };
+};
 
 export const GCP: FC = ({ children }) => {
   return (
@@ -26,9 +124,7 @@ export const GCP: FC = ({ children }) => {
           </DOT.TABLE>
         }
       >
-        <DependenciesEdgeAttributes fontsize={12} color="#3A7DF0">
-          {children}
-        </DependenciesEdgeAttributes>
+        <EdgeStyleBuilder build={buildStyle}>{children}</EdgeStyleBuilder>
       </Subgraph>
     </Provider>
   );
@@ -38,9 +134,7 @@ export const InvizGCP: FC = ({ children }) => {
   return (
     <Provider name="gcp">
       <Subgraph id="gcp" fontsize="12">
-        <DependenciesEdgeAttributes fontsize={12} color="#3A7DF0">
-          {children}
-        </DependenciesEdgeAttributes>
+        <EdgeStyleBuilder build={buildStyle}>{children}</EdgeStyleBuilder>
       </Subgraph>
     </Provider>
   );

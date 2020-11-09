@@ -1,13 +1,14 @@
 import React, { FC, useMemo } from 'react';
-import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { IconNode, useLabelText } from '@rediagram/cdk';
 import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
+import { AWSDependences } from '../../types';
 
 type AppSyncCategory = 'mobile' | 'application-integration';
 export type AppSyncProps = {
   category?: AppSyncCategory;
   name: string;
-} & HasDependences;
+} & AWSDependences;
 
 function resolveImage(category: AppSyncCategory): string {
   return resolveAsset(category, 'AppSync.png');
@@ -22,11 +23,27 @@ function useIcon(category: AppSyncCategory): { path: string; size: number } {
   }, [category]);
 }
 
-export const AppSync: FC<AppSyncProps> = ({ category = 'mobile', name, children, upstream, downstream }) => {
+export const AppSync: FC<AppSyncProps> = ({
+  category = 'mobile',
+  name,
+  children,
+  upstream,
+  downstream,
+  dependencesOption,
+}) => {
   useAssertProvider();
   const icon = useIcon(category);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return <IconNode name={name} icon={icon} label={label} upstream={upstream} downstream={downstream} />;
+  return (
+    <IconNode
+      name={name}
+      icon={icon}
+      label={label}
+      upstream={upstream}
+      downstream={downstream}
+      dependencesOption={dependencesOption}
+    />
+  );
 };
 
 AppSync.displayName = 'AppSync';

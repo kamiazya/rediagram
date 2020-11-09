@@ -1,7 +1,8 @@
 import React, { FC, useMemo } from 'react';
-import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { IconNode, useLabelText } from '@rediagram/cdk';
 import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
+import { AWSDependences } from '../../types';
 
 type DatabaseMigrationServiceCategory = 'database' | 'migration-transfer';
 
@@ -32,7 +33,7 @@ export type DatabaseMigrationServiceProps = {
   category?: DatabaseMigrationServiceCategory;
   type?: DatabaseMigrationServiceType;
   name: string;
-} & HasDependences;
+} & AWSDependences;
 
 export const DatabaseMigrationService: FC<DatabaseMigrationServiceProps> = ({
   category = 'database',
@@ -41,11 +42,21 @@ export const DatabaseMigrationService: FC<DatabaseMigrationServiceProps> = ({
   upstream,
   downstream,
   children,
+  dependencesOption,
 }) => {
   useAssertProvider();
   const icon = useIcon(category, type);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return <IconNode name={name} icon={icon} label={label} upstream={upstream} downstream={downstream} />;
+  return (
+    <IconNode
+      name={name}
+      icon={icon}
+      label={label}
+      upstream={upstream}
+      downstream={downstream}
+      dependencesOption={dependencesOption}
+    />
+  );
 };
 
 DatabaseMigrationService.displayName = 'DatabaseMigrationService';

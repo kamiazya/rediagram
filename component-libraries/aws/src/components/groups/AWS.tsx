@@ -1,9 +1,93 @@
 import React, { FC } from 'react';
-import { Provider, DependenciesEdgeAttributes } from '@rediagram/cdk';
+import { Provider, EdgeStyleBuilder, BuildEdgeStyle } from '@rediagram/cdk';
 import { Subgraph, DOT } from '@ts-graphviz/react';
+import { EdgeAttributes } from 'ts-graphviz';
 import { resolveAsset } from '../../assets';
+import { StyleOption } from '../../types';
 
 const icon = resolveAsset('groups/aws.png');
+
+const colorMap = Object.freeze({
+  purple: '#5521B8',
+  lipstickA: '#BF0152',
+  lipstickB: '#BE0152',
+  dell: '#33761B',
+  tiaMaria: '#CD5111',
+  monza: '#CA0C22',
+  governorBay: '#2D2FC1',
+  greenPea: '#1A6955',
+});
+
+// eslint-disable-next-line func-names
+const randomColor = (function* (): Generator<string, void, unknown> {
+  function shuffle([...arr]: string[]): string[] {
+    let m = arr.length;
+    while (m) {
+      // eslint-disable-next-line no-plusplus
+      const i = Math.floor(Math.random() * m--);
+      // eslint-disable-next-line no-param-reassign
+      [arr[m], arr[i]] = [arr[i], arr[m]];
+    }
+    return arr;
+  }
+  while (true) {
+    // eslint-disable-next-line no-restricted-syntax
+    for (const color of shuffle(Object.values(colorMap))) {
+      yield color;
+    }
+  }
+})();
+
+const defaultStyle: EdgeAttributes = Object.freeze({ fontsize: 12, color: '#535B63', fontcolor: '#232F3D' });
+
+const buildStyle: BuildEdgeStyle<StyleOption> = (option) => {
+  let style: EdgeAttributes = {};
+  if (option !== undefined) {
+    switch (option.color) {
+      case 'purple':
+        style = { color: colorMap.purple, ...style };
+        break;
+      case 'lipstickA':
+        style = { color: colorMap.lipstickA, ...style };
+        break;
+      case 'lipstickB':
+        style = { color: colorMap.lipstickB, ...style };
+        break;
+      case 'dell':
+        style = { color: colorMap.dell, ...style };
+        break;
+      case 'tiaMaria':
+        style = { color: colorMap.tiaMaria, ...style };
+        break;
+      case 'monza':
+        style = { color: colorMap.monza, ...style };
+        break;
+      case 'governorBay':
+        style = { color: colorMap.governorBay, ...style };
+        break;
+      case 'greenPea':
+        style = { color: colorMap.greenPea, ...style };
+        break;
+      case 'auto':
+        // eslint-disable-next-line no-case-declarations
+        const { value: color } = randomColor.next();
+        if (color) {
+          style = { color, ...style };
+        }
+        break;
+      default:
+        break;
+    }
+    switch (option.style) {
+      case 'dashed':
+        style = { style: 'dashed', ...style };
+        break;
+      default:
+        break;
+    }
+  }
+  return { ...defaultStyle, ...style };
+};
 
 export const AWS: FC = ({ children }) => {
   return (
@@ -26,9 +110,7 @@ export const AWS: FC = ({ children }) => {
           </DOT.TABLE>
         }
       >
-        <DependenciesEdgeAttributes fontsize={12} color="#535B63" fontcolor="#232F3D">
-          {children}
-        </DependenciesEdgeAttributes>
+        <EdgeStyleBuilder build={buildStyle}>{children}</EdgeStyleBuilder>
       </Subgraph>
     </Provider>
   );
@@ -38,9 +120,7 @@ export const InvizAWS: FC = ({ children }) => {
   return (
     <Provider name="aws">
       <Subgraph id="aws" fontsize="12" color="#232F3D">
-        <DependenciesEdgeAttributes fontsize={12} color="#535B63" fontcolor="#232F3D">
-          {children}
-        </DependenciesEdgeAttributes>
+        <EdgeStyleBuilder build={buildStyle}>{children}</EdgeStyleBuilder>
       </Subgraph>
     </Provider>
   );

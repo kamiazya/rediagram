@@ -1,13 +1,14 @@
 import React, { FC, useMemo } from 'react';
-import { HasDependences, useLabelText } from '@rediagram/cdk';
+import { useLabelText } from '@rediagram/cdk';
 import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 import { GCPNode } from '../internal/GCPNode';
+import { GCPDependences } from '../../types';
 
 export type GPUProps = {
   name: string;
   description?: string;
-} & HasDependences;
+} & GCPDependences;
 
 function resolveImage(): string {
   return resolveAsset('compute/GPU.png');
@@ -22,7 +23,7 @@ function useIcon(): { path: string; size: number } {
   }, []);
 }
 
-export const GPU: FC<GPUProps> = ({ name, description, children, upstream, downstream }) => {
+export const GPU: FC<GPUProps> = ({ name, description, children, upstream, downstream, dependencesOption }) => {
   useAssertProvider();
   const icon = useIcon();
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
@@ -35,6 +36,7 @@ export const GPU: FC<GPUProps> = ({ name, description, children, upstream, downs
       label={label}
       upstream={upstream}
       downstream={downstream}
+      dependencesOption={dependencesOption}
     />
   );
 };

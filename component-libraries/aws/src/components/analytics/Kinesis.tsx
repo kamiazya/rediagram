@@ -1,14 +1,15 @@
 import React, { FC, useMemo } from 'react';
-import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
+import { IconNode, useLabelText } from '@rediagram/cdk';
 import { useAssertProvider } from '../../hooks/assert-provider';
 import { resolveAsset } from '../../assets';
+import { AWSDependences } from '../../types';
 
 export type KinesisType = 'Video Streams' | 'Data Streams' | 'Data Firehose' | 'Data Analytics';
 
 export type KinesisProps = {
   name: string;
   type?: KinesisType;
-} & HasDependences;
+} & AWSDependences;
 
 function resolveImage(type?: KinesisType): string {
   switch (type) {
@@ -34,11 +35,20 @@ function useIcon(type?: KinesisType): { path: string; size: number } {
   }, [type]);
 }
 
-export const Kinesis: FC<KinesisProps> = ({ name, type, children, upstream, downstream }) => {
+export const Kinesis: FC<KinesisProps> = ({ name, type, children, upstream, downstream, dependencesOption }) => {
   useAssertProvider();
   const icon = useIcon(type);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return <IconNode name={name} icon={icon} label={label} upstream={upstream} downstream={downstream} />;
+  return (
+    <IconNode
+      name={name}
+      icon={icon}
+      label={label}
+      upstream={upstream}
+      downstream={downstream}
+      dependencesOption={dependencesOption}
+    />
+  );
 };
 
 Kinesis.displayName = 'Kinesis';
