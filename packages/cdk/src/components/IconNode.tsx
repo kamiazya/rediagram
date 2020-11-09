@@ -8,7 +8,7 @@ export type IconNodeProps = {
   name: string;
 } & HasDependences;
 
-export const IconNode: FC<IconNodeProps> = ({ name, icon, label, upstream, downstream }) => {
+export const IconNode: FC<IconNodeProps> = ({ name, icon, label, upstream, downstream, dependencesOption }) => {
   return (
     <>
       <Node
@@ -32,7 +32,7 @@ export const IconNode: FC<IconNodeProps> = ({ name, icon, label, upstream, downs
           </DOT.TABLE>
         }
       />
-      <Dependences origin={name} upstream={upstream} downstream={downstream} />
+      <Dependences origin={name} upstream={upstream} downstream={downstream} dependencesOption={dependencesOption} />
     </>
   );
 };

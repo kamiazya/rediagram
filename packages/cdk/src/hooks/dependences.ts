@@ -22,25 +22,26 @@ export function useDependences<T extends Record<string, unknown>>({
   edgeAttributes: any;
 } {
   const build = useContext(EdgeStyleBuilderContext);
+  const edgeAttributes = useMemo(() => build(dependencesOption), [build, dependencesOption]);
   return {
     upstream: useMemo(
       () =>
         upstream.map(toDetail).map(({ destination, description, ...options }) => ({
           destination,
           description,
-          edgeAttributes: build(Object.keys(options).length ? options : dependencesOption),
+          edgeAttributes: Object.keys(options).length ? build(options) : edgeAttributes,
         })),
-      [build, upstream, dependencesOption],
+      [build, upstream, edgeAttributes],
     ),
     downstream: useMemo(
       () =>
         downstream.map(toDetail).map(({ destination, description, ...options }) => ({
           destination,
           description,
-          edgeAttributes: build(Object.keys(options).length ? options : dependencesOption),
+          edgeAttributes: Object.keys(options).length ? build(options) : edgeAttributes,
         })),
-      [build, downstream, dependencesOption],
+      [build, downstream, edgeAttributes],
     ),
-    edgeAttributes: useMemo(() => build(dependencesOption), [build, dependencesOption]),
+    edgeAttributes,
   };
 }
