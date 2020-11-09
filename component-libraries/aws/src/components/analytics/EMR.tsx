@@ -61,4 +61,4 @@ export const EMR: FC<EMRProps> = ({ type, name, children, upstream, downstream, 
   );
 };
 
-EMR.displayName = 'EM dependencesOption={dependencesOption}R';
+EMR.displayName = 'EMR';
