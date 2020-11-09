@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useMemo } from 'react';
 import { Provider, EdgeStyleBuilder, BuildEdgeStyle } from '@rediagram/cdk';
 import { Subgraph, DOT } from '@ts-graphviz/react';
 import { EdgeAttributes } from 'ts-graphviz';
@@ -89,11 +89,24 @@ const buildStyle: BuildEdgeStyle<StyleOption> = (option) => {
   return { ...defaultStyle, ...style };
 };
 
-export const AWS: FC = ({ children }) => {
+let id = 0;
+
+function useID(name: string): string {
+  return useMemo(() => {
+    id += 1;
+    return `${name}_${id}`;
+  }, [name]);
+}
+
+export type AWSProps = {
+  title?: string;
+};
+
+export const AWS: FC<AWSProps> = ({ title, children }) => {
   return (
     <Provider name="aws">
       <Subgraph
-        id="cluster_aws"
+        id={useID('cluster_aws')}
         fontsize="12"
         labelloc="t"
         labeljust="l"
@@ -105,7 +118,7 @@ export const AWS: FC = ({ children }) => {
               <DOT.TD WIDTH="25" HEIGHT="25" FIXEDSIZE>
                 <DOT.IMG SRC={icon} />
               </DOT.TD>
-              <DOT.TD>AWS Cloud</DOT.TD>
+              <DOT.TD>{title ?? 'AWS Cloud'}</DOT.TD>
             </DOT.TR>
           </DOT.TABLE>
         }
@@ -119,7 +132,7 @@ export const AWS: FC = ({ children }) => {
 export const InvizAWS: FC = ({ children }) => {
   return (
     <Provider name="aws">
-      <Subgraph id="aws" fontsize="12" color="#232F3D">
+      <Subgraph id={useID('aws')} fontsize="12" color="#232F3D">
         <EdgeStyleBuilder build={buildStyle}>{children}</EdgeStyleBuilder>
       </Subgraph>
     </Provider>
