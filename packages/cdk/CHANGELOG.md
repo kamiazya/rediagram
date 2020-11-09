@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/kamiazya/rediagram/compare/@rediagram/cdk@0.1.3...@rediagram/cdk@0.2.0) (2020-11-09)
+
+
+### Bug Fixes
+
+* **@rediagram/cdk:** fix dependencies style logic ([9ddb038](https://github.com/kamiazya/rediagram/commit/9ddb038dde1618f6ee545b439b2a126cc6f6d3fb))
+
+
+### Features
+
+* **@rediagram/cdk:** add dependencies style options [#143](https://github.com/kamiazya/rediagram/issues/143) ([9db6902](https://github.com/kamiazya/rediagram/commit/9db69027cd10c2b8591805609baf3deb18cb992b))
+
+
+
+
+
 ## [0.1.3](https://github.com/kamiazya/rediagram/compare/@rediagram/cdk@0.1.2...@rediagram/cdk@0.1.3) (2020-11-05)
 
 

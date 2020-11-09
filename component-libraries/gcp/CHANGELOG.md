@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/kamiazya/rediagram/compare/@rediagram/gcp@0.1.3...@rediagram/gcp@0.2.0) (2020-11-09)
+
+
+### Bug Fixes
+
+* **@rediagram/gcp:** fix GCP component id [#147](https://github.com/kamiazya/rediagram/issues/147) ([05b2b70](https://github.com/kamiazya/rediagram/commit/05b2b70dfea394bd8e40df05c508627e4c5af133))
+
+
+### Features
+
+* **@rediagram/gcp:** add theme and style for dependencies [#143](https://github.com/kamiazya/rediagram/issues/143) ([9efc33c](https://github.com/kamiazya/rediagram/commit/9efc33cd0f6feac222a86ee9fcae3172033a28a3))
+
+
+
+
+
 ## [0.1.3](https://github.com/kamiazya/rediagram/compare/@rediagram/gcp@0.1.2...@rediagram/gcp@0.1.3) (2020-11-05)
 
 **Note:** Version bump only for package @rediagram/gcp

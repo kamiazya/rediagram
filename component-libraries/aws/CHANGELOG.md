@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/kamiazya/rediagram/compare/@rediagram/aws@0.2.5...@rediagram/aws@0.3.0) (2020-11-09)
+
+
+### Bug Fixes
+
+* **@rediagram/aws:** fix AWS component id [#147](https://github.com/kamiazya/rediagram/issues/147) ([2630c63](https://github.com/kamiazya/rediagram/commit/2630c63d64eaee7decbba6c737e47ae4ba66a48c))
+
+
+### Features
+
+* **@rediagram/aws:** add theme and style for dependencies [#143](https://github.com/kamiazya/rediagram/issues/143) ([b61732f](https://github.com/kamiazya/rediagram/commit/b61732f754b6593f3f9aa279472d2607d185bb87))
+
+
+
+
+
 ## [0.2.5](https://github.com/kamiazya/rediagram/compare/@rediagram/aws@0.2.4...@rediagram/aws@0.2.5) (2020-11-09)
 
 
