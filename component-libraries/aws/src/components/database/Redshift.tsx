@@ -32,28 +32,11 @@ function useIcon(category: RedshiftCategory, type?: RedshiftType): { path: strin
   }, [category, type]);
 }
 
-export const Redshift: FC<RedshiftProps> = ({
-  category = 'database',
-  type,
-  name,
-  children,
-  upstream,
-  downstream,
-  dependencesOption,
-}) => {
+export const Redshift: FC<RedshiftProps> = ({ category = 'database', type, name, children, ...dependences }) => {
   useAssertProvider();
   const icon = useIcon(category, type);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return (
-    <IconNode
-      name={name}
-      icon={icon}
-      label={label}
-      upstream={upstream}
-      downstream={downstream}
-      dependencesOption={dependencesOption}
-    />
-  );
+  return <IconNode name={name} icon={icon} label={label} {...dependences} />;
 };
 
 Redshift.displayName = 'Redshift';

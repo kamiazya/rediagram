@@ -41,20 +41,11 @@ export type DynamoDBProps = {
   name: string;
 } & AWSDependences;
 
-export const DynamoDB: FC<DynamoDBProps> = ({ type, name, upstream, downstream, children, dependencesOption }) => {
+export const DynamoDB: FC<DynamoDBProps> = ({ type, name, children, ...dependences }) => {
   useAssertProvider();
   const icon = useIcon(type);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return (
-    <IconNode
-      name={name}
-      icon={icon}
-      label={label}
-      upstream={upstream}
-      downstream={downstream}
-      dependencesOption={dependencesOption}
-    />
-  );
+  return <IconNode name={name} icon={icon} label={label} {...dependences} />;
 };
 
 DynamoDB.displayName = 'DynamoDB';

@@ -21,26 +21,11 @@ function useIcon(): { path: string; size: number } {
   }, []);
 }
 
-export const CloudDevelopmentKit: FC<CloudDevelopmentKitProps> = ({
-  name,
-  children,
-  upstream,
-  downstream,
-  dependencesOption,
-}) => {
+export const CloudDevelopmentKit: FC<CloudDevelopmentKitProps> = ({ name, children, ...dependences }) => {
   useAssertProvider();
   const icon = useIcon();
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return (
-    <IconNode
-      name={name}
-      icon={icon}
-      label={label}
-      upstream={upstream}
-      downstream={downstream}
-      dependencesOption={dependencesOption}
-    />
-  );
+  return <IconNode name={name} icon={icon} label={label} {...dependences} />;
 };
 
 CloudDevelopmentKit.displayName = 'CloudDevelopmentKit';

@@ -33,20 +33,11 @@ function useIcon(type?: S3Type): { path: string; size: number } {
   }, [type]);
 }
 
-export const S3: FC<S3Props> = ({ type, name, upstream, downstream, children, dependencesOption }) => {
+export const S3: FC<S3Props> = ({ type, name, children, ...dependences }) => {
   useAssertProvider();
   const icon = useIcon(type);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return (
-    <IconNode
-      name={name}
-      icon={icon}
-      label={label}
-      upstream={upstream}
-      downstream={downstream}
-      dependencesOption={dependencesOption}
-    />
-  );
+  return <IconNode name={name} icon={icon} label={label} {...dependences} />;
 };
 
 S3.displayName = 'S3';

@@ -29,27 +29,11 @@ function useIcon(type?: ManagedBlockchainType): { path: string; size: number } {
   }, [type]);
 }
 
-export const ManagedBlockchain: FC<ManagedBlockchainProps> = ({
-  type,
-  name,
-  children,
-  upstream,
-  downstream,
-  dependencesOption,
-}) => {
+export const ManagedBlockchain: FC<ManagedBlockchainProps> = ({ type, name, children, ...dependences }) => {
   useAssertProvider();
   const icon = useIcon(type);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return (
-    <IconNode
-      name={name}
-      icon={icon}
-      label={label}
-      upstream={upstream}
-      downstream={downstream}
-      dependencesOption={dependencesOption}
-    />
-  );
+  return <IconNode name={name} icon={icon} label={label} {...dependences} />;
 };
 
 ManagedBlockchain.displayName = 'ManagedBlockchain';

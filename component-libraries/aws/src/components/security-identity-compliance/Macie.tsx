@@ -21,20 +21,11 @@ function useIcon(): { path: string; size: number } {
   }, []);
 }
 
-export const Macie: FC<MacieProps> = ({ name, children, upstream, downstream, dependencesOption }) => {
+export const Macie: FC<MacieProps> = ({ name, children, ...dependences }) => {
   useAssertProvider();
   const icon = useIcon();
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return (
-    <IconNode
-      name={name}
-      icon={icon}
-      label={label}
-      upstream={upstream}
-      downstream={downstream}
-      dependencesOption={dependencesOption}
-    />
-  );
+  return <IconNode name={name} icon={icon} label={label} {...dependences} />;
 };
 
 Macie.displayName = 'Macie';

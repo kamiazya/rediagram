@@ -37,27 +37,11 @@ export type IoTAnalyticsProps = {
   name: string;
 } & AWSDependences;
 
-export const IoTAnalytics: FC<IoTAnalyticsProps> = ({
-  type,
-  name,
-  upstream,
-  downstream,
-  children,
-  dependencesOption,
-}) => {
+export const IoTAnalytics: FC<IoTAnalyticsProps> = ({ type, name, children, ...dependences }) => {
   useAssertProvider();
   const icon = useIcon(type);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return (
-    <IconNode
-      name={name}
-      icon={icon}
-      label={label}
-      upstream={upstream}
-      downstream={downstream}
-      dependencesOption={dependencesOption}
-    />
-  );
+  return <IconNode name={name} icon={icon} label={label} {...dependences} />;
 };
 
 IoTAnalytics.displayName = 'IoTAnalytics';

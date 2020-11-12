@@ -31,20 +31,11 @@ function useIcon(type?: S3GlacierType): { path: string; size: number } {
   }, [type]);
 }
 
-export const S3Glacier: FC<S3GlacierProps> = ({ type, name, upstream, downstream, children, dependencesOption }) => {
+export const S3Glacier: FC<S3GlacierProps> = ({ type, name, children, ...dependences }) => {
   useAssertProvider();
   const icon = useIcon(type);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return (
-    <IconNode
-      name={name}
-      icon={icon}
-      label={label}
-      upstream={upstream}
-      downstream={downstream}
-      dependencesOption={dependencesOption}
-    />
-  );
+  return <IconNode name={name} icon={icon} label={label} {...dependences} />;
 };
 
 S3Glacier.displayName = 'S3Glacier';

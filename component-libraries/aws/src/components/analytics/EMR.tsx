@@ -45,20 +45,11 @@ function useIcon(type?: EMRType): { path: string; size: number } {
   }, [type]);
 }
 
-export const EMR: FC<EMRProps> = ({ type, name, children, upstream, downstream, dependencesOption }) => {
+export const EMR: FC<EMRProps> = ({ type, name, children, ...dependences }) => {
   useAssertProvider();
   const icon = useIcon(type);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return (
-    <IconNode
-      name={name}
-      icon={icon}
-      label={label}
-      upstream={upstream}
-      downstream={downstream}
-      dependencesOption={dependencesOption}
-    />
-  );
+  return <IconNode name={name} icon={icon} label={label} {...dependences} />;
 };
 
 EMR.displayName = 'EMR';

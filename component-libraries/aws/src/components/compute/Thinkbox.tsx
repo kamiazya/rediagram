@@ -38,20 +38,11 @@ function useIcon(type: ThinkboxType): { path: string; size: number } {
   }, [type]);
 }
 
-export const Thinkbox: FC<ThinkboxProps> = ({ name, type, children, upstream, downstream, dependencesOption }) => {
+export const Thinkbox: FC<ThinkboxProps> = ({ name, type, children, ...dependences }) => {
   useAssertProvider();
   const icon = useIcon(type);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return (
-    <IconNode
-      name={name}
-      icon={icon}
-      label={label}
-      upstream={upstream}
-      downstream={downstream}
-      dependencesOption={dependencesOption}
-    />
-  );
+  return <IconNode name={name} icon={icon} label={label} {...dependences} />;
 };
 
 Thinkbox.displayName = 'Thinkbox';

@@ -23,27 +23,11 @@ function useIcon(category: AppSyncCategory): { path: string; size: number } {
   }, [category]);
 }
 
-export const AppSync: FC<AppSyncProps> = ({
-  category = 'mobile',
-  name,
-  children,
-  upstream,
-  downstream,
-  dependencesOption,
-}) => {
+export const AppSync: FC<AppSyncProps> = ({ category = 'mobile', name, children, ...dependences }) => {
   useAssertProvider();
   const icon = useIcon(category);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return (
-    <IconNode
-      name={name}
-      icon={icon}
-      label={label}
-      upstream={upstream}
-      downstream={downstream}
-      dependencesOption={dependencesOption}
-    />
-  );
+  return <IconNode name={name} icon={icon} label={label} {...dependences} />;
 };
 
 AppSync.displayName = 'AppSync';

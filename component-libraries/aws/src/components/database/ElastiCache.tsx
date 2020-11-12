@@ -33,27 +33,11 @@ export type ElastiCacheProps = {
   name: string;
 } & AWSDependences;
 
-export const ElastiCache: FC<ElastiCacheProps> = ({
-  type,
-  name,
-  upstream,
-  downstream,
-  children,
-  dependencesOption,
-}) => {
+export const ElastiCache: FC<ElastiCacheProps> = ({ type, name, children, ...dependences }) => {
   useAssertProvider();
   const icon = useIcon(type);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return (
-    <IconNode
-      name={name}
-      icon={icon}
-      label={label}
-      upstream={upstream}
-      downstream={downstream}
-      dependencesOption={dependencesOption}
-    />
-  );
+  return <IconNode name={name} icon={icon} label={label} {...dependences} />;
 };
 
 ElastiCache.displayName = 'ElastiCache';

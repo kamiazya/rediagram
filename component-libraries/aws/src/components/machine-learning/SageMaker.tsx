@@ -35,20 +35,11 @@ export type SageMakerProps = {
   name: string;
 } & AWSDependences;
 
-export const SageMaker: FC<SageMakerProps> = ({ type, name, upstream, downstream, children, dependencesOption }) => {
+export const SageMaker: FC<SageMakerProps> = ({ type, name, children, ...dependences }) => {
   useAssertProvider();
   const icon = useIcon(type);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return (
-    <IconNode
-      name={name}
-      icon={icon}
-      label={label}
-      upstream={upstream}
-      downstream={downstream}
-      dependencesOption={dependencesOption}
-    />
-  );
+  return <IconNode name={name} icon={icon} label={label} {...dependences} />;
 };
 
 SageMaker.displayName = 'SageMaker';

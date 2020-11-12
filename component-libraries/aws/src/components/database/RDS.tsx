@@ -75,20 +75,11 @@ export type RDSProps = {
   name: string;
 } & AWSDependences;
 
-export const RDS: FC<RDSProps> = ({ type, name, upstream, downstream, children, dependencesOption }) => {
+export const RDS: FC<RDSProps> = ({ type, name, children, ...dependences }) => {
   useAssertProvider();
   const icon = useIcon(type);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return (
-    <IconNode
-      name={name}
-      icon={icon}
-      label={label}
-      upstream={upstream}
-      downstream={downstream}
-      dependencesOption={dependencesOption}
-    />
-  );
+  return <IconNode name={name} icon={icon} label={label} {...dependences} />;
 };
 
 RDS.displayName = 'RDS';

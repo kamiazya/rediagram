@@ -101,27 +101,11 @@ export type IoTResourceProps = {
   name: string;
 } & AWSDependences;
 
-export const IoTResource: FC<IoTResourceProps> = ({
-  type,
-  name,
-  upstream,
-  downstream,
-  children,
-  dependencesOption,
-}) => {
+export const IoTResource: FC<IoTResourceProps> = ({ type, name, children, ...dependences }) => {
   useAssertProvider();
   const icon = useIcon(type);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return (
-    <IconNode
-      name={name}
-      icon={icon}
-      label={label}
-      upstream={upstream}
-      downstream={downstream}
-      dependencesOption={dependencesOption}
-    />
-  );
+  return <IconNode name={name} icon={icon} label={label} {...dependences} />;
 };
 
 IoTResource.displayName = 'IoTResource';

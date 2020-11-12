@@ -28,23 +28,12 @@ export const QuantumLedgerDatabase: FC<QuantumLedgerDatabaseProps> = ({
   category = 'database',
   name,
   children,
-  upstream,
-  downstream,
-  dependencesOption,
+  ...dependences
 }) => {
   useAssertProvider();
   const icon = useIcon(category);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return (
-    <IconNode
-      name={name}
-      icon={icon}
-      label={label}
-      upstream={upstream}
-      downstream={downstream}
-      dependencesOption={dependencesOption}
-    />
-  );
+  return <IconNode name={name} icon={icon} label={label} {...dependences} />;
 };
 
 QuantumLedgerDatabase.displayName = 'QuantumLedgerDatabase';
