@@ -9,7 +9,7 @@ PNG(
         <Lambda name="Lambda 1" upstream={['Lambda 2']}>
           AWS Lambda
         </Lambda>
-        <Lambda name="Lambda 2" upstream={['SSH key', 'keys', 'output']} downstream={['Repository']}>
+        <Lambda name="Lambda 2" upstream={['SSH key', 'keys', 'output']}>
           AWS Lambda
         </Lambda>
         <S3 name="SSH key" type="Bucket with Objects">
@@ -23,7 +23,11 @@ PNG(
         </IAM>
       </AWS>
       <GeneralIcon name="Git Users" type="Users" upstream={[{ destination: 'Repository', description: 'Git Push' }]} />
-      <TextBox name="Repository" upstream={[{ destination: 'Lambda 1', description: 'Git webhook' }]}>
+      <TextBox
+        name="Repository"
+        upstream={[{ destination: 'Lambda 1', description: 'Git webhook' }]}
+        downstream={['Lambda 2']}
+      >
         Third-party\n Git repository
       </TextBox>
     </InvizAWS>
