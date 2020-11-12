@@ -27,9 +27,7 @@ export const KeyManagementService: FC<KeyManagementServiceProps> = ({
   name,
   description,
   children,
-  upstream,
-  downstream,
-  dependencesOption,
+  ...dependences
 }) => {
   useAssertProvider();
   const icon = useIcon();
@@ -41,9 +39,7 @@ export const KeyManagementService: FC<KeyManagementServiceProps> = ({
       description={description}
       icon={icon}
       label={label}
-      upstream={upstream}
-      downstream={downstream}
-      dependencesOption={dependencesOption}
+      {...dependences}
     />
   );
 };

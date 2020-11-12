@@ -23,22 +23,11 @@ function useIcon(): { path: string; size: number } {
   }, []);
 }
 
-export const Logging: FC<LoggingProps> = ({ name, description, children, upstream, downstream, dependencesOption }) => {
+export const Logging: FC<LoggingProps> = ({ name, description, children, ...dependences }) => {
   useAssertProvider();
   const icon = useIcon();
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return (
-    <GCPNode
-      service="Logging"
-      name={name}
-      description={description}
-      icon={icon}
-      label={label}
-      upstream={upstream}
-      downstream={downstream}
-      dependencesOption={dependencesOption}
-    />
-  );
+  return <GCPNode service="Logging" name={name} description={description} icon={icon} label={label} {...dependences} />;
 };
 
 Logging.displayName = 'Logging';

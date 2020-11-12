@@ -22,27 +22,11 @@ function useIcon(): { path: string; size: number } {
   }, []);
 }
 
-export const CloudNaturalLanguageAPI: FC<CloudNaturalLanguageAPIProps> = ({
-  name,
-  children,
-  upstream,
-  downstream,
-  dependencesOption,
-}) => {
+export const CloudNaturalLanguageAPI: FC<CloudNaturalLanguageAPIProps> = ({ name, children, ...dependences }) => {
   useAssertProvider();
   const icon = useIcon();
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return (
-    <GCPNode
-      service="Cloud Natural Language API"
-      name={name}
-      icon={icon}
-      label={label}
-      upstream={upstream}
-      downstream={downstream}
-      dependencesOption={dependencesOption}
-    />
-  );
+  return <GCPNode service="Cloud Natural Language API" name={name} icon={icon} label={label} {...dependences} />;
 };
 
 CloudNaturalLanguageAPI.displayName = 'CloudNaturalLanguageAPI';

@@ -22,27 +22,11 @@ function useIcon(): { path: string; size: number } {
   }, []);
 }
 
-export const CloudTranslationAPI: FC<CloudTranslationAPIProps> = ({
-  name,
-  children,
-  upstream,
-  downstream,
-  dependencesOption,
-}) => {
+export const CloudTranslationAPI: FC<CloudTranslationAPIProps> = ({ name, children, ...dependences }) => {
   useAssertProvider();
   const icon = useIcon();
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return (
-    <GCPNode
-      service="Cloud Translation API"
-      name={name}
-      icon={icon}
-      label={label}
-      upstream={upstream}
-      downstream={downstream}
-      dependencesOption={dependencesOption}
-    />
-  );
+  return <GCPNode service="Cloud Translation API" name={name} icon={icon} label={label} {...dependences} />;
 };
 
 CloudTranslationAPI.displayName = 'CloudTranslationAPI';

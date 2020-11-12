@@ -22,21 +22,11 @@ function useIcon(): { path: string; size: number } {
   }, []);
 }
 
-export const APIAnalytics: FC<APIAnalyticsProps> = ({ name, children, upstream, downstream, dependencesOption }) => {
+export const APIAnalytics: FC<APIAnalyticsProps> = ({ name, children, ...dependences }) => {
   useAssertProvider();
   const icon = useIcon();
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return (
-    <GCPNode
-      service="API Analytics"
-      name={name}
-      icon={icon}
-      label={label}
-      upstream={upstream}
-      downstream={downstream}
-      dependencesOption={dependencesOption}
-    />
-  );
+  return <GCPNode service="API Analytics" name={name} icon={icon} label={label} {...dependences} />;
 };
 
 APIAnalytics.displayName = 'APIAnalytics';

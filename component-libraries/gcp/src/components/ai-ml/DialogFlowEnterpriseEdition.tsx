@@ -25,24 +25,12 @@ function useIcon(): { path: string; size: number } {
 export const DialogFlowEnterpriseEdition: FC<DialogFlowEnterpriseEditionProps> = ({
   name,
   children,
-  upstream,
-  downstream,
-  dependencesOption,
+  ...dependences
 }) => {
   useAssertProvider();
   const icon = useIcon();
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return (
-    <GCPNode
-      service="Dialog Flow Enterprise Edition"
-      name={name}
-      icon={icon}
-      label={label}
-      upstream={upstream}
-      downstream={downstream}
-      dependencesOption={dependencesOption}
-    />
-  );
+  return <GCPNode service="Dialog Flow Enterprise Edition" name={name} icon={icon} label={label} {...dependences} />;
 };
 
 DialogFlowEnterpriseEdition.displayName = 'DialogFlowEnterpriseEdition';

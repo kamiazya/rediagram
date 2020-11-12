@@ -22,27 +22,11 @@ function useIcon(): { path: string; size: number } {
   }, []);
 }
 
-export const ApigeeAPIPlatform: FC<ApigeeAPIPlatformProps> = ({
-  name,
-  children,
-  upstream,
-  downstream,
-  dependencesOption,
-}) => {
+export const ApigeeAPIPlatform: FC<ApigeeAPIPlatformProps> = ({ name, children, ...dependences }) => {
   useAssertProvider();
   const icon = useIcon();
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return (
-    <GCPNode
-      service="Apigee API Platform"
-      name={name}
-      icon={icon}
-      label={label}
-      upstream={upstream}
-      downstream={downstream}
-      dependencesOption={dependencesOption}
-    />
-  );
+  return <GCPNode service="Apigee API Platform" name={name} icon={icon} label={label} {...dependences} />;
 };
 
 ApigeeAPIPlatform.displayName = 'ApigeeAPIPlatform';

@@ -23,14 +23,7 @@ function useIcon(): { path: string; size: number } {
   }, []);
 }
 
-export const CloudFirestore: FC<CloudFirestoreProps> = ({
-  name,
-  description,
-  children,
-  upstream,
-  downstream,
-  dependencesOption,
-}) => {
+export const CloudFirestore: FC<CloudFirestoreProps> = ({ name, description, children, ...dependences }) => {
   useAssertProvider();
   const icon = useIcon();
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
@@ -41,9 +34,7 @@ export const CloudFirestore: FC<CloudFirestoreProps> = ({
       description={description}
       icon={icon}
       label={label}
-      upstream={upstream}
-      downstream={downstream}
-      dependencesOption={dependencesOption}
+      {...dependences}
     />
   );
 };

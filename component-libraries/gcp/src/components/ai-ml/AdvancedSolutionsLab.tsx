@@ -22,27 +22,11 @@ function useIcon(): { path: string; size: number } {
   }, []);
 }
 
-export const AdvancedSolutionsLab: FC<AdvancedSolutionsLabProps> = ({
-  name,
-  children,
-  upstream,
-  downstream,
-  dependencesOption,
-}) => {
+export const AdvancedSolutionsLab: FC<AdvancedSolutionsLabProps> = ({ name, children, ...dependences }) => {
   useAssertProvider();
   const icon = useIcon();
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return (
-    <GCPNode
-      service="Advanced Solutions Lab"
-      name={name}
-      icon={icon}
-      label={label}
-      upstream={upstream}
-      downstream={downstream}
-      dependencesOption={dependencesOption}
-    />
-  );
+  return <GCPNode service="Advanced Solutions Lab" name={name} icon={icon} label={label} {...dependences} />;
 };
 
 AdvancedSolutionsLab.displayName = 'AdvancedSolutionsLab';
