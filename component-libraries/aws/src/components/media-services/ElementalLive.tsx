@@ -21,20 +21,11 @@ function useIcon(): { path: string; size: number } {
   }, []);
 }
 
-export const ElementalLive: FC<ElementalLiveProps> = ({ name, children, upstream, downstream, dependencesOption }) => {
+export const ElementalLive: FC<ElementalLiveProps> = ({ name, children, ...dependences }) => {
   useAssertProvider();
   const icon = useIcon();
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return (
-    <IconNode
-      name={name}
-      icon={icon}
-      label={label}
-      upstream={upstream}
-      downstream={downstream}
-      dependencesOption={dependencesOption}
-    />
-  );
+  return <IconNode name={name} icon={icon} label={label} {...dependences} />;
 };
 
 ElementalLive.displayName = 'ElementalLive';

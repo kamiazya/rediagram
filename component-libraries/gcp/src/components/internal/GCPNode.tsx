@@ -12,16 +12,7 @@ export type GCPNodeProps = {
   description?: string;
 } & GCPDependences;
 
-export const GCPNode: FC<GCPNodeProps> = ({
-  name,
-  service,
-  description,
-  icon,
-  label,
-  upstream,
-  downstream,
-  dependencesOption,
-}) => {
+export const GCPNode: FC<GCPNodeProps> = ({ name, service, description, icon, label, ...dependences }) => {
   useAssertProvider();
   return (
     <>
@@ -69,7 +60,7 @@ export const GCPNode: FC<GCPNodeProps> = ({
           </DOT.TABLE>
         }
       />
-      <Dependences origin={name} upstream={upstream} downstream={downstream} dependencesOption={dependencesOption} />
+      <Dependences origin={name} {...dependences} />
     </>
   );
 };

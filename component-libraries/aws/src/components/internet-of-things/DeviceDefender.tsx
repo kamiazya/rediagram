@@ -29,27 +29,11 @@ export type DeviceDefenderProps = {
   name: string;
 } & AWSDependences;
 
-export const DeviceDefender: FC<DeviceDefenderProps> = ({
-  type,
-  name,
-  upstream,
-  downstream,
-  children,
-  dependencesOption,
-}) => {
+export const DeviceDefender: FC<DeviceDefenderProps> = ({ type, name, children, ...dependences }) => {
   useAssertProvider();
   const icon = useIcon(type);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return (
-    <IconNode
-      name={name}
-      icon={icon}
-      label={label}
-      upstream={upstream}
-      downstream={downstream}
-      dependencesOption={dependencesOption}
-    />
-  );
+  return <IconNode name={name} icon={icon} label={label} {...dependences} />;
 };
 
 DeviceDefender.displayName = 'DeviceDefender';

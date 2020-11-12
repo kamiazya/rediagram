@@ -22,21 +22,11 @@ function useIcon(): { path: string; size: number } {
   }, []);
 }
 
-export const AIHub: FC<AIHubProps> = ({ name, children, upstream, downstream, dependencesOption }) => {
+export const AIHub: FC<AIHubProps> = ({ name, children, ...dependences }) => {
   useAssertProvider();
   const icon = useIcon();
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return (
-    <GCPNode
-      service="AI Hub"
-      name={name}
-      icon={icon}
-      label={label}
-      upstream={upstream}
-      downstream={downstream}
-      dependencesOption={dependencesOption}
-    />
-  );
+  return <GCPNode service="AI Hub" name={name} icon={icon} label={label} {...dependences} />;
 };
 
 AIHub.displayName = 'AIHub';

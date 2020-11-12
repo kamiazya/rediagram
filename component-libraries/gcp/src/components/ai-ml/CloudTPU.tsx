@@ -22,21 +22,11 @@ function useIcon(): { path: string; size: number } {
   }, []);
 }
 
-export const CloudTPU: FC<CloudTPUProps> = ({ name, children, upstream, downstream, dependencesOption }) => {
+export const CloudTPU: FC<CloudTPUProps> = ({ name, children, ...dependences }) => {
   useAssertProvider();
   const icon = useIcon();
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return (
-    <GCPNode
-      service="Cloud TPU"
-      name={name}
-      icon={icon}
-      label={label}
-      upstream={upstream}
-      downstream={downstream}
-      dependencesOption={dependencesOption}
-    />
-  );
+  return <GCPNode service="Cloud TPU" name={name} icon={icon} label={label} {...dependences} />;
 };
 
 CloudTPU.displayName = 'CloudTPU';

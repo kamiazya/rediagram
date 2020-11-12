@@ -33,27 +33,11 @@ function useIcon(type?: DirectoryServiceType): { path: string; size: number } {
   }, [type]);
 }
 
-export const DirectoryService: FC<DirectoryServiceProps> = ({
-  type,
-  name,
-  children,
-  upstream,
-  downstream,
-  dependencesOption,
-}) => {
+export const DirectoryService: FC<DirectoryServiceProps> = ({ type, name, children, ...dependences }) => {
   useAssertProvider();
   const icon = useIcon(type);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return (
-    <IconNode
-      name={name}
-      icon={icon}
-      label={label}
-      upstream={upstream}
-      downstream={downstream}
-      dependencesOption={dependencesOption}
-    />
-  );
+  return <IconNode name={name} icon={icon} label={label} {...dependences} />;
 };
 
 DirectoryService.displayName = 'DirectoryService';

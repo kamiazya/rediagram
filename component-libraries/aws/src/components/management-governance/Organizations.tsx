@@ -31,25 +31,9 @@ export type OrganizationsProps = {
   name: string;
 } & AWSDependences;
 
-export const Organizations: FC<OrganizationsProps> = ({
-  type,
-  name,
-  upstream,
-  downstream,
-  children,
-  dependencesOption,
-}) => {
+export const Organizations: FC<OrganizationsProps> = ({ type, name, children, ...dependences }) => {
   useAssertProvider();
   const icon = useIcon(type);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return (
-    <IconNode
-      name={name}
-      icon={icon}
-      label={label}
-      upstream={upstream}
-      downstream={downstream}
-      dependencesOption={dependencesOption}
-    />
-  );
+  return <IconNode name={name} icon={icon} label={label} {...dependences} />;
 };

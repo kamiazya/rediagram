@@ -22,27 +22,11 @@ function useIcon(): { path: string; size: number } {
   }, []);
 }
 
-export const AutoMLNaturalLanguage: FC<AutoMLNaturalLanguageProps> = ({
-  name,
-  children,
-  upstream,
-  downstream,
-  dependencesOption,
-}) => {
+export const AutoMLNaturalLanguage: FC<AutoMLNaturalLanguageProps> = ({ name, children, ...dependences }) => {
   useAssertProvider();
   const icon = useIcon();
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return (
-    <GCPNode
-      service="AutoML Natural Language"
-      name={name}
-      icon={icon}
-      label={label}
-      upstream={upstream}
-      downstream={downstream}
-      dependencesOption={dependencesOption}
-    />
-  );
+  return <GCPNode service="AutoML Natural Language" name={name} icon={icon} label={label} {...dependences} />;
 };
 
 AutoMLNaturalLanguage.displayName = 'AutoMLNaturalLanguage';

@@ -35,20 +35,11 @@ function useIcon(type?: KinesisType): { path: string; size: number } {
   }, [type]);
 }
 
-export const Kinesis: FC<KinesisProps> = ({ name, type, children, upstream, downstream, dependencesOption }) => {
+export const Kinesis: FC<KinesisProps> = ({ name, type, children, ...dependences }) => {
   useAssertProvider();
   const icon = useIcon(type);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return (
-    <IconNode
-      name={name}
-      icon={icon}
-      label={label}
-      upstream={upstream}
-      downstream={downstream}
-      dependencesOption={dependencesOption}
-    />
-  );
+  return <IconNode name={name} icon={icon} label={label} {...dependences} />;
 };
 
 Kinesis.displayName = 'Kinesis';

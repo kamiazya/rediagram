@@ -23,28 +23,12 @@ function useIcon(): { path: string; size: number } {
   }, []);
 }
 
-export const Monitoring: FC<MonitoringProps> = ({
-  name,
-  description,
-  children,
-  upstream,
-  downstream,
-  dependencesOption,
-}) => {
+export const Monitoring: FC<MonitoringProps> = ({ name, description, children, ...dependences }) => {
   useAssertProvider();
   const icon = useIcon();
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
   return (
-    <GCPNode
-      service="Monitoring"
-      name={name}
-      description={description}
-      icon={icon}
-      label={label}
-      upstream={upstream}
-      downstream={downstream}
-      dependencesOption={dependencesOption}
-    />
+    <GCPNode service="Monitoring" name={name} description={description} icon={icon} label={label} {...dependences} />
   );
 };
 

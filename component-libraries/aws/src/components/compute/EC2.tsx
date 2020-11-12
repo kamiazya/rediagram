@@ -123,20 +123,11 @@ export type EC2Props = {
   name: string;
 } & AWSDependences;
 
-export const EC2: FC<EC2Props> = ({ type, name, children, upstream, downstream, dependencesOption }) => {
+export const EC2: FC<EC2Props> = ({ type, name, children, ...dependences }) => {
   useAssertProvider();
   const icon = useIcon(type);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return (
-    <IconNode
-      name={name}
-      icon={icon}
-      label={label}
-      upstream={upstream}
-      downstream={downstream}
-      dependencesOption={dependencesOption}
-    />
-  );
+  return <IconNode name={name} icon={icon} label={label} {...dependences} />;
 };
 
 EC2.displayName = 'EC2';

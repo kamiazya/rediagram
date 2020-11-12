@@ -21,26 +21,11 @@ function useIcon(): { path: string; size: number } {
   }, []);
 }
 
-export const ElementalServer: FC<ElementalServerProps> = ({
-  name,
-  children,
-  upstream,
-  downstream,
-  dependencesOption,
-}) => {
+export const ElementalServer: FC<ElementalServerProps> = ({ name, children, ...dependences }) => {
   useAssertProvider();
   const icon = useIcon();
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return (
-    <IconNode
-      name={name}
-      icon={icon}
-      label={label}
-      upstream={upstream}
-      downstream={downstream}
-      dependencesOption={dependencesOption}
-    />
-  );
+  return <IconNode name={name} icon={icon} label={label} {...dependences} />;
 };
 
 ElementalServer.displayName = 'ElementalServer';

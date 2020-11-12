@@ -22,27 +22,11 @@ function useIcon(): { path: string; size: number } {
   }, []);
 }
 
-export const APIMonetization: FC<APIMonetizationProps> = ({
-  name,
-  children,
-  upstream,
-  downstream,
-  dependencesOption,
-}) => {
+export const APIMonetization: FC<APIMonetizationProps> = ({ name, children, ...dependences }) => {
   useAssertProvider();
   const icon = useIcon();
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return (
-    <GCPNode
-      service="API Monetization"
-      name={name}
-      icon={icon}
-      label={label}
-      upstream={upstream}
-      downstream={downstream}
-      dependencesOption={dependencesOption}
-    />
-  );
+  return <GCPNode service="API Monetization" name={name} icon={icon} label={label} {...dependences} />;
 };
 
 APIMonetization.displayName = 'APIMonetization';

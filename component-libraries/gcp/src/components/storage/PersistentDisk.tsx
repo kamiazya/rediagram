@@ -23,14 +23,7 @@ function useIcon(): { path: string; size: number } {
   }, []);
 }
 
-export const PersistentDisk: FC<PersistentDiskProps> = ({
-  name,
-  description,
-  children,
-  upstream,
-  downstream,
-  dependencesOption,
-}) => {
+export const PersistentDisk: FC<PersistentDiskProps> = ({ name, description, children, ...dependences }) => {
   useAssertProvider();
   const icon = useIcon();
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
@@ -41,9 +34,7 @@ export const PersistentDisk: FC<PersistentDiskProps> = ({
       description={description}
       icon={icon}
       label={label}
-      upstream={upstream}
-      downstream={downstream}
-      dependencesOption={dependencesOption}
+      {...dependences}
     />
   );
 };

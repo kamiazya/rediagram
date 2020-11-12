@@ -23,28 +23,12 @@ function useIcon(): { path: string; size: number } {
   }, []);
 }
 
-export const CloudStorage: FC<CloudStorageProps> = ({
-  name,
-  description,
-  children,
-  upstream,
-  downstream,
-  dependencesOption,
-}) => {
+export const CloudStorage: FC<CloudStorageProps> = ({ name, description, children, ...dependences }) => {
   useAssertProvider();
   const icon = useIcon();
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
   return (
-    <GCPNode
-      service="Cloud Storage"
-      name={name}
-      description={description}
-      icon={icon}
-      label={label}
-      upstream={upstream}
-      downstream={downstream}
-      dependencesOption={dependencesOption}
-    />
+    <GCPNode service="Cloud Storage" name={name} description={description} icon={icon} label={label} {...dependences} />
   );
 };
 

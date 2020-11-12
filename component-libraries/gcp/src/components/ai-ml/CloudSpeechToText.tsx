@@ -22,27 +22,11 @@ function useIcon(): { path: string; size: number } {
   }, []);
 }
 
-export const CloudSpeechToText: FC<CloudSpeechToTextProps> = ({
-  name,
-  children,
-  upstream,
-  downstream,
-  dependencesOption,
-}) => {
+export const CloudSpeechToText: FC<CloudSpeechToTextProps> = ({ name, children, ...dependences }) => {
   useAssertProvider();
   const icon = useIcon();
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return (
-    <GCPNode
-      service="Cloud Speech-to-Text"
-      name={name}
-      icon={icon}
-      label={label}
-      upstream={upstream}
-      downstream={downstream}
-      dependencesOption={dependencesOption}
-    />
-  );
+  return <GCPNode service="Cloud Speech-to-Text" name={name} icon={icon} label={label} {...dependences} />;
 };
 
 CloudSpeechToText.displayName = 'CloudSpeechToText';

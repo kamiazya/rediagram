@@ -27,9 +27,7 @@ export const CloudExternalIPAddresses: FC<CloudExternalIPAddressesProps> = ({
   name,
   description,
   children,
-  upstream,
-  downstream,
-  dependencesOption,
+  ...dependences
 }) => {
   useAssertProvider();
   const icon = useIcon();
@@ -41,9 +39,7 @@ export const CloudExternalIPAddresses: FC<CloudExternalIPAddressesProps> = ({
       description={description}
       icon={icon}
       label={label}
-      upstream={upstream}
-      downstream={downstream}
-      dependencesOption={dependencesOption}
+      {...dependences}
     />
   );
 };

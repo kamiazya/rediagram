@@ -23,28 +23,12 @@ function useIcon(): { path: string; size: number } {
   }, []);
 }
 
-export const BigQuery: FC<BigQueryProps> = ({
-  name,
-  description,
-  children,
-  upstream,
-  downstream,
-  dependencesOption,
-}) => {
+export const BigQuery: FC<BigQueryProps> = ({ name, description, children, ...dependences }) => {
   useAssertProvider();
   const icon = useIcon();
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
   return (
-    <GCPNode
-      service="BigQuery"
-      name={name}
-      description={description}
-      icon={icon}
-      label={label}
-      upstream={upstream}
-      downstream={downstream}
-      dependencesOption={dependencesOption}
-    />
+    <GCPNode service="BigQuery" name={name} description={description} icon={icon} label={label} {...dependences} />
   );
 };
 

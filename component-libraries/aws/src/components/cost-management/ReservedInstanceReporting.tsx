@@ -21,26 +21,11 @@ function useIcon(): { path: string; size: number } {
   }, []);
 }
 
-export const ReservedInstanceReporting: FC<ReservedInstanceReportingProps> = ({
-  name,
-  children,
-  upstream,
-  downstream,
-  dependencesOption,
-}) => {
+export const ReservedInstanceReporting: FC<ReservedInstanceReportingProps> = ({ name, children, ...dependences }) => {
   useAssertProvider();
   const icon = useIcon();
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return (
-    <IconNode
-      name={name}
-      icon={icon}
-      label={label}
-      upstream={upstream}
-      downstream={downstream}
-      dependencesOption={dependencesOption}
-    />
-  );
+  return <IconNode name={name} icon={icon} label={label} {...dependences} />;
 };
 
 ReservedInstanceReporting.displayName = 'ReservedInstanceReporting';

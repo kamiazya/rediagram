@@ -29,18 +29,9 @@ export type DataSyncProps = {
   name: string;
 } & AWSDependences;
 
-export const DataSync: FC<DataSyncProps> = ({ type, name, upstream, downstream, children, dependencesOption }) => {
+export const DataSync: FC<DataSyncProps> = ({ type, name, children, ...dependences }) => {
   useAssertProvider();
   const icon = useIcon(type);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return (
-    <IconNode
-      name={name}
-      icon={icon}
-      label={label}
-      upstream={upstream}
-      downstream={downstream}
-      dependencesOption={dependencesOption}
-    />
-  );
+  return <IconNode name={name} icon={icon} label={label} {...dependences} />;
 };

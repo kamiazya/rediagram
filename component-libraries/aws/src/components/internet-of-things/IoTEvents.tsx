@@ -21,20 +21,11 @@ function useIcon(): { path: string; size: number } {
   }, []);
 }
 
-export const IoTEvents: FC<IoTEventsProps> = ({ name, children, upstream, downstream, dependencesOption }) => {
+export const IoTEvents: FC<IoTEventsProps> = ({ name, children, ...dependences }) => {
   useAssertProvider();
   const icon = useIcon();
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return (
-    <IconNode
-      name={name}
-      icon={icon}
-      label={label}
-      upstream={upstream}
-      downstream={downstream}
-      dependencesOption={dependencesOption}
-    />
-  );
+  return <IconNode name={name} icon={icon} label={label} {...dependences} />;
 };
 
 IoTEvents.displayName = 'IoTEvents';

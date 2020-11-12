@@ -25,24 +25,12 @@ function useIcon(): { path: string; size: number } {
 export const AIPlatformDataLabelingService: FC<AIPlatformDataLabelingServiceProps> = ({
   name,
   children,
-  upstream,
-  downstream,
-  dependencesOption,
+  ...dependences
 }) => {
   useAssertProvider();
   const icon = useIcon();
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return (
-    <GCPNode
-      service="AI Platform Data Labeling Service"
-      name={name}
-      icon={icon}
-      label={label}
-      upstream={upstream}
-      downstream={downstream}
-      dependencesOption={dependencesOption}
-    />
-  );
+  return <GCPNode service="AI Platform Data Labeling Service" name={name} icon={icon} label={label} {...dependences} />;
 };
 
 AIPlatformDataLabelingService.displayName = 'AIPlatformDataLabelingService';

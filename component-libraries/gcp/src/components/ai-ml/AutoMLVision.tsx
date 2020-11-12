@@ -22,21 +22,11 @@ function useIcon(): { path: string; size: number } {
   }, []);
 }
 
-export const AutoMLVision: FC<AutoMLVisionProps> = ({ name, children, upstream, downstream, dependencesOption }) => {
+export const AutoMLVision: FC<AutoMLVisionProps> = ({ name, children, ...dependences }) => {
   useAssertProvider();
   const icon = useIcon();
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return (
-    <GCPNode
-      service="AutoML Vision"
-      name={name}
-      icon={icon}
-      label={label}
-      upstream={upstream}
-      downstream={downstream}
-      dependencesOption={dependencesOption}
-    />
-  );
+  return <GCPNode service="AutoML Vision" name={name} icon={icon} label={label} {...dependences} />;
 };
 
 AutoMLVision.displayName = 'AutoMLVision';

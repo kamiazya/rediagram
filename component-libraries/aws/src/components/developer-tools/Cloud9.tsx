@@ -29,20 +29,11 @@ export type Cloud9Props = {
   name: string;
 } & AWSDependences;
 
-export const Cloud9: FC<Cloud9Props> = ({ type, name, upstream, downstream, children, dependencesOption }) => {
+export const Cloud9: FC<Cloud9Props> = ({ type, name, children, ...dependences }) => {
   useAssertProvider();
   const icon = useIcon(type);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return (
-    <IconNode
-      name={name}
-      icon={icon}
-      label={label}
-      upstream={upstream}
-      downstream={downstream}
-      dependencesOption={dependencesOption}
-    />
-  );
+  return <IconNode name={name} icon={icon} label={label} {...dependences} />;
 };
 
 Cloud9.displayName = 'Cloud9';
