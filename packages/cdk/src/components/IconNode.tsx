@@ -8,7 +8,8 @@ export type IconNodeProps = {
   name: string;
 } & HasDependences;
 
-export const IconNode: FC<IconNodeProps> = ({ name, icon, label, upstream, downstream, dependencesOption }) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const IconNode: FC<IconNodeProps> = ({ name, icon, label, children, ...dependences }) => {
   return (
     <>
       <Node
@@ -32,7 +33,7 @@ export const IconNode: FC<IconNodeProps> = ({ name, icon, label, upstream, downs
           </DOT.TABLE>
         }
       />
-      <Dependences origin={name} upstream={upstream} downstream={downstream} dependencesOption={dependencesOption} />
+      <Dependences origin={name} {...dependences} />
     </>
   );
 };
