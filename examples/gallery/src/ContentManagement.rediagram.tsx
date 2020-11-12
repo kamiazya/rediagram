@@ -9,10 +9,11 @@ import {
   Zone,
   CloudStorage,
   CloudSQL,
+  TitleBar,
 } from '@rediagram/gcp';
 
 PNG(
-  <Diagram title="Content Management">
+  <Diagram title={<TitleBar>Content Management</TitleBar>}>
     <InvizGCP>
       <GeneralIcon name="iOS/Android/Web" type="Mobile client" upstream={['DNS', 'Load Balancer']} />
       <GeneralIcon name="Publisher" type="Client" upstream={['Content Server2']} />

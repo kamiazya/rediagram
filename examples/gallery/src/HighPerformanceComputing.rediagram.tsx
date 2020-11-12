@@ -1,9 +1,9 @@
 import React from 'react';
 import { PNG, Diagram, GeneralIcon } from 'rediagram';
-import { GCP, InvizGCP, ComputeEngine, OptionalComponent } from '@rediagram/gcp';
+import { GCP, InvizGCP, ComputeEngine, OptionalComponent, TitleBar } from '@rediagram/gcp';
 
 PNG(
-  <Diagram title="High Performance Computing">
+  <Diagram title={<TitleBar width={800}>High Performance Computing</TitleBar>}>
     <InvizGCP>
       <GeneralIcon name="iOS/Android/Web" type="Mobile client" upstream={['HPC Head Node']} />
       <GCP>
