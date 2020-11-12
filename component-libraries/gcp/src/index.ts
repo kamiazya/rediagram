@@ -114,3 +114,4 @@ export * from './components/security/KeyManagementService';
 export * from './components/storage/CloudFilestore';
 export * from './components/storage/CloudStorage';
 export * from './components/storage/PersistentDisk';
+export * from './components/util/TitleBar';
