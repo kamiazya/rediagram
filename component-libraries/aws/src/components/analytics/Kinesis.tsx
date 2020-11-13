@@ -1,8 +1,10 @@
-import React, { FC, useMemo } from 'react';
+import React, { FC, ReactElement, useMemo } from 'react';
 import { IconNode, useLabelText } from '@rediagram/cdk';
 import { useAssertProvider } from '../../hooks/assert-provider';
 import { resolveAsset } from '../../assets';
 import { AWSDependences } from '../../types';
+import { useAWSContext } from '../../hooks/context';
+import { SubLabel } from '../../hooks/service-name';
 
 export type KinesisType = 'Video Streams' | 'Data Streams' | 'Data Firehose' | 'Data Analytics';
 
@@ -35,11 +37,26 @@ function useIcon(type?: KinesisType): { path: string; size: number } {
   }, [type]);
 }
 
+function useServiceName(): ReactElement | undefined {
+  const { serviceName } = useAWSContext();
+  if (serviceName) {
+    const type = typeof serviceName === 'object' ? serviceName.type : 'short';
+    switch (type) {
+      case 'full':
+        return SubLabel('Amazon Kinesis');
+      default:
+        return SubLabel('Kinesis');
+    }
+  }
+  return undefined;
+}
+
 export const Kinesis: FC<KinesisProps> = ({ name, type, children, ...dependences }) => {
   useAssertProvider();
   const icon = useIcon(type);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return <IconNode name={name} icon={icon} label={label} {...dependences} />;
+  const subLabel = useServiceName();
+  return <IconNode name={name} icon={icon} label={label} subLabel={subLabel} {...dependences} />;
 };
 
 Kinesis.displayName = 'Kinesis';

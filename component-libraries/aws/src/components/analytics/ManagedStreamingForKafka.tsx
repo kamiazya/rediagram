@@ -1,7 +1,9 @@
-import React, { FC, useMemo } from 'react';
+import React, { FC, ReactElement, useMemo } from 'react';
 import { IconNode, HasDependences, useLabelText } from '@rediagram/cdk';
 import { useAssertProvider } from '../../hooks/assert-provider';
 import { resolveAsset } from '../../assets';
+import { useAWSContext } from '../../hooks/context';
+import { SubLabel } from '../../hooks/service-name';
 
 export type ManagedStreamingForKafkaProps = {
   name: string;
@@ -20,11 +22,28 @@ function useIcon(): { path: string; size: number } {
   }, []);
 }
 
+function useServiceName(): ReactElement | undefined {
+  const { serviceName } = useAWSContext();
+  if (serviceName) {
+    const type = typeof serviceName === 'object' ? serviceName.type : 'short';
+    switch (type) {
+      case 'full':
+        return SubLabel('Amazon Managed Streaming for Apache Kafka');
+      case 'medium':
+        return SubLabel('Managed Streaming for Apache Kafka');
+      default:
+        return SubLabel('Apache Kafka');
+    }
+  }
+  return undefined;
+}
+
 export const ManagedStreamingForKafka: FC<ManagedStreamingForKafkaProps> = ({ name, children, ...dependences }) => {
   useAssertProvider();
   const icon = useIcon();
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return <IconNode name={name} icon={icon} label={label} {...dependences} />;
+  const subLabel = useServiceName();
+  return <IconNode name={name} icon={icon} label={label} subLabel={subLabel} {...dependences} />;
 };
 
 ManagedStreamingForKafka.displayName = 'ManagedStreamingForKafka';
