@@ -47,6 +47,15 @@
         "code",
         "bug"
       ]
+    },
+    {
+      "login": "tokidrill",
+      "name": "YukiSasaki",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/42460318?v=4",
+      "profile": "https://github.com/tokidrill",
+      "contributions": [
+        "ideas"
+      ]
     }
   ],
   "contributorsPerLine": 7,
