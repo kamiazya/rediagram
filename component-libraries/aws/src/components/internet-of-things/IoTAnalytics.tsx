@@ -1,8 +1,10 @@
-import React, { FC, useMemo } from 'react';
+import React, { FC, ReactElement, useMemo } from 'react';
 import { IconNode, useLabelText } from '@rediagram/cdk';
 import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 import { AWSDependences } from '../../types';
+import { useAWSContext } from '../../hooks/context';
+import { SubLabel } from '../../hooks/service-name';
 
 export type IoTAnalyticsType = 'Channel' | 'Data set' | 'Pipeline' | 'Notebook' | 'Data store';
 
@@ -37,11 +39,26 @@ export type IoTAnalyticsProps = {
   name: string;
 } & AWSDependences;
 
+function useServiceName(): ReactElement | undefined {
+  const { serviceName } = useAWSContext();
+  if (serviceName) {
+    const type = typeof serviceName === 'object' ? serviceName.type : 'short';
+    switch (type) {
+      case 'full':
+        return SubLabel('AWS IoT Analytics');
+      default:
+        return SubLabel('IoT Analytics');
+    }
+  }
+  return undefined;
+}
+
 export const IoTAnalytics: FC<IoTAnalyticsProps> = ({ type, name, children, ...dependences }) => {
   useAssertProvider();
   const icon = useIcon(type);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return <IconNode name={name} icon={icon} label={label} {...dependences} />;
+  const subLabel = useServiceName();
+  return <IconNode name={name} icon={icon} label={label} subLabel={subLabel} {...dependences} />;
 };
 
 IoTAnalytics.displayName = 'IoTAnalytics';

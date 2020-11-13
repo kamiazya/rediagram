@@ -1,8 +1,10 @@
-import React, { FC, useMemo } from 'react';
+import React, { FC, ReactElement, useMemo } from 'react';
 import { IconNode, useLabelText } from '@rediagram/cdk';
 import { useAssertProvider } from '../../hooks/assert-provider';
 import { resolveAsset } from '../../assets';
 import { AWSDependences } from '../../types';
+import { useAWSContext } from '../../hooks/context';
+import { SubLabel } from '../../hooks/service-name';
 
 export type SimpleNotificationServiceType = 'Email notification' | 'HTTP notification' | 'Topic';
 
@@ -33,6 +35,22 @@ function useIcon(type?: SimpleNotificationServiceType): { path: string; size: nu
   }, [type]);
 }
 
+function useServiceName(): ReactElement | undefined {
+  const { serviceName } = useAWSContext();
+  if (serviceName) {
+    const type = typeof serviceName === 'object' ? serviceName.type : 'short';
+    switch (type) {
+      case 'full':
+        return SubLabel('Amazon Simple Notification Service');
+      case 'medium':
+        return SubLabel('Simple Notification Service');
+      default:
+        return SubLabel('SNS');
+    }
+  }
+  return undefined;
+}
+
 export const SimpleNotificationService: FC<SimpleNotificationServiceProps> = ({
   type,
   name,
@@ -42,7 +60,10 @@ export const SimpleNotificationService: FC<SimpleNotificationServiceProps> = ({
   useAssertProvider();
   const icon = useIcon(type);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return <IconNode name={name} icon={icon} label={label} {...dependences} />;
+  const subLabel = useServiceName();
+  return <IconNode name={name} icon={icon} label={label} subLabel={subLabel} {...dependences} />;
 };
 
 SimpleNotificationService.displayName = 'SimpleNotificationService';
+
+export const SNS = SimpleNotificationService;

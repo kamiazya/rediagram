@@ -1,8 +1,10 @@
-import React, { FC, useMemo } from 'react';
+import React, { FC, ReactElement, useMemo } from 'react';
 import { IconNode, useLabelText } from '@rediagram/cdk';
 import { useAssertProvider } from '../../hooks/assert-provider';
 import { resolveAsset } from '../../assets';
 import { AWSDependences } from '../../types';
+import { useAWSContext } from '../../hooks/context';
+import { SubLabel } from '../../hooks/service-name';
 
 export type EMRType =
   | 'HDFS cluster'
@@ -45,11 +47,26 @@ function useIcon(type?: EMRType): { path: string; size: number } {
   }, [type]);
 }
 
+function useServiceName(): ReactElement | undefined {
+  const { serviceName } = useAWSContext();
+  if (serviceName) {
+    const type = typeof serviceName === 'object' ? serviceName.type : 'short';
+    switch (type) {
+      case 'full':
+        return SubLabel('Amazon EMR');
+      default:
+        return SubLabel('EMR');
+    }
+  }
+  return undefined;
+}
+
 export const EMR: FC<EMRProps> = ({ type, name, children, ...dependences }) => {
   useAssertProvider();
   const icon = useIcon(type);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return <IconNode name={name} icon={icon} label={label} {...dependences} />;
+  const subLabel = useServiceName();
+  return <IconNode name={name} icon={icon} label={label} subLabel={subLabel} {...dependences} />;
 };
 
 EMR.displayName = 'EMR';

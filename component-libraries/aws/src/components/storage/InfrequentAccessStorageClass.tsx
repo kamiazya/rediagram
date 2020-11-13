@@ -1,8 +1,10 @@
-import React, { FC, useMemo } from 'react';
+import React, { FC, ReactElement, useMemo } from 'react';
 import { IconNode, useLabelText } from '@rediagram/cdk';
 import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 import { AWSDependences } from '../../types';
+import { useAWSContext } from '../../hooks/context';
+import { SubLabel } from '../../hooks/service-name';
 
 export type InfrequentAccessStorageClassProps = {
   name: string;
@@ -21,6 +23,14 @@ function useIcon(): { path: string; size: number } {
   }, []);
 }
 
+function useServiceName(): ReactElement | undefined {
+  const { serviceName } = useAWSContext();
+  if (serviceName) {
+    return SubLabel('Infrequent Access Storage Class');
+  }
+  return undefined;
+}
+
 export const InfrequentAccessStorageClass: FC<InfrequentAccessStorageClassProps> = ({
   name,
   children,
@@ -29,7 +39,8 @@ export const InfrequentAccessStorageClass: FC<InfrequentAccessStorageClassProps>
   useAssertProvider();
   const icon = useIcon();
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return <IconNode name={name} icon={icon} label={label} {...dependences} />;
+  const subLabel = useServiceName();
+  return <IconNode name={name} icon={icon} label={label} subLabel={subLabel} {...dependences} />;
 };
 
 InfrequentAccessStorageClass.displayName = 'InfrequentAccessStorageClass';

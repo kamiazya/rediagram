@@ -6,3 +6,11 @@ export type StyleOption = {
 };
 
 export type AWSDependences = HasDependences<StyleOption>;
+
+export type AWSContext = {
+  serviceName?:
+    | boolean
+    | {
+        type: 'full' | 'medium' | 'short';
+      };
+};

@@ -1,8 +1,10 @@
-import React, { FC, useMemo } from 'react';
+import React, { FC, ReactElement, useMemo } from 'react';
 import { IconNode, useLabelText } from '@rediagram/cdk';
 import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 import { AWSDependences } from '../../types';
+import { useAWSContext } from '../../hooks/context';
+import { SubLabel } from '../../hooks/service-name';
 
 export type TrustedAdvisorType =
   | 'Checklist cost'
@@ -42,9 +44,24 @@ export type TrustedAdvisorProps = {
   name: string;
 } & AWSDependences;
 
+function useServiceName(): ReactElement | undefined {
+  const { serviceName } = useAWSContext();
+  if (serviceName) {
+    const type = typeof serviceName === 'object' ? serviceName.type : 'short';
+    switch (type) {
+      case 'full':
+        return SubLabel('AWS Trusted Advisor');
+      default:
+        return SubLabel('Trusted Advisor');
+    }
+  }
+  return undefined;
+}
+
 export const TrustedAdvisor: FC<TrustedAdvisorProps> = ({ type, name, children, ...dependences }) => {
   useAssertProvider();
   const icon = useIcon(type);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return <IconNode name={name} icon={icon} label={label} {...dependences} />;
+  const subLabel = useServiceName();
+  return <IconNode name={name} icon={icon} label={label} subLabel={subLabel} {...dependences} />;
 };

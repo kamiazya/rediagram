@@ -1,8 +1,11 @@
-import React, { FC, useMemo } from 'react';
+import React, { FC, useMemo, ReactElement } from 'react';
 import { IconNode, useLabelText } from '@rediagram/cdk';
 import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 import { AWSDependences } from '../../types';
+
+import { useAWSContext } from '../../hooks/context';
+import { SubLabel } from '../../hooks/service-name';
 
 export type CodePipelineProps = {
   name: string;
@@ -21,11 +24,26 @@ function useIcon(): { path: string; size: number } {
   }, []);
 }
 
+function useServiceName(): ReactElement | undefined {
+  const { serviceName } = useAWSContext();
+  if (serviceName) {
+    const type = typeof serviceName === 'object' ? serviceName.type : 'short';
+    switch (type) {
+      case 'full':
+        return SubLabel('AWS CodePipeline');
+      default:
+        return SubLabel('CodePipeline');
+    }
+  }
+  return undefined;
+}
+
 export const CodePipeline: FC<CodePipelineProps> = ({ name, children, ...dependences }) => {
   useAssertProvider();
   const icon = useIcon();
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return <IconNode name={name} icon={icon} label={label} {...dependences} />;
+  const subLabel = useServiceName();
+  return <IconNode name={name} icon={icon} label={label} subLabel={subLabel} {...dependences} />;
 };
 
 CodePipeline.displayName = 'CodePipeline';

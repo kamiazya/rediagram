@@ -1,8 +1,10 @@
-import React, { FC, useMemo } from 'react';
+import React, { FC, ReactElement, useMemo } from 'react';
 import { IconNode, useLabelText } from '@rediagram/cdk';
 import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 import { AWSDependences } from '../../types';
+import { useAWSContext } from '../../hooks/context';
+import { SubLabel } from '../../hooks/service-name';
 
 export type ManagedApacheCassandraServiceProps = {
   name: string;
@@ -21,6 +23,22 @@ function useIcon(): { path: string; size: number } {
   }, []);
 }
 
+function useServiceName(): ReactElement | undefined {
+  const { serviceName } = useAWSContext();
+  if (serviceName) {
+    const type = typeof serviceName === 'object' ? serviceName.type : 'short';
+    switch (type) {
+      case 'full':
+        return SubLabel('Amazon Managed Apache Cassandra');
+      case 'medium':
+        return SubLabel('Managed Apache Cassandra');
+      default:
+        return SubLabel('MCS');
+    }
+  }
+  return undefined;
+}
+
 export const ManagedApacheCassandraService: FC<ManagedApacheCassandraServiceProps> = ({
   name,
   children,
@@ -29,7 +47,10 @@ export const ManagedApacheCassandraService: FC<ManagedApacheCassandraServiceProp
   useAssertProvider();
   const icon = useIcon();
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return <IconNode name={name} icon={icon} label={label} {...dependences} />;
+  const subLabel = useServiceName();
+  return <IconNode name={name} icon={icon} label={label} subLabel={subLabel} {...dependences} />;
 };
 
 ManagedApacheCassandraService.displayName = 'ManagedApacheCassandraService';
+
+export const MCS = ManagedApacheCassandraService;

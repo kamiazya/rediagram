@@ -1,8 +1,10 @@
-import React, { FC, useMemo } from 'react';
+import React, { FC, ReactElement, useMemo } from 'react';
 import { IconNode, useLabelText } from '@rediagram/cdk';
 import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 import { AWSDependences } from '../../types';
+import { useAWSContext } from '../../hooks/context';
+import { SubLabel } from '../../hooks/service-name';
 
 export type APIGatewayCategory = 'networking-content-delivery' | 'mobile';
 
@@ -32,6 +34,20 @@ export type APIGatewayProps = {
   name: string;
 } & AWSDependences;
 
+function useServiceName(): ReactElement | undefined {
+  const { serviceName } = useAWSContext();
+  if (serviceName) {
+    const type = typeof serviceName === 'object' ? serviceName.type : 'short';
+    switch (type) {
+      case 'full':
+        return SubLabel('Amazon API Gateway');
+      default:
+        return SubLabel('API Gateway');
+    }
+  }
+  return undefined;
+}
+
 export const APIGateway: FC<APIGatewayProps> = ({
   type,
   category = 'networking-content-delivery',
@@ -42,5 +58,6 @@ export const APIGateway: FC<APIGatewayProps> = ({
   useAssertProvider();
   const icon = useIcon(category, type);
   const label = useLabelText(children, { defaultValue: name, htmlLike: true });
-  return <IconNode name={name} icon={icon} label={label} {...dependences} />;
+  const subLabel = useServiceName();
+  return <IconNode name={name} icon={icon} label={label} subLabel={subLabel} {...dependences} />;
 };
