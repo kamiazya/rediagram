@@ -5,11 +5,12 @@ import { HasDependences, Dependences } from './Dependence';
 export type IconNodeProps = {
   icon: { size: number; path: string };
   label?: string | ReactElement | undefined;
+  subLabel?: string | ReactElement | undefined;
   name: string;
 } & HasDependences;
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const IconNode: FC<IconNodeProps> = ({ name, icon, label, children, ...dependences }) => {
+export const IconNode: FC<IconNodeProps> = ({ name, subLabel, icon, label, children, ...dependences }) => {
   return (
     <>
       <Node
@@ -30,6 +31,11 @@ export const IconNode: FC<IconNodeProps> = ({ name, icon, label, children, ...de
             <DOT.TR>
               <DOT.TD>{label}</DOT.TD>
             </DOT.TR>
+            {subLabel ? (
+              <DOT.TR>
+                <DOT.TD>{subLabel}</DOT.TD>
+              </DOT.TR>
+            ) : null}
           </DOT.TABLE>
         }
       />
