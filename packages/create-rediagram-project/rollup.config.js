@@ -19,6 +19,7 @@ export default {
     'cross-spawn',
     'dedent',
     'validate-npm-package-name',
+    'which',
   ],
   plugins: [typescript()],
 };
