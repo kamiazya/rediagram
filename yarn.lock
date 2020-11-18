@@ -1449,10 +1449,20 @@
     eta "^1.1.1"
     lodash "^4.17.19"
 
-"@docusaurus/types@2.0.0-alpha.64", "@docusaurus/types@^2.0.0-alpha.37":
+"@docusaurus/types@2.0.0-alpha.64":
   version "2.0.0-alpha.64"
   resolved "https://registry.yarnpkg.com/@docusaurus/types/-/types-2.0.0-alpha.64.tgz#62e42beb222f7a73a5ec1218426dcdbe2ccb4294"
   integrity sha512-YBTRXHbZDWxGQ14ES62s5UnMA3MM9BuLS5EDseOPd8/GwMz6pws+N9QeLCUCEQQTbdTb2MZsQjdSGaHOMjbiEA==
+  dependencies:
+    "@types/webpack" "^4.41.0"
+    commander "^4.0.1"
+    querystring "0.2.0"
+    webpack-merge "^4.2.2"
+
+"@docusaurus/types@^2.0.0-alpha.37":
+  version "2.0.0-alpha.68"
+  resolved "https://registry.yarnpkg.com/@docusaurus/types/-/types-2.0.0-alpha.68.tgz#8709de8b7e6a535f3e835ef20b04b6f12bf328af"
+  integrity sha512-UcUuwJx2cjwbWBeXi2vNgpNn8XK1UheQ9v+DPWkHwcYHK4fgNuihf2BoA/PYmd8faclZTYuYV14waje31zmxbA==
   dependencies:
     "@types/webpack" "^4.41.0"
     commander "^4.0.1"
