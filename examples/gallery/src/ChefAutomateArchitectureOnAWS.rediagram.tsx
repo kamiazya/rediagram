@@ -10,10 +10,22 @@ PNG(
           <EC2 type="Instance" name="instance1" upstream={['instance2']}>
             Chef workstation \n (local Chef repo)
           </EC2>
-          <EC2 type="Instance" name="instance2" upstream={[{ destination: 'instance3', position: 'backward' }]}>
+          <EC2
+            type="Instance"
+            name="instance2"
+            upstream={{
+              backward: ['instance3'],
+            }}
+          >
             Chef node
           </EC2>
-          <EC2 type="Instance" name="instance3" upstream={[{ destination: 'instance1', position: 'backward' }]}>
+          <EC2
+            type="Instance"
+            name="instance3"
+            upstream={{
+              backward: ['instance1'],
+            }}
+          >
             Chef Automate
           </EC2>
         </VPC>
