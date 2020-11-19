@@ -9,7 +9,7 @@ export type OptionalComponentProps = {
 export const OptionalComponent: FC<OptionalComponentProps> = ({ title, children }) => {
   useAssertProvider();
   return (
-    <GCPGroup title={title} fillcolor="none" color="#4284F3" style="dashed">
+    <GCPGroup title={title} fillcolor="none" color="#4284F3" borderStyle="dashed">
       {children}
     </GCPGroup>
   );
