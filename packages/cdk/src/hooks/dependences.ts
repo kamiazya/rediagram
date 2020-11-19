@@ -13,14 +13,6 @@ function toDetail<T extends Record<string, unknown>>(destination: Destination<T>
   return typeof destination === 'string' ? ({ destination } as DestinationDetail<T>) : destination;
 }
 
-const scatter = <T>(array: readonly T[], getIndex: (cur: T, idx: number, src: readonly T[]) => number) =>
-  array.reduce((result, cur, idx, src) => {
-    const i = getIndex(cur, idx, src) || 0;
-    // eslint-disable-next-line no-param-reassign
-    if (i >= 0) (result[i] || (result[i] = [])).push(cur);
-    return result;
-  }, [] as T[][]);
-
 export function useDependences<T extends Record<string, unknown>>({
   upstream = [],
   downstream = [],
@@ -34,16 +26,23 @@ export function useDependences<T extends Record<string, unknown>>({
   const build = useContext(EdgeStyleBuilderContext);
   const edgeAttributes = useMemo(() => build(dependencesOption), [build, dependencesOption]);
   const [forwardUpstream, backwardUpstream] = useMemo(() => {
-    const [forward = [], backward = []] = scatter(upstream.map(toDetail), ({ position }) =>
-      position === 'backward' ? 1 : 0,
-    );
+    if (Array.isArray(upstream)) {
+      return [
+        upstream.map(toDetail).map(({ destination, description, ...options }) => ({
+          destination,
+          description,
+          edgeAttributes: Object.keys(options).length ? build(options) : edgeAttributes,
+        })),
+        [],
+      ];
+    }
     return [
-      forward.map(({ destination, description, ...options }) => ({
+      (upstream.forward ?? []).map(toDetail).map(({ destination, description, ...options }) => ({
         destination,
         description,
         edgeAttributes: Object.keys(options).length ? build(options) : edgeAttributes,
       })),
-      backward.map(({ destination, description, ...options }) => ({
+      (upstream.backward ?? []).map(toDetail).map(({ destination, description, ...options }) => ({
         destination,
         description,
         edgeAttributes: Object.keys(options).length ? build(options) : edgeAttributes,
