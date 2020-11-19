@@ -1,23 +1,24 @@
 import React, { FC } from 'react';
 import { Group } from '@rediagram/cdk';
 import { DOT } from '@ts-graphviz/react';
-import t from 'prop-types';
-import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
+import { resolveAsset } from '../../assets';
 
-type Props = {
-  name: string;
+export type StepFunctionsWorkflowProps = {
+  title?: string;
 };
 
-const icon = resolveAsset('groups/region.png');
+function resolveImage(): string {
+  return resolveAsset('groups/StepFunctionsWorkflow.png');
+}
 
-export const Region: FC<Props> = ({ name, children }) => {
+export const StepFunctionsWorkflow: FC<StepFunctionsWorkflowProps> = ({ title, children }) => {
   useAssertProvider();
+  const icon = resolveImage();
   return (
     <Group
-      name="region"
-      font={{ color: '#007CBC', size: 12 }}
-      border={{ color: '#007CBC', style: 'dashed' }}
+      name="step_functions_workflow"
+      font={{ color: '#CD2264', size: 12 }}
       label={{
         content: (
           <DOT.TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
@@ -25,21 +26,18 @@ export const Region: FC<Props> = ({ name, children }) => {
               <DOT.TD WIDTH="25" HEIGHT="25" FIXEDSIZE>
                 <DOT.IMG SRC={icon} />
               </DOT.TD>
-              <DOT.TD>{name}</DOT.TD>
+              <DOT.TD>{title ?? 'AWS Step Functions workflow'}</DOT.TD>
             </DOT.TR>
           </DOT.TABLE>
         ),
         loc: 't',
         just: 'l',
       }}
+      border={{ color: '#CD2264' }}
     >
       {children}
     </Group>
   );
 };
 
-Region.displayName = 'Region';
-
-Region.propTypes = {
-  name: t.string.isRequired,
-};
+StepFunctionsWorkflow.displayName = 'StepFunctionsWorkflow';

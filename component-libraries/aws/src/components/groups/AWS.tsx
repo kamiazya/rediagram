@@ -1,6 +1,6 @@
-import React, { FC, useMemo } from 'react';
-import { Provider, EdgeStyleBuilder, BuildEdgeStyle } from '@rediagram/cdk';
-import { Subgraph, DOT } from '@ts-graphviz/react';
+import React, { FC } from 'react';
+import { Group, Provider, EdgeStyleBuilder, BuildEdgeStyle } from '@rediagram/cdk';
+import { DOT } from '@ts-graphviz/react';
 import { EdgeAttributes } from 'ts-graphviz';
 import { resolveAsset } from '../../assets';
 import { AWSContext, StyleOption } from '../../types';
@@ -91,15 +91,6 @@ const buildStyle: BuildEdgeStyle<StyleOption> = (option) => {
   return { ...defaultStyle, ...style };
 };
 
-let id = 0;
-
-function useID(name: string): string {
-  return useMemo(() => {
-    id += 1;
-    return `${name}_${id}`;
-  }, [name]);
-}
-
 export type AWSProps = {
   title?: string;
 } & AWSContext;
@@ -109,26 +100,28 @@ export const AWS: FC<AWSProps> = ({ title, children, ...context }) => {
   return (
     <Provider name="aws">
       <Context.Provider value={{ ...prevContext, ...context }}>
-        <Subgraph
-          id={useID('cluster_aws')}
-          fontsize="12"
-          labelloc="t"
-          labeljust="l"
-          color="#232F3D"
-          margin="15"
-          label={
-            <DOT.TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
-              <DOT.TR>
-                <DOT.TD WIDTH="25" HEIGHT="25" FIXEDSIZE>
-                  <DOT.IMG SRC={icon} />
-                </DOT.TD>
-                <DOT.TD>{title ?? 'AWS Cloud'}</DOT.TD>
-              </DOT.TR>
-            </DOT.TABLE>
-          }
+        <Group
+          name="aws"
+          font={{ size: 12 }}
+          label={{
+            content: (
+              <DOT.TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+                <DOT.TR>
+                  <DOT.TD WIDTH="25" HEIGHT="25" FIXEDSIZE>
+                    <DOT.IMG SRC={icon} />
+                  </DOT.TD>
+                  <DOT.TD>{title ?? 'AWS Cloud'}</DOT.TD>
+                </DOT.TR>
+              </DOT.TABLE>
+            ),
+            loc: 't',
+            just: 'l',
+          }}
+          border={{ color: '#232F3D' }}
+          margin={15}
         >
           <EdgeStyleBuilder build={buildStyle}>{children}</EdgeStyleBuilder>
-        </Subgraph>
+        </Group>
       </Context.Provider>
     </Provider>
   );
@@ -139,9 +132,7 @@ export const InvizAWS: FC<AWSContext> = ({ children, ...context }) => {
   return (
     <Provider name="aws">
       <Context.Provider value={{ ...prevContext, ...context }}>
-        <Subgraph id={useID('aws')} fontsize="12" color="#232F3D">
-          <EdgeStyleBuilder build={buildStyle}>{children}</EdgeStyleBuilder>
-        </Subgraph>
+        <EdgeStyleBuilder build={buildStyle}>{children}</EdgeStyleBuilder>
       </Context.Provider>
     </Provider>
   );

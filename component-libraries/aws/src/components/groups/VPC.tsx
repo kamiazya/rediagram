@@ -1,10 +1,9 @@
 import React, { FC, useMemo } from 'react';
-import { Subgraph, DOT } from '@ts-graphviz/react';
+import { Group } from '@rediagram/cdk';
+import { DOT } from '@ts-graphviz/react';
 import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
 import { IP, HasIP } from './internal/IP';
-
-let securityGroupID = 0;
 
 type Type = 'VPC' | 'Private subnet' | 'Public subnet';
 
@@ -70,35 +69,30 @@ function useStyle(
 
 export const VPC: FC<Props> = ({ type, ip, children }) => {
   useAssertProvider();
-  const id = useMemo(() => {
-    securityGroupID += 1;
-    return securityGroupID;
-  }, []);
   const { icon, color, bgcolor, fontcolor } = useStyle(type);
   return (
-    <Subgraph
-      id={`cluster_vpc_${id}`}
-      fontsize="12"
-      labelloc="t"
-      labeljust="l"
-      color={color}
-      bgcolor={bgcolor}
-      fontcolor={fontcolor}
-      label={
-        <DOT.TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
-          <DOT.TR>
-            <DOT.TD WIDTH="25" HEIGHT="25" FIXEDSIZE>
-              <DOT.IMG SRC={icon} />
-            </DOT.TD>
-            <DOT.TD>{type}</DOT.TD>
-          </DOT.TR>
-        </DOT.TABLE>
-      }
+    <Group
+      name="vpc"
+      font={{ color: fontcolor, size: 12 }}
+      label={{
+        content: (
+          <DOT.TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <DOT.TR>
+              <DOT.TD WIDTH="25" HEIGHT="25" FIXEDSIZE>
+                <DOT.IMG SRC={icon} />
+              </DOT.TD>
+              <DOT.TD>{type}</DOT.TD>
+            </DOT.TR>
+          </DOT.TABLE>
+        ),
+        loc: 't',
+        just: 'l',
+      }}
+      background={{ color: bgcolor }}
+      border={{ color }}
     >
-      <IP id={id} ip={ip}>
-        {children}
-      </IP>
-    </Subgraph>
+      <IP ip={ip}>{children}</IP>
+    </Group>
   );
 };
 
