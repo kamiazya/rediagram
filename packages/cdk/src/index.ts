@@ -3,6 +3,7 @@ export * from './contexts/ProviderContext';
 export * from './components/Dependence';
 export * from './components/Provider';
 export * from './components/IconNode';
+export * from './components/Group';
 export * from './components/EdgeStyleBuilder';
 export * from './hooks/provider';
 export * from './hooks/label';
