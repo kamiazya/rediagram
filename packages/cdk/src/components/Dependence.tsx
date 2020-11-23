@@ -5,7 +5,12 @@ import { useDependences } from '../hooks/dependences';
 import { Destination } from '../types';
 
 export type HasDependences<T extends Record<string, unknown> = {}> = {
-  upstream?: Destination<T & { position?: 'forward' | 'backward' }>[];
+  upstream?:
+    | Destination<T>[]
+    | {
+        forward?: Destination<T>[];
+        backward?: Destination<T>[];
+      };
   downstream?: Destination<T>[];
   dependencesOption?: T;
 };
