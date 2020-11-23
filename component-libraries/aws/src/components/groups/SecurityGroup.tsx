@@ -1,27 +1,18 @@
-import React, { FC, useMemo } from 'react';
-import { Subgraph } from '@ts-graphviz/react';
+import React, { FC } from 'react';
+import { Group } from '@rediagram/cdk';
 import { useAssertProvider } from '../../hooks/assert-provider';
-
-let securityGroupID = 0;
 
 export const SecurityGroup: FC = ({ children }) => {
   useAssertProvider();
-  const id = useMemo(() => {
-    securityGroupID += 1;
-    return securityGroupID;
-  }, []);
   return (
-    <Subgraph
-      id={`cluster_security_group_${id}`}
-      fontsize="12"
-      labelloc="t"
-      labeljust="c"
-      color="#DF3312"
-      fontcolor="#DF3312"
-      label="Security Group"
+    <Group
+      name="security_group"
+      font={{ color: '#DF3312', size: 12 }}
+      label={{ content: 'Security Group', loc: 't', just: 'c' }}
+      border={{ color: '#DF3312', style: 'dashed' }}
     >
       {children}
-    </Subgraph>
+    </Group>
   );
 };
 

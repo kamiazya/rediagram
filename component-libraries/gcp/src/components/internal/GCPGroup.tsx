@@ -1,5 +1,6 @@
-import React, { FC, useMemo } from 'react';
-import { Subgraph, DOT } from '@ts-graphviz/react';
+import React, { FC } from 'react';
+import { Group } from '@rediagram/cdk';
+import { DOT } from '@ts-graphviz/react';
 import { useAssertProvider } from '../../hooks/assert-provider';
 
 export type GCPGroupProps = {
@@ -7,49 +8,43 @@ export type GCPGroupProps = {
   description?: string;
   fillcolor: string;
   color?: string;
-  style?: string;
+  style?: 'filled';
+  borderStyle?: 'dashed';
 };
 
-let groupID = 0;
-
-export const GCPGroup: FC<GCPGroupProps> = ({ title, description, fillcolor, color, style, children }) => {
+export const GCPGroup: FC<GCPGroupProps> = ({ title, description, fillcolor, color, style, borderStyle, children }) => {
   useAssertProvider();
-  const id = useMemo(() => {
-    groupID += 1;
-    return groupID;
-  }, []);
   return (
-    <Subgraph
-      id={`cluster_gcp_${id}`}
-      fontsize="12"
-      labelloc="t"
-      labeljust="l"
-      color={color}
-      margin={10}
-      fontcolor="#9E9E9E"
-      fillcolor={fillcolor}
-      style={style}
-      label={
-        <DOT.TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
-          <DOT.TR>
-            <DOT.TD>{title}</DOT.TD>
-          </DOT.TR>
-          {description && (
+    <Group
+      name="gcp"
+      font={{ color: '#9E9E9E', size: 12 }}
+      border={{ color, style: borderStyle }}
+      background={{ color: fillcolor, style }}
+      label={{
+        loc: 't',
+        just: 'l',
+        content: (
+          <DOT.TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
             <DOT.TR>
-              <DOT.TD>{description}</DOT.TD>
+              <DOT.TD>{title}</DOT.TD>
             </DOT.TR>
-          )}
-        </DOT.TABLE>
-      }
+            {description && (
+              <DOT.TR>
+                <DOT.TD>{description}</DOT.TD>
+              </DOT.TR>
+            )}
+          </DOT.TABLE>
+        ),
+      }}
+      margin={10}
     >
       {children}
-    </Subgraph>
+    </Group>
   );
 };
 
 GCPGroup.displayName = 'GCPGroup';
 
 GCPGroup.defaultProps = {
-  style: 'filled',
   color: '#E3F2FD',
 };

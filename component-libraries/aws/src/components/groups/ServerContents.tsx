@@ -1,17 +1,24 @@
 import React, { FC } from 'react';
 import { Group } from '@rediagram/cdk';
 import { DOT } from '@ts-graphviz/react';
-import { resolveAsset } from '../../assets';
 import { useAssertProvider } from '../../hooks/assert-provider';
+import { resolveAsset } from '../../assets';
 
-const icon = resolveAsset('groups/auto_scaling_group.png');
+export type ServerContentsProps = {
+  title?: string;
+};
 
-export const AutoScalingGroup: FC = ({ children }) => {
+function resolveImage(): string {
+  return resolveAsset('groups/ServerContents.png');
+}
+
+export const ServerContents: FC<ServerContentsProps> = ({ title, children }) => {
   useAssertProvider();
+  const icon = resolveImage();
   return (
     <Group
-      name="auto_scaling_group"
-      font={{ color: '#D86613', size: 12 }}
+      name="server_contents"
+      font={{ color: '#5A6B86', size: 12 }}
       label={{
         content: (
           <DOT.TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
@@ -19,20 +26,18 @@ export const AutoScalingGroup: FC = ({ children }) => {
               <DOT.TD WIDTH="25" HEIGHT="25" FIXEDSIZE>
                 <DOT.IMG SRC={icon} />
               </DOT.TD>
-            </DOT.TR>
-            <DOT.TR>
-              <DOT.TD>Auto Scaling group</DOT.TD>
+              <DOT.TD>{title ?? 'Server Contents'}</DOT.TD>
             </DOT.TR>
           </DOT.TABLE>
         ),
         loc: 't',
-        just: 'c',
+        just: 'l',
       }}
-      border={{ color: '#D86613', style: 'dashed' }}
+      border={{ color: '#5A6B86' }}
     >
       {children}
     </Group>
   );
 };
 
-AutoScalingGroup.displayName = 'AutoScalingGroup';
+ServerContents.displayName = 'ServerContents';
