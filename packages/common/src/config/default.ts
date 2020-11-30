@@ -8,7 +8,7 @@ export function createDefaultConfig(): RediagramGlobalConfig {
       excludes: ['**/node_modules/**/*'],
     },
     output: {
-      dir: process.cwd(),
+      dir: undefined,
       format: 'png',
     },
     dot: {

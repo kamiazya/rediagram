@@ -7,7 +7,7 @@ export type RediagramGlobalConfig = {
     excludes: ReadonlyArray<string>;
   }>;
   output: Readonly<{
-    dir: string;
+    dir?: string;
     format: Format;
   }>;
   dot: Readonly<{
