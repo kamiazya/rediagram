@@ -62,10 +62,14 @@ export class RediagramCore {
   }
 
   public async run(src: string): Promise<void> {
-    this.logger.info('Runing', src);
-    const resolved = path.resolve(src);
-    // eslint-disable-next-line global-require, import/no-dynamic-require
-    require(resolved);
-    delete require.cache[resolved];
+    try {
+      this.logger.info('Runing', src);
+      const resolved = path.resolve(src);
+      // eslint-disable-next-line global-require, import/no-dynamic-require
+      require(resolved);
+      delete require.cache[resolved];
+    } catch (err) {
+      this.logger.error(err);
+    }
   }
 }
