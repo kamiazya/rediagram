@@ -31,12 +31,16 @@ export async function PNG(
   element: ReactElement,
   { name, dir, _caller = caller() }: InternalRenderOption = {},
 ): Promise<void> {
-  const p = path.parse(_caller);
-  await Rediagram.render(element, {
-    format: 'png',
-    name: name ?? p.name,
-    dir: dir ?? Rediagram.config.output.dir ?? p.dir,
-  });
+  try {
+    const p = path.parse(_caller);
+    await Rediagram.render(element, {
+      format: 'png',
+      name: name ?? p.name,
+      dir: dir ?? Rediagram.config.output.dir ?? p.dir,
+    });
+  } catch (err) {
+    Rediagram.logger.error(err);
+  }
 }
 
 /**
@@ -47,12 +51,16 @@ export async function SVG(
   element: ReactElement,
   { name, dir, _caller = caller() }: InternalRenderOption = {},
 ): Promise<void> {
-  const p = path.parse(_caller);
-  await Rediagram.render(element, {
-    format: 'svg',
-    name: name ?? p.name,
-    dir: dir ?? Rediagram.config.output.dir ?? p.dir,
-  });
+  try {
+    const p = path.parse(_caller);
+    await Rediagram.render(element, {
+      format: 'svg',
+      name: name ?? p.name,
+      dir: dir ?? Rediagram.config.output.dir ?? p.dir,
+    });
+  } catch (err) {
+    Rediagram.logger.error(err);
+  }
 }
 
 /**
@@ -63,10 +71,14 @@ export async function PDF(
   element: ReactElement,
   { name, dir, _caller = caller() }: InternalRenderOption = {},
 ): Promise<void> {
-  const p = path.parse(_caller);
-  await Rediagram.render(element, {
-    format: 'pdf',
-    name: name ?? p.name,
-    dir: dir ?? Rediagram.config.output.dir ?? p.dir,
-  });
+  try {
+    const p = path.parse(_caller);
+    await Rediagram.render(element, {
+      format: 'pdf',
+      name: name ?? p.name,
+      dir: dir ?? Rediagram.config.output.dir ?? p.dir,
+    });
+  } catch (err) {
+    Rediagram.logger.error(err);
+  }
 }
