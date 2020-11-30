@@ -1,12 +1,9 @@
 import { ReactElement } from 'react';
-import { renderToDot } from '@ts-graphviz/react';
-import { ChildProcessOptions, exportToFile, Format } from '@ts-graphviz/node';
-import { CONFIG } from '@rediagram/common';
-import { ensureDir } from 'fs-extra';
 import path from 'path';
 import caller from 'caller';
+import { Rediagram } from './core';
 
-export type RenderOption = {
+type RenderOption = {
   /**
    * Output destination directory.
    */
@@ -26,30 +23,6 @@ type InternalRenderOption = RenderOption & {
   _caller?: string;
 };
 
-async function render(
-  element: ReactElement,
-  {
-    name,
-    dir,
-    format,
-    dotOptions,
-  }: Required<RenderOption> & {
-    format: Format;
-    dotOptions: ChildProcessOptions;
-  },
-): Promise<void> {
-  const dot = renderToDot(element);
-  const output = path.format({ dir, name, ext: `.${format}` });
-  if (dir !== undefined) {
-    await ensureDir(dir);
-  }
-  await exportToFile(dot, {
-    format,
-    output,
-    childProcessOptions: dotOptions,
-  });
-}
-
 /**
  * Output PNG image.
  */
@@ -59,13 +32,10 @@ export async function PNG(
   { name, dir, _caller = caller() }: InternalRenderOption = {},
 ): Promise<void> {
   const p = path.parse(_caller);
-  await render(element, {
+  await Rediagram.render(element, {
     format: 'png',
     name: name ?? p.name,
-    dir: dir ?? CONFIG.output.getDir() ?? p.dir,
-    dotOptions: {
-      timeout: CONFIG.dot?.getTimeout(),
-    },
+    dir: dir ?? Rediagram.config.output.dir ?? p.dir,
   });
 }
 
@@ -78,13 +48,10 @@ export async function SVG(
   { name, dir, _caller = caller() }: InternalRenderOption = {},
 ): Promise<void> {
   const p = path.parse(_caller);
-  await render(element, {
+  await Rediagram.render(element, {
     format: 'svg',
     name: name ?? p.name,
-    dir: dir ?? CONFIG.output.getDir() ?? p.dir,
-    dotOptions: {
-      timeout: CONFIG.dot?.getTimeout(),
-    },
+    dir: dir ?? Rediagram.config.output.dir ?? p.dir,
   });
 }
 
@@ -97,12 +64,9 @@ export async function PDF(
   { name, dir, _caller = caller() }: InternalRenderOption = {},
 ): Promise<void> {
   const p = path.parse(_caller);
-  await render(element, {
+  await Rediagram.render(element, {
     format: 'pdf',
     name: name ?? p.name,
-    dir: dir ?? CONFIG.output.getDir() ?? p.dir,
-    dotOptions: {
-      timeout: CONFIG.dot?.getTimeout(),
-    },
+    dir: dir ?? Rediagram.config.output.dir ?? p.dir,
   });
 }
