@@ -21,14 +21,14 @@ cmd
         ? pattarns
         : [...Rediagram.config.scope.includes, ...Rediagram.config.scope.excludes.map((p) => `!${p}`)];
     if (this.watch) {
-      chokidar.watch(paths).on('add', Rediagram.run).on('change', Rediagram.run);
+      chokidar.watch(paths).on('add', Rediagram.run.bind(Rediagram)).on('change', Rediagram.run.bind(Rediagram));
     } else {
       const sources = await glob(paths, {
         dot: true,
         extglob: true,
         onlyFiles: true,
       });
-      sources.forEach(Rediagram.run);
+      sources.forEach(Rediagram.run.bind(Rediagram));
     }
   })
   .parse(process.argv);
