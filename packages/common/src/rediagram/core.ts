@@ -1,6 +1,7 @@
 /* eslint-disable class-methods-use-this */
 import path from 'path';
 import { ensureDir } from 'fs-extra';
+import { Logger } from 'tslog';
 import { ReactElement } from 'react';
 import { renderToDot } from '@ts-graphviz/react';
 import { exportToFile } from '@ts-graphviz/node';
@@ -22,8 +23,20 @@ export class RediagramCore {
 
   public readonly config: Readonly<RediagramGlobalConfig>;
 
+  public logger = new Logger({
+    type: 'pretty',
+    name: 'rediagram',
+    displayDateTime: false,
+    displayFilePath: 'hidden',
+    displayFunctionName: false,
+  });
+
   constructor({ ...config }: RediagramGlobalConfig) {
     this.config = Object.freeze(config);
+    this.logger.info(
+      'Config file is',
+      config.filepath ? `"./${path.relative(process.cwd(), config.filepath)}".` : 'not exist.',
+    );
   }
 
   public async render(element: ReactElement, options: RenderOption): Promise<void> {
@@ -38,6 +51,7 @@ export class RediagramCore {
     if (dir !== undefined) {
       await ensureDir(dir);
     }
+    this.logger.info('Output', path.relative(process.cwd(), output));
     await exportToFile(dot, {
       format,
       output,
@@ -48,8 +62,7 @@ export class RediagramCore {
   }
 
   public async run(src: string): Promise<void> {
-    // eslint-disable-next-line no-console
-    console.log(src);
+    this.logger.info('Runing', src);
     const resolved = path.resolve(src);
     // eslint-disable-next-line global-require, import/no-dynamic-require
     require(resolved);

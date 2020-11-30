@@ -31,7 +31,8 @@
     "@ts-graphviz/node": "^0.3.0",
     "@ts-graphviz/react": "^0.7.0",
     "cosmiconfig": "^7.0.0",
-    "fs-extra": "^9.0.1"
+    "fs-extra": "^9.0.1",
+    "tslog": "^3.0.1"
   },
   "devDependencies": {
     "@types/rimraf": "^3.0.0",
