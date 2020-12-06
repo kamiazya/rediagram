@@ -7,7 +7,7 @@ import rimraf from 'rimraf';
 async function build() {
   await rollup({
     input: path.resolve(__dirname, '../src/index.ts'),
-    external: ['path', 'cosmiconfig', 'fs-extra', '@ts-graphviz/react', '@ts-graphviz/node'],
+    external: ['path', 'cosmiconfig', 'fs-extra', '@ts-graphviz/react', '@ts-graphviz/node', 'tslog'],
     plugins: [typescript()],
   }).then((result) =>
     result.write({
