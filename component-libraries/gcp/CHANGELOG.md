@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/kamiazya/rediagram/compare/@rediagram/gcp@0.2.0...@rediagram/gcp@0.3.0) (2020-12-07)
+
+
+### Features
+
+* **@rediagram/gcp:** add TitleBar component [#141](https://github.com/kamiazya/rediagram/issues/141) ([4adc5eb](https://github.com/kamiazya/rediagram/commit/4adc5ebb7c4f98da7b81e02bfdf8646581cb2178))
+
+
+
+
+
 # [0.2.0](https://github.com/kamiazya/rediagram/compare/@rediagram/gcp@0.1.3...@rediagram/gcp@0.2.0) (2020-11-09)
 
 
