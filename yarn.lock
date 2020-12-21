@@ -1285,9 +1285,9 @@
     url-loader "^4.1.0"
 
 "@docusaurus/module-type-aliases@^2.0.0-alpha.51":
-  version "2.0.0-alpha.51"
-  resolved "https://registry.yarnpkg.com/@docusaurus/module-type-aliases/-/module-type-aliases-2.0.0-alpha.51.tgz#7b8f9f772b315571c23db125653f4fc621abfeea"
-  integrity sha512-vBwk49W3DNvr+mbOgizLMI2TAxykqJYlcnpn4N7yvpWNteL2MfjzRf6rgJVJvlN2nrHhDyWDF9imwZpGDKSApg==
+  version "2.0.0-alpha.70"
+  resolved "https://registry.yarnpkg.com/@docusaurus/module-type-aliases/-/module-type-aliases-2.0.0-alpha.70.tgz#2e50770c54cb465302d0a779fb76c163a1fc94e2"
+  integrity sha512-ESAY5ZU7uGRhZwbyxyGdvAAP+3D/oewSmtsWdvdhc8V9PPxVJCXc06zxXunfEzutVtOd4iZkQsuWgXAhtFa63g==
 
 "@docusaurus/plugin-content-blog@2.0.0-alpha.64":
   version "2.0.0-alpha.64"
