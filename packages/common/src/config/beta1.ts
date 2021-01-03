@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-namespace */
 import path from 'path';
 import { Format } from '@ts-graphviz/node';
-import { RediagramGlobalConfig } from './types';
+import { RediagramConfig } from './types';
 
 export namespace beta1 {
   export const version = 'beta1';
@@ -17,21 +17,27 @@ export namespace beta1 {
     dot?: {
       timeout?: number;
     };
+    plugins?: {
+      name: string;
+      [key: string]: any;
+    }[];
   }
 
-  export function load(filepath: string, data: Config): RediagramGlobalConfig {
+  export function load(filepath: string, data: Config): RediagramConfig {
     return {
-      filepath,
-      output: {
-        dir: path.resolve(path.dirname(filepath), data.output?.dir ?? '.'),
-        format: data.output?.type ?? 'png',
-      },
-      scope: {
-        includes: data.includes ?? ['**/*.rediagram.{jsx,tsx}'],
-        excludes: data.excludes ?? ['**/node_modules/**/*'],
+      core: {
+        filepath,
+        output: {
+          dir: path.resolve(path.dirname(filepath), data.output?.dir ?? '.'),
+          format: data.output?.type ?? 'png',
+        },
+        scope: {
+          includes: data.includes ?? ['**/*.rediagram.{jsx,tsx}'],
+          excludes: data.excludes ?? ['**/node_modules/**/*'],
+        },
       },
       dot: {
-        timeout: data.dot?.timeout ?? 10_000,
+        timeout: data.dot?.timeout,
       },
     };
   }

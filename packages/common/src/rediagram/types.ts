@@ -1,16 +1,117 @@
-import { Format } from '@ts-graphviz/node';
+/* eslint-disable @typescript-eslint/ban-types */
+import { ReactElement, FC } from 'react';
+import { JSONSchemaType } from 'ajv';
+import { RediagramCoreOption } from '../config';
 
-export type RenderOption = {
+export interface RediagramLogger {
+  getChildLogger(settings: { name: string }): RediagramLogger;
   /**
-   * Output destination directory.
+   * Logs a silly message.
+   * @param args  - Multiple log attributes that should be logged out.
    */
-  dir?: string;
+  silly(...args: unknown[]): void;
   /**
-   * Output file name.
+   * Logs a trace message.
+   * @param args  - Multiple log attributes that should be logged out.
    */
-  name: string;
+  trace(...args: unknown[]): void;
   /**
-   * Output file format.
+   * Logs a debug message.
+   * @param args  - Multiple log attributes that should be logged out.
    */
-  format?: Format;
+  debug(...args: unknown[]): void;
+  /**
+   * Logs an info message.
+   * @param args  - Multiple log attributes that should be logged out.
+   */
+  info(...args: unknown[]): void;
+  /**
+   * Logs a warn message.
+   * @param args  - Multiple log attributes that should be logged out.
+   */
+  warn(...args: unknown[]): void;
+  /**
+   * Logs an error message.
+   * @param args  - Multiple log attributes that should be logged out.
+   */
+  error(...args: unknown[]): void;
+  /**
+   * Logs a fatal message.
+   * @param args  - Multiple log attributes that should be logged out.
+   */
+  fatal(...args: unknown[]): void;
+}
+
+export type RediagramRootComponent<P = {}> = FC<P> & {
+  renderer: string;
 };
+
+export type RRC<P = {}> = RediagramRootComponent<P>;
+
+export interface RediagramTask {
+  name: string;
+  diagram: ReactElement<any, RediagramRootComponent>;
+  output?: {
+    /**
+     * Output destination directory.
+     */
+    dir?: string;
+    /**
+     * Output file format.
+     */
+    format?: string;
+  };
+}
+
+export interface RediagramPluginContext {
+  logger: RediagramLogger;
+  config: RediagramCoreOption;
+}
+
+export interface RediagramRenderFunction {
+  (element: ReactElement): Promise<Buffer>;
+}
+
+export interface RediagramExportFunction {
+  (svgString: string, output: string): Promise<void>;
+}
+
+export interface RediagramPreprocessFunction {
+  (filepath: string): void;
+}
+
+export interface RediagramPlugin {
+  preprocessor?: {
+    [ext: string]: RediagramPreprocessFunction;
+  };
+  renderer?: {
+    [name: string]: RediagramRenderFunction;
+  };
+  exporter?: {
+    [format: string]: RediagramExportFunction;
+  };
+}
+
+export interface RediagramPluginModule<T extends {} = {}> {
+  name: string;
+  optionSchema?: JSONSchemaType<T>;
+  create(option: T, context: RediagramPluginContext): RediagramPlugin;
+}
+
+export interface RediagramPluginManager {
+  loadPreset(pluginModule: RediagramPluginModule<any>): void;
+  createPlugin<T>(name: string, context: RediagramPluginContext, option: T): RediagramPlugin;
+  load(plugin: RediagramPlugin): void;
+  getRenderFunction(element: ReactElement<any, RediagramRootComponent>): RediagramRenderFunction;
+  getExportFunction(format: string): RediagramExportFunction;
+  getPreprocessorFunction(ext: string): RediagramPreprocessFunction;
+}
+
+export interface RediagramCore {
+  config: Readonly<RediagramCoreOption>;
+  logger: RediagramLogger;
+  pluginManager: RediagramPluginManager;
+  loadPlugin<T>(name: string, options?: T): void;
+  register(task: RediagramTask): void;
+  process(filepath: string): void;
+}

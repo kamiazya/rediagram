@@ -1,18 +1,17 @@
-import { RediagramGlobalConfig } from './types';
+import { RediagramConfig } from './types';
 
-export function createDefaultConfig(): RediagramGlobalConfig {
+export function createDefaultConfig(): RediagramConfig {
   return {
-    filepath: null,
-    scope: {
-      includes: ['**/*.rediagram.{jsx,tsx}'],
-      excludes: ['**/node_modules/**/*'],
+    core: {
+      filepath: null,
+      scope: {
+        includes: ['**/*.rediagram.{jsx,tsx}'],
+        excludes: ['**/node_modules/**/*'],
+      },
+      output: {
+        format: 'png',
+      },
     },
-    output: {
-      dir: undefined,
-      format: 'png',
-    },
-    dot: {
-      timeout: 10_000,
-    },
+    dot: {},
   };
 }

@@ -28,14 +28,19 @@
     "watch": "tsc --watch"
   },
   "dependencies": {
-    "@ts-graphviz/node": "^0.3.0",
+    "@ts-graphviz/node": "^0.4.0",
     "@ts-graphviz/react": "^0.7.0",
+    "ajv": "^7.0.1",
     "cosmiconfig": "^7.0.0",
     "fs-extra": "^9.0.1",
+    "jsdom": "^16.4.0",
+    "sharp": "^0.26.3",
     "tslog": "^3.0.1"
   },
   "devDependencies": {
+    "@types/jsdom": "^16.2.5",
     "@types/rimraf": "^3.0.0",
+    "@types/sharp": "^0.26.1",
     "rimraf": "^3.0.2",
     "rollup": "^2.32.0",
     "rollup-plugin-dts": "^1.4.13",

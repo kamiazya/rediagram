@@ -1,6 +1,4 @@
-import { Format } from '@ts-graphviz/node';
-
-export type RediagramGlobalConfig = {
+export interface RediagramCoreOption {
   filepath: string | null;
   scope: Readonly<{
     includes: ReadonlyArray<string>;
@@ -8,9 +6,15 @@ export type RediagramGlobalConfig = {
   }>;
   output: Readonly<{
     dir?: string;
-    format: Format;
+    format: string;
   }>;
-  dot: Readonly<{
-    timeout: number;
-  }>;
-};
+}
+
+export interface RediagramDotPluginOption {
+  timeout?: number;
+}
+
+export interface RediagramConfig {
+  core: RediagramCoreOption;
+  [name: string]: any;
+}

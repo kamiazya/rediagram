@@ -2,7 +2,6 @@ import cmd from 'commander';
 import glob from 'fast-glob';
 import chokidar from 'chokidar';
 import { Rediagram } from 'rediagram';
-import { registerAll } from 'sucrase/dist/register';
 import pkg from './pkg';
 
 type Options = {
@@ -15,20 +14,19 @@ cmd
   .arguments('[pattarns...]')
   .option('-w, --watch', 'Watch files for changes and rerun rediagram related to changed files.', false)
   .action(async function rediagramc(this: Options, pattarns: string[]): Promise<void> {
-    registerAll();
     const paths =
       pattarns.length >= 1
         ? pattarns
         : [...Rediagram.config.scope.includes, ...Rediagram.config.scope.excludes.map((p) => `!${p}`)];
     if (this.watch) {
-      chokidar.watch(paths).on('add', Rediagram.run.bind(Rediagram)).on('change', Rediagram.run.bind(Rediagram));
+      chokidar.watch(paths).on('add', Rediagram.process).on('change', Rediagram.process);
     } else {
       const sources = await glob(paths, {
         dot: true,
         extglob: true,
         onlyFiles: true,
       });
-      sources.forEach(Rediagram.run.bind(Rediagram));
+      sources.forEach(Rediagram.process);
     }
   })
   .parse(process.argv);
