@@ -8,6 +8,10 @@ export interface RediagramCoreOption {
     dir?: string;
     format: string;
   }>;
+  plugins: ReadonlyArray<{
+    name: string;
+    options?: any;
+  }>;
 }
 
 export interface RediagramDotPluginOption {

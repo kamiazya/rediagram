@@ -11,6 +11,7 @@ export function createDefaultConfig(): RediagramConfig {
       output: {
         format: 'png',
       },
+      plugins: [],
     },
     dot: {},
   };

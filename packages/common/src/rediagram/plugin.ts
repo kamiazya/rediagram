@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+import path from 'path';
 import Ajv from 'ajv';
 import { ReactElement } from 'react';
 import {
   RediagramExportFunction,
-  RediagramPlugin,
-  RediagramPluginContext,
+  RediagramLogger,
   RediagramPluginManager,
   RediagramPluginModule,
   RediagramPreprocessFunction,
@@ -27,7 +27,7 @@ export class PluginManager implements RediagramPluginManager {
 
   private preloads = new Map<string, RediagramPluginModule<any>>();
 
-  constructor(...pluginModules: RediagramPluginModule<any>[]) {
+  constructor(private readonly logger: RediagramLogger, ...pluginModules: RediagramPluginModule<any>[]) {
     pluginModules.forEach((pluginModule) => {
       this.loadPreset(pluginModule);
     });
@@ -37,33 +37,31 @@ export class PluginManager implements RediagramPluginManager {
     this.preloads.set(pluginModule.name, pluginModule);
   }
 
-  private resolvePlugin(nameOrKey: string): RediagramPluginModule<any> {
-    let pluginModule = this.preloads.get(nameOrKey);
+  private resolvePlugin(name: string): RediagramPluginModule<any> {
+    let pluginModule = this.preloads.get(name);
     if (pluginModule) {
       return pluginModule;
     }
-    // eslint-disable-next-line import/no-dynamic-require, @typescript-eslint/no-var-requires, global-require
-    pluginModule = require(nameOrKey);
+    try {
+      // eslint-disable-next-line import/no-dynamic-require, @typescript-eslint/no-var-requires, global-require
+      pluginModule = require(name);
+    } catch {
+      const moduleFilePath = path.resolve(process.cwd(), name);
+      // eslint-disable-next-line import/no-dynamic-require, @typescript-eslint/no-var-requires, global-require
+      pluginModule = require(moduleFilePath);
+    }
     PluginManager.assertsPluginModule(pluginModule);
     return pluginModule;
   }
 
-  public createPlugin<T>(name: string, context: RediagramPluginContext, option: T): RediagramPlugin {
+  public loadPlugin<T>(name: string, option: T): void {
     const pluginModule = this.resolvePlugin(name);
+    this.logger.debug(`Plugin "${pluginModule.name}" loaded.`);
     if (pluginModule.optionSchema) {
       const validate = new Ajv().compile(pluginModule.optionSchema);
       validate(option);
     }
-    return pluginModule.create(option, context);
-  }
-
-  private renderer = new Map<string, RediagramRenderFunction>();
-
-  private exporter = new Map<string, RediagramExportFunction>();
-
-  private preprocessor = new Map<string, RediagramPreprocessFunction>();
-
-  public load(plugin: RediagramPlugin): void {
+    const plugin = pluginModule.create(option, { logger: this.logger.getChildLogger({ name: pluginModule.name }) });
     if (plugin.renderer) {
       Object.entries(plugin.renderer).forEach(([rendererName, renderer]) => {
         this.renderer.set(rendererName, renderer);
@@ -80,6 +78,12 @@ export class PluginManager implements RediagramPluginManager {
       });
     }
   }
+
+  private renderer = new Map<string, RediagramRenderFunction>();
+
+  private exporter = new Map<string, RediagramExportFunction>();
+
+  private preprocessor = new Map<string, RediagramPreprocessFunction>();
 
   public getRenderFunction(element: ReactElement<any, RediagramRootComponent>): RediagramRenderFunction {
     const render = this.renderer.get(element.type.renderer);

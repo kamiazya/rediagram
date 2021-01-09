@@ -4,20 +4,33 @@ import path from 'path';
 import { ensureDir } from 'fs-extra';
 import { Logger } from 'tslog';
 import { loadConfig, RediagramCoreOption } from '../config';
-import { RediagramCore, RediagramTask, RediagramRootComponent, RediagramLogger, RediagramPluginManager } from './types';
-import { DotPluginModule } from '../plugins/dot';
+import {
+  RediagramCore,
+  RediagramRootComponent,
+  RediagramLogger,
+  RediagramPluginManager,
+  RediagramPluginModule,
+} from './types';
 import { PluginManager } from './plugin';
+
+import { DotPluginModule } from '../plugins/dot';
 import { ImagePluginModule } from '../plugins/image';
 import { SucrasePluginModule } from '../plugins/sucrase';
 
 export class Core implements RediagramCore {
   public static readonly MODULE_NAME = 'rediagram';
 
+  public static presetPluginModules: RediagramPluginModule<any>[] = [
+    DotPluginModule,
+    ImagePluginModule,
+    SucrasePluginModule,
+  ];
+
   private static instance?: RediagramCore;
 
   public static create(): RediagramCore {
     if (!this.instance) {
-      const { core: config, dot: dotPluginOption } = loadConfig();
+      const { core, pluginOptions = {} } = loadConfig();
       const logger = new Logger({
         type: 'pretty',
         name: 'rediagram',
@@ -25,11 +38,16 @@ export class Core implements RediagramCore {
         displayFilePath: 'hidden',
         displayFunctionName: false,
       });
-      const pluginManager = new PluginManager(DotPluginModule, ImagePluginModule, SucrasePluginModule);
-      this.instance = new Core(logger, config, pluginManager);
-      this.instance.loadPlugin(DotPluginModule.name, dotPluginOption);
-      this.instance.loadPlugin(ImagePluginModule.name);
-      this.instance.loadPlugin(SucrasePluginModule.name);
+
+      const pm = new PluginManager(logger.getChildLogger({ name: 'plugin-manager' }), ...this.presetPluginModules);
+
+      const instance = new Core(logger, core, pm);
+
+      this.presetPluginModules.forEach(({ name }) => instance.loadPlugin(name, pluginOptions[name]));
+
+      core.plugins.forEach(({ name, options }) => instance.loadPlugin(name, options));
+
+      this.instance = instance;
     }
     return this.instance;
   }
@@ -40,13 +58,13 @@ export class Core implements RediagramCore {
     public readonly pluginManager: RediagramPluginManager,
   ) {
     if (this.config.filepath) {
-      logger.info(`Config loaded from "./${path.relative(process.cwd(), this.config.filepath)}".`);
+      logger.debug(`Config loaded from "./${path.relative(process.cwd(), this.config.filepath)}".`);
     } else {
-      logger.info('Config file not found.');
+      logger.debug('Config file not found.');
     }
   }
 
-  private async render(
+  public async render(
     element: ReactElement<any, RediagramRootComponent>,
     output: { name: string; format: string; dir?: string },
   ): Promise<void> {
@@ -65,22 +83,8 @@ export class Core implements RediagramCore {
     await exporter(buffer.toString('utf8'), filePath);
   }
 
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   public loadPlugin(name: string, option: any = {}): void {
-    const context = { logger: this.logger.getChildLogger({ name }), config: Object.freeze(this.config) };
-    const plugin = this.pluginManager.createPlugin(name, context, option);
-    this.pluginManager.load(plugin);
-  }
-
-  public async register(task: RediagramTask): Promise<void> {
-    try {
-      const dir = task.output?.dir ?? this.config.output.dir;
-      const format = task.output?.format ?? this.config.output.format;
-      const { name } = task;
-      await this.render(task.diagram, { dir, name, format });
-    } catch (error) {
-      this.logger.error(error);
-    }
+    this.pluginManager.loadPlugin(name, option);
   }
 
   get process(): (filepath: string) => void {

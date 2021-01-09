@@ -48,24 +48,8 @@ export type RediagramRootComponent<P = {}> = FC<P> & {
 
 export type RRC<P = {}> = RediagramRootComponent<P>;
 
-export interface RediagramTask {
-  name: string;
-  diagram: ReactElement<any, RediagramRootComponent>;
-  output?: {
-    /**
-     * Output destination directory.
-     */
-    dir?: string;
-    /**
-     * Output file format.
-     */
-    format?: string;
-  };
-}
-
 export interface RediagramPluginContext {
   logger: RediagramLogger;
-  config: RediagramCoreOption;
 }
 
 export interface RediagramRenderFunction {
@@ -100,8 +84,7 @@ export interface RediagramPluginModule<T extends {} = {}> {
 
 export interface RediagramPluginManager {
   loadPreset(pluginModule: RediagramPluginModule<any>): void;
-  createPlugin<T>(name: string, context: RediagramPluginContext, option: T): RediagramPlugin;
-  load(plugin: RediagramPlugin): void;
+  loadPlugin<T>(name: string, option: T): void;
   getRenderFunction(element: ReactElement<any, RediagramRootComponent>): RediagramRenderFunction;
   getExportFunction(format: string): RediagramExportFunction;
   getPreprocessorFunction(ext: string): RediagramPreprocessFunction;
@@ -112,6 +95,9 @@ export interface RediagramCore {
   logger: RediagramLogger;
   pluginManager: RediagramPluginManager;
   loadPlugin<T>(name: string, options?: T): void;
-  register(task: RediagramTask): void;
+  render(
+    element: ReactElement<any, RediagramRootComponent>,
+    output: { name: string; format?: string; dir?: string },
+  ): Promise<void>;
   process(filepath: string): void;
 }
