@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.1](https://github.com/kamiazya/rediagram/compare/@rediagram/aws@0.4.0...@rediagram/aws@0.4.1) (2021-01-10)
+
+
+### Bug Fixes
+
+* **@rediagram/aws:** fix Glue component [#207](https://github.com/kamiazya/rediagram/issues/207) ([e1703e3](https://github.com/kamiazya/rediagram/commit/e1703e3431b7407957f311321efb34f9e87b7b6c))
+
+
+
+
+
 # [0.4.0](https://github.com/kamiazya/rediagram/compare/@rediagram/aws@0.3.0...@rediagram/aws@0.4.0) (2020-12-07)
 
 

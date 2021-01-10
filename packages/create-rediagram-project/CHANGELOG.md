@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.1](https://github.com/kamiazya/rediagram/compare/create-rediagram-project@0.2.0...create-rediagram-project@0.2.1) (2021-01-10)
+
+**Note:** Version bump only for package create-rediagram-project
+
+
+
+
+
 # [0.2.0](https://github.com/kamiazya/rediagram/compare/create-rediagram-project@0.1.5...create-rediagram-project@0.2.0) (2020-12-07)
 
 

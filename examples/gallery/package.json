@@ -1,6 +1,6 @@
 {
   "name": "@rediagram/gallery",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "main": "index.js",
   "license": "MIT",
   "private": true,
@@ -8,8 +8,8 @@
     "start": "rediagramc"
   },
   "dependencies": {
-    "@rediagram/aws": "^0.4.0",
-    "@rediagram/cli": "^0.1.3",
+    "@rediagram/aws": "^0.4.1",
+    "@rediagram/cli": "^0.1.4",
     "@rediagram/gcp": "^0.3.0",
     "@ts-graphviz/react": "^0.7.0",
     "prop-types": "^15.7.2",
