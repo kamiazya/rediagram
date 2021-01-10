@@ -3,3 +3,6 @@ output:
   dir: img
 includes:
   - 'src/**/*.rediagram.tsx'
+
+plugins:
+  - name: '@rediagram/plugin-crf'
