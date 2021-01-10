@@ -25,7 +25,7 @@ export function PNG(diagram: ReactElement<any, RediagramRootComponent>, options:
     dir: options.dir ?? Rediagram.config.output.dir ?? p.dir,
     format: 'png',
   };
-  Rediagram.render(diagram, output).catch((e) => Rediagram.logger.error(e));
+  Rediagram.render(diagram, output);
 }
 
 /**
@@ -38,7 +38,7 @@ export function SVG(diagram: ReactElement<any, RediagramRootComponent>, options:
     dir: options.dir ?? Rediagram.config.output.dir ?? p.dir,
     format: 'svg',
   };
-  Rediagram.render(diagram, output).catch((e) => Rediagram.logger.error(e));
+  Rediagram.render(diagram, output);
 }
 
 /**
@@ -51,5 +51,5 @@ export function PDF(diagram: ReactElement<any, RediagramRootComponent>, options:
     dir: options.dir ?? Rediagram.config.output.dir ?? p.dir,
     format: 'pdf',
   };
-  Rediagram.render(diagram, output).catch((e) => Rediagram.logger.error(e));
+  Rediagram.render(diagram, output);
 }
