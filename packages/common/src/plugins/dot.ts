@@ -11,7 +11,7 @@ export const DotPluginModule: RediagramPluginModule<DotPluginOption> = {
   name: 'dot',
   create(option) {
     return {
-      renderer: {
+      renderers: {
         async dot(element: ReactElement): Promise<Buffer> {
           const dot = renderToDot(element);
           return exportToBuffer(dot, {

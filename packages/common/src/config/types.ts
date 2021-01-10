@@ -14,10 +14,6 @@ export interface RediagramCoreOption {
   }>;
 }
 
-export interface RediagramDotPluginOption {
-  timeout?: number;
-}
-
 export interface RediagramConfig {
   core: RediagramCoreOption;
   [name: string]: any;

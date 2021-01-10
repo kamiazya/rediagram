@@ -19,7 +19,7 @@ export const ImagePluginModule: RediagramPluginModule = {
     };
 
     return {
-      exporter: {
+      exporters: {
         png: createImageExporter('png'),
         webp: createImageExporter('webp'),
         jpg: createImageExporter('jpg'),

@@ -4,7 +4,7 @@ import { JSONSchemaType } from 'ajv';
 import { RediagramCoreOption } from '../config';
 
 export interface RediagramLogger {
-  getChildLogger(settings: { name: string }): RediagramLogger;
+  createChild(name: string): RediagramLogger;
   /**
    * Logs a silly message.
    * @param args  - Multiple log attributes that should be logged out.
@@ -48,8 +48,19 @@ export type RediagramRootComponent<P = {}> = FC<P> & {
 
 export type RRC<P = {}> = RediagramRootComponent<P>;
 
+export interface RediagramCore {
+  config: Readonly<RediagramCoreOption>;
+  loadPlugin<T>(name: string, options?: T): void;
+  render(
+    element: ReactElement<any, RediagramRootComponent>,
+    output: { name: string; format?: string; dir?: string },
+  ): Promise<void>;
+  process(filepath: string): void;
+}
+
 export interface RediagramPluginContext {
   logger: RediagramLogger;
+  core: RediagramCore;
 }
 
 export interface RediagramRenderFunction {
@@ -60,20 +71,28 @@ export interface RediagramExportFunction {
   (svgString: string, output: string): Promise<void>;
 }
 
+export type PreprocessResult = unknown;
+
 export interface RediagramPreprocessFunction {
-  (filepath: string): void;
+  (filepath: string): PreprocessResult;
+}
+
+export interface RediagramPostprocesser<T extends PreprocessResult = unknown> {
+  match(result: PreprocessResult): result is T;
+  postprocess(result: T): void;
 }
 
 export interface RediagramPlugin {
-  preprocessor?: {
+  preprocessors?: {
     [ext: string]: RediagramPreprocessFunction;
   };
-  renderer?: {
+  renderers?: {
     [name: string]: RediagramRenderFunction;
   };
-  exporter?: {
+  exporters?: {
     [format: string]: RediagramExportFunction;
   };
+  postprocessors?: RediagramPostprocesser[];
 }
 
 export interface RediagramPluginModule<T extends {} = {}> {
@@ -82,22 +101,10 @@ export interface RediagramPluginModule<T extends {} = {}> {
   create(option: T, context: RediagramPluginContext): RediagramPlugin;
 }
 
-export interface RediagramPluginManager {
+export interface RediagramPluginAggregation {
   loadPreset(pluginModule: RediagramPluginModule<any>): void;
-  loadPlugin<T>(name: string, option: T): void;
+  loadPlugin<T>(name: string, option: T, core: RediagramCore): void;
   getRenderFunction(element: ReactElement<any, RediagramRootComponent>): RediagramRenderFunction;
   getExportFunction(format: string): RediagramExportFunction;
-  getPreprocessorFunction(ext: string): RediagramPreprocessFunction;
-}
-
-export interface RediagramCore {
-  config: Readonly<RediagramCoreOption>;
-  logger: RediagramLogger;
-  pluginManager: RediagramPluginManager;
-  loadPlugin<T>(name: string, options?: T): void;
-  render(
-    element: ReactElement<any, RediagramRootComponent>,
-    output: { name: string; format?: string; dir?: string },
-  ): Promise<void>;
-  process(filepath: string): void;
+  process(filepath: string): Promise<void>;
 }
