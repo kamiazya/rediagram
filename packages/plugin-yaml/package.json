@@ -1,0 +1,46 @@
+{
+  "name": "@rediagram/plugin-yaml",
+  "version": "0.0.0",
+  "license": "MIT",
+  "description": "Rediagram Plugin for support YAML",
+  "author": "kamiazya <yuki@kamiazya.tech>",
+  "homepage": "https://github.com/kamiazya/rediagram",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kamiazya/rediagram.git",
+    "directory": "packages/plugin-yaml"
+  },
+  "bugs": {
+    "url": "https://github.com/kamiazya/rediagram/issues"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/kamiazya"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "clean": "rimraf lib",
+    "build": "rollup -c",
+    "watch": "tsc --watch"
+  },
+  "dependencies": {
+    "@rediagram/common": "^0.0.2",
+    "js-yaml": "^4.0.0",
+    "react": "^16.13.1",
+    "rediagram": "^0.2.3"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.0",
+    "@types/react": "^16.9.35",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.32.0",
+    "rollup-plugin-typescript2": "^0.28.0",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.2"
+  }
+}
