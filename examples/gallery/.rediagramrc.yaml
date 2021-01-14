@@ -2,7 +2,8 @@ version: beta1
 output:
   dir: img
 includes:
-  - 'src/**/*.rediagram.tsx'
+  - 'src/**/*.rediagram.*'
 
 plugins:
   - name: '@rediagram/plugin-crf'
+  - name: '@rediagram/plugin-yaml'

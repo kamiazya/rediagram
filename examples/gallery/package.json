@@ -12,6 +12,7 @@
     "@rediagram/cli": "^0.1.2",
     "@rediagram/gcp": "^0.2.0",
     "@rediagram/plugin-crf": "0.0.0",
+    "@rediagram/plugin-yaml": "0.0.0",
     "@ts-graphviz/react": "^0.7.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
