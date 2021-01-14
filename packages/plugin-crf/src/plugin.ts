@@ -6,7 +6,7 @@ import { isValidMeta } from './validation';
 import { CommonRediagramFormatModule } from './types';
 
 export const CommonRediagramFormatPluginModule: RediagramPluginModule = {
-  name: '@rediagram/plugin-crf',
+  name: 'crf',
   create(_, { logger, core }) {
     const CommonRediagramFormatPostprocessor: RediagramPostprocesser<CommonRediagramFormatModule> = {
       match(result: PreprocessResult): result is CommonRediagramFormatModule {
