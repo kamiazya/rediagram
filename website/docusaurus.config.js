@@ -1,7 +1,7 @@
 module.exports = {
   title: 'rediagram',
   tagline: 'Markup and draw your system diagrams with React.',
-  url: 'https://rediagram.js.org',
+  url: 'https://kamiazya.github.io',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   favicon: '/',
