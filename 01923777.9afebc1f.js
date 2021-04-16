@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[2],{58:function(a){a.exports=JSON.parse('{"allTagsPath":"/rediagram/blog/tags","slug":"rediagram","name":"rediagram","count":1,"permalink":"/rediagram/blog/tags/rediagram"}')}}]);
