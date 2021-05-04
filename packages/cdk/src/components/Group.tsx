@@ -12,7 +12,7 @@ export type GroupProps = {
     size?: number;
   };
   border?: {
-    style?: 'dashed' | 'solid' | 'doted';
+    style?: 'dashed' | 'solid' | 'doted' | 'none';
     color?: string;
   };
   label?: {
@@ -41,6 +41,7 @@ export const Group: FC<GroupProps> = ({ name, label, border, font, background, m
       label={label?.content}
       labeljust={label?.just}
       labelloc={label?.loc}
+      penwidth={border?.style === 'none' ? 0 : undefined}
       color={border?.color}
       fontcolor={font?.color}
       bgcolor={background?.color}
