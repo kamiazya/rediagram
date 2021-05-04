@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.1](https://github.com/kamiazya/rediagram/compare/@rediagram/aws@0.4.0...@rediagram/aws@0.4.1) (2021-01-10)
+
+
+### Bug Fixes
+
+* **@rediagram/aws:** fix Glue component [#207](https://github.com/kamiazya/rediagram/issues/207) ([e1703e3](https://github.com/kamiazya/rediagram/commit/e1703e3431b7407957f311321efb34f9e87b7b6c))
+
+
+
+
+
+# [0.4.0](https://github.com/kamiazya/rediagram/compare/@rediagram/aws@0.3.0...@rediagram/aws@0.4.0) (2020-12-07)
+
+
+### Features
+
+* **@rediagram/aws:** add display service name option [#111](https://github.com/kamiazya/rediagram/issues/111) ([b5dcc4e](https://github.com/kamiazya/rediagram/commit/b5dcc4e47c34b86696252a4b361b8c99f62ef224))
+* **@rediagram/aws:** add some group components [#159](https://github.com/kamiazya/rediagram/issues/159) ([f918e70](https://github.com/kamiazya/rediagram/commit/f918e700fade0f99cd55cbc9c5a49c70b9697667))
+
+
+
+
+
 # [0.3.0](https://github.com/kamiazya/rediagram/compare/@rediagram/aws@0.2.5...@rediagram/aws@0.3.0) (2020-11-09)
 
 

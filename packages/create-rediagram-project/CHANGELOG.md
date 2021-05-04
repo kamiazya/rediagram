@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.1](https://github.com/kamiazya/rediagram/compare/create-rediagram-project@0.2.0...create-rediagram-project@0.2.1) (2021-01-10)
+
+**Note:** Version bump only for package create-rediagram-project
+
+
+
+
+
+# [0.2.0](https://github.com/kamiazya/rediagram/compare/create-rediagram-project@0.1.5...create-rediagram-project@0.2.0) (2020-12-07)
+
+
+### Features
+
+* **create-rediagram-project:** display message when graphviz is not installed [#106](https://github.com/kamiazya/rediagram/issues/106) ([994deaf](https://github.com/kamiazya/rediagram/commit/994deaf4673bb43082474282bfecf2f03fe027bb))
+
+
+
+
+
 ## [0.1.5](https://github.com/kamiazya/rediagram/compare/create-rediagram-project@0.1.4...create-rediagram-project@0.1.5) (2020-11-05)
 
 

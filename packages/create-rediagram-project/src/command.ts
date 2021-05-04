@@ -87,7 +87,7 @@ export const command = createCommand(pkg.name)
 
         console.log(
           chalk`
-          {yellow.bold Tahnks for installing rediagram 🙏}
+          {yellow.bold Thanks for installing rediagram 🙏}
 
             Please consider donating to help
               maintain rediagram packages!

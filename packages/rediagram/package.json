@@ -1,6 +1,6 @@
 {
   "name": "rediagram",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "author": "kamiazya <yuki@kamiazya.tech>",
@@ -47,7 +47,7 @@
     "typescript": "^4.0.2"
   },
   "dependencies": {
-    "@rediagram/cdk": "^0.2.0",
+    "@rediagram/cdk": "^0.3.0",
     "@rediagram/common": "^0.0.2",
     "@ts-graphviz/node": "^0.3.0",
     "caller": "^1.0.1",
