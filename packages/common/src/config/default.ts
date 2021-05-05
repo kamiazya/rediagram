@@ -11,8 +11,17 @@ export function createDefaultConfig(): RediagramConfig {
       output: {
         format: 'png',
       },
-      plugins: [],
+      plugins: [
+        {
+          name: '@rediagram/plugin-dot',
+        },
+        {
+          name: '@rediagram/plugin-sharp',
+        },
+        {
+          name: '@rediagram/plugin-sucrase',
+        },
+      ],
     },
-    dot: {},
   };
 }

@@ -4,6 +4,16 @@ output:
 includes:
   - 'src/**/*.rediagram.*'
 
+# renderers:
+#   hoge: true
+# exporters:
+#   hoge: true
+# preprocessors:
+#   hoge: true
+# postprocessors:
+#   hoge: true
+
 plugins:
+  - name: '@rediagram/plugin-preset-default'
   - name: '@rediagram/plugin-crf'
   - name: '@rediagram/plugin-yaml'

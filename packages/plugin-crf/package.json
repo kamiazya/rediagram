@@ -31,8 +31,7 @@
   "dependencies": {
     "@rediagram/common": "^0.0.2",
     "ajv": "^7.0.3",
-    "react": "^16.13.1",
-    "rediagram": "^0.2.3"
+    "react": "^16.13.1"
   },
   "devDependencies": {
     "@types/react": "^16.9.35",

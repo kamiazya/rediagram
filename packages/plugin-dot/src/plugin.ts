@@ -1,7 +1,9 @@
+/* eslint-disable no-restricted-syntax */
+import { RediagramPluginModule } from '@rediagram/common';
+
 import { exportToBuffer } from '@ts-graphviz/node';
 import { renderToDot } from '@ts-graphviz/react';
 import { ReactElement } from 'react';
-import { RediagramPluginModule } from '../rediagram/types';
 
 interface DotPluginOption {
   timeout?: number;

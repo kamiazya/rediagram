@@ -8,6 +8,8 @@ type Options = {
   watch: boolean;
 };
 
+const rediagramProcess = Rediagram.process.bind(Rediagram);
+
 cmd
   .name('rediagramc')
   .version(pkg.version)
@@ -19,14 +21,14 @@ cmd
         ? pattarns
         : [...Rediagram.config.scope.includes, ...Rediagram.config.scope.excludes.map((p) => `!${p}`)];
     if (this.watch) {
-      chokidar.watch(paths).on('add', Rediagram.process).on('change', Rediagram.process);
+      chokidar.watch(paths).on('add', rediagramProcess).on('change', rediagramProcess);
     } else {
       const sources = await glob(paths, {
         dot: true,
         extglob: true,
         onlyFiles: true,
       });
-      sources.forEach(Rediagram.process);
+      sources.forEach(rediagramProcess);
     }
   })
   .parse(process.argv);

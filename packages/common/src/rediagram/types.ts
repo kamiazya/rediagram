@@ -102,7 +102,6 @@ export interface RediagramPluginModule<T extends {} = {}> {
 }
 
 export interface RediagramPluginAggregation {
-  loadPreset(pluginModule: RediagramPluginModule<any>): void;
   loadPlugin<T>(name: string, option: T, core: RediagramCore): void;
   getRenderFunction(element: ReactElement<any, RediagramRootComponent>): RediagramRenderFunction;
   getExportFunction(format: string): RediagramExportFunction;

@@ -1,6 +1,6 @@
+import { RediagramPluginModule, PreprocessResult } from '@rediagram/common';
 import path from 'path';
 import { registerAll } from 'sucrase/dist/register';
-import { PreprocessResult, RediagramPluginModule } from '../rediagram/types';
 
 export const SucrasePluginModule: RediagramPluginModule = {
   name: 'sucrase',

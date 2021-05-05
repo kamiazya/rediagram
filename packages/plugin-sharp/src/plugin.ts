@@ -1,13 +1,13 @@
+import { RediagramPluginModule, RediagramExportFunction } from '@rediagram/common';
 import path from 'path';
 import sharp from 'sharp';
 import { writeFile } from 'fs-extra';
-import { RediagramExportFunction, RediagramPluginModule } from '../rediagram/types';
-import { svgToImageDataURL } from '../rediagram/utils';
+import { svgToImageDataURL } from './utils';
 
-export const ImagePluginModule: RediagramPluginModule = {
-  name: 'image',
+export const SharpPluginModule: RediagramPluginModule = {
+  name: 'sharp',
   create(_, { logger }) {
-    const createImageExporter = (format: string): RediagramExportFunction => {
+    const createImageExporter = (format: keyof sharp.FormatEnum): RediagramExportFunction => {
       return async (svg: string, output: string): Promise<void> => {
         const image = sharp(svgToImageDataURL(svg), {
           density: 96,

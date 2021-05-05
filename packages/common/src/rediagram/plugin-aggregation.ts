@@ -28,20 +28,16 @@ export class PluginAggregation implements RediagramPluginAggregation {
     }
   }
 
-  private preloads = new Map<string, RediagramPluginModule<any>>();
+  private resolved = new Map<string, RediagramPluginModule<any>>();
 
-  constructor(private readonly logger: RediagramLogger, ...pluginModules: RediagramPluginModule<any>[]) {
-    pluginModules.forEach((pluginModule) => {
-      this.loadPreset(pluginModule);
-    });
-  }
+  private readonly logger: RediagramLogger;
 
-  public loadPreset(pluginModule: RediagramPluginModule<any>): void {
-    this.preloads.set(pluginModule.name, pluginModule);
+  constructor(loggder: RediagramLogger) {
+    this.logger = loggder;
   }
 
   private resolvePlugin(name: string): RediagramPluginModule<any> {
-    let pluginModule = this.preloads.get(name);
+    let pluginModule = this.resolved.get(name);
     if (pluginModule) {
       return pluginModule;
     }
@@ -56,6 +52,7 @@ export class PluginAggregation implements RediagramPluginAggregation {
     }
     pluginModule = m.default ?? m;
     PluginAggregation.assertsPluginModule(pluginModule);
+    this.resolved.set(name, pluginModule);
     return pluginModule;
   }
 

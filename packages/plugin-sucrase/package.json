@@ -1,18 +1,17 @@
 {
-  "name": "@rediagram/common",
-  "version": "0.0.2",
+  "name": "@rediagram/plugin-sucrase",
+  "version": "0.0.0",
+  "license": "MIT",
+  "description": "Rediagram Plugin for support YAML",
+  "author": "kamiazya <yuki@kamiazya.tech>",
+  "homepage": "https://github.com/kamiazya/rediagram",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
-  "author": "kamiazya <yuki@kamiazya.tech>",
-  "description": "Common config and utility for rediagram.",
-  "homepage": "https://github.com/kamiazya/rediagram",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/kamiazya/rediagram.git",
-    "directory": "packages/common"
-  },
-  "publishConfig": {
-    "access": "public"
+    "directory": "packages/plugin-sucrase"
   },
   "bugs": {
     "url": "https://github.com/kamiazya/rediagram/issues"
@@ -21,23 +20,24 @@
     "type": "github",
     "url": "https://github.com/sponsors/kamiazya"
   },
-  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "clean": "rimraf lib",
-    "build": "ts-node scripts/build",
+    "build": "rollup -c",
     "watch": "tsc --watch"
   },
   "dependencies": {
-    "ajv": "^7.0.1",
-    "cosmiconfig": "^7.0.0",
-    "fs-extra": "^9.0.1",
-    "tslog": "^3.0.1"
+    "@rediagram/common": "^0.0.2",
+    "react": "^16.13.1",
+    "sucrase": "^3.18.1"
   },
   "devDependencies": {
-    "@types/rimraf": "^3.0.0",
+    "@types/js-yaml": "^4.0.0",
+    "@types/react": "^16.9.35",
     "rimraf": "^3.0.2",
     "rollup": "^2.32.0",
-    "rollup-plugin-dts": "^1.4.13",
     "rollup-plugin-typescript2": "^0.28.0",
     "ts-node": "^9.0.0",
     "typescript": "^4.0.2"

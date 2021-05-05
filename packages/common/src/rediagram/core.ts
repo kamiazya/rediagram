@@ -3,37 +3,22 @@ import { ReactElement } from 'react';
 import path from 'path';
 import { ensureDir } from 'fs-extra';
 import { loadConfig, RediagramCoreOption } from '../config';
-import {
-  RediagramCore,
-  RediagramRootComponent,
-  RediagramLogger,
-  RediagramPluginAggregation,
-  RediagramPluginModule,
-} from './types';
+import { RediagramCore, RediagramRootComponent, RediagramLogger, RediagramPluginAggregation } from './types';
 import { PluginAggregation } from './plugin-aggregation';
 
-import { DotPluginModule } from '../plugins/dot';
-import { ImagePluginModule } from '../plugins/image';
-import { SucrasePluginModule } from '../plugins/sucrase';
 import { DefaultLogger } from './logger';
 
 export class Core implements RediagramCore {
   public static readonly MODULE_NAME = 'rediagram';
 
-  public static presetPluginModules: RediagramPluginModule<any>[] = [
-    DotPluginModule,
-    ImagePluginModule,
-    SucrasePluginModule,
-  ];
-
   private static instance?: RediagramCore;
 
   public static create(): RediagramCore {
     if (!this.instance) {
-      const { core, pluginOptions = {} } = loadConfig();
+      const { core } = loadConfig();
       const logger = DefaultLogger.createRoot();
 
-      const aggregation = new PluginAggregation(logger.createChild('plugin-aggregation'), ...this.presetPluginModules);
+      const aggregation = new PluginAggregation(logger.createChild('plugin-aggregation'));
 
       if (core.filepath) {
         logger.debug(`Config loaded from "./${path.relative(process.cwd(), core.filepath)}".`);
@@ -41,8 +26,6 @@ export class Core implements RediagramCore {
         logger.debug('Config file not found.');
       }
       const instance = new Core(logger, core, aggregation);
-
-      this.presetPluginModules.forEach(({ name }) => instance.loadPlugin(name, pluginOptions[name]));
 
       core.plugins.forEach(({ name, options }) => instance.loadPlugin(name, options));
 
