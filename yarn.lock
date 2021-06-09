@@ -15129,9 +15129,9 @@ stylehacks@^4.0.0:
     postcss-selector-parser "^3.0.0"
 
 sucrase@^3.16.0:
-  version "3.16.0"
-  resolved "https://registry.yarnpkg.com/sucrase/-/sucrase-3.16.0.tgz#19b5b886ccca270dd5ca12ff060eeaf0b599735f"
-  integrity sha512-ovVuswxV5TayCPXfTk8bgBgk6uNRvsinIkEpq0J6zS1xXCx5N/LLGcbsKdRhqn/ToZylMX6+yXaR1LSn1I42Pg==
+  version "3.18.2"
+  resolved "https://registry.yarnpkg.com/sucrase/-/sucrase-3.18.2.tgz#d9f16f1dd4f91e0293ad6f692867772eda301e4b"
+  integrity sha512-xCFP35OA6uAtBUVB8jPSftiR2Udjh0d9JkQnUOYppILpN4rBSk0yxiy67GVzD3XsFGIB6LlyIfhCABtwlopMSw==
   dependencies:
     commander "^4.0.0"
     glob "7.1.6"
