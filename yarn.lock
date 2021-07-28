@@ -3230,10 +3230,10 @@
   resolved "https://registry.yarnpkg.com/@types/validate-npm-package-name/-/validate-npm-package-name-3.0.3.tgz#970c1949b0b677e970aa6e60db4e0f6aaf5fb293"
   integrity sha512-dLhCHEIjf9++/vHaHCo/ngJzGqGGbPh/f7HKwznEk3WFL64t/VKuRiVpyQH4afX93YkCV94I9M0Cx+DBLk1Dsg==
 
-"@types/which@^1.3.2":
-  version "1.3.2"
-  resolved "https://registry.yarnpkg.com/@types/which/-/which-1.3.2.tgz#9c246fc0c93ded311c8512df2891fb41f6227fdf"
-  integrity sha512-8oDqyLC7eD4HM307boe2QWKyuzdzWBj56xI/imSl2cpL+U3tCMaTAkMJ4ee5JBZ/FsOJlvRGeIShiZDAl1qERA==
+"@types/which@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@types/which/-/which-2.0.1.tgz#27ecd67f915b7c3d6ba552135bb1eecd66e63501"
+  integrity sha512-Jjakcv8Roqtio6w1gr0D7y6twbhx6gGgFGF5BLwajPpnOIOxFkakFhCq+LmyyeAz7BX6ULrjBOxdKaCDy+4+dQ==
 
 "@types/yargs-parser@*":
   version "20.2.1"
