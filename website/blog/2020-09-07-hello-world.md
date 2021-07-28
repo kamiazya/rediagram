@@ -19,8 +19,8 @@ We currently offer the following packages.
   - [@rediagram/cli](https://github.com/kamiazya/rediagrampackages/cli/README.md) - CLI for rediagram.
   - [@rediagram/cdk](https://github.com/kamiazya/rediagrampackages/cdk/README.md) - Component Development Kit for rediagram library.
 - Component Libraries
-  - [@rediagram/aws](https://github.com/kamiazya/rediagramcomponent-libraries/aws/README.md) - Components for drawing AWS diagrams.
-  - [@rediagram/gcp](https://github.com/kamiazya/rediagramcomponent-libraries/gcp/README.md) - Components for drawing GCP diagrams.
+  - [@rediagram/aws](https://github.com/kamiazya/rediagrampackages/aws/README.md) - Components for drawing AWS diagrams.
+  - [@rediagram/gcp](https://github.com/kamiazya/rediagrampackages/gcp/README.md) - Components for drawing GCP diagrams.
   - etc,
     - We have no plans yet, but welcome contributions.
 - Miscellaneous

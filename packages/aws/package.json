@@ -10,7 +10,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/kamiazya/rediagram.git",
-    "directory": "component-libraries/aws"
+    "directory": "packages/aws"
   },
   "bugs": {
     "url": "https://github.com/kamiazya/rediagram/issues"
