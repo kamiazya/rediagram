@@ -83,9 +83,9 @@ See this document for [more information](https://kamiazya.github.io/rediagram/do
   - [@rediagram/tsconfig](./packages/tsconfig/README.md) - A base TSConfig for working with rediagram.
   - [@rediagram/common](./packages/common/README.md)  - Common config and utility for rediagram.
 - Component Libraries
-  - [@rediagram/aws](./component-libraries/aws/README.md) - Components for drawing AWS diagrams.
-  - [@rediagram/gcp](./component-libraries/gcp/README.md) - Components for drawing GCP diagrams.
-  - [@rediagram/firebase](./component-libraries/firebase/README.md) - Components for drawing Firebase diagrams.
+  - [@rediagram/aws](./packages/aws/README.md) - Components for drawing AWS diagrams.
+  - [@rediagram/gcp](./packages/gcp/README.md) - Components for drawing GCP diagrams.
+  - [@rediagram/firebase](./packages/firebase/README.md) - Components for drawing Firebase diagrams.
   - etc,
     - We have no plans yet, but welcome contributions.
 - Miscellaneous

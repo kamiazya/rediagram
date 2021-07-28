@@ -1,16 +1,16 @@
 {
-  "name": "@rediagram/firebase",
-  "version": "0.0.0",
+  "name": "@rediagram/gcp",
+  "version": "0.3.0",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "license": "MIT",
-  "description": "Components for drawing Firebase diagrams.",
+  "description": "Components for drawing GCP diagrams.",
   "author": "kamiazya <yuki@kamiazya.tech>",
   "homepage": "https://github.com/kamiazya/rediagram",
   "repository": {
     "type": "git",
     "url": "https://github.com/kamiazya/rediagram.git",
-    "directory": "component-libraries/firebase"
+    "directory": "packages/gcp"
   },
   "bugs": {
     "url": "https://github.com/kamiazya/rediagram/issues"
