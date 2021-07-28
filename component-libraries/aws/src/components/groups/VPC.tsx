@@ -54,17 +54,21 @@ function resolveColor(type?: Type): string | undefined {
   }
 }
 
-function useStyle(
-  type?: Type,
-): { fontcolor: string | undefined; bgcolor: string | undefined; color: string | undefined; icon: string } {
-  return useMemo(() => {
-    return {
+function useStyle(type?: Type): {
+  fontcolor: string | undefined;
+  bgcolor: string | undefined;
+  color: string | undefined;
+  icon: string;
+} {
+  return useMemo(
+    () => ({
       color: resolveColor(type),
       fontcolor: resolveFontcolor(type),
       bgcolor: resolveBgcolor(type),
       icon: resolveImage(type),
-    };
-  }, [type]);
+    }),
+    [type],
+  );
 }
 
 export const VPC: FC<Props> = ({ type, ip, children }) => {
