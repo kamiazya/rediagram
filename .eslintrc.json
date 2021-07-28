@@ -30,12 +30,14 @@
     "airbnb",
     "plugin:prettier/recommended",
     "plugin:@typescript-eslint/recommended",
-    "prettier/@typescript-eslint",
+    "prettier",
     "plugin:react-hooks/recommended",
     "plugin:jest/recommended"
   ],
   "rules": {
+    "no-use-before-define": "off",
     "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-use-before-define": "warn",
     "prettier/prettier": "error",
     "import/extensions": "off",
     "import/no-unresolved": "off",
