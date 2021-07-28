@@ -85,6 +85,7 @@ See this document for [more information](https://kamiazya.github.io/rediagram/do
 - Component Libraries
   - [@rediagram/aws](./component-libraries/aws/README.md) - Components for drawing AWS diagrams.
   - [@rediagram/gcp](./component-libraries/gcp/README.md) - Components for drawing GCP diagrams.
+  - [@rediagram/firebase](./component-libraries/firebase/README.md) - Components for drawing Firebase diagrams.
   - etc,
     - We have no plans yet, but welcome contributions.
 - Miscellaneous

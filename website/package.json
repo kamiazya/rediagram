@@ -11,16 +11,16 @@
     "serve": "docusaurus serve"
   },
   "dependencies": {
-    "@docusaurus/core": "2.0.0-alpha.64",
-    "@docusaurus/preset-classic": "2.0.0-alpha.64",
+    "@docusaurus/core": "2.0.0-beta.3",
+    "@docusaurus/preset-classic": "2.0.0-beta.3",
     "@mdx-js/react": "^1.5.8",
     "clsx": "^1.1.1",
     "react": "^16.8.4",
     "react-dom": "^16.8.4"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "^2.0.0-alpha.51",
-    "@docusaurus/types": "^2.0.0-alpha.37",
+    "@docusaurus/module-type-aliases": "^2.0.0-beta.3",
+    "@docusaurus/types": "^2.0.0-beta.3",
     "@tsconfig/docusaurus": "^1.0.2",
     "@types/react": "^16.9.49",
     "@types/react-helmet": "^6.1.0",

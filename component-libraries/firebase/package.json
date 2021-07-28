@@ -1,0 +1,55 @@
+{
+  "name": "@rediagram/firebase",
+  "version": "0.0.0",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "license": "MIT",
+  "description": "Components for drawing Firebase diagrams.",
+  "author": "kamiazya <yuki@kamiazya.tech>",
+  "homepage": "https://github.com/kamiazya/rediagram",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kamiazya/rediagram.git",
+    "directory": "component-libraries/firebase"
+  },
+  "bugs": {
+    "url": "https://github.com/kamiazya/rediagram/issues"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/kamiazya"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "clean": "rimraf lib",
+    "build": "ts-node scripts/build",
+    "watch": "tsc --watch"
+  },
+  "dependencies": {
+    "@rediagram/cdk": "^0.3.0"
+  },
+  "peerDependencies": {
+    "@ts-graphviz/react": "^0.7.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "rediagram": "*",
+    "ts-graphviz": "^0.13.1"
+  },
+  "devDependencies": {
+    "@types/node": "^14.0.4",
+    "@types/prop-types": "^15.7.3",
+    "@types/react": "^16.9.35",
+    "@types/react-dom": "^16.9.8",
+    "@types/rimraf": "^3.0.0",
+    "rediagram": "^0.2.4",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.32.0",
+    "rollup-plugin-dts": "^1.4.13",
+    "rollup-plugin-typescript2": "^0.28.0",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.2"
+  }
+}
