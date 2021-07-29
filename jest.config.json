@@ -15,8 +15,5 @@
     "js",
     "jsx",
     "json"
-  ],
-  "setupFilesAfterEnv": [
-    "<rootDir>/config/jest/setup-jest.ts"
   ]
 }

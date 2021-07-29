@@ -47,11 +47,10 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "fs-extra": "^9.0.0",
     "jest": "^27.0.6",
-    "jest-graphviz": "^0.4.0",
     "lerna": "^4.0.0",
     "prettier": "^2.3.2",
     "react-test-renderer": "^16.13.1",
-    "ts-jest": "^26.3.0",
+    "ts-jest": "^27.0.4",
     "ts-node": "^9.0.0",
     "typescript": "^4.0.2"
   }
