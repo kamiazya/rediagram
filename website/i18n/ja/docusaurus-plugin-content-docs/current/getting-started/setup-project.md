@@ -94,7 +94,7 @@ yarn コマンドを使うことで、1 コマンドでパッケージのイン�
       2 directories, 9 files
     ```
 
-    <img src={require('../../../../../assets/MyInfra.rediagram.png').default} />
+    <img alt="MyInfra" src={require('../../../../../assets/MyInfra.rediagram.png').default} />
 
     :::info
     `rediagramc` コマンドは [@rediagram/cli](https://www.npmjs.com/package/@rediagram/cli) パッケージで提供されています。

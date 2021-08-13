@@ -93,7 +93,7 @@ You can use the yarn command to install packages and initialize projects with a 
       2 directories, 9 files
     ```
 
-    <img src={require('../../assets/MyInfra.rediagram.png').default} />
+    <img alt="MyInfra" src={require('../../assets/MyInfra.rediagram.png').default} />
 
     :::note
     The `rediagramc` command is provided in the [@rediagram/cli](https://www.npmjs.com/package/@rediagram/cli) package.
