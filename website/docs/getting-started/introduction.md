@@ -40,7 +40,7 @@ PNG(
 
 When this source file is executed by [ts-node](https://github.com/TypeStrong/ts-node) etc.[^2], the following image will be output to the directory.
 
-<img src={require('./assets/AppEngineAndCloudEndpoints.rediagram.png').default} />
+<img alt="gcp diagram" src={require('../../assets/AppEngineAndCloudEndpoints.rediagram.png').default} />
 
 :::info
 

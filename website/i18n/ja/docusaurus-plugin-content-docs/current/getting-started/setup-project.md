@@ -1,19 +1,19 @@
 ---
 id: setup-project
-title: Setup Project
-sidebar_label: Setup Project
+title: プロジェクトを初期化する
+sidebar_label: プロジェクトを初期化する
 slug: /getting-started/setup-project
 ---
 
-You can initialize the project at once by using the `create-rediagram-project` command.
+`create-rediagram-project` コマンドを使用することで、プロジェクトを一気に初期化できます。
 
 [![NPM](https://nodei.co/npm/create-rediagram-project.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/create-rediagram-project/)
 
-You can use the yarn command to install packages and initialize projects with a single command.
+yarn コマンドを使うことで、1 コマンドでパッケージのインストールとプロジェクトの初期化を実施できます。
 
-## Procedure
+## 手順
 
-1. Initialize the project by specifying the project name.
+1. プロジェクト名を指定して、プロジェクトを初期化します。
 
     ```bash
     # yarn create rediagram-project <project-name>
@@ -22,12 +22,12 @@ You can use the yarn command to install packages and initialize projects with a 
       ...
     ```
 
-1. Move to your project's directory and make sure your project is initialized.
+1. プロジェクトのディレクトリに移動すると、下記のようなプロジェクトが初期化されています。
 
     ```bash
-    # Move to the specified directory
+    # 指定したディレクトリに移動
     $ cd my-rediagram
-    # Display file tree
+    # ファイルツリーを表示
     $ tree . -I node_modules -a
       .
       ├── .editorconfig
@@ -42,6 +42,7 @@ You can use the yarn command to install packages and initialize projects with a 
       └── yarn.lock
 
       2 directories, 8 files
+    $ cat src/MyInfra.rediagram.tsx
     ```
 
     ```tsx title="src/MyInfra.rediagram.tsx"
@@ -70,7 +71,7 @@ You can use the yarn command to install packages and initialize projects with a 
     );
     ```
 
-1. The `yarn start` command outputs `MyInfra.rediagram.png` in the `img` directory.
+1. `yarn start` コマンドを実行すると `img` ディレクトリ内に `MyInfra.rediagram.png` が出力されます。
 
     ```bash {11}
     $ yarn start
@@ -93,11 +94,10 @@ You can use the yarn command to install packages and initialize projects with a 
       2 directories, 9 files
     ```
 
-    <img src={require('../../assets/MyInfra.rediagram.png').default} />
+    <img src={require('../../../../../assets/MyInfra.rediagram.png').default} />
 
-    :::note
-    The `rediagramc` command is provided in the [@rediagram/cli](https://www.npmjs.com/package/@rediagram/cli) package.
-
-    Executes the file with the pattern specified by `includes` in `.rediagramrc.yaml`.
+    :::info
+    `rediagramc` コマンドは [@rediagram/cli](https://www.npmjs.com/package/@rediagram/cli) パッケージで提供されています。
+    `.rediagramrc.yaml` の `includes` で指定したパターンのファイルを実行します。
 
     :::

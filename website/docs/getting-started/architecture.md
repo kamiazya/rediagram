@@ -20,7 +20,7 @@ rediagram uses React to output the DOT language from JSX and Graphviz to generat
 
 ```plain
       React        Graphviz
-JSX --------> DOT ---------> 画像
+JSX --------> DOT ---------> Image
 ```
 
 [^1]: A type of data description language for expressing graphs as data structures using plain text.
