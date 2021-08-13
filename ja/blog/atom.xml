@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://kamiazya.github.io/ja/blog</id>
+    <title>rediagram Blog</title>
+    <updated>2020-09-07T00:00:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://kamiazya.github.io/ja/blog"/>
+    <subtitle>rediagram Blog</subtitle>
+    <icon>https://kamiazya.github.io/ja/</icon>
+    <entry>
+        <title type="html"><![CDATA[Hello world]]></title>
+        <id>hello-world</id>
+        <link href="https://kamiazya.github.io/ja/blog/hello-world"/>
+        <updated>2020-09-07T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Hello world, Thanks for reading.]]></summary>
+    </entry>
+</feed>

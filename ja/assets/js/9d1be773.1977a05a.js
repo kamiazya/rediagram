@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_rediagram_website=self.webpackChunk_rediagram_website||[]).push([[876],{4507:function(a){a.exports=JSON.parse('{"rediagram":{"allTagsPath":"/ja/blog/tags","slug":"rediagram","name":"rediagram","count":1,"permalink":"/ja/blog/tags/rediagram"}}')}}]);
