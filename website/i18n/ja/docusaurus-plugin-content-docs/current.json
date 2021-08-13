@@ -4,7 +4,7 @@
     "description": "The label for version current"
   },
   "sidebar.someSidebar.category.Getting Started": {
-    "message": "はじめる",
+    "message": "Get Started",
     "description": "The label for category Getting Started in sidebar someSidebar"
   }
 }

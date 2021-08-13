@@ -158,5 +158,37 @@
   "theme.TOCCollapsible.toggleButtonLabel": {
     "message": "On this page",
     "description": "The label used by the button on the collapsible TOC component"
+  },
+  "top.visualizeYourInfrastructure.title": {
+    "message": "インフラを可視化する",
+    "description": "Title for top page feature 'Visualize your Infrastructure'"
+  },
+  "top.visualizeYourInfrastructure.description": {
+    "message": "rediagramは、 AWS や GCP などのクラウドインフラストラクチャを視覚化するためのプラットフォームです。",
+    "description": "Description for top page feature 'Visualize your Infrastructure'"
+  },
+  "top.poweredByReact.title": {
+    "message": "Powered by React",
+    "description": "Title for feature 'Powered by React' on top page"
+  },
+  "top.poweredByReact.description": {
+    "message": "Reactを使用して、図のレイアウトを拡張やカスタマイズします。",
+    "description": "Description for feature 'Powered by React' on top page"
+  },
+  "top.batteryIncludes.title": {
+    "message": "バッテーリー搭載",
+    "description": "Title for feature 'Battery includes' on top page"
+  },
+  "top.batteryIncludes.description": {
+    "message": "rediagramはすでにAWSとGCPサービスをコンポーネントとして提供し、ライブラリを提供しています。何度もコンポーネントを作成する必要はありません。",
+    "description": "Description for feature 'Battery includes' on top page"
+  },
+  "top.getStarted": {
+    "message": "Get Started",
+    "description": "Text for 'Get Started' button on top page"
+  },
+  "top.tagline": {
+    "message": "React でシステム構成図をマークアップ",
+    "description": "Tagline message on top page"
   }
 }

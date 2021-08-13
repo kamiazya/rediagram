@@ -11,7 +11,7 @@ You can initialize the project at once by using the `create-rediagram-project` c
 
 You can use the yarn command to install packages and initialize projects with a single command.
 
-## Procedure
+## Procedure {#procedure}
 
 1. Initialize the project by specifying the project name.
 
