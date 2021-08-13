@@ -1,4 +1,5 @@
-module.exports = {
+/** @type {import('@docusaurus/types').DocusaurusConfig} */
+const config = {
   title: 'rediagram',
   tagline: 'Markup and draw your system diagrams with React.',
   url: 'https://kamiazya.github.io',
@@ -7,6 +8,20 @@ module.exports = {
   favicon: '/',
   organizationName: 'kamiazya', // Usually your GitHub org/user name.
   projectName: 'rediagram', // Usually your repo name.
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'ja'],
+    localeConfigs: {
+      en: {
+        label: 'English',
+        direction: 'ltr',
+      },
+      ja: {
+        label: '日本語',
+        direction: 'ltr',
+      },
+    },
+  },
   themeConfig: {
     navbar: {
       title: 'rediagram',
@@ -18,6 +33,10 @@ module.exports = {
           position: 'left',
         },
         { to: 'blog', label: 'Blog', position: 'left' },
+        {
+          type: 'localeDropdown',
+          position: 'right',
+        },
         {
           href: 'https://github.com/kamiazya/rediagram',
           label: 'GitHub',
@@ -75,3 +94,5 @@ module.exports = {
     ],
   ],
 };
+
+module.exports = config;

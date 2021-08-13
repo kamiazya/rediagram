@@ -5,7 +5,7 @@ sidebar_label: Introduction
 slug: /
 ---
 
-## What's rediagram?
+## What's rediagram? {#whats-rediagram}
 
 rediagram can generate an image of the infrastructure diagram by describing the infrastructure configuration using JSX notation[^1].
 
@@ -40,7 +40,7 @@ PNG(
 
 When this source file is executed by [ts-node](https://github.com/TypeStrong/ts-node) etc.[^2], the following image will be output to the directory.
 
-<img src={require('./assets/AppEngineAndCloudEndpoints.rediagram.png').default} />
+<img alt="gcp diagram" src={require('../../assets/AppEngineAndCloudEndpoints.rediagram.png').default} />
 
 :::info
 
@@ -49,7 +49,7 @@ In this example, I drew the infrastructure diagram of GCP, but [@rediagram/aws](
 Other cloud providers will be supported in sequence.
 :::
 
-## Concept
+## Concept {#concept}
 
 rediagram is a framework for using [React](https://reactjs.org/) to generate infrastructure diagrams.
 
@@ -64,7 +64,7 @@ Taking advantage of the following features of React, it provides a function to d
   - React is generally established as a technology for building applications on browsers using ReactDOM etc., but there are no restrictions on the technology that can be used in combination.
   - rediagram is used in combination with [Graphviz](https://graphviz.org/) to create an infrastructure diagram.
 
-## Features
+## Features {#features}
 
 1. **Beautiful Infrastructure diagram**
     - rediagram can generate a beautiful infrastructure diagram without any config.

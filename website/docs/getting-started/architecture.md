@@ -5,7 +5,7 @@ sidebar_label: Architecture
 slug: /getting-started/architecture
 ---
 
-## Dependent software
+## Dependent software {#dependent-software}
 
 rediagram depends on the following software:
 
@@ -14,13 +14,13 @@ rediagram depends on the following software:
 - [Node.js](https://nodejs.org/)
   - A JavaScript execution environment built on the V8 JavaScript engine.
 
-## How it works?
+## How it works? {#how-it-works}
 
 rediagram uses React to output the DOT language from JSX and Graphviz to generate an image of the infrastructure diagram.
 
 ```plain
       React        Graphviz
-JSX --------> DOT ---------> 画像
+JSX --------> DOT ---------> Image
 ```
 
 [^1]: A type of data description language for expressing graphs as data structures using plain text.
