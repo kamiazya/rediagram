@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.1](https://github.com/kamiazya/rediagram/compare/@rediagram/cdk@0.3.0...@rediagram/cdk@0.3.1) (2021-08-24)
+
+
+### Bug Fixes
+
+* **@rediagram/cdk:** support bordor none for Group component ([d0dc3a6](https://github.com/kamiazya/rediagram/commit/d0dc3a6d4ea5700514307d8782ad05c5a5ef6a05))
+
+
+
+
+
 # [0.3.0](https://github.com/kamiazya/rediagram/compare/@rediagram/cdk@0.2.0...@rediagram/cdk@0.3.0) (2020-12-07)
 
 
