@@ -35,7 +35,7 @@
     "@ts-graphviz/react": "^0.7.0",
     "@types/node": "^16.4.5",
     "@types/prop-types": "^15.7.3",
-    "@types/react": "^16.9.35",
+    "@types/react": "^17.0.19",
     "@types/react-dom": "^16.9.8",
     "chokidar": "^3.4.3",
     "commander": "^6.1.0",

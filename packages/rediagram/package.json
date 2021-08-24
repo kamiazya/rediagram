@@ -36,7 +36,7 @@
     "@types/fs-extra": "^9.0.1",
     "@types/node": "^16.4.5",
     "@types/prop-types": "^15.7.3",
-    "@types/react": "^16.9.35",
+    "@types/react": "^17.0.19",
     "@types/react-dom": "^16.9.8",
     "rollup": "^2.55.0",
     "rollup-plugin-delete": "^2.0.0",

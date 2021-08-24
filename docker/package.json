@@ -28,7 +28,7 @@
     "ts-graphviz": "^0.13.1"
   },
   "devDependencies": {
-    "@types/react": "^16.9.41",
+    "@types/react": "^17.0.19",
     "@types/react-dom": "^16.9.8",
     "ts-node": "^9.0.0",
     "typescript": "^3.9.6"
