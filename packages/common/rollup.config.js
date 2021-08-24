@@ -12,7 +12,7 @@ const options = [
         file: './lib/index.js',
       },
     ],
-    external: ['path', 'cosmiconfig'],
+    external: ['path', 'cosmiconfig', 'fs-extra', 'tslog', '@ts-graphviz/react', '@ts-graphviz/node'],
     plugins: [typescript()],
   },
   {

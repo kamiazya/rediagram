@@ -1,23 +1,15 @@
 import cmd from 'commander';
 import glob from 'fast-glob';
 import chokidar from 'chokidar';
-import { CONFIG } from '@rediagram/common';
+import { Rediagram } from 'rediagram';
 import { registerAll } from 'sucrase/dist/register';
-import path from 'path';
 import pkg from './pkg';
 
 type Options = {
   watch: boolean;
 };
 
-function runRediagram(src: string) {
-  // eslint-disable-next-line no-console
-  console.log(src);
-  const resolved = path.resolve(src);
-  // eslint-disable-next-line global-require, import/no-dynamic-require
-  require(resolved);
-  delete require.cache[resolved];
-}
+const runRediagram = Rediagram.run.bind(Rediagram);
 
 cmd
   .name('rediagramc')
@@ -29,7 +21,7 @@ cmd
     const paths =
       pattarns.length >= 1
         ? pattarns
-        : [...CONFIG.scope.getIncludesPattarns(), ...CONFIG.scope.getExcludesPattarns().map((p) => `!${p}`)];
+        : [...Rediagram.config.scope.includes, ...Rediagram.config.scope.excludes.map((p) => `!${p}`)];
     if (this.watch) {
       chokidar.watch(paths).on('add', runRediagram).on('change', runRediagram);
     } else {
