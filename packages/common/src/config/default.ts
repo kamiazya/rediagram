@@ -1,6 +1,6 @@
-import { RediagramGlobalConfig } from './types';
+import { RediagramConfig } from '../types';
 
-export function createDefaultConfig(): RediagramGlobalConfig {
+export function createDefaultConfig(): RediagramConfig {
   return {
     filepath: null,
     scope: {

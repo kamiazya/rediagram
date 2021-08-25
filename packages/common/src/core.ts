@@ -3,29 +3,16 @@ import { ensureDir } from 'fs-extra';
 import { ReactElement } from 'react';
 import { renderToDot } from '@ts-graphviz/react';
 import { exportToFile } from '@ts-graphviz/node';
-import { loadConfigfile, RediagramGlobalConfig } from '../config';
-import { LOGGER, Logger } from '../logger';
-import { RenderOption } from './types';
+import { RediagramConfig, Logger, RenderOption, RediagramCore } from './types';
 
-export class RediagramCore {
-  public static readonly MODULE_NAME = 'rediagram';
+export class Core implements RediagramCore {
+  public readonly logger: Logger;
 
-  private static instance?: RediagramCore;
+  public readonly config: Readonly<RediagramConfig>;
 
-  public readonly logger: Logger = LOGGER.getChildLogger({ name: RediagramCore.MODULE_NAME });
-
-  public static create(): RediagramCore {
-    if (!this.instance) {
-      const config = loadConfigfile();
-      this.instance = new RediagramCore(config);
-    }
-    return this.instance;
-  }
-
-  public readonly config: Readonly<RediagramGlobalConfig>;
-
-  constructor(config: RediagramGlobalConfig) {
+  constructor(config: RediagramConfig, logger: Logger) {
     this.config = Object.freeze({ ...config });
+    this.logger = logger;
   }
 
   public async render(element: ReactElement, options: RenderOption): Promise<string> {

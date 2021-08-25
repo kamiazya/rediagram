@@ -1,3 +1,3 @@
-import { RediagramCore } from '@rediagram/common';
+import { createRediagramCore } from '@rediagram/common';
 
-export const Rediagram = RediagramCore.create();
+export const Rediagram = createRediagramCore();

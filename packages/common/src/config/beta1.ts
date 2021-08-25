@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-namespace */
 import path from 'path';
 import { Format } from '@ts-graphviz/node';
-import { RediagramGlobalConfig } from './types';
+import { RediagramConfig } from '../types';
 
 export namespace beta1 {
   export const version = 'beta1';
@@ -19,7 +19,7 @@ export namespace beta1 {
     };
   }
 
-  export function load(filepath: string, data: Config): RediagramGlobalConfig {
+  export function load(filepath: string, data: Config): RediagramConfig {
     return {
       filepath,
       output: {
