@@ -33,11 +33,12 @@ export async function PNG(
 ): Promise<void> {
   try {
     const p = path.parse(_caller);
-    await Rediagram.render(element, {
+    const output = await Rediagram.render(element, {
       format: 'png',
       name: name ?? p.name,
       dir: dir ?? Rediagram.config.output.dir ?? p.dir,
     });
+    Rediagram.logger.info('Output', path.relative(process.cwd(), output));
   } catch (err) {
     Rediagram.logger.error(err);
   }
@@ -53,11 +54,12 @@ export async function SVG(
 ): Promise<void> {
   try {
     const p = path.parse(_caller);
-    await Rediagram.render(element, {
+    const output = await Rediagram.render(element, {
       format: 'svg',
       name: name ?? p.name,
       dir: dir ?? Rediagram.config.output.dir ?? p.dir,
     });
+    Rediagram.logger.info('Output', path.relative(process.cwd(), output));
   } catch (err) {
     Rediagram.logger.error(err);
   }
@@ -73,11 +75,12 @@ export async function PDF(
 ): Promise<void> {
   try {
     const p = path.parse(_caller);
-    await Rediagram.render(element, {
+    const output = await Rediagram.render(element, {
       format: 'pdf',
       name: name ?? p.name,
       dir: dir ?? Rediagram.config.output.dir ?? p.dir,
     });
+    Rediagram.logger.info('Output', path.relative(process.cwd(), output));
   } catch (err) {
     Rediagram.logger.error(err);
   }

@@ -1,10 +1,10 @@
 import path from 'path';
 import { ensureDir } from 'fs-extra';
-import { Logger } from 'tslog';
 import { ReactElement } from 'react';
 import { renderToDot } from '@ts-graphviz/react';
 import { exportToFile } from '@ts-graphviz/node';
-import { RediagramGlobalConfig, loadConfigfile } from '../config';
+import { loadConfigfile, RediagramGlobalConfig } from '../config';
+import { LOGGER, Logger } from '../logger';
 import { RenderOption } from './types';
 
 export class RediagramCore {
@@ -12,13 +12,7 @@ export class RediagramCore {
 
   private static instance?: RediagramCore;
 
-  public logger = new Logger({
-    type: 'pretty',
-    name: 'rediagram',
-    displayDateTime: false,
-    displayFilePath: 'hidden',
-    displayFunctionName: false,
-  });
+  public readonly logger: Logger = LOGGER.getChildLogger({ name: RediagramCore.MODULE_NAME });
 
   public static create(): RediagramCore {
     if (!this.instance) {
@@ -30,16 +24,11 @@ export class RediagramCore {
 
   public readonly config: Readonly<RediagramGlobalConfig>;
 
-  constructor({ ...config }: RediagramGlobalConfig) {
-    this.config = Object.freeze(config);
-
-    this.logger.info(
-      'Config file is',
-      config.filepath ? `"./${path.relative(process.cwd(), config.filepath)}".` : 'not exist.',
-    );
+  constructor(config: RediagramGlobalConfig) {
+    this.config = Object.freeze({ ...config });
   }
 
-  public async render(element: ReactElement, options: RenderOption): Promise<void> {
+  public async render(element: ReactElement, options: RenderOption): Promise<string> {
     const dot = renderToDot(element);
     const dir = options.dir ?? this.config.output.dir;
     const format = options.format ?? this.config.output.format;
@@ -51,7 +40,6 @@ export class RediagramCore {
     if (dir !== undefined) {
       await ensureDir(dir);
     }
-    this.logger.info('Output', path.relative(process.cwd(), output));
     await exportToFile(dot, {
       format,
       output,
@@ -59,6 +47,7 @@ export class RediagramCore {
         timeout: this.config.dot.timeout,
       },
     });
+    return output;
   }
 
   public async run(src: string): Promise<void> {

@@ -32,7 +32,7 @@
   "dependencies": {
     "@rediagram/aws": "^0.4.2",
     "@rediagram/common": "^0.0.3",
-    "@ts-graphviz/react": "^0.7.0",
+    "@ts-graphviz/react": "^0.9.0",
     "@types/node": "^16.4.5",
     "@types/prop-types": "^15.7.3",
     "@types/react": "^16.9.35",
@@ -45,7 +45,7 @@
     "react-dom": "^16.13.1",
     "rediagram": "^0.2.5",
     "sucrase": "^3.16.0",
-    "ts-graphviz": "^0.13.1",
+    "ts-graphviz": "^0.16.0",
     "typescript": "^4.0.2"
   },
   "devDependencies": {

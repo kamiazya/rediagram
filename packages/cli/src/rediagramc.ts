@@ -9,10 +9,12 @@ type Options = {
   watch: boolean;
 };
 
-const runRediagram = Rediagram.run.bind(Rediagram);
+const NAME = 'rediagramc';
+
+const logger = Rediagram.logger.getChildLogger({ name: NAME });
 
 cmd
-  .name('rediagramc')
+  .name(NAME)
   .version(pkg.version)
   .arguments('[pattarns...]')
   .option('-w, --watch', 'Watch files for changes and rerun rediagram related to changed files.', false)
@@ -23,14 +25,27 @@ cmd
         ? pattarns
         : [...Rediagram.config.scope.includes, ...Rediagram.config.scope.excludes.map((p) => `!${p}`)];
     if (this.watch) {
-      chokidar.watch(paths).on('add', runRediagram).on('change', runRediagram);
+      chokidar
+        .watch(paths)
+        .on('add', async (src) => {
+          logger.info('Added', src);
+          await Rediagram.run(src);
+        })
+        .on('change', async (src) => {
+          logger.info('Changed', src);
+          await Rediagram.run(src);
+        });
     } else {
       const sources = await glob(paths, {
         dot: true,
         extglob: true,
         onlyFiles: true,
       });
-      sources.forEach(runRediagram);
+      sources.forEach(async (src) => {
+        logger.info('Start', src);
+        await Rediagram.run(src);
+        logger.info('End', src);
+      });
     }
   })
   .parse(process.argv);
