@@ -2887,10 +2887,10 @@
   resolved "https://registry.yarnpkg.com/@trysound/sax/-/sax-0.1.1.tgz#3348564048e7a2d7398c935d466c0414ebb6a669"
   integrity sha512-Z6DoceYb/1xSg5+e+ZlPZ9v0N16ZvZ+wYMraFue4HYrE4ttONKtsvruIRf6t9TBR0YvSOfi1hUU0fJfBLCDYow==
 
-"@ts-graphviz/node@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@ts-graphviz/node/-/node-0.3.0.tgz#89e77d5331a0438fceeb47b1d8f9ff3199735a04"
-  integrity sha512-Gsk9FHYTAs4aKzIR5tGOL3FI8WQUlJ3pNEgCSLvEWIEy0jSgllnl4hpFsODy84CIovUWIHPXkCYliCfo1YtePg==
+"@ts-graphviz/node@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@ts-graphviz/node/-/node-0.4.0.tgz#08597d80b4834bc7ba25c8e2eb5bc2f165a1b719"
+  integrity sha512-4lrijHvVTuCIF5g42/jqN4w5BgrDdE1ZR4zUHFU6c9E83EJF5Wv9+YPzjuHHi+jNEmrrdeNR/ZV/CLjIh8Y2pw==
   dependencies:
     tmp-promise "^3.0.2"
 
