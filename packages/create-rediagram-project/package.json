@@ -30,7 +30,7 @@
     "commander": "^6.1.0",
     "cross-spawn": "^7.0.3",
     "dedent": "^0.7.0",
-    "fs-extra": "^9.0.1",
+    "fs-extra": "^10.0.0",
     "ncp": "^2.0.0",
     "replacestream": "^4.0.3",
     "validate-npm-package-name": "^3.0.0",
