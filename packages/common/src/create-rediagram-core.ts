@@ -11,15 +11,14 @@ const MODULE_NAME = 'rediagram';
 /**
  * Load the config file and create an instance of RediagramCore.
  */
-export function createRediagramCore(): RediagramCore {
+export async function createRediagramCore(): Promise<RediagramCore> {
   const logger = ROOT_LOGGER.getChildLogger({ name: MODULE_NAME });
   const config = loadConfig(MODULE_NAME);
   const plugins = PluginManager.createWithPresetModules(logger.getChildLogger({ name: 'rediagram/PluginManager' }), [
     DotPluginModule,
     ImagePluginModule,
   ]);
-  plugins.init(DotPluginModule.name, config.options.dot);
-  plugins.init(ImagePluginModule.name);
+  await Promise.all([plugins.init(DotPluginModule.name, config.options.dot), plugins.init(ImagePluginModule.name)]);
 
   const core = new Core(config, logger, plugins);
   return core;

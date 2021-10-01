@@ -34,24 +34,23 @@ export class PluginManager {
     this.preloads.set(pluginModule.name, pluginModule);
   }
 
-  private resolvePlugin(nameOrKey: string): RediagramPluginModule {
+  private async importPlugin(nameOrKey: string): Promise<RediagramPluginModule> {
     let pluginModule = this.preloads.get(nameOrKey);
     if (pluginModule) {
       return pluginModule;
     }
-    // eslint-disable-next-line import/no-dynamic-require, @typescript-eslint/no-var-requires, global-require
-    pluginModule = require(nameOrKey);
+    pluginModule = await import(nameOrKey);
     PluginManager.assertsPluginModule(pluginModule);
     return pluginModule;
   }
 
-  public createPlugin<T>(name: string, option: T): RediagramPlugin {
-    const pluginModule = this.resolvePlugin(name);
+  public async createPlugin<T>(name: string, option: T): Promise<RediagramPlugin> {
+    const pluginModule = await this.importPlugin(name);
     return pluginModule.setup({ option: option ?? {}, logger: this.logger.getChildLogger({ name }) });
   }
 
-  public init(name: string, option?: Record<string, unknown>): void {
-    this.load(this.createPlugin(name, option));
+  public async init(name: string, option?: Record<string, unknown>): Promise<void> {
+    this.load(await this.createPlugin(name, option));
   }
 
   public load(plugin: RediagramPlugin): void {

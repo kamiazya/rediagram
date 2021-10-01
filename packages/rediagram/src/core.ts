@@ -1,3 +1,3 @@
 import { createRediagramCore } from '@rediagram/common';
 
-export const Rediagram = createRediagramCore();
+export const Rediagram = await createRediagramCore();
