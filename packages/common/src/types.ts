@@ -1,8 +1,11 @@
 /* eslint-disable @typescript-eslint/ban-types */
 import { ReactElement, FC } from 'react';
+import { INode } from 'svgson';
 import { Logger as TSLogLogger } from 'tslog';
 
 export type Logger = TSLogLogger;
+
+export type SVGNode = INode;
 
 export type RediagramConfig = {
   filepath: string | null;
@@ -46,6 +49,10 @@ export interface RediagramRenderer {
   (element: ReactElement): Promise<string>;
 }
 
+export interface RediagramTransformer {
+  (node: SVGNode): Promise<void>;
+}
+
 export interface RediagramExporter {
   (svg: string, option: Required<ExportOption>): Promise<string>;
 }
@@ -57,6 +64,9 @@ export interface RediagramPlugin {
   };
   exporters?: {
     [name: string]: RediagramExporter;
+  };
+  transformers?: {
+    [name: string]: RediagramTransformer;
   };
 }
 

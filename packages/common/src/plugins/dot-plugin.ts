@@ -12,7 +12,8 @@ export const DotPluginModule: RediagramPluginModule<DotPluginOption> = {
     return {
       renderers: {
         async dot(element) {
-          const buf = await exportToBuffer(renderToDot(element), {
+          const dot = renderToDot(element);
+          const buf = await exportToBuffer(dot, {
             format: 'svg',
             suppressWarnings: true,
             childProcessOptions: {

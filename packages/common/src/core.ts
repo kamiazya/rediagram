@@ -1,6 +1,7 @@
 import path from 'node:path';
 import { ensureDir } from 'fs-extra';
 import { ReactElement } from 'react';
+import { parse, stringify } from 'svgson';
 import { RediagramConfig, Logger, ExportOption, RediagramCore, RediagramRootComponent } from './types';
 import { PluginManager } from './plugin-manager';
 
@@ -17,9 +18,18 @@ export class Core implements RediagramCore {
     this.plugins = plugins;
   }
 
-  public render(element: ReactElement<any, RediagramRootComponent>): Promise<string> {
+  public async render(element: ReactElement<any, RediagramRootComponent>): Promise<string> {
     const render = this.plugins.getRenderer(element.type.renderer);
-    return render(element);
+    const svg = await render(element);
+    const ast = await parse(svg);
+    // eslint-disable-next-line no-restricted-syntax
+    for (const [name, transform] of this.plugins.getTransformers()) {
+      this.logger.debug(`transformer "${name}": start`);
+      // eslint-disable-next-line no-await-in-loop
+      await transform(ast);
+      this.logger.debug(`transformer "${name}": end`);
+    }
+    return stringify(ast);
   }
 
   public async export(svg: string, option: ExportOption): Promise<string> {

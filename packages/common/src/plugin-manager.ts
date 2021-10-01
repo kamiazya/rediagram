@@ -1,4 +1,11 @@
-import { Logger, RediagramExporter, RediagramPlugin, RediagramPluginModule, RediagramRenderer } from './types';
+import {
+  Logger,
+  RediagramExporter,
+  RediagramPlugin,
+  RediagramPluginModule,
+  RediagramRenderer,
+  RediagramTransformer,
+} from './types';
 
 export class PluginManager {
   private static assertsPluginModule(obj: any): asserts obj is RediagramPluginModule {
@@ -22,6 +29,8 @@ export class PluginManager {
   }
 
   private preloads = new Map<string, RediagramPluginModule>();
+
+  private transformers = new Map<string, RediagramTransformer>();
 
   private renderers = new Map<string, RediagramRenderer>();
 
@@ -67,6 +76,13 @@ export class PluginManager {
         this.exporters.set(name, exporter);
       });
     }
+
+    if (plugin.transformers) {
+      Object.entries(plugin.transformers).forEach(([name, transformer]) => {
+        this.logger.debug(`"${name}" seted to transformers`);
+        this.transformers.set(name, transformer);
+      });
+    }
   }
 
   public getRenderer(name: string): RediagramRenderer {
@@ -83,5 +99,9 @@ export class PluginManager {
       throw new Error(`"${name}" exporter not found.`);
     }
     return exporter;
+  }
+
+  public getTransformers(): IterableIterator<[string, RediagramTransformer]> {
+    return this.transformers.entries();
   }
 }

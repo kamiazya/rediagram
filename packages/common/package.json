@@ -36,11 +36,13 @@
     "cosmiconfig": "^7.0.1",
     "fs-extra": "^10.0.0",
     "sharp": "^0.29.1",
+    "svgo": "^2.7.0",
     "svgson": "^5.2.1",
     "tslog": "^3.2.1"
   },
   "devDependencies": {
     "@types/sharp": "^0.29.2",
+    "@types/svgo": "^2.4.2",
     "rollup": "^2.55.0",
     "rollup-plugin-delete": "^2.0.0",
     "rollup-plugin-dts": "^3.0.2",

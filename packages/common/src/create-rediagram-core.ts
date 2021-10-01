@@ -5,6 +5,8 @@ import { loadConfig } from './load-config';
 import { PluginManager } from './plugin-manager';
 import { DotPluginModule } from './plugins/dot-plugin';
 import { ImagePluginModule } from './plugins/image-plugin';
+import { SVGPluginModule } from './plugins/svg-plugin';
+import { InternalPluginModule } from './plugins/internal-plugin';
 
 const MODULE_NAME = 'rediagram';
 
@@ -17,8 +19,15 @@ export async function createRediagramCore(): Promise<RediagramCore> {
   const plugins = PluginManager.createWithPresetModules(logger.getChildLogger({ name: 'rediagram/PluginManager' }), [
     DotPluginModule,
     ImagePluginModule,
+    SVGPluginModule,
+    InternalPluginModule,
   ]);
-  await Promise.all([plugins.init(DotPluginModule.name, config.options.dot), plugins.init(ImagePluginModule.name)]);
+  await Promise.all([
+    plugins.init(DotPluginModule.name, config.options.dot),
+    plugins.init(ImagePluginModule.name),
+    plugins.init(SVGPluginModule.name),
+    plugins.init(InternalPluginModule.name),
+  ]);
 
   const core = new Core(config, logger, plugins);
   return core;
