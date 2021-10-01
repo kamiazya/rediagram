@@ -8,11 +8,11 @@ const options = [
     input: './src/index.ts',
     output: [
       {
-        format: 'cjs',
+        format: 'module',
         file: './lib/index.js',
       },
     ],
-    external: ['@rediagram/cdk', 'react', '@ts-graphviz/react', 'prop-types', 'path'],
+    external: ['@rediagram/cdk', 'react', '@ts-graphviz/react', 'prop-types', 'node:path', 'node:url'],
     plugins: [typescript()],
   },
   {

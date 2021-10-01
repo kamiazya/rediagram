@@ -8,7 +8,7 @@ const options = [
     input: './src/index.ts',
     output: [
       {
-        format: 'cjs',
+        format: 'module',
         file: './lib/index.js',
       },
     ],

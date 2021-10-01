@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "target": "ES2015",
+    "target": "ESNext",
+    "module": "ESNext",
     "jsx": "react",
     "strict": true,
     "moduleResolution": "node",

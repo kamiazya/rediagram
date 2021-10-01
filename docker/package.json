@@ -21,7 +21,7 @@
   "dependencies": {
     "@rediagram/aws": "^0.4.2",
     "@rediagram/cli": "^0.1.5",
-    "@ts-graphviz/react": "^0.9.0",
+    "@ts-graphviz/react": "^0.9.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "rediagram": "^0.2.5",

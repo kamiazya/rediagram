@@ -1,10 +1,11 @@
 import typescript from 'rollup-plugin-typescript2';
+import versionInjector from 'rollup-plugin-version-injector';
 
 export default {
   input: './src/main.ts',
   output: [
     {
-      format: 'cjs',
+      format: 'module',
       file: './lib/main.js',
     },
   ],
@@ -12,14 +13,14 @@ export default {
     'chalk',
     'commander',
     'fs-extra',
-    'fs',
     'ncp',
-    'path',
     'replacestream',
     'cross-spawn',
     'dedent',
     'validate-npm-package-name',
     'which',
+    'node:url',
+    'node:path',
   ],
-  plugins: [typescript()],
+  plugins: [typescript(), versionInjector()],
 };

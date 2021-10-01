@@ -2,8 +2,6 @@ import cmd from 'commander';
 import glob from 'fast-glob';
 import chokidar from 'chokidar';
 import { Rediagram } from 'rediagram';
-import { registerAll } from 'sucrase/dist/register';
-import pkg from './pkg';
 
 type Options = {
   watch: boolean;
@@ -15,11 +13,10 @@ const logger = Rediagram.logger.getChildLogger({ name: NAME });
 
 cmd
   .name(NAME)
-  .version(pkg.version)
+  .version('[VI]{version}[/VI]')
   .arguments('[pattarns...]')
   .option('-w, --watch', 'Watch files for changes and rerun rediagram related to changed files.', false)
   .action(async function rediagramc(this: Options, pattarns: string[]): Promise<void> {
-    registerAll();
     const paths =
       pattarns.length >= 1
         ? pattarns
@@ -44,7 +41,6 @@ cmd
       sources.forEach(async (src) => {
         logger.info('Start', src);
         await Rediagram.run(src);
-        logger.info('End', src);
       });
     }
   })
