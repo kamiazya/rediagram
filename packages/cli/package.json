@@ -40,7 +40,7 @@
     "@types/react-dom": "^16.9.8",
     "chokidar": "^3.4.3",
     "commander": "^6.1.0",
-    "esbuild-node-loader": "kamiazya/esbuild-node-loader#fix-load-with-query",
+    "esbuild-node-loader": "^0.6.3",
     "fast-glob": "^3.2.4",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
