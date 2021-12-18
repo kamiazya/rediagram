@@ -8,7 +8,7 @@ const options = [
     input: './src/index.ts',
     output: [
       {
-        format: 'cjs',
+        format: 'module',
         file: './lib/index.js',
       },
     ],
@@ -17,12 +17,13 @@ const options = [
       'ts-graphviz',
       '@ts-graphviz/node',
       'fs-extra',
-      'path',
       'caller',
       '@rediagram/common',
       '@ts-graphviz/react',
       'react',
       'prop-types',
+      'node:path',
+      'node:url',
     ],
     plugins: [typescript()],
   },

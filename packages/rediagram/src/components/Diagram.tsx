@@ -1,7 +1,8 @@
-import React, { FC, ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 import { Digraph } from '@ts-graphviz/react';
 import { attribute } from 'ts-graphviz';
 import t from 'prop-types';
+import { RRC } from '@rediagram/common';
 
 export type DiagramProps = {
   title?: ReactElement | string;
@@ -9,7 +10,7 @@ export type DiagramProps = {
   rankdir?: 'TB' | 'BT' | 'RL' | 'LR';
 };
 
-export const Diagram: FC<DiagramProps> = ({ title, children, dpi, rankdir }) => {
+export const Diagram: RRC<DiagramProps> = ({ title, children, dpi, rankdir }) => {
   return (
     <Digraph
       dpi={dpi}
@@ -40,6 +41,8 @@ export const Diagram: FC<DiagramProps> = ({ title, children, dpi, rankdir }) => 
     </Digraph>
   );
 };
+
+Diagram.renderer = 'dot';
 
 Diagram.propTypes = {
   // eslint-disable-next-line react/require-default-props

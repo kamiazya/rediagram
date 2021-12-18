@@ -1,22 +1,25 @@
 /* eslint-disable @typescript-eslint/no-unused-vars, func-names, no-console */
+import url from 'node:url';
+import path from 'node:path';
 import { createCommand } from 'commander';
 import fs from 'fs-extra';
 import chalk from 'chalk';
 import { ncp } from 'ncp';
-import path from 'path';
 import which from 'which';
 import replacestream from 'replacestream';
 import spawn from 'cross-spawn';
 import dedent from 'dedent';
-import pkg from './pkg';
 import { assertArgs } from './assert-args';
+
+// eslint-disable-next-line no-underscore-dangle
+const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 
 type Options = {
   packageManager: string;
 };
 
-export const command = createCommand(pkg.name)
-  .version(pkg.version)
+export const command = createCommand('create-rediagram-project')
+  .version('[VI]{version}[/VI]')
   .arguments('<name>')
   .option('-p, --package-manager <pm>', 'select a package manager, yarn or npm.', 'yarn')
   .action(function (name: string, { packageManager }: Options) {

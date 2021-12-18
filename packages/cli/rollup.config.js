@@ -1,13 +1,19 @@
 import typescript from 'rollup-plugin-typescript2';
+import versionInjector from 'rollup-plugin-version-injector';
 
-export default {
-  input: './src/rediagramc.ts',
-  output: [
-    {
-      format: 'cjs',
-      file: './lib/rediagramc.js',
-    },
-  ],
-  external: ['commander', 'fast-glob', 'path', 'fs', 'sucrase/dist/register', '@rediagram/common', 'chokidar'],
-  plugins: [typescript()],
-};
+/** @type {import('rollup').RollupOptions[]} */
+const options = [
+  {
+    input: './src/rediagramc.ts',
+    output: [
+      {
+        format: 'module',
+        file: './lib/rediagramc.js',
+      },
+    ],
+    external: ['commander', 'fast-glob', 'path', 'fs', 'rediagram', 'chokidar'],
+    plugins: [typescript(), versionInjector()],
+  },
+];
+
+export default options;

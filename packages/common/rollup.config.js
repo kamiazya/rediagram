@@ -8,11 +8,21 @@ const options = [
     input: './src/index.ts',
     output: [
       {
-        format: 'cjs',
+        format: 'module',
         file: './lib/index.js',
       },
     ],
-    external: ['path', 'cosmiconfig'],
+    external: [
+      'path',
+      'cosmiconfig',
+      'fs-extra',
+      'tslog',
+      'sharp',
+      '@ts-graphviz/react',
+      '@ts-graphviz/node',
+      'node:path',
+      'rehype',
+    ],
     plugins: [typescript()],
   },
   {

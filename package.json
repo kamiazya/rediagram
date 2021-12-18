@@ -1,7 +1,6 @@
 {
   "name": "rediagram",
   "version": "0.0.0",
-  "main": "index.js",
   "license": "MIT",
   "private": true,
   "workspaces": [
@@ -14,7 +13,7 @@
     "lerna": "lerna",
     "test": "jest",
     "prebuild": "lerna run --parallel clean",
-    "build": "yarn workspace @rediagram/common build && yarn workspace create-rediagram-project build && yarn workspace @rediagram/cdk build && yarn workspace @rediagram/cli build && yarn workspace rediagram build && yarn workspace @rediagram/aws build && yarn workspace @rediagram/gcp build && yarn workspace @rediagram/firebase build",
+    "build": "yarn workspace @rediagram/common build && yarn workspace create-rediagram-project build && yarn workspace @rediagram/cdk build && yarn workspace rediagram build && yarn workspace @rediagram/cli build && yarn workspace @rediagram/aws build && yarn workspace @rediagram/gcp build && yarn workspace @rediagram/firebase build",
     "prewatch": "yarn build",
     "watch": "lerna run --parallel watch",
     "rediagram": "yarn workspace @rediagram/cli start",

@@ -1,7 +1,10 @@
 {
   "name": "@rediagram/cdk",
   "version": "0.3.1",
-  "main": "lib/index.js",
+  "type": "module",
+  "exports": {
+    "import": "./lib/index.js"
+  },
   "types": "lib/index.d.ts",
   "author": "kamiazya <yuki@kamiazya.tech>",
   "description": "Component Development Kit for rediagram library.",
@@ -28,10 +31,10 @@
     "watch": "tsc --watch"
   },
   "peerDependencies": {
-    "@ts-graphviz/react": "^0.7.0",
+    "@ts-graphviz/react": "^0.9.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
-    "ts-graphviz": "^0.13.1"
+    "ts-graphviz": "^0.16.0"
   },
   "devDependencies": {
     "@types/prop-types": "^15.7.3",
