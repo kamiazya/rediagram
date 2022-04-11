@@ -30,7 +30,7 @@
     "postinstall": "lerna link"
   },
   "devDependencies": {
-    "@testing-library/react": "^11.0.2",
+    "@testing-library/react": "^13.0.1",
     "@testing-library/react-hooks": "^7.0.1",
     "@types/fs-extra": "^9.0.1",
     "@types/jest": "^26.0.13",
