@@ -22,13 +22,13 @@
     "@rediagram/aws": "^0.4.2",
     "@rediagram/cli": "^0.1.5",
     "@ts-graphviz/react": "^0.7.0",
-    "react": "^16.13.1",
+    "react": "^18.2.0",
     "react-dom": "^16.13.1",
     "rediagram": "^0.2.5",
     "ts-graphviz": "^0.13.1"
   },
   "devDependencies": {
-    "@types/react": "^16.9.41",
+    "@types/react": "^18.0.14",
     "@types/react-dom": "^16.9.8",
     "ts-node": "^9.0.0",
     "typescript": "^3.9.6"
