@@ -20,7 +20,7 @@
     "@mdx-js/react": "^1.6.22",
     "clsx": "^1.1.1",
     "react": "^16.8.4",
-    "react-dom": "^16.8.4"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^2.0.0-beta.4",
