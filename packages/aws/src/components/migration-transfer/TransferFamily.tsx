@@ -11,13 +11,13 @@ export type TransferFamilyType = 'FTPS' | 'SFTP' | 'FTP';
 function resolveImage(type?: TransferFamilyType): string {
   switch (type) {
     case 'FTPS':
-      return resolveAsset('management-governance/TransferFamily/FTPS.png');
+      return resolveAsset('management-transfer/TransferFamily/FTPS.png');
     case 'SFTP':
-      return resolveAsset('management-governance/TransferFamily/SFTP.png');
+      return resolveAsset('management-transfer/TransferFamily/SFTP.png');
     case 'FTP':
-      return resolveAsset('management-governance/TransferFamily/FTP.png');
+      return resolveAsset('management-transfer/TransferFamily/FTP.png');
     default:
-      return resolveAsset('management-governance/TransferFamily.png');
+      return resolveAsset('management-transfer/TransferFamily.png');
   }
 }
 
