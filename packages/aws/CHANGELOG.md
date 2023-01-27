@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.3](https://github.com/kamiazya/rediagram/compare/@rediagram/aws@0.4.2...@rediagram/aws@0.4.3) (2023-01-27)
+
+
+### Bug Fixes
+
+* **@rediagram/aws:** fix path to aws transfer family icons ([#536](https://github.com/kamiazya/rediagram/issues/536)) ([b71d2bf](https://github.com/kamiazya/rediagram/commit/b71d2bf7bd34b943ef306dd89771934a278a9abd))
+
+
+
+
+
 ## [0.4.2](https://github.com/kamiazya/rediagram/compare/@rediagram/aws@0.4.1...@rediagram/aws@0.4.2) (2021-08-24)
 
 **Note:** Version bump only for package @rediagram/aws

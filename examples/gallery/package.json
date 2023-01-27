@@ -1,6 +1,6 @@
 {
   "name": "@rediagram/gallery",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "main": "index.js",
   "license": "MIT",
   "private": true,
@@ -8,15 +8,15 @@
     "start": "rediagramc"
   },
   "dependencies": {
-    "@rediagram/aws": "^0.4.2",
-    "@rediagram/cli": "^0.1.5",
-    "@rediagram/firebase": "^0.0.1",
-    "@rediagram/gcp": "^0.3.1",
+    "@rediagram/aws": "^0.4.3",
+    "@rediagram/cli": "^0.1.6",
+    "@rediagram/firebase": "^0.0.2",
+    "@rediagram/gcp": "^0.3.2",
     "@ts-graphviz/react": "^0.7.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "rediagram": "^0.2.5",
+    "rediagram": "^0.2.6",
     "ts-graphviz": "^0.13.1"
   },
   "devDependencies": {

@@ -1,6 +1,6 @@
 {
   "name": "rediagram",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "author": "kamiazya <yuki@kamiazya.tech>",
