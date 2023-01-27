@@ -74,6 +74,16 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "mattfirtion",
+      "name": "mattfirtion",
+      "avatar_url": "https://avatars.githubusercontent.com/u/250784?v=4",
+      "profile": "https://github.com/mattfirtion",
+      "contributions": [
+        "bug",
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
@@ -81,5 +91,6 @@
   "projectOwner": "kamiazya",
   "repoType": "github",
   "repoHost": "https://github.com",
-  "skipCi": true
+  "skipCi": true,
+  "commitConvention": "angular"
 }
