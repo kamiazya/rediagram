@@ -32,7 +32,7 @@
   "devDependencies": {
     "@testing-library/react": "^11.0.2",
     "@testing-library/react-hooks": "^7.0.1",
-    "@types/fs-extra": "^9.0.1",
+    "@types/fs-extra": "^11.0.1",
     "@types/jest": "^26.0.13",
     "@typescript-eslint/eslint-plugin": "^4.28.5",
     "@typescript-eslint/parser": "^4.28.5",
@@ -45,7 +45,7 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "fs-extra": "^9.0.0",
+    "fs-extra": "^11.1.1",
     "jest": "^27.0.6",
     "lerna": "^4.0.0",
     "prettier": "^2.3.2",
